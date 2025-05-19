@@ -1,0 +1,77 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_oms_readonly_farmer_training,ams_readonly access.farmer.training,model_farmer_training,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_farmer_training,ams_user access.farmer.training,model_farmer_training,ai_oms.group_oms_user,1,1,1,0
+
+access_oms_readonly_farmer_interaction,ams_readonly access.farmer.interaction,model_farmer_interaction,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_farmer_interaction,ams_user access.farmer.interaction,model_farmer_interaction,ai_oms.group_oms_user,1,1,1,0
+access_oms_admin_farmer_interaction,ams_admin access.farmer.interaction,model_farmer_interaction,ai_oms.group_oms_manager,1,1,1,1
+
+access_oms_readonly_farmer_group,ams_readonly access.farmer.group,model_farmer_group,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_farmer_group,ams_user access.farmer.group,model_farmer_group,ai_oms.group_oms_user,1,1,1,0
+
+access_oms_readonly_certified_farmer,ams_readonly access.farmer.certification,model_farmer_certification,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_certified_farmer,ams_user access.farmer.certification,model_farmer_certification,ai_oms.group_oms_user,1,1,1,0
+
+access_oms_readonly_certification_type,ams_readonly access.certification.type,model_certification_type,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_certification_type,ams_user access.certification.type,model_certification_type,ai_oms.group_oms_user,1,1,1,0
+
+access_oms_readonly_cooperative,ams_readonly access.cooperative,model_cooperative,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_admin_cooperative,ams_admin access.cooperative,model_cooperative,ai_oms.group_oms_admin,1,1,1,1
+
+access_oms_readonly_offtake_agreement,ams_readonly access.offtake.agreement,model_offtake_agreement,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_offtake_agreement,ams_user access.offtake.agreement,model_offtake_agreement,ai_oms.group_oms_user,1,1,1,1
+
+access_oms_readonly_og_training,ams_readonly access.og.training,model_og_training,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_admin_og_training,ams_admin access.og.training,model_og_training,ai_oms.group_oms_admin,1,1,1,1
+
+user_access_corrective_action,user.access.corrective.action,model_corrective_action,ai_oms.group_oms_readonly,1,0,0,0
+manager_access_corrective_action,manager.access.corrective.action,model_corrective_action,ai_oms.group_oms_manager,1,1,1,1
+
+access_multiple_confirm_draft_contracts_wizard,multiple.confirm.draft.contracts.wizard,model_multiple_confirm_draft_contracts_wizard,ai_oms.group_oms_user,1,1,1,1
+
+access_multiple_set_contracted_mapped_qty_wizard,multiple.set.contracted.mapped.qty.wizard,model_multiple_set_contracted_mapped_qty_wizard,ai_oms.group_oms_user,1,1,1,1
+
+access_oms_readonly_season,ams_readonly access.season,model_season,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_admin_season,ams_admin access.season,model_season,ai_oms.group_oms_admin,1,1,1,1
+
+access_oms_readonly_region,ams_readonly access.region,model_region,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_admin_region,ams_admin access.region,model_region,ai_oms.group_oms_admin,1,1,1,1
+
+access_oms_readonly_district,ams_readonly access.district,model_district,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_admin_district,ams_admin access.district,model_district,ai_oms.group_oms_admin,1,1,1,1
+
+access_oms_readonly_account_move_line,ams_user access.account.move.line,account.model_account_move_line,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_res_partner,ams_user access.res.partner,base.model_res_partner,ai_oms.group_oms_user,1,1,1,0
+access_oms_manager_stock_move,ams_user access.stock.move,stock.model_stock_move,ai_oms.group_oms_manager,1,0,0,0
+access_oms_manager_product_product,ams_user access.product.product,product.model_product_product,ai_oms.group_oms_manager,1,1,1,0
+access_oms_manager_product_template,ams_user access.product.template,product.model_product_template,ai_oms.group_oms_manager,1,1,1,0
+
+access_bulk_contract_approval_wizard,bulk.contract.approval.wizard,model_bulk_contract_approval_wizard,ai_oms.group_offtake_agreement,1,1,1,1
+access_bulk_contract_close_wizard,bulk.contract.close.wizard,model_bulk_contract_close_wizard,ai_oms.group_offtake_agreement,1,1,1,1
+access_bulk_contract_cancel_wizard,bulk.contract.cancel.wizard,model_bulk_contract_cancel_wizard,ai_oms.group_offtake_agreement,1,1,1,1
+access_bulk_contract_renew_wizard,bulk.contract.renew.wizard,model_bulk_contract_renew_wizard,ai_oms.group_offtake_agreement,1,1,1,1
+access_bulk_contract_offtake_wizard,bulk.contract.offtake.wizard,model_bulk_contract_offtake_wizard,ai_oms.group_offtake_agreement,1,1,1,1
+access_bulk_contract_harvest_ready_wizard,bulk.contract.harvest.ready.wizard,model_bulk_contract_harvest_ready_wizard,ai_oms.group_offtake_agreement,1,1,1,1
+
+access_oms_readonly_res_partner_area,ams_readonly access.res.partner.area,model_res_partner_area,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_res_partner_area,ams_user access.res.partner.area,model_res_partner_area,ai_oms.group_oms_user,1,1,1,0
+access_oms_admin_res_partner_area,ams_admin access.res.partner.area,model_res_partner_area,ai_oms.group_oms_manager,1,1,1,1
+
+access_oms_readonly_res_partner_subplot,ams_readonly access.res.partner.subplot,model_res_partner_subplot,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_res_partner_subplot,ams_user access.res.partner.subplot,model_res_partner_subplot,ai_oms.group_oms_user,1,1,1,1
+
+access_oms_readonly_tree_yield,ams_readonly access.tree.yield,model_tree_yield,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_user_tree_yield,ams_user access.tree.yield,model_tree_yield,ai_oms.group_oms_user,1,1,1,1
+
+user_access_country_location_level,user.access.country.location.level,model_country_location_level,ai_oms.group_oms_readonly,1,0,0,0
+manager_access_ccountry_location_level,manager.access.country.location.level,model_country_location_level,ai_oms.group_oms_manager,1,1,1,1
+
+access_oms_readonly_area_level_4,ams_readonly access.area.level.4,model_area_level_4,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_admin_area_level_4,ams_admin access.area.level.4,model_area_level_4,ai_oms.group_oms_admin,1,1,1,1
+
+access_oms_readonly_area_level_5,ams_readonly access.area.level.5,model_area_level_5,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_admin_area_level_5,ams_admin access.area.level.5,model_area_level_5,ai_oms.group_oms_admin,1,1,1,1
+
+access_oms_readonly_area_level_6,ams_readonly access.area.level.6,model_area_level_6,ai_oms.group_oms_readonly,1,0,0,0
+access_oms_admin_area_level_6,ams_admin access.area.level.6,model_area_level_6,ai_oms.group_oms_admin,1,1,1,1

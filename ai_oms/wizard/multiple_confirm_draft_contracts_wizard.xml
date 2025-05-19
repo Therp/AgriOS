@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record id="multiple_confirm_draft_contracts_wizard_form" model="ir.ui.view">
+		<field name="name">multiple.confirm.draft.contracts.wizard.form</field>
+		<field name="model">multiple.confirm.draft.contracts.wizard</field>
+		<field name="arch" type="xml">
+			<form>
+				<p>Are you sure you want to confirm all these contracts? Ensure that all the farms of these farmers have been mapped and that the contracted farm values are correct before proceeding, because this action can't be reversed. Be aware that you can first run the action 'Set to Mapped Quantities' to update the contracted acreage quantities for the selected records.</p>
+				
+				<group>
+					<field name="contract_ids" nolabel="1" colspan="2">
+						<list string="Draft Contracts">
+			                <field name="outgrower_id" context="{'form_view_ref': 'ai_oms.view_outgrower_form'}"/>
+			                <field name="season_id"/>
+			                <field name="contracted_crop_id"/>
+			                <field name="contracted_farm_acreage"/>
+			                <field name="farm_inputs_cost"/>
+			                <field name="contract_stage"/>
+			            </list>
+					</field>
+				</group>
+				
+				<footer>
+					<button string="Confirm Contracts" name="confirm_contracts" type="object" class="oe_highlight" data-hotkey="q"/>
+					<button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="z"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+	
+</odoo>

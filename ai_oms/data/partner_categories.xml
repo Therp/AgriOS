@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo noupdate="1">
+		
+	<record id="internal_trainer" model="res.partner.category">
+		<field name="name">Internal Trainer</field>
+	</record>
+	
+	<record id="external_trainer" model="res.partner.category">
+		<field name="name">External Trainer</field>
+	</record>
+	
+</odoo>

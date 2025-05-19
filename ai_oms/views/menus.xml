@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	
+	<!-- Identation bellow represents the menus hierarchy -->
+	
+    <menuitem name="OMS" id="oms_menu_root" web_icon="ai_oms,static/description/icon.png" groups="ai_oms.group_oms_readonly"/>
+      <menuitem name="Outgrowers" id="oms_outgrowers" parent="oms_menu_root" sequence="10"/>
+        <menuitem name="Outgrowers" id="oms_outgrower_outgrowers" parent="oms_outgrowers" action="action_verified_outgrowers" sequence="10"/>
+        <menuitem name="Leads" id="oms_outgrower_leads" parent="oms_outgrowers" action="action_outgrower_leads" sequence="20"/>
+        <menuitem name="Farmer Groups" id="oms_organisation_group" parent="oms_outgrowers" action="action_farmer_groups" sequence="30"/>
+        <menuitem name="Outgrower Plots" id="menu_partner_area" parent="oms_outgrowers" action="res_partner_area_action" sequence="40" groups="ai_oms.group_plot_management"/>
+        <menuitem name="Outgrower Subplots" id="menu_partner_subplots" parent="oms_outgrowers" action="res_partner_subplot_action" sequence="41" groups="ai_oms.group_plot_management"/>
+      <menuitem name="Contracts" id="oms_contracts" parent="oms_menu_root" sequence="20" groups="ai_oms.group_offtake_agreement"/>
+        <menuitem name="Contracts" id="offtake_agreements_menu" action="action_offtake_agreements" parent="oms_contracts" sequence="10"/>
+        <menuitem name="Bulk Operations" id="bulk_operations_menu" parent="oms_contracts" sequence="100"/>
+          <menuitem name="Approve Contracts" id="bulk_contract_approval_wizard_menu" action="bulk_contract_approval_wizard_action" parent="bulk_operations_menu" sequence="10" groups="ai_oms.group_oms_manager"/>
+          <menuitem name="Close Contracts" id="bulk_contract_close_wizard_menu" action="bulk_contract_close_wizard_action" parent="bulk_operations_menu" sequence="20" groups="ai_oms.group_oms_manager"/>
+          <menuitem name="Cancel Contracts" id="bulk_contract_cancel_wizard_menu" action="bulk_contract_cancel_wizard_action" parent="bulk_operations_menu" sequence="30" groups="ai_oms.group_oms_manager"/>
+          <menuitem name="Contracts Harvest Ready" id="bulk_contract_harvest_ready_wizard_menu" action="bulk_contract_harvest_ready_wizard_action" parent="bulk_operations_menu" sequence="40" groups="ai_oms.group_oms_manager"/>
+          <menuitem name="Contracts Off-Take" id="bulk_contract_offtake_wizard_menu" action="bulk_contract_offtake_wizard_action" parent="bulk_operations_menu" sequence="50" groups="ai_oms.group_oms_manager"/>
+          <menuitem name="Contracts Renewal" id="bulk_contract_renew_wizard_menu" action="bulk_contract_renew_wizard_action" parent="bulk_operations_menu" sequence="60" groups="ai_oms.group_oms_manager"/>
+      <menuitem name="Products" id="menu_product"  parent="oms_menu_root" sequence="30" groups="ai_oms.group_oms_manager"/>
+        <menuitem name="Products" id="sub_menu_product" parent="menu_product" action="oms_product_template_action" sequence="10"/>
+        <menuitem name="Product Variants" id="sub_menu_product_variants" parent="menu_product" action="oms_product_product_action" sequence="20" groups="product.group_product_variant"/>
+      <menuitem name="Orders" id="menu_oms_orders" parent="oms_menu_root" sequence="40"/>
+        <menuitem name="Input Orders" id="oms_input_orders_menu" parent="menu_oms_orders" action="oms_input_orders_action" sequence="10"/>
+        <menuitem name="Off-Take Orders" id="oms_offtake_orders_menu" parent="menu_oms_orders" action="oms_offtake_orders_action" sequence="20"/>
+      <menuitem name="Training" id="oms_training" parent="oms_menu_root" sequence="60" action="action_farmer_trainings" groups="ai_oms.group_farmers_training"/>
+      <menuitem name="Interactions" id="oms_farmer_interaction" parent="oms_menu_root" sequence="70" action="action_outgrower_interaction" groups="ai_oms.group_farmers_interactions"/>
+      <menuitem name="Certifications" id="oms_certification" action="action_farmer_certificates" parent="oms_menu_root" sequence="90" groups="ai_oms.group_farmers_certifications"/>
+      <menuitem name="Reports" id="oms_reports" parent="oms_menu_root" sequence="120"/>
+        <menuitem name="Input Order Analysis" id="sale_order_line_input_report_menu" parent="oms_reports" action="sale_order_line_input_report_action" sequence="10"/>
+        <menuitem name="Off-Take Analysis" id="purchase_order_line_offtake_report_menu" parent="oms_reports" action="purchase_order_line_offtake_report_action" sequence="20"/>
+      <menuitem name="Configuration" id="oms_configuration" parent="oms_menu_root" sequence="300" groups="ai_oms.group_oms_admin"/>
+        <menuitem name="Settings" id="oms_configuration_settings" parent="oms_configuration" action="action_oms_configuration_settings" sequence="0"/>
+        <menuitem name="Seasons" id="oms_configuration_season" parent="oms_configuration" action="action_seasons" sequence="10" groups="ai_oms.group_offtake_agreement"/>
+        <menuitem name="Activity Types" id="oms_configuration_activity" parent="oms_configuration" action="mail.mail_activity_type_action" sequence="20"/>
+        <menuitem name="Training" id="oms_training_config" parent="oms_configuration" sequence="40" groups="ai_oms.group_farmers_training"/>
+          <menuitem name="Training Topics" id="sub_menu_oms_training_topic" parent="oms_training_config" action="action_farmer_training_topics" sequence="20"/>
+          <menuitem name="Trainers" id="sub_menu_oms_trainers" parent="oms_training_config" action="action_trainers" sequence="30"/>
+        <menuitem name="Cerifications" id="oms_certification_config" parent="oms_configuration" sequence="50" groups="ai_oms.group_farmers_certifications"/>
+          <menuitem name="Certification Types" id="oms_certification_type" parent="oms_certification_config" action="action_certification_types" sequence="10" groups="ai_oms.group_oms_manager"/>
+          <menuitem name="Corrective Actions" id="corrective_action_menu" parent="oms_certification_config" action="corrective_action_action" sequence="20"/>
+        <menuitem id="oms_organisation" name="Administration" parent="oms_configuration" sequence="60"/>
+          <menuitem name="Area Level 6" id="area_level_6_menu" parent="oms_organisation" action="area_level_6_action" sequence="4" groups="base.group_no_one"/>
+          <menuitem name="Area Level 5" id="area_level_5_menu" parent="oms_organisation" action="area_level_5_action" sequence="5" groups="base.group_no_one"/>
+          <menuitem name="Area Level 4" id="area_level_4_menu" parent="oms_organisation" action="area_level_4_action" sequence="6" groups="base.group_no_one"/>
+          <menuitem name="Regions" id="oms_organisation_region" parent="oms_organisation" action="action_regions" sequence="10"/>
+          <menuitem name="Districts" id="oms_organisation_district" parent="oms_organisation" action="action_districts" sequence="20"/>
+          <menuitem name="Cooperatives/Communities" id="oms_organisation_coop" parent="oms_organisation" action="action_cooperatives" sequence="30"/>
+          <menuitem name="Areas Designation" id="country_location_level_menu" parent="oms_organisation" action="country_location_level_action" sequence="100" groups="ai_oms.group_oms_manager"/>
+		  
+</odoo>

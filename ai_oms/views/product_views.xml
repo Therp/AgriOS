@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record id="oms_product_template_search" model="ir.ui.view">
+		<field name="name">product.template.oms.search</field>
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="stock.product_template_search_form_view_stock"/>
+		<field name="mode">primary</field>
+		<field name="priority" eval ="20"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='categ_id']" position="after">
+				<separator/>
+				<filter string="Seed Varieties" name="filter_seed_product" domain="[('seed_product','=',True)]" groups="ai_oms.group_seed_varieties"/>
+				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
+				<filter string="Harvest Products" name="filter_harvest_product" domain="[('harvest_product','=',True)]"/>
+				<filter string="Mechanization Service Products" name="filter_mechanisation_service" domain="[('mechanisation_service','=',True)]"/>
+			</xpath>
+		</field>
+	</record>
+	
+	<record id="product_template_kanban_view" model="ir.ui.view">
+        <field name="name">Product.template.product.kanban</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view"/>
+        <field name="arch" type="xml">
+        	<xpath expr="/kanban" position="attributes">
+        		<attribute name="default_order">is_favorite desc, seed_product desc, harvest_product desc, input_product desc, mechanisation_service desc, name</attribute>
+        	</xpath>
+        	<xpath expr="//field[@name='categ_id']" position="after">
+        		<field name="input_product"/>
+        		<field name="harvest_product"/>
+        		<field name="mechanisation_service"/>
+        		<field name="seed_product"/>
+        	</xpath>
+        	<xpath expr="//field[@name='list_price']/.." position="before">
+        		<div t-if="record.seed_product.raw_value === true" class="mt-1" style="background-color: #00a3ff54;">Seed Variety</div>
+        		<div t-if="record.input_product.raw_value === true" class="mt-1" style="background-color: #edff7f54;">Input Product</div>
+        		<div t-if="record.harvest_product.raw_value === true" class="mt-1" style="background-color: #82ff7f54;">Harvest Product</div>
+        		<div t-if="record.mechanisation_service.raw_value === true" class="mt-1" style="background-color: #7fb6ff47;">Mechanization Service Product</div>
+        	</xpath>
+        </field>
+    </record>
+	
+	<record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">view.crop.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+        	<xpath expr="/form" position="inside">
+        		<field name="seed_product" invisible="1"/>
+        	</xpath>
+        	
+            <xpath expr="//page[@name='purchase']" position='after'>
+                <page name="oms_page" string="OMS Details" groups="ai_oms.group_oms_readonly">
+                    <group>
+                        <group string="Input Info" invisible="type != 'consu' or harvest_product or seed_product">
+                            <field name="input_product"/>
+                            
+                            <label for="qty_per_acreage" invisible="not input_product"/>
+                            <div class="o_row mw-50" invisible="not input_product">
+                                <field name="qty_per_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                                <div>
+                                    <field name="farm_measure"/>
+                                </div>
+                            </div>
+                        </group>
+                        <group string="Crop Info" invisible="type != 'consu' or input_product">
+                            <field name="harvest_product"/>
+                            <field name="harvest_product_type" invisible="not harvest_product"/>
+                            <field name="maturity_days" invisible="not harvest_product"/>
+                            <label groups="ai_oms.group_plot_management" for="est_yield" invisible="not harvest_product or harvest_product_type == 'tree_crop'"/>
+                            <div groups="ai_oms.group_plot_management" invisible="not harvest_product or harvest_product_type == 'tree_crop'">
+                                <field name="est_yield" class="oe_inline" nolabel="1"/>
+                                <field name="farm_measure" class="oe_inline"/>
+                            </div>
+							<label for="est_yield" groups="!ai_oms.group_plot_management"/>
+							<div groups="!ai_oms.group_plot_management">
+                                <field name="est_yield" groups="!ai_oms.group_plot_management" class="oe_inline" nolabel="1"/>
+                                <field name="farm_measure" groups="!ai_oms.group_plot_management" class="oe_inline"/>
+                            </div>
+							<separator string="Anual Tree Yield" invisible="not harvest_product or harvest_product_type != 'tree_crop'" groups="ai_oms.group_plot_management"/>
+                            <field name="tree_yield_ids" nolabel="1" colspan="2" invisible="not harvest_product or harvest_product_type != 'tree_crop'" groups="ai_oms.group_plot_management">
+								<list editable="bottom">
+                                    <control>
+                                        <create name="add_line_control" string="New Yield"/>
+                                    </control>
+									<field name="age"/>
+									<field name="annual_yield"/>
+								</list>
+							</field>
+
+                            <field name="related_inputs_ids" widget="many2many_tags" invisible="not harvest_product"/>
+                            <field name="seed_ids" widget="many2many_tags" invisible="not harvest_product" help="To set seed varieties, select this harvest product as the harverst crop of the seed..." groups="ai_oms.group_seed_varieties"/>
+                        </group>
+                        <group string="Seed Info" invisible="type != 'consu' or input_product" groups="ai_oms.group_seed_varieties">
+                        	<field name="seed_product"/>
+                        	<field name="harvest_crop_id" required="seed_product" invisible="not seed_product" context="{'default_harvest_product': True}"/>
+                        	
+                        	<label for="qty_per_acreage" invisible="not seed_product"/>
+                            <div class="o_row mw-50" invisible="not seed_product">
+                                <field name="qty_per_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                                <div>
+                                    <field name="farm_measure"/>
+                                </div>
+                            </div>
+                        	
+                        	<field name="related_inputs_ids" widget="many2many_tags" invisible="not seed_product"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Services" invisible="type != 'service'">
+                            <field name="mechanisation_service"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+	
+	<record id="oms_product_template_action" model="ir.actions.act_window">
+		<field name="name">Products</field>
+		<field name="res_model">product.template</field>
+		<field name="view_mode">kanban,list,form</field>
+		<field name="search_view_id" ref="oms_product_template_search"/>
+		<field name="context">{"search_default_filter_seed_product": 1, "search_default_filter_input_product": 1, "search_default_filter_harvest_product": 1, 'default_type': 'consu'}</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				No product found. Let's create one!
+			</p>
+		</field>
+	</record>
+	
+	<record id="oms_product_product_search" model="ir.ui.view">
+		<field name="name">product.product.oms.search</field>
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="stock.stock_product_search_form_view"/>
+		<field name="mode">primary</field>
+		<field name="priority" eval ="20"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='categ_id']" position="after">
+				<separator/>
+				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
+				<filter string="Harvest Products" name="filter_harvest_product" domain="[('harvest_product','=',True)]"/>
+			</xpath>
+		</field>
+	</record>
+	
+	<record id="oms_product_product_action" model="ir.actions.act_window">
+		<field name="name">Product Variants</field>
+		<field name="res_model">product.product</field>
+		<field name="view_mode">list,form,kanban</field>
+		<field name="search_view_id" ref="oms_product_product_search"/>
+		<field name="context">{"search_default_filter_input_product": 1, "search_default_filter_harvest_product": 1}</field>
+	</record>
+	
+</odoo>

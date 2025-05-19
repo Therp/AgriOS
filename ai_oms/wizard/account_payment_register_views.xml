@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record id="view_account_payment_register_form" model="ir.ui.view">
+		<field name="name">account.payment.register.form</field>
+		<field name="model">account.payment.register</field>
+		<field name="inherit_id" ref="account.view_account_payment_register_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="/form" position="inside">
+				<field name="payment_in_kind_optional" invisible="True"/>
+			</xpath>
+			<xpath expr="//group[@name='group1']" position="inside">
+				<field name="apply_payment_in_kind" invisible="not payment_in_kind_amount" readonly="not payment_in_kind_optional" force_save="1"/>
+				<field name="payment_in_kind_full_amount" invisible="not payment_in_kind_amount or payment_in_kind_full_amount == payment_in_kind_amount"/>
+				<field name="payment_in_kind_amount" invisible="not payment_in_kind_amount"/>
+			</xpath>
+		</field>
+	</record>
+	
+</odoo>
