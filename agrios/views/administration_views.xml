@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	
+	<!-- Areas Designation -->
+	
+	<record id="country_location_level_tree" model="ir.ui.view">
+        <field name="name">country.location.level.tree</field>
+        <field name="model">country.location.level</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="country_id" options="{'no_create': True}"/>
+                <field name="name"/>
+                <field name="level"/>
+            </list>
+        </field>
+    </record>
+	
+	<record id="country_location_level_action" model="ir.actions.act_window">
+        <field name="name">Areas Designation</field>
+        <field name="res_model">country.location.level</field>
+        <field name="view_mode">list</field>
+    </record>
+	
+	
+	<!-- Area Level 4, 5, 6 -->
+	
+    <record id="area_level_6_tree" model="ir.ui.view">
+        <field name="name">area.level.6.tree</field>
+        <field name="model">area.level.6</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="manager_id" options="{'no_create': True}" optional="show"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
+            </list>
+        </field>
+    </record>
+    	
+	<record id="area_level_6_action" model="ir.actions.act_window">
+        <field name="name">Area Level 6</field>
+        <field name="res_model">area.level.6</field>
+        <field name="view_mode">list</field>
+    </record>
+	
+	
+	<record id="area_level_5_tree" model="ir.ui.view">
+        <field name="name">area.level.5.tree</field>
+        <field name="model">area.level.5</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="is_parent_required" column_invisible="True"/>
+                <field name="parent_id" string="Parent Area" required="is_parent_required" options="{'no_create': True}" optional="show"/>
+                <field name="manager_id" options="{'no_create': True}" optional="show"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
+            </list>
+        </field>
+    </record>
+    	
+	<record id="area_level_5_action" model="ir.actions.act_window">
+        <field name="name">Area Level 5</field>
+        <field name="res_model">area.level.5</field>
+        <field name="view_mode">list</field>
+    </record>
+	
+	
+	<record id="area_level_4_tree" model="ir.ui.view">
+        <field name="name">area.level.4.tree</field>
+        <field name="model">area.level.4</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="is_parent_required" column_invisible="True"/>
+                <field name="parent_id" string="Parent Area" required="is_parent_required" options="{'no_create': True}" optional="show"/>
+                <field name="manager_id" options="{'no_create': True}" optional="show"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
+            </list>
+        </field>
+    </record>
+    	
+	<record id="area_level_4_action" model="ir.actions.act_window">
+        <field name="name">Area Level 4</field>
+        <field name="res_model">area.level.4</field>
+        <field name="view_mode">list</field>
+    </record>
+	
+	<!-- Regions -->
+	
+    <record id="view_region_tree" model="ir.ui.view">
+        <field name="name">view.region.tree</field>
+        <field name="model">region</field>
+        <field name="arch" type="xml">
+            <list sample="1" editable="top">
+                <field name="name"/>
+                <field name="is_parent_required" column_invisible="True"/>
+                <field name="parent_id" string="Parent Area" options="{'no_create': true}" required="is_parent_required" optional="show"/>
+                <field name="region_manager_id" options="{'no_create': True}" optional="show"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
+            </list>
+        </field>
+    </record>
+    
+    <record id="view_region_form" model="ir.ui.view">
+        <field name="name">view.region.form</field>
+        <field name="model">region</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                	<group>
+                		<field name="name"/>
+                		<field name="country_id" options="{'no_create': True}"/>
+                	</group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	
+	<record id="action_regions" model="ir.actions.act_window">
+        <field name="name">Area Level 3</field>
+        <field name="res_model">region</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Region
+            </p>
+            <p>
+                Odoo helps you easily track all activities related to a Region
+            </p>
+        </field>
+    </record>
+	
+    
+    <!-- Districts -->
+    
+    <record id="view_district_tree" model="ir.ui.view">
+        <field name="name">view.district.tree</field>
+        <field name="model">district</field>
+        <field name="arch" type="xml">
+            <list sample="1" editable="top">
+                <field name="name"/>
+                <field name="region_id"/>
+                <field name="district_manager_id" options="{'no_create': True}" optional="show"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
+            </list>
+        </field>
+    </record>
+	
+    <record id="action_districts" model="ir.actions.act_window">
+        <field name="name">Area Level 2</field>
+        <field name="res_model">district</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first District
+            </p>
+            <p>
+                Odoo helps you easily track all activities related to a District
+            </p>
+        </field>
+    </record>
+	
+	
+	<!-- Cooperatives -->
+	
+    <record id="view_coop_tree" model="ir.ui.view">
+        <field name="name">view.coop.tree</field>
+        <field name="model">cooperative</field>
+        <field name="arch" type="xml">
+            <list sample="1" editable="bottom">
+                <field name="name"/>
+                <field name="district_id" optional="show"/>
+                <field name="community_facilitator_id" options="{'no_create': True}" optional="show"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
+            </list>
+        </field>
+    </record>
+	
+	<record id="action_cooperatives" model="ir.actions.act_window">
+        <field name="name">Area Level 1</field>
+        <field name="res_model">cooperative</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Cooperative/Community
+            </p>
+            <p>
+                Odoo helps you easily track all activities related to a Cooperative/Community
+            </p>
+        </field>
+    </record>
+	
+	
+	<!-- Farmer Groups -->
+	
+    <record id="view_farmer_group_tree" model="ir.ui.view">
+        <field name="name">view.farmer.group.tree</field>
+        <field name="model">farmer.group</field>
+        <field name="arch" type="xml">
+            <list sample="1">
+                <field name="name"/>
+                <field name="chairperson_id" optional="show"/>
+                <field name="coop_id" optional="show"/>
+                <field name="district_id" optional="show"/>
+                <field name="region_id" optional="show"/>
+                <field name="loc_area_4_id" optional="show"/>
+				<field name="loc_area_5_id" optional="show"/>
+				<field name="loc_area_6_id" optional="show"/>
+                <field name="community_facilitator_id" optional="show"/>
+            </list>
+        </field>
+    </record>
+	
+    <record id="view_farmer_group_form" model="ir.ui.view">
+        <field name="name">view.farmer.group.form</field>
+        <field name="model">farmer.group</field>
+        <field name="arch" type="xml">
+            <form>
+            	<field name="active" invisible="1"/>
+            	<field name="currency_id" invisible="1"/>
+            	<field name="loc_area_max_level" invisible="1"/>
+            	
+                <sheet>
+                	<div class="oe_button_box" name="button_box"></div>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active == True"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Group Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="chairperson_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
+                            <field name="group_sec_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
+                            <field name="group_treasurer_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
+                            <field name="community_facilitator_id"/>
+                            <field name="total_due"/>
+                        </group>
+                        <group>
+                            <td class="o_td_label" style="font-weight: 500;">
+								<field name="loc_area_1_label"/>
+							</td>
+							<field name="coop_id" nolabel="1" domain="[('country_id','=',country_id),('district_id','=?',district_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
+								<field name="loc_area_2_label"/>
+							</td>
+							<field name="district_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('region_id','=?',region_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
+								<field name="loc_area_3_label"/>
+							</td>
+							<field name="region_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
+								<field name="loc_area_4_label"/>
+							</td>
+							<field name="loc_area_4_id" nolabel="1" invisible="loc_area_max_level &lt; 4" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_5_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 5">
+								<field name="loc_area_5_label"/>
+							</td>
+							<field name="loc_area_5_id" nolabel="1" invisible="loc_area_max_level &lt; 5" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_6_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 6">
+								<field name="loc_area_6_label"/>
+							</td>
+							<field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6" domain="[('country_id','=',country_id)]"/>
+                            
+                            <field name="country_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Outgrowers">
+                            <field name="member_ids" readonly="True" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+	
+    <record id="action_farmer_groups" model="ir.actions.act_window">
+        <field name="name">Farmers' Groups</field>
+        <field name="res_model">farmer.group</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Farmers' Group
+            </p>
+            <p>
+                Odoo helps you easily track all activities related to a Farmers' Group
+            </p>
+        </field>
+    </record>
+	
+</odoo>
