@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Move the group Inventory/User: Technical Coordinator to the new AgriOS Inventory category -->
+    <function model="res.groups" name="write">
+        <value model="res.groups" eval="ref('agrios.group_stock_salesman_tc')"/>
+        <value eval="{'category_id': ref('agrios.module_category_ai_agrios_inventory')}"/>
+    </function>
+
+</odoo>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record id="res_partner_area_search" model="ir.ui.view">
+        <field name="name">res.partner.area.search</field>
+        <field name="model">res.partner.area</field>
+        <field name="arch" type="xml">
+            <search string="Plots">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <separator/>
+                <filter string="Clustered" name="filter_coop_id_set" domain="[('coop_id','!=',False)]"/>
+                <filter string="Not Clustered" name="filter_coop_id_not_set" domain="[('coop_id','=',False)]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter string="Outgrower" name="groupby_partner_id" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+	
+	<record id="res_partner_area_tree" model="ir.ui.view">
+        <field name="name">res.partner.area.tree</field>
+        <field name="model">res.partner.area</field>
+        <field name="arch" type="xml">
+            <list string="Plots">
+                <field name="partner_id"/>
+                <field name="is_owner" optional="hide"/>
+                <field name="name" optional="show"/>
+                <field name="coop_id" optional="show"/>
+                <field name="district_id" optional="show"/>
+                <field name="region_id" optional="show"/>
+                <field name="loc_area_4_id" optional="show"/>
+				<field name="loc_area_5_id" optional="show"/>
+				<field name="loc_area_6_id" optional="show"/>
+                <field name="farm_size" sum="Total" optional="show"/>
+                <field name="gshape_description" optional="hide"/>
+            </list>
+        </field>
+    </record>
+	
+    <record id="res_partner_area_form" model="ir.ui.view">
+        <field name="name">res.partner.area.form</field>
+        <field name="model">res.partner.area</field>
+        <field name="arch" type="xml">
+            <form string="Plot">
+            	<field name="loc_area_max_level" invisible="1"/>
+            	<field name="country_code" invisible="1"/>
+            	
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1" placeholder="Name"/>
+                            <field name="partner_id" context="{'default_is_outgrower': True, 'form_view_ref': 'agrios.view_outgrower_form'}" invisible="context.get('plot_partner_invisible')" readonly="context.get('plot_partner_readonly')" force_save="1"/>
+                            <field name="is_owner"/>
+                            <label for="farm_size"/>
+                            <div class="o_row">
+                                <field name="farm_size" class="oe_inline" nolabel="1"/>
+                                <field name="farm_uom_id" force_save="1" options="{'no_open': True}"/>
+                            </div>
+                            <field name="farm_condition"/>
+                            <field name="intercropping"/>
+                        </group>
+                        <group>
+                            <field name="year_of_farm_establishment"/>
+                            
+                            <td class="o_td_label" style="font-weight: 500;">
+								<field name="loc_area_1_label"/>
+							</td>
+							<field name="coop_id" nolabel="1" domain="[('country_id','=',country_id),('district_id','=?',district_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
+								<field name="loc_area_2_label"/>
+							</td>
+							<field name="district_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('region_id','=?',region_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
+								<field name="loc_area_3_label"/>
+							</td>
+							<field name="region_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
+								<field name="loc_area_4_label"/>
+							</td>
+							<field name="loc_area_4_id" nolabel="1" invisible="loc_area_max_level &lt; 4" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_5_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 5">
+								<field name="loc_area_5_label"/>
+							</td>
+							<field name="loc_area_5_id" nolabel="1" invisible="loc_area_max_level &lt; 5" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_6_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 6">
+								<field name="loc_area_6_label"/>
+							</td>
+							<field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6" domain="[('country_id','=',country_id)]"/>
+                            
+                            <field name="country_id"/>
+                            
+                            <field name="main_road"/>
+                            <field name="main_road_distance"/>
+                            <field name="gps_location" widget="url"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                    	<page name="plot_map_page" string="Plot Map" groups="agrios.group_plot_maps">
+                    		<group>
+		                    	<field name="plot_polygon" widget="map" nolabel="1" colspan="2" options="{'polyline_inactive': True, 'rectangle_inactive': True, 'circle_inactive': True, 'marker_inactive': True, 'area_field': 'farm_size', 'area_measurement': 'acres'}"/>
+		                    </group>
+                    	</page>
+                    	<page name="subplots_page" string="Sub Plots">
+                    		<field name="subplot_ids">
+	                            <list>
+	                                <field name="product_id" options="{'no_create': True}"/>
+	                                <field name="acreage"/>
+	                                <field name="annual_estimated_yield"/>
+	                            </list>
+	                            <form>
+	                                <sheet>
+	                                    <group>
+	                                        <group>
+	                                            <field name="product_id"/>
+	                                            <field name="product_type"/>
+	                                            <field name="acreage"/>
+	                                        </group>
+	                                        <group>
+	                                            <field name="year_of_plantation"/>
+	                                            <field name="age"/>
+	                                            <field name="number_of_trees" invisible="product_type != 'tree_crop'"/>
+	                                            <field name="annual_estimated_yield"/>
+	                                        </group>
+	                                    </group>
+	                                </sheet>
+	                            </form>
+	                        </field>
+                    	</page>
+                    	<page name="desc_page" string="Plot Description">
+                    		<field name="gshape_description" placeholder="Internal description of the plot..."/>
+                    	</page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+	
+    <record id="res_partner_area_action" model="ir.actions.act_window">
+        <field name="name">Outgrower Plots</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.area</field>
+        <field name="view_mode">list,form</field>
+    </record>
+	
+</odoo>

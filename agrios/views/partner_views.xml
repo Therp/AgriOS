@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	
+	<record id="view_partner_form" model="ir.ui.view">
+		<field name="name">res.partner.form</field>
+		<field name="model">res.partner</field>
+		<field name="inherit_id" ref="base.view_partner_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//page[@name='internal_notes']" position="after">
+				<page name="agrios_page" string="AgriOS" groups="agrios.group_agrios_readonly">
+					<group>
+						<field name="is_outgrower"/>
+						<field name="outgrower_requires_contract" invisible="not is_outgrower" groups="agrios.group_offtake_agreement"/>
+                    	<field name="is_farmer_trainer" groups="agrios.group_farmers_training"/>
+					</group>
+                </page>
+			</xpath>
+		</field>
+	</record>
+	
+	<record id="view_outgrower_search_filter" model="ir.ui.view">
+		<field name="name">view.outgrower.search.filter</field>
+		<field name="model">res.partner</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="name" string="Name/Phone/Reference/ID" filter_domain="['|','|','|',('complete_name','ilike',self),('phone','ilike',self),('outgrower_ref','ilike',self),('outgrower_identification','ilike',self)]"/>
+				<separator/>
+				<filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
+				<filter string="Female" name="female" domain="[('gender', '=', 'female')]"/>
+				<separator/>
+				<filter string="No National ID" name="filter_no_identification" domain="[('outgrower_identification', '=', False)]"/>
+				<filter string="No Phone" name="filter_no_phone" domain="[('phone', '=', False)]"/>
+				<filter string="Duplicate National ID" name="filter_duplicate_identification" domain="[]" context="{'filter_duplicate_identification': True}"/>
+				<filter string="Duplicate Phone" name="filter_duplicate_phone" domain="[]" context="{'filter_duplicate_phone': True}"/>
+				<separator groups="agrios.group_farmers_certifications"/>
+				<filter string="Certified" name="filter_certified" domain="[('certified','=',True)]" groups="agrios.group_farmers_certifications"/>
+				<filter string="Uncertified" name="filter_not_certified" domain="[('certified','=',False)]" groups="agrios.group_farmers_certifications"/>
+				<separator/>
+				<filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+				<group expand="1" string="Group By">
+					<filter name="groupby_loc_area_6_id" context="{'group_by': 'loc_area_6_id'}"/>
+					<filter name="groupby_loc_area_5_id" context="{'group_by': 'loc_area_5_id'}"/>
+					<filter name="groupby_loc_area_4_id" context="{'group_by': 'loc_area_4_id'}"/>
+					<filter name="groupby_region_id" context="{'group_by': 'region_id'}"/>
+					<filter name="groupby_district_id" context="{'group_by': 'district_id'}"/>
+					<filter name="groupby_coop_id" context="{'group_by': 'coop_id'}"/>
+					<filter name="groupby_farmer_group_id" context="{'group_by': 'farmer_group_id'}"/>
+					<filter name="groupby_gender" context="{'group_by': 'gender'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+	
+	<record id="view_outgrower_tree" model="ir.ui.view">
+		<field name="name">view.outgrower.tree</field>
+		<field name="model">res.partner</field>
+		<field name="priority" eval="10"/>
+		<field name="arch" type="xml">
+			<list sample="1">
+				<field name="outgrower_ref" optional="show"/>
+				<field name="name"/>
+				<field name="phone" optional="show"/>
+				<field name="outgrower_identification" optional="show"/>
+				<field name="gender" optional="show"/>
+				<field name="farmer_group_id" optional="show"/>
+				<field name="coop_id" optional="show"/>
+				<field name="district_id" optional="show"/>
+				<field name="region_id" optional="show"/>
+				<field name="loc_area_4_id" optional="show"/>
+				<field name="loc_area_5_id" optional="show"/>
+				<field name="loc_area_6_id" optional="show"/>
+				<field name="count_certifications" optional="show" groups="agrios.group_farmers_certifications"/>
+				<field name="outgrower_requires_contract" groups="agrios.group_offtake_agreement" optional="hide"/>
+				<field name="user_id" optional="show"/>
+			</list>
+		</field>
+	</record>
+	
+	<record id="view_outgrower_leads_tree" model="ir.ui.view">
+		<field name="name">view.outgrower.leads.tree</field>
+		<field name="model">res.partner</field>
+		<field name="priority" eval="20"/>
+		<field name="arch" type="xml">
+			<list sample="1">
+				<field name="name"/>
+				<field name="phone" optional="show"/>
+				<field name="outgrower_identification" optional="show"/>
+				<field name="gender" optional="show"/>
+				<field name="farmer_group_id" optional="show"/>
+				<field name="coop_id" optional="show"/>
+				<field name="district_id" optional="show"/>
+				<field name="count_certifications" optional="hide" groups="agrios.group_farmers_certifications"/>
+				<field name="user_id" optional="show"/>
+			</list>
+		</field>
+	</record>
+	
+	<record id="view_outgrower_form" model="ir.ui.view">
+		<field name="name">view.outgrower.form</field>
+		<field name="model">res.partner</field>
+		<field name="arch" type="xml">
+			<form>
+				<field name="count_certifications" invisible="1"/>
+				<field name="certified" invisible="1"/>
+				<field name="active" invisible="1"/>
+				<field name="currency_id" invisible="1"/>
+				<field name="outgrower_requires_contract" invisible="1"/>
+				<field name="can_order_inputs" invisible="1"/>
+				<field name="can_order_inputs_confirm" invisible="1"/>
+				<field name="can_regist_offtakes" invisible="1"/>
+				<field name="can_regist_offtakes_confirm" invisible="1"/>
+				<field name="has_expired_contract" invisible="1" groups="agrios.group_offtake_agreement"/>
+				<field name="plot_ids" invisible="1"/>
+				<field name="loc_area_max_level" invisible="1"/>
+				
+				<header>
+					<button string="Verify" name="verify_outgrower" type="object" class="oe_highlight" confirm="Are you sure you want to Verify this Outgrower?" invisible="outgrower_stage != 'draft' or active == False" groups="agrios.group_agrios_manager"/>
+					
+					<button string="Order Inputs" name="action_create_agrios_so" type="object" class="oe_highlight" invisible="not can_order_inputs" groups="sales_team.group_sale_salesman"/>
+					<button string="Order Inputs" name="action_create_agrios_so" type="object" invisible="not can_order_inputs_confirm" groups="sales_team.group_sale_salesman" confirm="All active farmer contracts are not at the input stage, confirm that you still would like to order inputs?"/>
+					
+					<button string="Off-Take" name="action_create_agrios_po" type="object" class="oe_highlight" invisible="not can_regist_offtakes" groups="purchase.group_purchase_user"/>
+					<button string="Off-Take" name="action_create_agrios_po" type="object" invisible="not can_regist_offtakes_confirm" groups="purchase.group_purchase_user" confirm="All active farmer contracts are not at the harvest stage, confirm that you still would like to register an off-take?"/>
+					
+					<button string="Create Farm" name="action_create_farm" type="object" class="oe_highlight" groups="agrios.group_plot_management"/>
+					
+					<field name="outgrower_stage" clickable="False" widget="statusbar"/>
+				</header>
+				<sheet>
+					<widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active == True"/> 
+					<widget name="web_ribbon" title="Expired Contract" bg_color="text-bg-warning" invisible="not has_expired_contract" groups="agrios.group_offtake_agreement"/>
+					
+					<div class="oe_button_box" name="button_box">
+						<span class="fa-stack fa-3x oe_avatar" invisible="not count_certifications">
+						</span>
+						<button name="action_view_interactions" type="object" icon="fa-list-alt" string="Interactions" class="oe_stat_button">
+							<field name="interactions_count" widget="statinfo" />
+						</button>
+						<button class="oe_stat_button" name="action_view_offtake_agreements" type="object" icon="fa-file-text" invisible="outgrower_stage != 'verified'" groups="agrios.group_offtake_agreement">
+							<field name="count_offtake_agreements" string="Contracts" widget="statinfo"/>
+						</button>
+						<button class="oe_stat_button" name="action_view_agrios_sale_orders" type="object" icon="fa-shopping-cart" invisible="outgrower_stage != 'verified'" groups="sales_team.group_sale_salesman">
+							<field name="count_input_sales" string="Input Orders" widget="statinfo"/>
+						</button>
+						<button class="oe_stat_button" name="action_view_agrios_purchase_orders" type="object" icon="fa-credit-card" invisible="outgrower_stage != 'verified'" groups="purchase.group_purchase_user">
+							<field string="Off-takes" name="count_harvest_offtakes" widget="statinfo"/>
+						</button>
+						<button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="action_view_partner_invoices" context="{'default_partner_id': id}" invisible="outgrower_stage == 'draft'" groups="account.group_account_invoice,account.group_account_readonly">
+							<div class="o_form_field o_stat_info">
+								<span class="o_stat_value">
+									<field name="total_invoiced" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+								</span>
+								<span class="o_stat_text">Invoiced</span>
+							</div>
+						</button>
+					</div>
+					
+					<field name="image_1920" widget="image" class="oe_avatar" options="{'zoom': True, 'preview_image': 'avatar_128'}"/>
+					
+					<div class="oe_title">
+						<h1>
+							<span invisible="outgrower_ref == '/'">[<field name="outgrower_ref" class="oe_inline" help="Outgrower reference"/>]</span> <field name="name" placeholder="Outgrower Name" required="1" class="oe_inline"/>
+						</h1>
+					</div>
+					<group>
+						<group>
+							<field name="phone" widget="phone"/>
+							<field name="outgrower_identification"/>
+							<field name="society_id"/>
+							<field name="gender"/>
+							<field name="birthday"/>
+							<field name="age" invisible="not birthday"/>
+						</group>
+						<group>
+							<field name="farmer_group_id"/>
+							
+							<td class="o_td_label" style="font-weight: 500;">
+								<field name="loc_area_1_label"/>
+							</td>
+							<field name="coop_id" nolabel="1" domain="[('country_id','=',country_id),('district_id','=?',district_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
+								<field name="loc_area_2_label"/>
+							</td>
+							<field name="district_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('region_id','=?',region_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
+								<field name="loc_area_3_label"/>
+							</td>
+							<field name="region_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
+								<field name="loc_area_4_label"/>
+							</td>
+							<field name="loc_area_4_id" nolabel="1" invisible="loc_area_max_level &lt; 4" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_5_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 5">
+								<field name="loc_area_5_label"/>
+							</td>
+							<field name="loc_area_5_id" nolabel="1" invisible="loc_area_max_level &lt; 5" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_6_id)]"/>
+							
+							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 6">
+								<field name="loc_area_6_label"/>
+							</td>
+							<field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6" domain="[('country_id','=',country_id)]"/>
+							
+							<field name="community_facilitator_id"/>
+							<field name="user_id"/>
+						</group>
+					</group>
+					<notebook>
+						<page name="farm_detail" string="Farm Details">
+							<group>
+								<group>
+									<label for="farm_acreage" string="Own Farm"/>
+									<div class="o_row mw-50">
+										<field name="farm_acreage" readonly="plot_ids" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+										<div class="mb-3">
+											<field name="farm_uom" readonly="1" options="{'no_open': True}"/>
+										</div>
+									</div>
+									<label for="leased_acreage" string="Leased Farm"/>
+									<div class="o_row mw-50">
+										<field name="leased_acreage" readonly="plot_ids" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+										<div class="mb-3">
+											<field name="farm_uom" readonly="1" options="{'no_open': True}"/>
+										</div>
+									</div>
+									<label for="total_land_size"/>
+									<div class="o_row mw-50">
+										<field name="total_land_size" readonly="1" force_save="1" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+										<div class="mb-3">
+											<field name="farm_uom" readonly="1" options="{'no_open': True}"/>
+										</div>
+									</div>
+								</group>
+								<group>
+									<label for="utilized_acreage" groups="agrios.group_offtake_agreement"/>
+									<div class="o_row mw-50" groups="agrios.group_offtake_agreement">
+										<field name="utilized_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+										<div class="mb-3">
+											<field name="farm_uom" readonly="1" options="{'no_open': True}"/>
+										</div>
+									</div>
+									<label for="unutilized_acreage" groups="agrios.group_offtake_agreement"/>
+									<div class="o_row mw-50" groups="agrios.group_offtake_agreement">
+										<field name="unutilized_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+										<div class="mb-3">
+											<field name="farm_uom" readonly="1" options="{'no_open': True}"/>
+										</div>
+									</div>
+									<field name="harvest_crop_ids" widget="many2many_tags" options="{'no_create': True}"/>
+									<field name="partner_latitude" string="Farm Latitude" groups="!agrios.group_plot_management"/>
+									<field name="partner_longitude" string="Farm Longitude" groups="!agrios.group_plot_management"/>
+								</group>
+							</group>
+							<group string="Outgrower Land Plots" groups="agrios.group_plot_management">
+								<field name="plot_ids" context="{'plot_partner_invisible': True}" nolabel="1" colspan="2">
+									<list create="false">
+						                <field name="name"/>
+						                <field name="is_owner" optional="show"/>
+						                <field name="coop_id" optional="hide"/>
+						                <field name="district_id" optional="hide"/>
+						                <field name="region_id" optional="hide"/>
+						                <field name="farm_size" sum="Total" optional="show"/>
+						                <field name="farm_condition" optional="show"/>
+						                <field name="gshape_description" optional="hide"/>
+									</list>
+								</field>
+							</group>
+						</page>
+						<page name="contract" string="Contracts" invisible="outgrower_stage != 'verified'" groups="agrios.group_offtake_agreement">
+							<group>
+								<field name="outgrower_requires_contract" groups="agrios.group_agrios_manager"/>
+							</group>
+							<field name="offtake_agreement_ids" readonly="True">
+								<list decoration-muted="contract_stage=='closed'" decoration-danger="contract_stage=='cancelled' or expired_contract">
+									<field name="name"/>
+									<field name="season_id"/>
+									<field name="contracted_crop_id"/>
+									<field name="contracted_farm_acreage" sum="Total Contracted Farm" optional="show"/>
+									<field name="farm_inputs_cost" sum="Total Farm Loan" optional="show"/>
+									<field name="contract_stage" optional="show"/>
+									<field name="harvest_state" optional="show"/>
+									<field name="expired_contract" invisible="contract_stage != 'open'" optional="show"/>
+									<field name="currency_id" column_invisible="1"/>
+								</list>
+							</field>
+						</page>
+						<page name="certification" string="Certifications" invisible="outgrower_stage != 'verified'" groups="agrios.group_farmers_certifications">
+							<field name="certification_ids">
+								<list create="false" decoration-info="style=='info'" decoration-muted="style=='muted'" decoration-success="style=='success'" decoration-warning="style=='warning'" decoration-danger="style=='danger'">
+									<field name="certification_type_id"/>
+									<field name="cert_serial_num" optional="show"/>
+									<field name="cert_start_date"/>
+									<field name="cert_end_date"/>
+									<field name="origin" optional="show"/>
+									<field name="final_score" avg="Average Score" optional="show"/>
+									<field name="state"/>
+									<field name="style" column_invisible="1"/>
+								</list>
+							</field>
+						</page>
+						<page name="training" string="Trainings Attended/Scheduled" invisible="outgrower_stage != 'verified'" groups="agrios.group_farmers_training">
+							<field name="training_ids" readonly="True"/>
+						</page>
+						<page name="additional_info" string="Additional Outgrower Info">
+							<group>
+								<group string="Outgrower Extra Details">
+									<field name="family_size"/>
+									<field name="coop_shares"/>
+									<field name="country_id"/>
+								</group>
+								<group string="Next Of Kin">
+									<field name="next_of_kin" placeholder="NOK Full Name"/>
+									<field name="nok_id"/>
+									<field name="nok_phone" widget="phone"/>
+								</group>
+							</group>
+							<group string="Extra Notes">
+								<field name="comment" nolabel="1" colspan="2" placeholder="Extra internal information about the farmer..."/>
+							</group>
+						</page>
+					</notebook>
+				</sheet>
+				<chatter/>
+			</form>
+		</field>
+	</record>
+	
+	<record id="action_verified_outgrowers" model="ir.actions.act_window">
+		<field name="name">Outgrowers</field>
+		<field name="res_model">res.partner</field>
+		<field name="view_mode">kanban,list,form</field>
+		<field name="search_view_id" ref="view_outgrower_search_filter"/>
+		<field name="context">{'default_is_outgrower': True}</field>
+		<field name="domain">[('is_outgrower','=',True),('outgrower_stage','=','verified')]</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Create the first Farmer/Outgrower
+			</p>
+			<p>
+				Odoo helps you easily track all activities related to a Farmer/Outgrower
+			</p>
+		</field>
+	</record>
+	<record id="action_outgrowers_tree" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_tree"/>
+		<field name="act_window_id" ref="action_verified_outgrowers"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">list</field>
+	</record>
+	<record id="action_outgrowers_form" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_form"/>
+		<field name="act_window_id" ref="action_verified_outgrowers"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">form</field>
+	</record>
+	
+	<record id="action_outgrower_leads" model="ir.actions.act_window">
+		<field name="name">Outgrower Leads</field>
+		<field name="res_model">res.partner</field>
+		<field name="view_mode">kanban,list,form</field>
+		<field name="search_view_id" ref="view_outgrower_search_filter"/>
+		<field name="context">{'default_is_outgrower': True}</field>
+		<field name="domain">[('is_outgrower','=',True),('outgrower_stage','=','draft')]</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Create the first Farmer/Outgrower
+			</p>
+			<p>
+				Odoo helps you easily track all activities related to a Farmer/Outgrower
+			</p>
+		</field>
+	</record>
+	<record id="action_outgrower_leads_tree" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_leads_tree"/>
+		<field name="act_window_id" ref="action_outgrower_leads"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">list</field>
+	</record>
+	<record id="action_outgrower_leads_form" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_form"/>
+		<field name="act_window_id" ref="action_outgrower_leads"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">form</field>
+	</record>
+	
+	<record id="action_outgrower_pending_verification" model="ir.actions.act_window">
+		<field name="name">Outgrowers Pending Verification</field>
+		<field name="res_model">res.partner</field>
+		<field name="view_mode">kanban,list,form</field>
+		<field name="search_view_id" ref="view_outgrower_search_filter"/>
+		<field name="context">{'default_is_outgrower': True}</field>
+		<field name="domain">[('is_outgrower','=',True),('outgrower_stage','=','pending')]</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Create the first Farmer/Outgrower
+			</p>
+			<p>
+				Odoo helps you easily track all activities related to a Farmer/Outgrower
+			</p>
+		</field>
+	</record>
+	
+	<record id="action_outgrowers_pending_tree" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_tree"/>
+		<field name="act_window_id" ref="action_outgrower_pending_verification"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">list</field>
+	</record>
+	
+	<record id="action_outgrowers_pending_form" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_form"/>
+		<field name="act_window_id" ref="action_outgrower_pending_verification"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">form</field>
+	</record>
+	
+	<record id="action_certified_farmers" model="ir.actions.act_window">
+		<field name="name">Certified Outgrowers</field>
+		<field name="res_model">res.partner</field>
+		<field name="view_mode">list,form</field>
+		<field name="search_view_id" ref="view_outgrower_search_filter"/>
+		<field name="context">{'create': False, 'edit': False}</field>
+		<field name="domain">['&amp;','&amp;','&amp;',('is_outgrower','=',True),('outgrower_stage','=','verified'),('certified','=',True)]</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				There are no Certified Outgrowers yet
+			</p>
+		</field>
+	</record>
+	
+	<record id="action_certified_farmers_tree" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_tree"/>
+		<field name="act_window_id" ref="action_certified_farmers"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">list</field>
+	</record>
+	
+	<record id="action_certified_farmers_form" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_form"/>
+		<field name="act_window_id" ref="action_certified_farmers"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">form</field>
+	</record>
+	
+	<record id="action_active_season_farmers" model="ir.actions.act_window">
+		<field name="name">Active Outgrowers</field>
+		<field name="res_model">res.partner</field>
+		<field name="view_mode">list</field>
+		<field name="search_view_id" ref="view_outgrower_search_filter"/>
+		<field name="context">{'create': False, 'edit': False}</field>
+		<field name="domain">[('is_outgrower','=',True),('outgrower_stage','=','verified')]</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				There are no Active Outgrowers
+			</p>
+		</field>
+	</record>
+	<record id="action_active_farmers_tree" model="ir.actions.act_window.view">
+		<field name="view_id" ref="view_outgrower_tree"/>
+		<field name="act_window_id" ref="action_active_season_farmers"/>
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">list</field>
+	</record>
+	
+	<record id="action_verify_outgrower" model="ir.actions.server">
+		<field name="name">Verify Outgrower</field>
+		<field name="type">ir.actions.server</field>
+		<field name="model_id" ref="model_res_partner"/>
+		<field name="binding_model_id" ref="model_res_partner"/>
+		<field name="groups_id" eval="[(6, 0, [ref('agrios.group_agrios_manager')])]"/>
+		<field name="state">code</field>
+		<field name="code">records.verify_outgrower()</field>
+	</record>
+	
+	<record id="action_trainers" model="ir.actions.act_window">
+        <field name="name">Trainers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context" eval="{'default_category_id': [(6, 0, [ref('agrios.internal_trainer')])], 'default_is_farmer_trainer': True}" />
+        <field name="domain">[('is_farmer_trainer','=',True)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Trainer
+            </p>
+            <p>
+                Odoo helps you easily track all Trainers
+            </p>
+        </field>
+    </record>
+	
+</odoo>
