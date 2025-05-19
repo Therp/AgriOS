@@ -65,7 +65,7 @@ class AreaLevel6(models.Model):
     active = fields.Boolean('Active', default=True)
     
     _sql_constraints = [
-        ('unique_name', 'UNIQUE(name)', 'An area 4 with the same name already exists!'),
+        ('unique_name', 'UNIQUE(name)', 'An area 6 with the same name already exists!'),
     ]
     
 
@@ -82,7 +82,7 @@ class AreaLevel5(models.Model):
     is_parent_required = fields.Boolean(compute='_compute_is_parent_required', string='Parent Area Required')
     
     _sql_constraints = [
-        ('unique_name', 'UNIQUE(name)', 'An area 4 with the same name already exists!'),
+        ('unique_name', 'UNIQUE(name)', 'An area 5 with the same name already exists!'),
     ]
     
     @api.depends('country_id')
