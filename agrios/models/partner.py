@@ -27,10 +27,10 @@ class Farmer(models.Model):
     
     outgrower_ref = fields.Char('Outgrower Reference', default='/', readonly=True, copy=False)
     
-    farmer_group_id = fields.Many2one('farmer.group', 'Farmers Group', domain="[('coop_id', '=?', coop_id)]", tracking=True)
-    coop_id = fields.Many2one('cooperative', 'Location Area 1', ondelete='restrict', tracking=True)
-    district_id = fields.Many2one('district', 'Location Area 2', ondelete='restrict', tracking=True)
-    region_id = fields.Many2one('region', 'Location Area 3', ondelete='restrict', tracking=True)
+    farmer_group_id = fields.Many2one('farmer.group', 'Farmers Group', domain="[('area_level_1_id', '=?', area_level_1_id)]", tracking=True)
+    area_level_1_id = fields.Many2one('area.level.1', 'Location Area 1', ondelete='restrict', tracking=True)
+    area_level_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
+    area_level_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
     loc_area_4_id = fields.Many2one('area.level.4', 'Location Area 4', ondelete='restrict', tracking=True)
     loc_area_5_id = fields.Many2one('area.level.5', 'Location Area 5', ondelete='restrict', tracking=True)
     loc_area_6_id = fields.Many2one('area.level.6', 'Location Area 6', ondelete='restrict', tracking=True)
@@ -43,7 +43,7 @@ class Farmer(models.Model):
     loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
     loc_area_max_level = fields.Integer('Max Location Area Level', compute="_compute_loc_area_details")
     
-    community_facilitator_id = fields.Many2one(related='coop_id.community_facilitator_id')
+    manager_id = fields.Many2one(related='area_level_1_id.manager_id')
     
     # Basic outgrower details
     gender = fields.Selection([('female', 'Female'), ('male', 'Male')], string='Gender')
@@ -292,40 +292,40 @@ class Farmer(models.Model):
     
     @api.onchange('farmer_group_id')
     def _onchange_farmer_group(self):
-        if self.farmer_group_id.coop_id:
-            self.coop_id = self.farmer_group_id.coop_id
+        if self.farmer_group_id.area_level_1_id:
+            self.area_level_1_id = self.farmer_group_id.area_level_1_id
     
-    @api.onchange('coop_id')
-    def _onchange_coop_id(self):
-        if self.coop_id:
-            self.district_id = self.coop_id.district_id
+    @api.onchange('area_level_1_id')
+    def _onchange_area_level_1_id(self):
+        if self.area_level_1_id:
+            self.area_level_2_id = self.area_level_1_id.area_level_2_id
             
-            if self.farmer_group_id and self.coop_id != self.farmer_group_id.coop_id:
+            if self.farmer_group_id and self.area_level_1_id != self.farmer_group_id.area_level_1_id:
                 self.farmer_group_id = False
     
-    @api.onchange('district_id')
-    def _onchange_district_id(self):
-        if self.district_id:
-            self.region_id = self.district_id.region_id
+    @api.onchange('area_level_2_id')
+    def _onchange_area_level_2_id(self):
+        if self.area_level_2_id:
+            self.area_level_3_id = self.area_level_2_id.area_level_3_id
             
-            if self.coop_id and self.coop_id.district_id != self.district_id:
-                self.coop_id = False
+            if self.area_level_1_id and self.area_level_1_id.area_level_2_id != self.area_level_2_id:
+                self.area_level_1_id = False
     
-    @api.onchange('region_id')
+    @api.onchange('area_level_3_id')
     def _onchange_region_id(self):
-        if self.region_id:
-            self.loc_area_4_id = self.region_id.parent_id
+        if self.area_level_3_id:
+            self.loc_area_4_id = self.area_level_3_id.parent_id
             
-            if self.district_id and self.district_id.region_id != self.region_id:
-                self.district_id = False
+            if self.area_level_2_id and self.area_level_2_id.area_level_3_id != self.area_level_3_id:
+                self.area_level_2_id = False
     
     @api.onchange('loc_area_4_id')
     def _onchange_loc_area_4_id(self):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
             
-            if self.region_id and self.region_id.parent_id != self.loc_area_4_id:
-                self.region_id = False
+            if self.area_level_3_id and self.area_level_3_id.parent_id != self.loc_area_4_id:
+                self.area_level_3_id = False
     
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):
@@ -334,9 +334,9 @@ class Farmer(models.Model):
             
             if self.loc_area_4_id and self.loc_area_4_id.parent_id != self.loc_area_5_id:
                 self.loc_area_4_id = False
-                self.region_id = False
-                self.district_id = False
-                self.coop_id = False
+                self.area_level_3_id = False
+                self.area_level_2_id = False
+                self.area_level_1_id = False
     
     @api.onchange('loc_area_6_id')
     def _onchange_loc_area_6_id(self):
@@ -344,9 +344,9 @@ class Farmer(models.Model):
             if self.loc_area_5_id and self.loc_area_5_id.parent_id != self.loc_area_6_id:
                 self.loc_area_5_id = False
                 self.loc_area_4_id = False
-                self.region_id = False
-                self.district_id = False
-                self.coop_id = False
+                self.area_level_3_id = False
+                self.area_level_2_id = False
+                self.area_level_1_id = False
     
     @api.model
     def web_search_read(self, domain, specification, offset=0, limit=None, order=None, count_limit=None):
@@ -404,19 +404,19 @@ class Farmer(models.Model):
             else:
                 lev4.getparent().remove(lev4)
             
-            lev3 = arch.xpath("//filter[@name='groupby_region_id']")[0]
+            lev3 = arch.xpath("//filter[@name='groupby_area_level_3_id']")[0]
             if max_level >= 3:
                 lev3.set('string', loc_details[3])
             else:
                 lev3.getparent().remove(lev3)
             
-            lev2 = arch.xpath("//filter[@name='groupby_district_id']")[0]
+            lev2 = arch.xpath("//filter[@name='groupby_area_level_2_id']")[0]
             if max_level >= 2:
                 lev2.set('string', loc_details[2])
             else:
                 lev2.getparent().remove(lev2)
             
-            lev1 = arch.xpath("//filter[@name='groupby_coop_id']")[0].set('string', loc_details[1])
+            lev1 = arch.xpath("//filter[@name='groupby_area_level_1_id']")[0].set('string', loc_details[1])
         
         elif view_type == 'list' and view == self.env.ref('agrios.view_outgrower_tree', raise_if_not_found=False):
             company_country_id = self.env.company.country_id.id
@@ -440,19 +440,19 @@ class Farmer(models.Model):
             else:
                 lev4.getparent().remove(lev4)
             
-            lev3 = arch.xpath("//field[@name='region_id']")[0]
+            lev3 = arch.xpath("//field[@name='area_level_3_id']")[0]
             if max_level >= 3:
                 lev3.set('string', loc_details[3])
             else:
                 lev3.getparent().remove(lev3)
             
-            lev2 = arch.xpath("//field[@name='district_id']")[0]
+            lev2 = arch.xpath("//field[@name='area_level_2_id']")[0]
             if max_level >= 2:
                 lev2.set('string', loc_details[2])
             else:
                 lev2.getparent().remove(lev2)
             
-            lev1 = arch.xpath("//field[@name='coop_id']")[0].set('string', loc_details[1])
+            lev1 = arch.xpath("//field[@name='area_level_1_id']")[0].set('string', loc_details[1])
         
         return arch, view
     

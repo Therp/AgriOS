@@ -13,39 +13,45 @@ class BulkContractAbstractWizard(models.AbstractModel):
     show_expired_filter = fields.Boolean(default=True)
     view_contracts = fields.Boolean('View Contracts')
     
-    region_ids = fields.Many2many('region', string='Regions')
-    district_ids = fields.Many2many('district', string='District')
-    cooperative_ids = fields.Many2many('cooperative', string='Communities')
+    country_id = fields.Many2one('res.country', string='Country')
+    area_level_3_ids = fields.Many2many('area.level.3', string='Area Level 3')
+    area_level_2_ids = fields.Many2many('area.level.2', string='Area Level 2')
+    area_level_1_ids = fields.Many2many('area.level.1', string='Area Level 1')
     farmer_group_ids = fields.Many2many('farmer.group', string='Farmer Groups')
     
     season_id = fields.Many2one('season', 'Season', domain=[('status','in',('open','lock'))])
     product_id = fields.Many2one('product.product', 'Harvestable Product', domain=[('harvest_product','=',True)])
     expired_filter = fields.Selection([('expired','Expired Only'),('not_expired','Not Expired Only')], 'Expired Contracts')
+
+    @api.onchange('country_id')
+    def _onchange_country_id(self):
+        if self.country_id:
+            self.area_level_3_ids = self.area_level_3_ids.filtered(lambda rec: rec.country_id.id == self.country_id.id)
     
-    @api.onchange('region_ids')
-    def _onchange_region_ids(self):
-        self.district_ids = self.district_ids.filtered(lambda district: district.region_id.id in self.region_ids.ids)
+    @api.onchange('area_level_3_ids')
+    def _onchange_area_level_3_ids(self):
+        self.area_level_2_ids = self.area_level_2_ids.filtered(lambda area_level_2: area_level_2.area_level_3_id.id in self.area_level_3_ids.ids)
     
-    @api.onchange('district_ids')
-    def _onchange_district_ids(self):
-        if self.district_ids:
-            self.region_ids |= self.district_ids.mapped('region_id')
-        self.cooperative_ids = self.cooperative_ids.filtered(lambda coop: coop.district_id.id in self.district_ids.ids)
+    @api.onchange('area_level_2_ids')
+    def _onchange_area_level_2_ids(self):
+        if self.area_level_2_ids:
+            self.area_level_3_ids |= self.area_level_2_ids.mapped('area_level_3_id')
+        self.area_level_1_ids = self.area_level_1_ids.filtered(lambda area_level_1: area_level_1.area_level_2_id.id in self.area_level_2_ids.ids)
     
-    @api.onchange('cooperative_ids')
-    def _onchange_cooperative_ids(self):
-        if self.cooperative_ids:
-            self.district_ids |= self.cooperative_ids.mapped('district_id')
+    @api.onchange('area_level_1_ids')
+    def _onchange_area_level_1_ids(self):
+        if self.area_level_1_ids:
+            self.area_level_2_ids |= self.area_level_1_ids.mapped('area_level_2_id')
             
             if self.farmer_group_ids:
-                self.farmer_group_ids = self.farmer_group_ids.filtered(lambda fg: fg.coop_id.id in self.cooperative_ids.ids)
+                self.farmer_group_ids = self.farmer_group_ids.filtered(lambda fg: fg.area_level_1_id.id in self.area_level_1_ids.ids)
     
     @api.onchange('farmer_group_ids')
     def _onchange_farmer_group_ids(self):
         if self.farmer_group_ids:
-            self.cooperative_ids = self.farmer_group_ids.mapped('coop_id')
+            self.area_level_1_ids = self.farmer_group_ids.mapped('area_level_1_id')
     
-    @api.onchange('view_contracts', 'company_id', 'region_ids', 'district_ids', 'cooperative_ids', 'farmer_group_ids', 'season_id', 'product_id', 'expired_filter')
+    @api.onchange('view_contracts', 'company_id', 'area_level_3_ids', 'area_level_2_ids', 'area_level_1_ids', 'farmer_group_ids', 'season_id', 'product_id', 'expired_filter')
     def _compute_contracts(self):
         if self.view_contracts:
             self.contract_ids = self.env['offtake.agreement'].search(self._get_computed_contracts_domain())
@@ -80,12 +86,12 @@ class BulkContractAbstractWizard(models.AbstractModel):
         
         if self.farmer_group_ids:
             domain.append( ('outgrower_id.farmer_group_id','in',self.farmer_group_ids.ids) )
-        elif self.cooperative_ids:
-            domain.append( ('outgrower_id.coop_id','in',self.cooperative_ids.ids) )
-        elif self.district_ids:
-            domain.append( ('outgrower_id.district_id','in',self.district_ids.ids) )
-        elif self.region_ids:
-            domain.append( ('outgrower_id.region_id','in',self.region_ids.ids) )
+        elif self.area_level_1_ids:
+            domain.append( ('outgrower_id.area_level_1_id','in',self.area_level_1_ids.ids) )
+        elif self.area_level_2_ids:
+            domain.append( ('outgrower_id.area_level_2_id','in',self.area_level_2_ids.ids) )
+        elif self.area_level_3_ids:
+            domain.append( ('outgrower_id.area_level_3_id','in',self.area_level_3_ids.ids) )
         
         return domain
         

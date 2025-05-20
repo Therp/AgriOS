@@ -41,9 +41,9 @@
 					<filter name="groupby_loc_area_6_id" context="{'group_by': 'loc_area_6_id'}"/>
 					<filter name="groupby_loc_area_5_id" context="{'group_by': 'loc_area_5_id'}"/>
 					<filter name="groupby_loc_area_4_id" context="{'group_by': 'loc_area_4_id'}"/>
-					<filter name="groupby_region_id" context="{'group_by': 'region_id'}"/>
-					<filter name="groupby_district_id" context="{'group_by': 'district_id'}"/>
-					<filter name="groupby_coop_id" context="{'group_by': 'coop_id'}"/>
+					<filter name="groupby_area_level_3_id" context="{'group_by': 'area_level_3_id'}"/>
+					<filter name="groupby_area_level_2_id" context="{'group_by': 'area_level_2_id'}"/>
+					<filter name="groupby_area_level_1_id" context="{'group_by': 'area_level_1_id'}"/>
 					<filter name="groupby_farmer_group_id" context="{'group_by': 'farmer_group_id'}"/>
 					<filter name="groupby_gender" context="{'group_by': 'gender'}"/>
 				</group>
@@ -63,9 +63,9 @@
 				<field name="outgrower_identification" optional="show"/>
 				<field name="gender" optional="show"/>
 				<field name="farmer_group_id" optional="show"/>
-				<field name="coop_id" optional="show"/>
-				<field name="district_id" optional="show"/>
-				<field name="region_id" optional="show"/>
+				<field name="area_level_1_id" optional="show"/>
+				<field name="area_level_2_id" optional="show"/>
+				<field name="area_level_3_id" optional="show"/>
 				<field name="loc_area_4_id" optional="show"/>
 				<field name="loc_area_5_id" optional="show"/>
 				<field name="loc_area_6_id" optional="show"/>
@@ -87,8 +87,8 @@
 				<field name="outgrower_identification" optional="show"/>
 				<field name="gender" optional="show"/>
 				<field name="farmer_group_id" optional="show"/>
-				<field name="coop_id" optional="show"/>
-				<field name="district_id" optional="show"/>
+				<field name="area_level_1_id" optional="show"/>
+				<field name="area_level_2_id" optional="show"/>
 				<field name="count_certifications" optional="hide" groups="agrios.group_farmers_certifications"/>
 				<field name="user_id" optional="show"/>
 			</list>
@@ -177,17 +177,17 @@
 							<td class="o_td_label" style="font-weight: 500;">
 								<field name="loc_area_1_label"/>
 							</td>
-							<field name="coop_id" nolabel="1" domain="[('country_id','=',country_id),('district_id','=?',district_id)]"/>
+							<field name="area_level_1_id" nolabel="1" domain="[('country_id','=',country_id),('area_level_2_id','=?',area_level_2_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
 								<field name="loc_area_2_label"/>
 							</td>
-							<field name="district_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('region_id','=?',region_id)]"/>
+							<field name="area_level_2_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('area_level_3_id','=?',area_level_3_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
 								<field name="loc_area_3_label"/>
 							</td>
-							<field name="region_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
+							<field name="area_level_3_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
 								<field name="loc_area_4_label"/>
@@ -204,7 +204,7 @@
 							</td>
 							<field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6" domain="[('country_id','=',country_id)]"/>
 							
-							<field name="community_facilitator_id"/>
+							<field name="manager_id"/>
 							<field name="user_id"/>
 						</group>
 					</group>
@@ -259,9 +259,9 @@
 									<list create="false">
 						                <field name="name"/>
 						                <field name="is_owner" optional="show"/>
-						                <field name="coop_id" optional="hide"/>
-						                <field name="district_id" optional="hide"/>
-						                <field name="region_id" optional="hide"/>
+						                <field name="area_level_1_id" optional="hide"/>
+						                <field name="area_level_2_id" optional="hide"/>
+						                <field name="area_level_3_id" optional="hide"/>
 						                <field name="farm_size" sum="Total" optional="show"/>
 						                <field name="farm_condition" optional="show"/>
 						                <field name="gshape_description" optional="hide"/>

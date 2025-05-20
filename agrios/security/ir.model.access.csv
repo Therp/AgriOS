@@ -16,8 +16,8 @@ access_agrios_user_certified_farmer,ams_user access.farmer.certification,model_f
 access_agrios_readonly_certification_type,ams_readonly access.certification.type,model_certification_type,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_user_certification_type,ams_user access.certification.type,model_certification_type,agrios.group_agrios_user,1,1,1,0
 
-access_agrios_readonly_cooperative,ams_readonly access.cooperative,model_cooperative,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_admin_cooperative,ams_admin access.cooperative,model_cooperative,agrios.group_agrios_admin,1,1,1,1
+access_agrios_readonly_area_level_1,ams_readonly access.area.level.1,model_area_level_1,agrios.group_agrios_readonly,1,0,0,0
+access_agrios_admin_area_level_1,ams_admin access.area_level_1,model_area_level_1,agrios.group_agrios_admin,1,1,1,1
 
 access_agrios_readonly_offtake_agreement,ams_readonly access.offtake.agreement,model_offtake_agreement,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_user_offtake_agreement,ams_user access.offtake.agreement,model_offtake_agreement,agrios.group_agrios_user,1,1,1,1
@@ -35,11 +35,11 @@ access_multiple_set_contracted_mapped_qty_wizard,multiple.set.contracted.mapped.
 access_agrios_readonly_season,ams_readonly access.season,model_season,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_admin_season,ams_admin access.season,model_season,agrios.group_agrios_admin,1,1,1,1
 
-access_agrios_readonly_region,ams_readonly access.region,model_region,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_admin_region,ams_admin access.region,model_region,agrios.group_agrios_admin,1,1,1,1
+access_agrios_readonly_area_level_3,ams_readonly access.area.level.3,model_area_level_3,agrios.group_agrios_readonly,1,0,0,0
+access_agrios_admin_area_level_3,ams_admin access.areal.level.3,model_area_level_3,agrios.group_agrios_admin,1,1,1,1
 
-access_agrios_readonly_district,ams_readonly access.district,model_district,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_admin_district,ams_admin access.district,model_district,agrios.group_agrios_admin,1,1,1,1
+access_agrios_readonly_area_level_2,ams_readonly access.area.level.2,model_area_level_2,agrios.group_agrios_readonly,1,0,0,0
+access_agrios_admin_area_level_2,ams_admin access.area.level.2,model_area_level_2,agrios.group_agrios_admin,1,1,1,1
 
 access_agrios_readonly_account_move_line,ams_user access.account.move.line,account.model_account_move_line,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_user_res_partner,ams_user access.res.partner,base.model_res_partner,agrios.group_agrios_user,1,1,1,0
