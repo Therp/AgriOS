@@ -28,8 +28,8 @@
 						<field name="expired_filter" placeholder="Expired or Not Expired" invisible="not show_expired_filter"/>
 					</group>
 					<group string="Filter Per Location / Farmer Group" style="margin-top: -14px !important;">
-						<field name="region_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" placeholder="Select regions..."/>
-						<field name="district_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_regions': region_ids}" placeholder="Select districts..."/>
+						<field name="area_level_3_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" placeholder="Select Area level 3s..."/>
+						<field name="district_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_area_level_3s': area_level_3_ids}" placeholder="Select districts..."/>
 						<field name="cooperative_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_districts': district_ids}" placeholder="Select communities..."/>
 						<field name="farmer_group_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" placeholder="Select farmer groups..."/>
 					</group>

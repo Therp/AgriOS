@@ -89,7 +89,7 @@ class SaleOrderLine(models.Model):
     date_order = fields.Datetime(related='order_id.date_order', string="Order Date/Time", store=True, index=True)
     coop_id = fields.Many2one(related='order_partner_id.coop_id', store=True)
     district_id = fields.Many2one(related='order_partner_id.coop_id.district_id', store=True)
-    region_id = fields.Many2one(related='order_partner_id.coop_id.district_id.region_id', store=True)
+    area_level_3_id = fields.Many2one(related='order_partner_id.coop_id.district_id.area_level_3_id', store=True)
     farmer_group_id = fields.Many2one(related='order_partner_id.farmer_group_id', store=True)
     
     @api.onchange('product_template_id')

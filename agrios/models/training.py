@@ -44,7 +44,7 @@ class FarmerTraining(models.Model):
     
     coop_id = fields.Many2one('cooperative', string='Coop / Cluster', ondelete='restrict', required=True, tracking=True)
     district_id = fields.Many2one('district', 'Location Area 2', ondelete='restrict', tracking=True)
-    region_id = fields.Many2one('region', 'Location Area 3', ondelete='restrict', tracking=True)
+    area_level_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
     loc_area_4_id = fields.Many2one('area.level.4', 'Location Area 4', ondelete='restrict', tracking=True)
     loc_area_5_id = fields.Many2one('area.level.5', 'Location Area 5', ondelete='restrict', tracking=True)
     loc_area_6_id = fields.Many2one('area.level.6', 'Location Area 6', ondelete='restrict', tracking=True)
@@ -69,10 +69,10 @@ class FarmerTraining(models.Model):
             AND farmer_training.district_id IS NULL;
             
             UPDATE farmer_training
-            SET region_id = ll2.region_id
+            SET area_level_3_id = ll2.area_level_3_id
             FROM district ll2
             WHERE farmer_training.district_id = ll2.id
-            AND farmer_training.region_id IS NULL;
+            AND farmer_training.area_level_3_id IS NULL;
         """)
     
     def _compute_name(self):
@@ -108,17 +108,17 @@ class FarmerTraining(models.Model):
     @api.onchange('district_id')
     def _onchange_district_id(self):
         if self.district_id:
-            self.region_id = self.district_id.region_id
+            self.area_level_3_id = self.district_id.area_level_3_id
             
             if self.coop_id and self.coop_id.district_id != self.district_id:
                 self.coop_id = False
     
-    @api.onchange('region_id')
-    def _onchange_region_id(self):
-        if self.region_id:
-            self.loc_area_4_id = self.region_id.parent_id
+    @api.onchange('area_level_3_id')
+    def _onchange_area_level_3_id(self):
+        if self.area_level_3_id:
+            self.loc_area_4_id = self.area_level_3_id.parent_id
             
-            if self.district_id and self.district_id.region_id != self.region_id:
+            if self.district_id and self.district_id.area_level_3_id != self.area_level_3_id:
                 self.district_id = False
                 self.coop_id = False
     
@@ -127,8 +127,8 @@ class FarmerTraining(models.Model):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
             
-            if self.region_id and self.region_id.parent_id != self.loc_area_4_id:
-                self.region_id = False
+            if self.area_level_3_id and self.area_level_3_id.parent_id != self.loc_area_4_id:
+                self.area_level_3_id = False
                 self.district_id = False
                 self.coop_id = False
     
@@ -139,7 +139,7 @@ class FarmerTraining(models.Model):
             
             if self.loc_area_4_id and self.loc_area_4_id.parent_id != self.loc_area_5_id:
                 self.loc_area_4_id = False
-                self.region_id = False
+                self.area_level_3_id = False
                 self.district_id = False
                 self.coop_id = False
     
@@ -149,7 +149,7 @@ class FarmerTraining(models.Model):
             if self.loc_area_5_id and self.loc_area_5_id.parent_id != self.loc_area_6_id:
                 self.loc_area_5_id = False
                 self.loc_area_4_id = False
-                self.region_id = False
+                self.area_level_3_id = False
                 self.district_id = False
                 self.coop_id = False
     

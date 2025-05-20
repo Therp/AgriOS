@@ -11,7 +11,7 @@
             <search>
                 <field name="order_partner_id" string="Farmer" domain="[('is_outgrower','=',True)]"/>
                 <field name="product_id"/>
-                <field name="coop_id" string="Coop / District / Region" filter_domain="['|','|',('coop_id','ilike',self),('district_id','ilike',self),('region_id','ilike',self)]"/>
+                <field name="coop_id" string="Coop / District / Region" filter_domain="['|','|',('coop_id','ilike',self),('district_id','ilike',self),('area_level_3_id','ilike',self)]"/>
                 <field name="farmer_group_id"/>
                 <field name="order_id"/>
                 <separator/>
@@ -27,7 +27,7 @@
                     <separator/>
                     <filter string="Coop / Cluster" name="groupby_coop_id" context="{'group_by':'coop_id'}"/>
                     <filter string="District" name="groupby_district_id" context="{'group_by':'district_id'}"/>
-                    <filter string="Region" name="groupby_region_id" context="{'group_by':'region_id'}"/>
+                    <filter string="Area Level 3" name="groupby_area_level_3_id" context="{'group_by':'area_level_3_id'}"/>
                     <filter string="Farmer Group" name="groupby_farmer_group_id" context="{'group_by':'farmer_group_id'}"/>
                     <separator/>
                     <filter string="Order" name="groupby_order_id" context="{'group_by':'order_id'}"/>
@@ -46,7 +46,7 @@
 				<field name="order_id" optional="hide"/>
 				<field name="coop_id" optional="hide"/>
 				<field name="district_id" optional="hide"/>
-				<field name="region_id" optional="hide"/>
+				<field name="area_level_3_id" optional="hide"/>
 				<field name="farmer_group_id" optional="hide"/>
 				<field name="date_order"/>
 				<field name="product_id"/>
@@ -90,7 +90,7 @@
             <search>
                 <field name="partner_id" string="Farmer" domain="[('is_outgrower','=',True)]"/>
                 <field name="product_id"/>
-                <field name="coop_id" string="Coop / District / Region" filter_domain="['|','|',('coop_id','ilike',self),('district_id','ilike',self),('region_id','ilike',self)]"/>
+                <field name="coop_id" string="Coop / District / Region" filter_domain="['|','|',('coop_id','ilike',self),('district_id','ilike',self),('area_level_3_id','ilike',self)]"/>
                 <field name="farmer_group_id"/>
                 <field name="order_id"/>
                 <separator/>
@@ -106,7 +106,7 @@
                     <separator/>
                     <filter string="Coop / Cluster" name="groupby_coop_id" context="{'group_by':'coop_id'}"/>
                     <filter string="District" name="groupby_district_id" context="{'group_by':'district_id'}"/>
-                    <filter string="Region" name="groupby_region_id" context="{'group_by':'region_id'}"/>
+                    <filter string="Region" name="groupby_area_level_3_id" context="{'group_by':'area_level_3_id'}"/>
                     <filter string="Farmer Group" name="groupby_farmer_group_id" context="{'group_by':'farmer_group_id'}"/>
                     <separator/>
                     <filter string="Order" name="groupby_order_id" context="{'group_by':'order_id'}"/>
@@ -125,7 +125,7 @@
 				<field name="order_id" optional="hide"/>
 				<field name="coop_id" optional="hide"/>
 				<field name="district_id" optional="hide"/>
-				<field name="region_id" optional="hide"/>
+				<field name="area_level_3_id" optional="hide"/>
 				<field name="farmer_group_id" optional="hide"/>
 				<field name="date_order"/>
 				<field name="product_id"/>

@@ -86,23 +86,23 @@
 	
 	<!-- Regions -->
 	
-    <record id="view_region_tree" model="ir.ui.view">
-        <field name="name">view.region.tree</field>
-        <field name="model">region</field>
+    <record id="view_area_level_3_tree" model="ir.ui.view">
+        <field name="name">view.area.level.3.tree</field>
+        <field name="model">area.level.3</field>
         <field name="arch" type="xml">
             <list sample="1" editable="top">
                 <field name="name"/>
                 <field name="is_parent_required" column_invisible="True"/>
                 <field name="parent_id" string="Parent Area" options="{'no_create': true}" required="is_parent_required" optional="show"/>
-                <field name="region_manager_id" options="{'no_create': True}" optional="show"/>
+                <field name="manager_id" options="{'no_create': True}" optional="show"/>
                 <field name="country_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
     </record>
     
-    <record id="view_region_form" model="ir.ui.view">
-        <field name="name">view.region.form</field>
-        <field name="model">region</field>
+    <record id="view_area_level_3_form" model="ir.ui.view">
+        <field name="name">view.area.level.3.form</field>
+        <field name="model">area.level.3</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -115,16 +115,16 @@
         </field>
     </record>
 	
-	<record id="action_regions" model="ir.actions.act_window">
+	<record id="action_area_level_3" model="ir.actions.act_window">
         <field name="name">Area Level 3</field>
-        <field name="res_model">region</field>
+        <field name="res_model">area.level.3</field>
         <field name="view_mode">list</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create the first Region
+                Create the first Area Level 3
             </p>
             <p>
-                Odoo helps you easily track all activities related to a Region
+                Odoo helps you easily track all activities related to a Area Level 3
             </p>
         </field>
     </record>
@@ -138,7 +138,7 @@
         <field name="arch" type="xml">
             <list sample="1" editable="top">
                 <field name="name"/>
-                <field name="region_id"/>
+                <field name="area_level_3_id"/>
                 <field name="district_manager_id" options="{'no_create': True}" optional="show"/>
                 <field name="country_id" options="{'no_create': True}" optional="show"/>
             </list>
@@ -201,7 +201,7 @@
                 <field name="chairperson_id" optional="show"/>
                 <field name="coop_id" optional="show"/>
                 <field name="district_id" optional="show"/>
-                <field name="region_id" optional="show"/>
+                <field name="area_level_3_id" optional="show"/>
                 <field name="loc_area_4_id" optional="show"/>
 				<field name="loc_area_5_id" optional="show"/>
 				<field name="loc_area_6_id" optional="show"/>
@@ -244,12 +244,12 @@
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
 								<field name="loc_area_2_label"/>
 							</td>
-							<field name="district_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('region_id','=?',region_id)]"/>
+							<field name="district_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('area_level_3_id','=?',area_level_3_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
 								<field name="loc_area_3_label"/>
 							</td>
-							<field name="region_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
+							<field name="area_level_3_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
 								<field name="loc_area_4_label"/>

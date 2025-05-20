@@ -38,7 +38,7 @@ class ResPartnerArea(models.Model):
     
     coop_id = fields.Many2one('cooperative', 'Location Area 1', tracking=True)
     district_id = fields.Many2one('district', 'Location Area 2', ondelete='restrict', tracking=True)
-    region_id = fields.Many2one('region', 'Location Area 3', ondelete='restrict', tracking=True)
+    area_level_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
     loc_area_4_id = fields.Many2one('area.level.4', 'Location Area 4', ondelete='restrict', tracking=True)
     loc_area_5_id = fields.Many2one('area.level.5', 'Location Area 5', ondelete='restrict', tracking=True)
     loc_area_6_id = fields.Many2one('area.level.6', 'Location Area 6', ondelete='restrict', tracking=True)
@@ -74,10 +74,10 @@ class ResPartnerArea(models.Model):
             AND res_partner_area.district_id IS NULL;
             
             UPDATE res_partner_area
-            SET region_id = ll2.region_id
+            SET area_level_3_id = ll2.area_level_3_id
             FROM district ll2
             WHERE res_partner_area.district_id = ll2.id
-            AND res_partner_area.region_id IS NULL;
+            AND res_partner_area.area_level_3_id IS NULL;
         """)
     
     @api.depends('country_id')
@@ -101,17 +101,17 @@ class ResPartnerArea(models.Model):
     @api.onchange('district_id')
     def _onchange_district_id(self):
         if self.district_id:
-            self.region_id = self.district_id.region_id
+            self.area_level_3_id = self.district_id.area_level_3_id
             
             if self.coop_id and self.coop_id.district_id != self.district_id:
                 self.coop_id = False
     
-    @api.onchange('region_id')
+    @api.onchange('area_level_3_id')
     def _onchange_region_id(self):
-        if self.region_id:
-            self.loc_area_4_id = self.region_id.parent_id
+        if self.area_level_3_id:
+            self.loc_area_4_id = self.area_level_3_id.parent_id
             
-            if self.district_id and self.district_id.region_id != self.region_id:
+            if self.district_id and self.district_id.area_level_3_id != self.area_level_3_id:
                 self.district_id = False
     
     @api.onchange('loc_area_4_id')
@@ -119,8 +119,8 @@ class ResPartnerArea(models.Model):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
             
-            if self.region_id and self.region_id.parent_id != self.loc_area_4_id:
-                self.region_id = False
+            if self.area_level_3_id and self.area_level_3_id.parent_id != self.loc_area_4_id:
+                self.area_level_3_id = False
     
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):
@@ -179,7 +179,7 @@ class ResPartnerArea(models.Model):
             else:
                 lev4.getparent().remove(lev4)
             
-            lev3 = arch.xpath("//field[@name='region_id']")[0]
+            lev3 = arch.xpath("//field[@name='area_level_3_id']")[0]
             if max_level >= 3:
                 lev3.set('string', loc_details[3])
             else:

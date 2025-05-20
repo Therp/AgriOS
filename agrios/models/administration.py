@@ -116,12 +116,12 @@ class AreaLevel4(models.Model):
     
 
 class Region(models.Model): # AreaLevel3
-    _name = 'region'
-    _description = 'Administrative Region'
+    _name = 'area.level.3'
+    _description = 'Area Level 3'
     _order = 'country_id, name'
     
     name = fields.Char(required=True)
-    region_manager_id = fields.Many2one('res.users', 'Area Manager')
+    manager_id = fields.Many2one('res.users', 'Area Manager')
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     parent_id = fields.Many2one('area.level.4', 'Parent Area')
     active = fields.Boolean('Active', default=True)
@@ -144,7 +144,7 @@ class District(models.Model): # AreaLevel2
     _order = 'country_id, name'
     
     name = fields.Char(required=True)
-    region_id = fields.Many2one('region', 'Region', required=True, ondelete='restrict')
+    area_level_3_id = fields.Many2one('area.level.3', 'Region', required=True, ondelete='restrict')
     district_manager_id = fields.Many2one('res.users', 'Area Manager')
     active = fields.Boolean('Active', default=True)
     
@@ -160,7 +160,7 @@ class District(models.Model): # AreaLevel2
             filter_region_ids = self._context['filter_regions']
             if filter_region_ids:
                 if not domain: domain = []
-                domain = [ ['region_id','in',filter_region_ids] ] + domain
+                domain = [ ['area_level_3_id','in',filter_region_ids] ] + domain
         
         return super()._name_search(name, domain=domain, operator=operator, limit=limit, order=order)
     
@@ -170,7 +170,7 @@ class District(models.Model): # AreaLevel2
             filter_region_ids = self._context['filter_regions']
             if filter_region_ids:
                 if not domain: domain = []
-                domain = [ ['region_id','in',filter_region_ids] ] + domain
+                domain = [ ['area_level_3_id','in',filter_region_ids] ] + domain
         
         return super().search_read(domain=domain, fields=fields, offset=offset, limit=limit, order=order)
     
@@ -187,7 +187,7 @@ class Cooperative(models.Model): # AreaLevel1
     
     farmer_group_ids = fields.One2many('farmer.group', 'coop_id', 'Farmer Groups', readonly=True, copy=False)
     community_facilitator_id = fields.Many2one('res.users', 'Community Facilitator')
-    region_id = fields.Many2one(string='Region', related='district_id.region_id')
+    area_level_3_id = fields.Many2one(string='Region', related='district_id.area_level_3_id')
     
     _sql_constraints = [
         ('unique_coop_region_combination', 'UNIQUE(name, district_id)', 'An Area level with this name already Exists in the specified District'),
@@ -225,7 +225,7 @@ class FarmerGroup(models.Model):
     
     coop_id = fields.Many2one('cooperative', string='Location Area 1', tracking=True, required=True)
     district_id = fields.Many2one('district', 'Location Area 2', ondelete='restrict', tracking=True)
-    region_id = fields.Many2one('region', 'Location Area 3', ondelete='restrict', tracking=True)
+    area_level_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
     loc_area_4_id = fields.Many2one('area.level.4', 'Location Area 4', ondelete='restrict', tracking=True)
     loc_area_5_id = fields.Many2one('area.level.5', 'Location Area 5', ondelete='restrict', tracking=True)
     loc_area_6_id = fields.Many2one('area.level.6', 'Location Area 6', ondelete='restrict', tracking=True)
@@ -265,10 +265,10 @@ class FarmerGroup(models.Model):
             AND farmer_group.district_id IS NULL;
             
             UPDATE farmer_group
-            SET region_id = ll2.region_id
+            SET area_level_3_id = ll2.area_level_3_id
             FROM district ll2
             WHERE farmer_group.district_id = ll2.id
-            AND farmer_group.region_id IS NULL;
+            AND farmer_group.area_level_3_id IS NULL;
         """)
     
     @api.depends('member_ids')
@@ -301,17 +301,17 @@ class FarmerGroup(models.Model):
     @api.onchange('district_id')
     def _onchange_district_id(self):
         if self.district_id:
-            self.region_id = self.district_id.region_id
+            self.area_level_3_id = self.district_id.area_level_3_id
             
             if self.coop_id and self.coop_id.district_id != self.district_id:
                 self.coop_id = False
     
-    @api.onchange('region_id')
+    @api.onchange('area_level_3_id')
     def _onchange_region_id(self):
-        if self.region_id:
-            self.loc_area_4_id = self.region_id.parent_id
+        if self.area_level_3_id:
+            self.loc_area_4_id = self.area_level_3_id.parent_id
             
-            if self.district_id and self.district_id.region_id != self.region_id:
+            if self.district_id and self.district_id.area_level_3_id != self.area_level_3_id:
                 self.district_id = False
                 self.coop_id = False
     
@@ -320,8 +320,8 @@ class FarmerGroup(models.Model):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
             
-            if self.region_id and self.region_id.parent_id != self.loc_area_4_id:
-                self.region_id = False
+            if self.area_level_3_id and self.area_level_3_id.parent_id != self.loc_area_4_id:
+                self.area_level_3_id = False
                 self.district_id = False
                 self.coop_id = False
     
@@ -332,7 +332,7 @@ class FarmerGroup(models.Model):
             
             if self.loc_area_4_id and self.loc_area_4_id.parent_id != self.loc_area_5_id:
                 self.loc_area_4_id = False
-                self.region_id = False
+                self.area_level_3_id = False
                 self.district_id = False
                 self.coop_id = False
     
@@ -342,7 +342,7 @@ class FarmerGroup(models.Model):
             if self.loc_area_5_id and self.loc_area_5_id.parent_id != self.loc_area_6_id:
                 self.loc_area_5_id = False
                 self.loc_area_4_id = False
-                self.region_id = False
+                self.area_level_3_id = False
                 self.district_id = False
                 self.coop_id = False
     
@@ -372,7 +372,7 @@ class FarmerGroup(models.Model):
             else:
                 lev4.getparent().remove(lev4)
             
-            lev3 = arch.xpath("//field[@name='region_id']")[0]
+            lev3 = arch.xpath("//field[@name='area_level_3_id']")[0]
             if max_level >= 3:
                 lev3.set('string', loc_details[3])
             else:
