@@ -9,8 +9,8 @@
                 <field name="name"/>
                 <field name="partner_id"/>
                 <separator/>
-                <filter string="Clustered" name="filter_coop_id_set" domain="[('coop_id','!=',False)]"/>
-                <filter string="Not Clustered" name="filter_coop_id_not_set" domain="[('coop_id','=',False)]"/>
+                <filter string="Clustered" name="filter_area_level_1_id_set" domain="[('area_level_1_id','!=',False)]"/>
+                <filter string="Not Clustered" name="filter_area_level_1_id_not_set" domain="[('area_level_1_id','=',False)]"/>
                 <separator/>
                 <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
                 <separator/>
@@ -29,8 +29,8 @@
                 <field name="partner_id"/>
                 <field name="is_owner" optional="hide"/>
                 <field name="name" optional="show"/>
-                <field name="coop_id" optional="show"/>
-                <field name="district_id" optional="show"/>
+                <field name="area_level_1_id" optional="show"/>
+                <field name="area_level_2_id" optional="show"/>
                 <field name="area_level_3_id" optional="show"/>
                 <field name="loc_area_4_id" optional="show"/>
 				<field name="loc_area_5_id" optional="show"/>
@@ -69,12 +69,12 @@
                             <td class="o_td_label" style="font-weight: 500;">
 								<field name="loc_area_1_label"/>
 							</td>
-							<field name="coop_id" nolabel="1" domain="[('country_id','=',country_id),('district_id','=?',district_id)]"/>
+							<field name="area_level_1_id" nolabel="1" domain="[('country_id','=',country_id),('area_level_2_id','=?',area_level_2_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
 								<field name="loc_area_2_label"/>
 							</td>
-							<field name="district_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('area_level_3_id','=?',area_level_3_id)]"/>
+							<field name="area_level_2_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('area_level_3_id','=?',area_level_3_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
 								<field name="loc_area_3_label"/>

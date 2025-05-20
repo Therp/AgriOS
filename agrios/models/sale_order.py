@@ -87,9 +87,9 @@ class SaleOrderLine(models.Model):
     
     agrios_oa_line_id = fields.Many2one(related='order_id.agrios_oa_id')
     date_order = fields.Datetime(related='order_id.date_order', string="Order Date/Time", store=True, index=True)
-    coop_id = fields.Many2one(related='order_partner_id.coop_id', store=True)
-    district_id = fields.Many2one(related='order_partner_id.coop_id.district_id', store=True)
-    area_level_3_id = fields.Many2one(related='order_partner_id.coop_id.district_id.area_level_3_id', store=True)
+    area_level_1_id = fields.Many2one(related='order_partner_id.area_level_1_id', store=True)
+    area_level_2_id = fields.Many2one(related='order_partner_id.area_level_1_id.area_level_2_id', store=True)
+    area_level_3_id = fields.Many2one(related='order_partner_id.area_level_1_id.area_level_2_id.area_level_3_id', store=True)
     farmer_group_id = fields.Many2one(related='order_partner_id.farmer_group_id', store=True)
     
     @api.onchange('product_template_id')

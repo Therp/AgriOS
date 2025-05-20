@@ -58,9 +58,9 @@ class PurchaseOrderLine(models.Model):
     
     agrios_oa_line_id = fields.Many2one('offtake.agreement', related='order_id.agrios_oa_id')
     date_order = fields.Datetime(store=True, index=True)
-    coop_id = fields.Many2one(related='partner_id.coop_id', store=True)
-    district_id = fields.Many2one(related='partner_id.coop_id.district_id', store=True)
-    area_level_3_id = fields.Many2one(related='partner_id.coop_id.district_id.area_level_3_id', store=True)
+    area_level_1_id = fields.Many2one(related='partner_id.area_level_1_id', store=True)
+    area_level_2_id = fields.Many2one(related='partner_id.area_level_1_id.area_level_2_id', store=True)
+    area_level_3_id = fields.Many2one(related='partner_id.area_level_1_id.area_level_2_id.area_level_3_id', store=True)
     farmer_group_id = fields.Many2one(related='partner_id.farmer_group_id', store=True)
     
     def _compute_price_unit_and_date_planned_and_name(self):

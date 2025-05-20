@@ -48,7 +48,7 @@
 		<field name="name">User: Technical Coordinator</field>
 		<field name="category_id" ref="base.module_category_sales_sales"/>
 		<field name="implied_ids" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
-		<field name="comment">the user will have access to records of the cooperative farmers he/she coordinates.</field>
+		<field name="comment">the user will have access to records of the area level 1 farmers he/she coordinates.</field>
 	</record>
 
 	<record id="sales_team.group_sale_salesman_all_leads" model="res.groups">
@@ -59,7 +59,7 @@
 		<field name="name">User: Technical Coordinator</field>
 		<field name="category_id" ref="base.module_category_inventory_purchase"/>
 		<field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
-		<field name="comment">the user will have access to records of the cooperative farmers he/she coordinates.</field>
+		<field name="comment">the user will have access to records of the area level 1 farmers he/she coordinates.</field>
 	</record>
 
 	<record id="purchase.group_purchase_manager" model="res.groups">
@@ -70,7 +70,7 @@
 		<field name="name">User: Technical Coordinator</field>
 		<field name="category_id" ref="module_category_ai_agrios_inventory"/>
 		<field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
-		<field name="comment">the user will have access to records of the cooperative farmers he/she coordinates.</field>
+		<field name="comment">the user will have access to records of the area level 1 farmers he/she coordinates.</field>
 	</record>
 	
    	<record id="group_offtake_agreement" model="res.groups">

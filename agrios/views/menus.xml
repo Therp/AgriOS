@@ -46,8 +46,8 @@
           <menuitem name="Area Level 5" id="area_level_5_menu" parent="agrios_organisation" action="area_level_5_action" sequence="5" groups="base.group_no_one"/>
           <menuitem name="Area Level 4" id="area_level_4_menu" parent="agrios_organisation" action="area_level_4_action" sequence="6" groups="base.group_no_one"/>
           <menuitem name="Area Level 3" id="agrios_organisation_area_level_3" parent="agrios_organisation" action="action_area_level_3" sequence="10"/>
-          <menuitem name="Area Level 2" id="agrios_organisation_district" parent="agrios_organisation" action="action_districts" sequence="20"/>
-          <menuitem name="Area level 1" id="agrios_organisation_coop" parent="agrios_organisation" action="action_cooperatives" sequence="30"/>
+          <menuitem name="Area Level 2" id="agrios_organisation_area_level_2" parent="agrios_organisation" action="action_area_level_2" sequence="20"/>
+          <menuitem name="Area Level 1" id="agrios_organisation_area_level_1" parent="agrios_organisation" action="action_area_level_1" sequence="30"/>
           <menuitem name="Areas Designation" id="country_location_level_menu" parent="agrios_organisation" action="country_location_level_action" sequence="100" groups="agrios.group_agrios_manager"/>
 		  
 </odoo>
