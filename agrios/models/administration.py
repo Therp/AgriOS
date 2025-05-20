@@ -186,7 +186,7 @@ class AreaLevel1(models.Model): # AreaLevel1
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     
     farmer_group_ids = fields.One2many('farmer.group', 'area_level_1_id', 'Farmer Groups', readonly=True, copy=False)
-    community_facilitator_id = fields.Many2one('res.users', 'Community Facilitator')
+    manager_id = fields.Many2one('res.users', 'Area Manager')
     area_level_3_id = fields.Many2one(string='Region', related='area_level_2_id.area_level_3_id')
     
     _sql_constraints = [
@@ -239,7 +239,7 @@ class FarmerGroup(models.Model):
     loc_area_max_level = fields.Integer('Max Location Area Level', compute="_compute_loc_area_details")
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
-    community_facilitator_id = fields.Many2one(related='area_level_1_id.community_facilitator_id')
+    manager_id = fields.Many2one(related='area_level_1_id.manager_id')
     
     company_id = fields.Many2one('res.company', string='Company', required=True, readonly=True, default=lambda self: self.env.company)
     currency_id = fields.Many2one(related='company_id.currency_id', store=True, readonly=True)

@@ -204,7 +204,7 @@
 							</td>
 							<field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6" domain="[('country_id','=',country_id)]"/>
 							
-							<field name="community_facilitator_id"/>
+							<field name="manager_id"/>
 							<field name="user_id"/>
 						</group>
 					</group>

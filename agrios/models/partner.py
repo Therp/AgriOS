@@ -43,7 +43,7 @@ class Farmer(models.Model):
     loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
     loc_area_max_level = fields.Integer('Max Location Area Level', compute="_compute_loc_area_details")
     
-    community_facilitator_id = fields.Many2one(related='area_level_1_id.community_facilitator_id')
+    manager_id = fields.Many2one(related='area_level_1_id.manager_id')
     
     # Basic outgrower details
     gender = fields.Selection([('female', 'Female'), ('male', 'Male')], string='Gender')

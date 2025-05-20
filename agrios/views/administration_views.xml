@@ -169,7 +169,7 @@
             <list sample="1" editable="bottom">
                 <field name="name"/>
                 <field name="area_level_2_id" optional="show"/>
-                <field name="community_facilitator_id" options="{'no_create': True}" optional="show"/>
+                <field name="manager_id" options="{'no_create': True}" optional="show"/>
                 <field name="country_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
@@ -205,7 +205,7 @@
                 <field name="loc_area_4_id" optional="show"/>
 				<field name="loc_area_5_id" optional="show"/>
 				<field name="loc_area_6_id" optional="show"/>
-                <field name="community_facilitator_id" optional="show"/>
+                <field name="manager_id" optional="show"/>
             </list>
         </field>
     </record>
@@ -232,7 +232,7 @@
                             <field name="chairperson_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
                             <field name="group_sec_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
                             <field name="group_treasurer_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
-                            <field name="community_facilitator_id"/>
+                            <field name="manager_id"/>
                             <field name="total_due"/>
                         </group>
                         <group>
