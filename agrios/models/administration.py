@@ -115,7 +115,7 @@ class AreaLevel4(models.Model):
             record.is_parent_required = max_level > 4
     
 
-class Region(models.Model): # AreaLevel3
+class Arealevel3(models.Model): # AreaLevel3
     _name = 'area.level.3'
     _description = 'Area Level 3'
     _order = 'country_id, name'
