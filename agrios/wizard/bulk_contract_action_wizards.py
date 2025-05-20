@@ -13,6 +13,7 @@ class BulkContractAbstractWizard(models.AbstractModel):
     show_expired_filter = fields.Boolean(default=True)
     view_contracts = fields.Boolean('View Contracts')
     
+    country_id = fields.Many2one('res.country', string='Country')
     area_level_3_ids = fields.Many2many('area.level.3', string='Area Level 3')
     area_level_2_ids = fields.Many2many('area.level.2', string='Area Level 2')
     area_level_1_ids = fields.Many2many('area.level.1', string='Area Level 1')
@@ -21,6 +22,11 @@ class BulkContractAbstractWizard(models.AbstractModel):
     season_id = fields.Many2one('season', 'Season', domain=[('status','in',('open','lock'))])
     product_id = fields.Many2one('product.product', 'Harvestable Product', domain=[('harvest_product','=',True)])
     expired_filter = fields.Selection([('expired','Expired Only'),('not_expired','Not Expired Only')], 'Expired Contracts')
+
+    @api.onchange('country_id')
+    def _onchange_country_id(self):
+        if self.country_id:
+            self.area_level_3_ids = self.area_level_3_ids.filtered(lambda rec: rec.country_id.id == self.country_id.id)
     
     @api.onchange('area_level_3_ids')
     def _onchange_area_level_3_ids(self):
