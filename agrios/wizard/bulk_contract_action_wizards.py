@@ -14,9 +14,12 @@ class BulkContractAbstractWizard(models.AbstractModel):
     view_contracts = fields.Boolean('View Contracts')
     
     country_id = fields.Many2one('res.country', string='Country')
-    area_level_3_ids = fields.Many2many('area.level.3', string='Area Level 3')
-    area_level_2_ids = fields.Many2many('area.level.2', string='Area Level 2')
-    area_level_1_ids = fields.Many2many('area.level.1', string='Area Level 1')
+    loc_area_6_ids = fields.Many2many('area.level.6', string='Location Area 6')
+    loc_area_5_ids = fields.Many2many('area.level.5', string='Location Area 5')
+    loc_area_4_ids = fields.Many2many('area.level.4', string='Location Area 4')
+    loc_area_3_ids = fields.Many2many('area.level.3', string='Location Area 3')
+    loc_area_2_ids = fields.Many2many('area.level.2', string='Location Area 2')
+    loc_area_1_ids = fields.Many2many('area.level.1', string='Location Area 1')
     farmer_group_ids = fields.Many2many('farmer.group', string='Farmer Groups')
     
     season_id = fields.Many2one('season', 'Season', domain=[('status','in',('open','lock'))])
@@ -26,32 +29,32 @@ class BulkContractAbstractWizard(models.AbstractModel):
     @api.onchange('country_id')
     def _onchange_country_id(self):
         if self.country_id:
-            self.area_level_3_ids = self.area_level_3_ids.filtered(lambda rec: rec.country_id.id == self.country_id.id)
+            self.loc_area_6_ids = self.loc_area_6_ids.filtered(lambda rec: rec.country_id.id == self.country_id.id)
     
-    @api.onchange('area_level_3_ids')
-    def _onchange_area_level_3_ids(self):
-        self.area_level_2_ids = self.area_level_2_ids.filtered(lambda area_level_2: area_level_2.area_level_3_id.id in self.area_level_3_ids.ids)
+    @api.onchange('loc_area_3_ids')
+    def _onchange_loc_area_3_ids(self):
+        self.loc_area_2_ids = self.loc_area_2_ids.filtered(lambda loc_area_2: loc_area_2.loc_area_3_id.id in self.loc_area_3_ids.ids)
     
-    @api.onchange('area_level_2_ids')
-    def _onchange_area_level_2_ids(self):
-        if self.area_level_2_ids:
-            self.area_level_3_ids |= self.area_level_2_ids.mapped('area_level_3_id')
-        self.area_level_1_ids = self.area_level_1_ids.filtered(lambda area_level_1: area_level_1.area_level_2_id.id in self.area_level_2_ids.ids)
+    @api.onchange('loc_area_2_ids')
+    def _onchange_loc_area_2_ids(self):
+        if self.loc_area_2_ids:
+            self.loc_area_3_ids |= self.loc_area_2_ids.mapped('parent_id')
+        self.loc_area_1_ids = self.loc_area_1_ids.filtered(lambda loc_area_1: loc_area_1.parent_id.id in self.loc_area_2_ids.ids)
     
-    @api.onchange('area_level_1_ids')
-    def _onchange_area_level_1_ids(self):
-        if self.area_level_1_ids:
-            self.area_level_2_ids |= self.area_level_1_ids.mapped('area_level_2_id')
+    @api.onchange('loc_area_1_ids')
+    def _onchange_loc_area_1_ids(self):
+        if self.loc_area_1_ids:
+            self.loc_area_2_ids |= self.loc_area_1_ids.mapped('parent_id')
             
             if self.farmer_group_ids:
-                self.farmer_group_ids = self.farmer_group_ids.filtered(lambda fg: fg.area_level_1_id.id in self.area_level_1_ids.ids)
+                self.farmer_group_ids = self.farmer_group_ids.filtered(lambda fg: fg.loc_area_1_id.id in self.loc_area_1_ids.ids)
     
     @api.onchange('farmer_group_ids')
     def _onchange_farmer_group_ids(self):
         if self.farmer_group_ids:
-            self.area_level_1_ids = self.farmer_group_ids.mapped('area_level_1_id')
+            self.loc_area_1_ids = self.farmer_group_ids.mapped('loc_area_1_id')
     
-    @api.onchange('view_contracts', 'company_id', 'area_level_3_ids', 'area_level_2_ids', 'area_level_1_ids', 'farmer_group_ids', 'season_id', 'product_id', 'expired_filter')
+    @api.onchange('view_contracts', 'company_id', 'loc_area_3_ids', 'loc_area_2_ids', 'loc_area_1_ids', 'farmer_group_ids', 'season_id', 'product_id', 'expired_filter')
     def _compute_contracts(self):
         if self.view_contracts:
             self.contract_ids = self.env['offtake.agreement'].search(self._get_computed_contracts_domain())
@@ -86,12 +89,12 @@ class BulkContractAbstractWizard(models.AbstractModel):
         
         if self.farmer_group_ids:
             domain.append( ('outgrower_id.farmer_group_id','in',self.farmer_group_ids.ids) )
-        elif self.area_level_1_ids:
-            domain.append( ('outgrower_id.area_level_1_id','in',self.area_level_1_ids.ids) )
-        elif self.area_level_2_ids:
-            domain.append( ('outgrower_id.area_level_2_id','in',self.area_level_2_ids.ids) )
-        elif self.area_level_3_ids:
-            domain.append( ('outgrower_id.area_level_3_id','in',self.area_level_3_ids.ids) )
+        elif self.loc_area_1_ids:
+            domain.append( ('outgrower_id.loc_area_1_id','in',self.loc_area_1_ids.ids) )
+        elif self.loc_area_2_ids:
+            domain.append( ('outgrower_id.loc_area_2_id','in',self.loc_area_2_ids.ids) )
+        elif self.loc_area_3_ids:
+            domain.append( ('outgrower_id.loc_area_3_id','in',self.loc_area_3_ids.ids) )
         
         return domain
         

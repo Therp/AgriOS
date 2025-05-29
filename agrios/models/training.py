@@ -40,11 +40,11 @@ class FarmerTraining(models.Model):
     training_content = fields.Text('Summary')
     count_training_participants = fields.Integer('#Participants', compute='_compute_count_training_participants')
     training_participants_ids = fields.Many2many('res.partner', domain=[('is_outgrower','=',True),('outgrower_stage','=','verified')])
-    farmer_group_ids = fields.Many2many('farmer.group', string='Groups', domain="[('area_level_1_id', '=?', area_level_1_id)]", tracking=True)
+    farmer_group_ids = fields.Many2many('farmer.group', string='Groups', domain="[('loc_area_1_id', '=?', loc_area_1_id)]", tracking=True)
     
-    area_level_1_id = fields.Many2one('area.level.1', string='Location Area 1', ondelete='restrict', required=True, tracking=True)
-    area_level_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
-    area_level_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
+    loc_area_1_id = fields.Many2one('area.level.1', string='Location Area 1', ondelete='restrict', required=True, tracking=True)
+    loc_area_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
+    loc_area_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
     loc_area_4_id = fields.Many2one('area.level.4', 'Location Area 4', ondelete='restrict', tracking=True)
     loc_area_5_id = fields.Many2one('area.level.5', 'Location Area 5', ondelete='restrict', tracking=True)
     loc_area_6_id = fields.Many2one('area.level.6', 'Location Area 6', ondelete='restrict', tracking=True)
@@ -55,7 +55,7 @@ class FarmerTraining(models.Model):
     loc_area_4_label = fields.Char('Location Area 4 Label', compute="_compute_loc_area_details")
     loc_area_5_label = fields.Char('Location Area 5 Label', compute="_compute_loc_area_details")
     loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
-    loc_area_max_level = fields.Integer('Max Location Area Level', compute="_compute_loc_area_details")
+    loc_area_max_level = fields.Integer('Max Location Location Area', compute="_compute_loc_area_details")
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     
@@ -63,16 +63,16 @@ class FarmerTraining(models.Model):
         super().init()
         self._cr.execute("""
             UPDATE farmer_training
-            SET area_level_2_id = ll1.area_level_2_id
+            SET loc_area_2_id = ll1.parent_id
             FROM area_level_1 ll1
-            WHERE farmer_training.area_level_1_id = ll1.id
-            AND farmer_training.area_level_2_id IS NULL;
+            WHERE farmer_training.loc_area_1_id = ll1.id
+            AND farmer_training.loc_area_2_id IS NULL;
             
             UPDATE farmer_training
-            SET area_level_3_id = ll2.area_level_3_id
+            SET loc_area_3_id = ll2.parent_id
             FROM area_level_2 ll2
-            WHERE farmer_training.area_level_2_id = ll2.id
-            AND farmer_training.area_level_3_id IS NULL;
+            WHERE farmer_training.loc_area_2_id = ll2.id
+            AND farmer_training.loc_area_3_id IS NULL;
         """)
     
     def _compute_name(self):
@@ -97,40 +97,40 @@ class FarmerTraining(models.Model):
             outgrower.loc_area_6_label = loc_details[6]
             outgrower.loc_area_max_level = max_level
     
-    @api.onchange('area_level_1_id')
-    def _onchange_area_level_1_id(self):
-        if self.area_level_1_id:
-            self.area_level_2_id = self.area_level_1_id.area_level_2_id
+    @api.onchange('loc_area_1_id')
+    def _onchange_loc_area_1_id(self):
+        if self.loc_area_1_id:
+            self.loc_area_2_id = self.loc_area_1_id.loc_area_2_id
             
-        if self.area_level_1_id and self.farmer_group_ids and self.area_level_1_id != self.farmer_group_ids[0].area_level_1_id:
+        if self.loc_area_1_id and self.farmer_group_ids and self.loc_area_1_id != self.farmer_group_ids[0].loc_area_1_id:
             self.farmer_group_ids = False
     
-    @api.onchange('area_level_2_id')
-    def _onchange_area_level_2_id(self):
-        if self.area_level_2_id:
-            self.area_level_3_id = self.area_level_2_id.area_level_3_id
+    @api.onchange('loc_area_2_id')
+    def _onchange_loc_area_2_id(self):
+        if self.loc_area_2_id:
+            self.loc_area_3_id = self.loc_area_2_id.loc_area_3_id
             
-            if self.area_level_1_id and self.area_level_1_id.area_level_2_id != self.area_level_2_id:
-                self.area_level_1_id = False
+            if self.loc_area_1_id and self.loc_area_1_id.loc_area_2_id != self.loc_area_2_id:
+                self.loc_area_1_id = False
     
-    @api.onchange('area_level_3_id')
-    def _onchange_area_level_3_id(self):
-        if self.area_level_3_id:
-            self.loc_area_4_id = self.area_level_3_id.parent_id
+    @api.onchange('loc_area_3_id')
+    def _onchange_loc_area_3_id(self):
+        if self.loc_area_3_id:
+            self.loc_area_4_id = self.loc_area_3_id.parent_id
             
-            if self.area_level_2_id and self.area_level_2_id.area_level_3_id != self.area_level_3_id:
-                self.area_level_2_id = False
-                self.area_level_1_id = False
+            if self.loc_area_2_id and self.loc_area_2_id.loc_area_3_id != self.loc_area_3_id:
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.onchange('loc_area_4_id')
     def _onchange_loc_area_4_id(self):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
             
-            if self.area_level_3_id and self.area_level_3_id.parent_id != self.loc_area_4_id:
-                self.area_level_3_id = False
-                self.area_level_2_id = False
-                self.area_level_1_id = False
+            if self.loc_area_3_id and self.loc_area_3_id.parent_id != self.loc_area_4_id:
+                self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):
@@ -139,9 +139,9 @@ class FarmerTraining(models.Model):
             
             if self.loc_area_4_id and self.loc_area_4_id.parent_id != self.loc_area_5_id:
                 self.loc_area_4_id = False
-                self.area_level_3_id = False
-                self.area_level_2_id = False
-                self.area_level_1_id = False
+                self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.onchange('loc_area_6_id')
     def _onchange_loc_area_6_id(self):
@@ -149,17 +149,17 @@ class FarmerTraining(models.Model):
             if self.loc_area_5_id and self.loc_area_5_id.parent_id != self.loc_area_6_id:
                 self.loc_area_5_id = False
                 self.loc_area_4_id = False
-                self.area_level_3_id = False
-                self.area_level_2_id = False
-                self.area_level_1_id = False
+                self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.onchange('farmer_group_ids')
     def _onchange_farmer_group(self):
         for rec in self:
-            if rec.farmer_group_ids.area_level_1_id:
-                rec.area_level_1_id = rec.farmer_group_ids.area_level_1_id[0]
+            if rec.farmer_group_ids.loc_area_1_id:
+                rec.loc_area_1_id = rec.farmer_group_ids.loc_area_1_id[0]
             else:
-                rec.area_level_1_id = False
+                rec.loc_area_1_id = False
             rec.training_participants_ids = self.env['res.partner'].search([('is_outgrower','=',True),('outgrower_stage','=','verified'),('farmer_group_id','in',rec.farmer_group_ids.ids)])
     
     def action_done(self):

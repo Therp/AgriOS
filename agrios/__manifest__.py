@@ -6,7 +6,7 @@
     'author': "Advance Insight",
     'website': "https://www.advanceinsight.dev",
     'category': 'Advance Insight Product',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.0.1',
     'license': 'Other proprietary',
     'depends': [
         'contacts',
@@ -48,10 +48,12 @@
         'views/account_move.xml',
         'views/menus.xml',
     ],
+    'demo': [
+        'demo/uganda_demo_levels.xml',
+    ],
     'assets': {
         'web.assets_backend': [
             'agrios/static/src/module/module_styles.scss',
-            
             'agrios/static/src/lib/leaflet/leaflet.css',
             'agrios/static/src/lib/leaflet/leaflet.js',
             'agrios/static/src/lib/leaflet.draw/leaflet.draw.css',

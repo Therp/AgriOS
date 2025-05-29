@@ -3,7 +3,7 @@
 	
 	<!-- Identation bellow represents the menus hierarchy -->
 	
-    <menuitem name="AgriOS" id="agrios_menu_root" web_icon="agrios,static/description/icon.png" groups="agrios.group_agrios_readonly"/>
+    <menuitem name="Farmers" id="agrios_menu_root" web_icon="agrios,static/description/icon.png" groups="agrios.group_agrios_readonly"  sequence="150"/>
       <menuitem name="Outgrowers" id="agrios_outgrowers" parent="agrios_menu_root" sequence="10"/>
         <menuitem name="Outgrowers" id="agrios_outgrower_outgrowers" parent="agrios_outgrowers" action="action_verified_outgrowers" sequence="10"/>
         <menuitem name="Leads" id="agrios_outgrower_leads" parent="agrios_outgrowers" action="action_outgrower_leads" sequence="20"/>
@@ -25,9 +25,7 @@
       <menuitem name="Orders" id="menu_agrios_orders" parent="agrios_menu_root" sequence="40"/>
         <menuitem name="Input Orders" id="agrios_input_orders_menu" parent="menu_agrios_orders" action="agrios_input_orders_action" sequence="10"/>
         <menuitem name="Off-Take Orders" id="agrios_offtake_orders_menu" parent="menu_agrios_orders" action="agrios_offtake_orders_action" sequence="20"/>
-      <menuitem name="Training" id="agrios_training" parent="agrios_menu_root" sequence="60" action="action_farmer_trainings" groups="agrios.group_farmers_training"/>
       <menuitem name="Interactions" id="agrios_farmer_interaction" parent="agrios_menu_root" sequence="70" action="action_outgrower_interaction" groups="agrios.group_farmers_interactions"/>
-      <menuitem name="Certifications" id="agrios_certification" action="action_farmer_certificates" parent="agrios_menu_root" sequence="90" groups="agrios.group_farmers_certifications"/>
       <menuitem name="Reports" id="agrios_reports" parent="agrios_menu_root" sequence="120"/>
         <menuitem name="Input Order Analysis" id="sale_order_line_input_report_menu" parent="agrios_reports" action="sale_order_line_input_report_action" sequence="10"/>
         <menuitem name="Off-Take Analysis" id="purchase_order_line_offtake_report_menu" parent="agrios_reports" action="purchase_order_line_offtake_report_action" sequence="20"/>
@@ -35,19 +33,24 @@
         <menuitem name="Settings" id="agrios_configuration_settings" parent="agrios_configuration" action="action_agrios_configuration_settings" sequence="0"/>
         <menuitem name="Seasons" id="agrios_configuration_season" parent="agrios_configuration" action="action_seasons" sequence="10" groups="agrios.group_offtake_agreement"/>
         <menuitem name="Activity Types" id="agrios_configuration_activity" parent="agrios_configuration" action="mail.mail_activity_type_action" sequence="20"/>
-        <menuitem name="Training" id="agrios_training_config" parent="agrios_configuration" sequence="40" groups="agrios.group_farmers_training"/>
-          <menuitem name="Training Topics" id="sub_menu_agrios_training_topic" parent="agrios_training_config" action="action_farmer_training_topics" sequence="20"/>
-          <menuitem name="Trainers" id="sub_menu_agrios_trainers" parent="agrios_training_config" action="action_trainers" sequence="30"/>
-        <menuitem name="Cerifications" id="agrios_certification_config" parent="agrios_configuration" sequence="50" groups="agrios.group_farmers_certifications"/>
-          <menuitem name="Certification Types" id="agrios_certification_type" parent="agrios_certification_config" action="action_certification_types" sequence="10" groups="agrios.group_agrios_manager"/>
-          <menuitem name="Corrective Actions" id="corrective_action_menu" parent="agrios_certification_config" action="corrective_action_action" sequence="20"/>
         <menuitem id="agrios_organisation" name="Administration" parent="agrios_configuration" sequence="60"/>
-          <menuitem name="Area Level 6" id="area_level_6_menu" parent="agrios_organisation" action="area_level_6_action" sequence="4" groups="base.group_no_one"/>
-          <menuitem name="Area Level 5" id="area_level_5_menu" parent="agrios_organisation" action="area_level_5_action" sequence="5" groups="base.group_no_one"/>
-          <menuitem name="Area Level 4" id="area_level_4_menu" parent="agrios_organisation" action="area_level_4_action" sequence="6" groups="base.group_no_one"/>
-          <menuitem name="Area Level 3" id="agrios_organisation_area_level_3" parent="agrios_organisation" action="action_area_level_3" sequence="10"/>
-          <menuitem name="Area Level 2" id="agrios_organisation_area_level_2" parent="agrios_organisation" action="action_area_level_2" sequence="20"/>
-          <menuitem name="Area Level 1" id="agrios_organisation_area_level_1" parent="agrios_organisation" action="action_area_level_1" sequence="30"/>
+          <menuitem name="Location Area 6" id="loc_area_6_menu" parent="agrios_organisation" action="loc_area_6_action" sequence="4" groups="base.group_no_one"/>
+          <menuitem name="Location Area 5" id="loc_area_5_menu" parent="agrios_organisation" action="loc_area_5_action" sequence="5" groups="base.group_no_one"/>
+          <menuitem name="Location Area 4" id="loc_area_4_menu" parent="agrios_organisation" action="loc_area_4_action" sequence="6" groups="base.group_no_one"/>
+          <menuitem name="Location Area 3" id="agrios_organisation_loc_area_3" parent="agrios_organisation" action="action_loc_area_3" sequence="10"/>
+          <menuitem name="Location Area 2" id="agrios_organisation_loc_area_2" parent="agrios_organisation" action="action_loc_area_2" sequence="20"/>
+          <menuitem name="Location Area 1" id="agrios_organisation_loc_area_1" parent="agrios_organisation" action="action_loc_area_1" sequence="30"/>
           <menuitem name="Areas Designation" id="country_location_level_menu" parent="agrios_organisation" action="country_location_level_action" sequence="100" groups="agrios.group_agrios_manager"/>
-		  
+  <menuitem name="Trainings" id="agrios_training" sequence="151" action="action_farmer_trainings" groups="agrios.group_farmers_training"/>
+      <menuitem name="Training Topics" id="menu_agrios_training_topic" parent="agrios_training" action="action_farmer_training_topics" sequence="20"/>
+      <menuitem name="Trainers" id="menu_agrios_trainers" parent="agrios_training" action="action_trainers" sequence="30"/>
+  <menuitem name="Certifications" id="agrios_certification" action="action_farmer_certificates" sequence="152" groups="agrios.group_farmers_certifications"/>
+    <menuitem name="Certification Types" id="agrios_certification_type" parent="agrios_certification" action="action_certification_types" sequence="10" groups="agrios.group_agrios_manager"/>
+    <menuitem name="Corrective Actions" id="corrective_action_menu" parent="agrios_certification" action="corrective_action_action" sequence="20"/>
+
+<!--  Hide the menus unless in debug-->
+  <record id="base.menu_apps" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0,[ref('base.group_no_one')])]"/>
+  </record>
+
 </odoo>

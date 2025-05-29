@@ -6,7 +6,7 @@ from odoo.tools import ormcache
 
 class CountryLocationLevel(models.Model):
     _name = 'country.location.level'
-    _description = 'Country Area Level'
+    _description = 'Country Location Area'
     _order = 'country_id, level'
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
@@ -56,7 +56,7 @@ class CountryLocationLevel(models.Model):
 
 class AreaLevel6(models.Model):
     _name = 'area.level.6'
-    _description = 'Area Level 6'
+    _description = 'Location Area 6'
     _order = 'country_id, name'
     
     name = fields.Char('Name', required=True)
@@ -71,7 +71,7 @@ class AreaLevel6(models.Model):
 
 class AreaLevel5(models.Model):
     _name = 'area.level.5'
-    _description = 'Area Level 5'
+    _description = 'Location Area 5'
     _order = 'country_id, name'
     
     name = fields.Char('Name', required=True)
@@ -94,7 +94,7 @@ class AreaLevel5(models.Model):
 
 class AreaLevel4(models.Model):
     _name = 'area.level.4'
-    _description = 'Area Level 4'
+    _description = 'Location Area 4'
     _order = 'country_id, name'
     
     name = fields.Char('Name', required=True)
@@ -117,7 +117,7 @@ class AreaLevel4(models.Model):
 
 class Arealevel3(models.Model): # AreaLevel3
     _name = 'area.level.3'
-    _description = 'Area Level 3'
+    _description = 'Location Area 3'
     _order = 'country_id, name'
     
     name = fields.Char(required=True)
@@ -128,7 +128,7 @@ class Arealevel3(models.Model): # AreaLevel3
     is_parent_required = fields.Boolean(compute='_compute_is_parent_required', string='Parent Area Required')
     
     _sql_constraints = [
-        ('unique_region_name', 'UNIQUE(name)', 'An Area level with this name already exists!'),
+        ('unique_region_name', 'UNIQUE(name)', 'An Location Area with this name already exists!'),
     ]
     
     @api.depends('country_id')
@@ -140,18 +140,18 @@ class Arealevel3(models.Model): # AreaLevel3
 
 class Arealevel2(models.Model): # AreaLevel2
     _name = 'area.level.2'
-    _description = 'Administrative Area level 2'
+    _description = 'Location Area 2'
     _order = 'country_id, name'
     
     name = fields.Char(required=True)
-    area_level_3_id = fields.Many2one('area.level.3', 'Area Level 3', required=True, ondelete='restrict')
+    parent_id = fields.Many2one('area.level.3', 'Parent Area', required=True, ondelete='restrict')
     manager_id = fields.Many2one('res.users', 'Area Manager')
     active = fields.Boolean('Active', default=True)
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     
     _sql_constraints = [
-        ('unique_area_level_2_name', 'UNIQUE(name)','An Area level with this name already Exists'),
+        ('unique_loc_area_2_name', 'UNIQUE(name)','An Location Area with this name already Exists'),
     ]
     
     @api.model
@@ -160,7 +160,7 @@ class Arealevel2(models.Model): # AreaLevel2
             filter_region_ids = self._context['filter_regions']
             if filter_region_ids:
                 if not domain: domain = []
-                domain = [ ['area_level_3_id','in',filter_region_ids] ] + domain
+                domain = [ ['parent_id','in',filter_region_ids] ] + domain
         
         return super()._name_search(name, domain=domain, operator=operator, limit=limit, order=order)
     
@@ -170,46 +170,46 @@ class Arealevel2(models.Model): # AreaLevel2
             filter_region_ids = self._context['filter_regions']
             if filter_region_ids:
                 if not domain: domain = []
-                domain = [ ['area_level_3_id','in',filter_region_ids] ] + domain
+                domain = [ ['parent_id','in',filter_region_ids] ] + domain
         
         return super().search_read(domain=domain, fields=fields, offset=offset, limit=limit, order=order)
     
 
 class AreaLevel1(models.Model): # AreaLevel1
     _name = 'area.level.1'
-    _description = 'Area Level 1'
-    _order = 'country_id, name, area_level_2_id'
+    _description = 'Location Area 1'
+    _order = 'country_id, name, parent_id'
     
     name = fields.Char(required=True)
-    area_level_2_id = fields.Many2one('area.level.2', 'Area Level 2', required=True, ondelete='restrict')
+    parent_id = fields.Many2one('area.level.2', 'Parent Area', required=True, ondelete='restrict')
     active = fields.Boolean('Active', default=True)
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     
-    farmer_group_ids = fields.One2many('farmer.group', 'area_level_1_id', 'Farmer Groups', readonly=True, copy=False)
+    farmer_group_ids = fields.One2many('farmer.group', 'loc_area_1_id', 'Farmer Groups', readonly=True, copy=False)
     manager_id = fields.Many2one('res.users', 'Area Manager')
-    area_level_3_id = fields.Many2one(string='Region', related='area_level_2_id.area_level_3_id')
+
     
     _sql_constraints = [
-        ('unique_level_1_level_3_combination', 'UNIQUE(name, area_level_2_id)', 'An Area level with this name already Exists in the specified Area Level 2'),
+        ('unique_level_1_level_3_combination', 'UNIQUE(name, loc_area_2_id)', 'An Location Area with this name already Exists in the specified Location Area 2'),
     ]
     
     @api.model
     def _name_search(self, name, domain=None, operator='ilike', limit=None, order=None):
-        if self._context.get('filter_area_level_2s'):
-            filter_area_level_2_ids = self._context['filter_area_level_2s']
-            if filter_area_level_2_ids:
+        if self._context.get('filter_loc_area_2s'):
+            filter_loc_area_2_ids = self._context['filter_loc_area_2s']
+            if filter_loc_area_2_ids:
                 if not domain: domain = []
-                domain = [ ['area_level_2_id','in',filter_area_level_2_ids] ] + domain
+                domain = [ ['loc_area_2_id','in',filter_loc_area_2_ids] ] + domain
         
         return super()._name_search(name, domain=domain, operator=operator, limit=limit, order=order)
     
     @api.model
     def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
-        if self._context.get('filter_area_level_2s'):
-            filter_area_level_2_ids = self._context['filter_area_level_2s']
-            if filter_area_level_2_ids:
+        if self._context.get('filter_loc_area_2s'):
+            filter_loc_area_2_ids = self._context['filter_loc_area_2s']
+            if filter_loc_area_2_ids:
                 if not domain: domain = []
-                domain = [ ['area_level_2_id','in',filter_area_level_2_ids] ] + domain
+                domain = [ ['loc_area_2_id','in',filter_loc_area_2_ids] ] + domain
         
         return super().search_read(domain=domain, fields=fields, offset=offset, limit=limit, order=order)
     
@@ -217,15 +217,15 @@ class AreaLevel1(models.Model): # AreaLevel1
 class FarmerGroup(models.Model):
     _name = 'farmer.group'
     _description = "Farmers' Group"
-    _order = 'name, area_level_1_id'
+    _order = 'name, loc_area_1_id'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     
     name = fields.Char(required=True)
     active = fields.Boolean(default=True)
     
-    area_level_1_id = fields.Many2one('area.level.1', string='Location Area 1', tracking=True, required=True)
-    area_level_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
-    area_level_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
+    loc_area_1_id = fields.Many2one('area.level.1', string='Location Area 1', tracking=True, required=True)
+    loc_area_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
+    loc_area_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
     loc_area_4_id = fields.Many2one('area.level.4', 'Location Area 4', ondelete='restrict', tracking=True)
     loc_area_5_id = fields.Many2one('area.level.5', 'Location Area 5', ondelete='restrict', tracking=True)
     loc_area_6_id = fields.Many2one('area.level.6', 'Location Area 6', ondelete='restrict', tracking=True)
@@ -236,10 +236,10 @@ class FarmerGroup(models.Model):
     loc_area_4_label = fields.Char('Location Area 4 Label', compute="_compute_loc_area_details")
     loc_area_5_label = fields.Char('Location Area 5 Label', compute="_compute_loc_area_details")
     loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
-    loc_area_max_level = fields.Integer('Max Location Area Level', compute="_compute_loc_area_details")
+    loc_area_max_level = fields.Integer('Max Location Location Area', compute="_compute_loc_area_details")
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
-    manager_id = fields.Many2one(related='area_level_1_id.manager_id')
+    manager_id = fields.Many2one(related='loc_area_1_id.manager_id')
     
     company_id = fields.Many2one('res.company', string='Company', required=True, readonly=True, default=lambda self: self.env.company)
     currency_id = fields.Many2one(related='company_id.currency_id', store=True, readonly=True)
@@ -252,23 +252,23 @@ class FarmerGroup(models.Model):
     total_due = fields.Monetary('Group Amount Due', compute='_compute_total_due', help="Sum amount due of all the group members")
     
     _sql_constraints = [
-        ('unique_group_area_level_1_combination', 'UNIQUE(name, area_level_1_id)', 'A Group with this name already Exists in the specified Area Level 1')
+        ('unique_group_loc_area_1_combination', 'UNIQUE(name, loc_area_1_id)', 'A Group with this name already Exists in the specified Location Area 1')
     ]
     
     def init(self):
         super().init()
         self._cr.execute("""
             UPDATE farmer_group
-            SET area_level_2_id = ll1.area_level_2_id
+            SET loc_area_2_id = ll1.parent_id
             FROM area_level_1 ll1
-            WHERE farmer_group.area_level_1_id = ll1.id
-            AND farmer_group.area_level_2_id IS NULL;
+            WHERE farmer_group.loc_area_1_id = ll1.id
+            AND farmer_group.loc_area_2_id IS NULL;
             
             UPDATE farmer_group
-            SET area_level_3_id = ll2.area_level_3_id
+            SET loc_area_3_id = ll2.parent_id
             FROM area_level_2 ll2
-            WHERE farmer_group.area_level_2_id = ll2.id
-            AND farmer_group.area_level_3_id IS NULL;
+            WHERE farmer_group.loc_area_2_id = ll2.id
+            AND farmer_group.loc_area_2_id IS NULL;
         """)
     
     @api.depends('member_ids')
@@ -293,37 +293,37 @@ class FarmerGroup(models.Model):
             outgrower.loc_area_6_label = loc_details[6]
             outgrower.loc_area_max_level = max_level
     
-    @api.onchange('area_level_1_id')
-    def _onchange_area_level_1_id(self):
-        if self.area_level_1_id:
-            self.area_level_2_id = self.area_level_1_id.area_level_2_id
+    @api.onchange('loc_area_1_id')
+    def _onchange_loc_area_1_id(self):
+        if self.loc_area_1_id:
+            self.loc_area_2_id = self.loc_area_1_id.loc_area_2_id
     
-    @api.onchange('area_level_2_id')
-    def _onchange_area_level_2_id(self):
-        if self.area_level_2_id:
-            self.area_level_3_id = self.area_level_2_id.area_level_3_id
+    @api.onchange('loc_area_2_id')
+    def _onchange_loc_area_2_id(self):
+        if self.loc_area_2_id:
+            self.loc_area_3_id = self.loc_area_2_id.loc_area_3_id
             
-            if self.area_level_1_id and self.area_level_1_id.area_level_2_id != self.area_level_2_id:
-                self.area_level_1_id = False
+            if self.loc_area_1_id and self.loc_area_1_id.loc_area_2_id != self.loc_area_2_id:
+                self.loc_area_1_id = False
     
-    @api.onchange('area_level_3_id')
+    @api.onchange('loc_area_3_id')
     def _onchange_region_id(self):
-        if self.area_level_3_id:
-            self.loc_area_4_id = self.area_level_3_id.parent_id
+        if self.loc_area_3_id:
+            self.loc_area_4_id = self.loc_area_3_id.parent_id
             
-            if self.area_level_2_id and self.area_level_2_id.area_level_3_id != self.area_level_3_id:
-                self.area_level_2_id = False
-                self.area_level_1_id = False
+            if self.loc_area_2_id and self.loc_area_2_id.loc_area_3_id != self.loc_area_3_id:
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.onchange('loc_area_4_id')
     def _onchange_loc_area_4_id(self):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
             
-            if self.area_level_3_id and self.area_level_3_id.parent_id != self.loc_area_4_id:
-                self.area_level_3_id = False
-                self.area_level_2_id = False
-                self.area_level_1_id = False
+            if self.loc_area_3_id and self.loc_area_3_id.parent_id != self.loc_area_4_id:
+                self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):
@@ -332,9 +332,9 @@ class FarmerGroup(models.Model):
             
             if self.loc_area_4_id and self.loc_area_4_id.parent_id != self.loc_area_5_id:
                 self.loc_area_4_id = False
-                self.area_level_3_id = False
-                self.area_level_2_id = False
-                self.area_level_1_id = False
+                self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.onchange('loc_area_6_id')
     def _onchange_loc_area_6_id(self):
@@ -342,9 +342,9 @@ class FarmerGroup(models.Model):
             if self.loc_area_5_id and self.loc_area_5_id.parent_id != self.loc_area_6_id:
                 self.loc_area_5_id = False
                 self.loc_area_4_id = False
-                self.area_level_3_id = False
-                self.area_level_2_id = False
-                self.area_level_1_id = False
+                self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.model
     def _get_view(self, view_id=None, view_type='form', **options):
@@ -372,19 +372,19 @@ class FarmerGroup(models.Model):
             else:
                 lev4.getparent().remove(lev4)
             
-            lev3 = arch.xpath("//field[@name='area_level_3_id']")[0]
+            lev3 = arch.xpath("//field[@name='loc_area_3_id']")[0]
             if max_level >= 3:
                 lev3.set('string', loc_details[3])
             else:
                 lev3.getparent().remove(lev3)
             
-            lev2 = arch.xpath("//field[@name='area_level_2_id']")[0]
+            lev2 = arch.xpath("//field[@name='loc_area_2_id']")[0]
             if max_level >= 2:
                 lev2.set('string', loc_details[2])
             else:
                 lev2.getparent().remove(lev2)
             
-            lev1 = arch.xpath("//field[@name='area_level_1_id']")[0].set('string', loc_details[1])
+            lev1 = arch.xpath("//field[@name='loc_area_1_id']")[0].set('string', loc_details[1])
         
         return arch, view
     
