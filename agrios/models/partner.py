@@ -41,7 +41,7 @@ class Farmer(models.Model):
     loc_area_4_label = fields.Char('Location Area 4 Label', compute="_compute_loc_area_details")
     loc_area_5_label = fields.Char('Location Area 5 Label', compute="_compute_loc_area_details")
     loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
-    loc_area_max_level = fields.Integer('Max Location Location Area', compute="_compute_loc_area_details")
+    loc_area_max_level = fields.Integer('Max Location Area', compute="_compute_loc_area_details")
     
     manager_id = fields.Many2one(related='loc_area_1_id.manager_id')
     
@@ -298,7 +298,7 @@ class Farmer(models.Model):
     @api.onchange('loc_area_1_id')
     def _onchange_loc_area_1_id(self):
         if self.loc_area_1_id:
-            self.loc_area_2_id = self.loc_area_1_id.loc_area_2_id
+            self.loc_area_2_id = self.loc_area_1_id.parent_id
             
             if self.farmer_group_id and self.loc_area_1_id != self.farmer_group_id.loc_area_1_id:
                 self.farmer_group_id = False
@@ -306,9 +306,9 @@ class Farmer(models.Model):
     @api.onchange('loc_area_2_id')
     def _onchange_loc_area_2_id(self):
         if self.loc_area_2_id:
-            self.loc_area_3_id = self.loc_area_2_id.loc_area_3_id
+            self.loc_area_3_id = self.loc_area_2_id.parent_id
             
-            if self.loc_area_1_id and self.loc_area_1_id.loc_area_2_id != self.loc_area_2_id:
+            if self.loc_area_1_id and self.loc_area_1_id.parent_id != self.loc_area_2_id:
                 self.loc_area_1_id = False
     
     @api.onchange('loc_area_3_id')
@@ -316,7 +316,7 @@ class Farmer(models.Model):
         if self.loc_area_3_id:
             self.loc_area_4_id = self.loc_area_3_id.parent_id
             
-            if self.loc_area_2_id and self.loc_area_2_id.loc_area_3_id != self.loc_area_3_id:
+            if self.loc_area_2_id and self.loc_area_2_id.parent_id != self.loc_area_3_id:
                 self.loc_area_2_id = False
     
     @api.onchange('loc_area_4_id')
