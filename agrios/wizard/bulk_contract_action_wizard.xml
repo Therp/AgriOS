@@ -29,10 +29,10 @@
 					</group>
 					<group string="Filter Per Location / Farmer Group" style="margin-top: -14px !important;">
 						<field name="country_id" widget="many2one" options="{'no_create': True, 'no_open': True}" placeholder="Select Country.."/>
-						<field name="loc_area_6_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_6s': country_id}" invisible="not country_id" placeholder="Select Location Area 6s..."/>
-						<field name="loc_area_5_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_5s': loc_area_6_ids}" invisible="not loc_area_6_ids" placeholder="Select Location Area 5s..."/>
-						<field name="loc_area_4_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_4s': loc_area_5_ids}" invisible="not loc_area_5_ids" placeholder="Select Location Area 4s..."/>
-						<field name="loc_area_3_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_3s': loc_area_4_ids}" invisible="not loc_area_4_ids" placeholder="Select Location Area 3s..."/>
+						<field name="loc_area_6_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_6s': country_id}" invisible="not country_id" placeholder="Select Location Area 6..."/>
+						<field name="loc_area_5_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_5s': loc_area_6_ids}" invisible="not loc_area_6_ids" placeholder="Select Location Area 5..."/>
+						<field name="loc_area_4_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_4s': loc_area_5_ids}" invisible="not loc_area_5_ids" placeholder="Select Location Area 4..."/>
+						<field name="loc_area_3_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_3s': loc_area_4_ids}" invisible="not loc_area_4_ids" placeholder="Select Location Area 3..."/>
 						<field name="loc_area_2_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_3s': loc_area_3_ids}" invisible="not loc_area_3_ids" placeholder="Select Location Area 2..."/>
 						<field name="loc_area_1_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" context="{'filter_loc_area_3s': loc_area_2_ids}" invisible="not loc_area_2_ids" placeholder="Select Location Area 1..."/>
 						<field name="farmer_group_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" invisible="not loc_area_1_ids"  placeholder="Select farmer groups..."/>
