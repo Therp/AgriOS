@@ -87,9 +87,13 @@ class SaleOrderLine(models.Model):
     
     agrios_oa_line_id = fields.Many2one(related='order_id.agrios_oa_id')
     date_order = fields.Datetime(related='order_id.date_order', string="Order Date/Time", store=True, index=True)
-    area_level_1_id = fields.Many2one(related='order_partner_id.area_level_1_id', store=True)
-    area_level_2_id = fields.Many2one(related='order_partner_id.area_level_1_id.area_level_2_id', store=True)
-    area_level_3_id = fields.Many2one(related='order_partner_id.area_level_1_id.area_level_2_id.area_level_3_id', store=True)
+    loc_area_1_id = fields.Many2one(related='order_partner_id.loc_area_1_id', store=True)
+    loc_area_2_id = fields.Many2one(related='order_partner_id.parent_id.loc_area_2_id', store=True)
+    loc_area_3_id = fields.Many2one(related='order_partner_id.loc_area_1_id.parent_id.parent_id', store=True)
+    loc_area_4_id = fields.Many2one(related='order_partner_id.loc_area_1_id.parent_id.parent_id.parent_id', store=True)
+    loc_area_5_id = fields.Many2one(related='order_partner_id.loc_area_1_id.parent_id.parent_id.parent_id.parent_id', store=True)
+    loc_area_6_id = fields.Many2one(related='order_partner_id.loc_area_1_id.parent_id.parent_id.parent_id.parent_id.parent_id', store=True)
+    country_id = fields.Many2one(related='order_partner_id.country_id', store=True)
     farmer_group_id = fields.Many2one(related='order_partner_id.farmer_group_id', store=True)
     
     @api.onchange('product_template_id')

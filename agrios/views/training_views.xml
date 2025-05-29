@@ -123,21 +123,21 @@
                         <group>
                             <field name="training_location"/>
                             <field name="farmer_group_ids" widget="many2many_tags"/>
-                            <!-- <field name="area_level_1_id" readonly="farmer_group_ids" force_save="1"/> -->
+                            <!-- <field name="loc_area_1_id" readonly="farmer_group_ids" force_save="1"/> -->
                             <td class="o_td_label" style="font-weight: 500;">
 								<field name="loc_area_1_label"/>
 							</td>
-							<field name="area_level_1_id" nolabel="1" domain="[('country_id','=',country_id),('area_level_2_id','=?',area_level_2_id)]"/>
+							<field name="loc_area_1_id" nolabel="1" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_2_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
 								<field name="loc_area_2_label"/>
 							</td>
-							<field name="area_level_2_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('area_level_3_id','=?',area_level_3_id)]"/>
+							<field name="loc_area_2_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_3_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
 								<field name="loc_area_3_label"/>
 							</td>
-							<field name="area_level_3_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
+							<field name="loc_area_3_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
 								<field name="loc_area_4_label"/>

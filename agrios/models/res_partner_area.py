@@ -36,9 +36,9 @@ class ResPartnerArea(models.Model):
     intercropping = fields.Boolean('Intercropping')
     subplot_ids = fields.One2many('res.partner.subplot', 'plot_id', string='Subplots')
     
-    area_level_1_id = fields.Many2one('area.level.1', 'Location Area 1', tracking=True)
-    area_level_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
-    area_level_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
+    loc_area_1_id = fields.Many2one('area.level.1', 'Location Area 1', tracking=True)
+    loc_area_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
+    loc_area_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
     loc_area_4_id = fields.Many2one('area.level.4', 'Location Area 4', ondelete='restrict', tracking=True)
     loc_area_5_id = fields.Many2one('area.level.5', 'Location Area 5', ondelete='restrict', tracking=True)
     loc_area_6_id = fields.Many2one('area.level.6', 'Location Area 6', ondelete='restrict', tracking=True)
@@ -50,7 +50,7 @@ class ResPartnerArea(models.Model):
     loc_area_4_label = fields.Char('Location Area 4 Label', compute="_compute_loc_area_details")
     loc_area_5_label = fields.Char('Location Area 5 Label', compute="_compute_loc_area_details")
     loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
-    loc_area_max_level = fields.Integer('Max Location Area Level', compute="_compute_loc_area_details")
+    loc_area_max_level = fields.Integer('Max Location Location Area', compute="_compute_loc_area_details")
     
     main_road = fields.Char('Main Road')
     main_road_distance = fields.Float('Main Road Distance (km)')
@@ -68,16 +68,16 @@ class ResPartnerArea(models.Model):
         super().init()
         self._cr.execute("""
             UPDATE res_partner_area
-            SET area_level_2_id = ll1.area_level_2_id
+            SET loc_area_2_id = ll1.parent_id
             FROM area_level_1 ll1
-            WHERE res_partner_area.area_level_1_id = ll1.id
-            AND res_partner_area.area_level_2_id IS NULL;
+            WHERE res_partner_area.loc_area_1_id = ll1.id
+            AND res_partner_area.loc_area_2_id IS NULL;
             
             UPDATE res_partner_area
-            SET area_level_3_id = ll2.area_level_3_id
+            SET loc_area_3_id = ll2.parent_id
             FROM area_level_2 ll2
-            WHERE res_partner_area.area_level_2_id = ll2.id
-            AND res_partner_area.area_level_3_id IS NULL;
+            WHERE res_partner_area.loc_area_2_id = ll2.id
+            AND res_partner_area.loc_area_3_id IS NULL;
         """)
     
     @api.depends('country_id')
@@ -93,34 +93,34 @@ class ResPartnerArea(models.Model):
             outgrower.loc_area_6_label = loc_details[6]
             outgrower.loc_area_max_level = max_level
     
-    @api.onchange('area_level_1_id')
-    def _onchange_area_level_1_id(self):
-        if self.area_level_1_id:
-            self.area_level_2_id = self.area_level_1_id.area_level_2_id
+    @api.onchange('loc_area_1_id')
+    def _onchange_loc_area_1_id(self):
+        if self.loc_area_1_id:
+            self.loc_area_2_id = self.loc_area_1_id.loc_area_2_id
     
-    @api.onchange('area_level_2_id')
-    def _onchange_area_level_2_id(self):
-        if self.area_level_2_id:
-            self.area_level_3_id = self.area_level_2_id.area_level_3_id
+    @api.onchange('loc_area_2_id')
+    def _onchange_loc_area_2_id(self):
+        if self.loc_area_2_id:
+            self.loc_area_3_id = self.loc_area_2_id.loc_area_3_id
             
-            if self.area_level_1_id and self.area_level_1_id.area_level_2_id != self.area_level_2_id:
-                self.area_level_1_id = False
+            if self.loc_area_1_id and self.loc_area_1_id.loc_area_2_id != self.loc_area_2_id:
+                self.loc_area_1_id = False
     
-    @api.onchange('area_level_3_id')
+    @api.onchange('loc_area_3_id')
     def _onchange_region_id(self):
-        if self.area_level_3_id:
-            self.loc_area_4_id = self.area_level_3_id.parent_id
+        if self.loc_area_3_id:
+            self.loc_area_4_id = self.loc_area_3_id.parent_id
             
-            if self.area_level_2_id and self.area_level_2_id.area_level_3_id != self.area_level_3_id:
-                self.area_level_2_id = False
+            if self.loc_area_2_id and self.loc_area_2_id.loc_area_3_id != self.loc_area_3_id:
+                self.loc_area_2_id = False
     
     @api.onchange('loc_area_4_id')
     def _onchange_loc_area_4_id(self):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
             
-            if self.area_level_3_id and self.area_level_3_id.parent_id != self.loc_area_4_id:
-                self.area_level_3_id = False
+            if self.loc_area_3_id and self.loc_area_3_id.parent_id != self.loc_area_4_id:
+                self.loc_area_3_id = False
     
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):
@@ -179,18 +179,18 @@ class ResPartnerArea(models.Model):
             else:
                 lev4.getparent().remove(lev4)
             
-            lev3 = arch.xpath("//field[@name='area_level_3_id']")[0]
+            lev3 = arch.xpath("//field[@name='loc_area_3_id']")[0]
             if max_level >= 3:
                 lev3.set('string', loc_details[3])
             else:
                 lev3.getparent().remove(lev3)
             
-            lev2 = arch.xpath("//field[@name='area_level_2_id']")[0]
+            lev2 = arch.xpath("//field[@name='loc_area_2_id']")[0]
             if max_level >= 2:
                 lev2.set('string', loc_details[2])
             else:
                 lev2.getparent().remove(lev2)
             
-            lev1 = arch.xpath("//field[@name='area_level_1_id']")[0].set('string', loc_details[1])
+            lev1 = arch.xpath("//field[@name='loc_area_1_id']")[0].set('string', loc_details[1])
         
         return arch, view

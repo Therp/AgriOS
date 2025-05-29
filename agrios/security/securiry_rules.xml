@@ -121,7 +121,7 @@
 	<record id="tc_farmer_group_rule" model="ir.rule">
 		<field name="name">Technical Coordinator Farmer Group Rule</field>
 		<field name="model_id" ref="agrios.model_farmer_group"/>
-		<field name="domain_force">[('area_level_1_id.manager_id','=',user.id)]</field>
+		<field name="domain_force">[('loc_area_1_id.manager_id','=',user.id)]</field>
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_tc'))]"/>
 	</record>
 	<record id="manager_farmer_group_rule" model="ir.rule">
@@ -134,7 +134,7 @@
 	<record id="tc_farmer_training_rule" model="ir.rule">
 		<field name="name">Technical Coordinator Farmer Training Rule</field>
 		<field name="model_id" ref="agrios.model_farmer_training"/>
-		<field name="domain_force">[('area_level_1_id','in',user.area_level_1_ids.ids)]</field>
+		<field name="domain_force">[('loc_area_1_id','in',user.loc_area_1_ids.ids)]</field>
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_tc'))]"/>
 	</record>
 	<record id="manager_farmer_training_rule" model="ir.rule">

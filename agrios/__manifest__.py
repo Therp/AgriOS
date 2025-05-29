@@ -48,10 +48,12 @@
         'views/account_move.xml',
         'views/menus.xml',
     ],
+    'demo': [
+        'demo/uganda_demo_levels.xml',
+    ],
     'assets': {
         'web.assets_backend': [
             'agrios/static/src/module/module_styles.scss',
-            
             'agrios/static/src/lib/leaflet/leaflet.css',
             'agrios/static/src/lib/leaflet/leaflet.js',
             'agrios/static/src/lib/leaflet.draw/leaflet.draw.css',
