@@ -42,15 +42,35 @@
           <menuitem name="Location Area 1" id="agrios_organisation_loc_area_1" parent="agrios_organisation" action="action_loc_area_1" sequence="30"/>
           <menuitem name="Areas Designation" id="country_location_level_menu" parent="agrios_organisation" action="country_location_level_action" sequence="100" groups="agrios.group_agrios_manager"/>
   <menuitem name="Trainings" id="agrios_training" sequence="151" action="action_farmer_trainings" groups="agrios.group_farmers_training"/>
-      <menuitem name="Training Topics" id="menu_agrios_training_topic" parent="agrios_training" action="action_farmer_training_topics" sequence="20"/>
-      <menuitem name="Trainers" id="menu_agrios_trainers" parent="agrios_training" action="action_trainers" sequence="30"/>
+      <menuitem name="Trainings" id="agrios_training_training" parent="agrios_training"  sequence="1" action="action_farmer_trainings" groups="agrios.group_farmers_training"/>
+      <menuitem id="agrios_training_configuration" name="Configuration" parent="agrios_training" sequence="10"/>
+      <menuitem name="Training Topics" id="menu_agrios_training_topic" parent="agrios_training_configuration" action="action_farmer_training_topics" sequence="20"/>
+      <menuitem name="Trainers" id="menu_agrios_trainers" parent="agrios_training_configuration" action="action_trainers" sequence="30"/>
   <menuitem name="Certifications" id="agrios_certification" action="action_farmer_certificates" sequence="152" groups="agrios.group_farmers_certifications"/>
-    <menuitem name="Certification Types" id="agrios_certification_type" parent="agrios_certification" action="action_certification_types" sequence="10" groups="agrios.group_agrios_manager"/>
-    <menuitem name="Corrective Actions" id="corrective_action_menu" parent="agrios_certification" action="corrective_action_action" sequence="20"/>
+    <menuitem name="Certifications" id="agrios_certification_certification" parent="agrios_certification" action="action_farmer_certificates" sequence="10" groups="agrios.group_farmers_certifications"/>
+    <menuitem name="Configuration" id="agrios_certification_configuration" parent="agrios_certification" sequence="20" groups="agrios.group_farmers_certifications"/>
+      <menuitem name="Certification Types" id="agrios_certification_type" parent="agrios_certification_configuration" action="action_certification_types" sequence="10" groups="agrios.group_agrios_manager"/>
+      <menuitem name="Corrective Actions" id="corrective_action_menu" parent="agrios_certification_configuration" action="corrective_action_action" sequence="20"/>
 
 <!--  Hide the menus unless in debug-->
   <record id="base.menu_apps" model="ir.ui.menu">
         <field name="groups_id" eval="[(6, 0,[ref('base.group_no_one')])]"/>
+  </record>
+
+  <record id="contacts.menu_contacts" model="ir.ui.menu">
+        <field name="sequence" eval="160"/>
+  </record>
+
+  <record id="spreadsheet_dashboard.spreadsheet_dashboard_menu_root" model="ir.ui.menu">
+        <field name="sequence" eval="160"/>
+  </record>
+
+  <record id="account.menu_finance" model="ir.ui.menu">
+        <field name="sequence" eval="141"/>
+  </record>
+
+  <record id="stock.menu_stock_root" model="ir.ui.menu">
+        <field name="sequence" eval="142"/>
   </record>
 
 </odoo>
