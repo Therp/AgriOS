@@ -56,7 +56,7 @@ class CountryLocationLevel(models.Model):
 
 class AreaLevel6(models.Model):
     _name = 'area.level.6'
-    _description = 'Location Area 6'
+    _description = 'Area Level 6'
     _order = 'country_id, name'
     
     name = fields.Char('Name', required=True)
@@ -71,7 +71,7 @@ class AreaLevel6(models.Model):
 
 class AreaLevel5(models.Model):
     _name = 'area.level.5'
-    _description = 'Location Area 5'
+    _description = 'Area Level 5'
     _order = 'country_id, name'
     
     name = fields.Char('Name', required=True)
@@ -94,7 +94,7 @@ class AreaLevel5(models.Model):
 
 class AreaLevel4(models.Model):
     _name = 'area.level.4'
-    _description = 'Location Area 4'
+    _description = 'Area Level 4'
     _order = 'country_id, name'
     
     name = fields.Char('Name', required=True)
@@ -117,7 +117,7 @@ class AreaLevel4(models.Model):
 
 class Arealevel3(models.Model): # AreaLevel3
     _name = 'area.level.3'
-    _description = 'Location Area 3'
+    _description = 'Area Level 3'
     _order = 'country_id, name'
     
     name = fields.Char(required=True)
@@ -140,7 +140,7 @@ class Arealevel3(models.Model): # AreaLevel3
 
 class Arealevel2(models.Model): # AreaLevel2
     _name = 'area.level.2'
-    _description = 'Location Area 2'
+    _description = 'Area Level 2'
     _order = 'country_id, name'
     
     name = fields.Char(required=True)
@@ -177,7 +177,7 @@ class Arealevel2(models.Model): # AreaLevel2
 
 class AreaLevel1(models.Model): # AreaLevel1
     _name = 'area.level.1'
-    _description = 'Location Area 1'
+    _description = 'Area Level 1'
     _order = 'country_id, name, parent_id'
     
     name = fields.Char(required=True)
@@ -236,7 +236,7 @@ class FarmerGroup(models.Model):
     loc_area_4_label = fields.Char('Location Area 4 Label', compute="_compute_loc_area_details")
     loc_area_5_label = fields.Char('Location Area 5 Label', compute="_compute_loc_area_details")
     loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
-    loc_area_max_level = fields.Integer('Max Location Location Area', compute="_compute_loc_area_details")
+    loc_area_max_level = fields.Integer('Max Location Area', compute="_compute_loc_area_details")
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     manager_id = fields.Many2one(related='loc_area_1_id.manager_id')
@@ -296,14 +296,14 @@ class FarmerGroup(models.Model):
     @api.onchange('loc_area_1_id')
     def _onchange_loc_area_1_id(self):
         if self.loc_area_1_id:
-            self.loc_area_2_id = self.loc_area_1_id.loc_area_2_id
+            self.loc_area_2_id = self.loc_area_1_id.parent_id
     
     @api.onchange('loc_area_2_id')
     def _onchange_loc_area_2_id(self):
         if self.loc_area_2_id:
-            self.loc_area_3_id = self.loc_area_2_id.loc_area_3_id
+            self.loc_area_3_id = self.loc_area_2_id.parent_id
             
-            if self.loc_area_1_id and self.loc_area_1_id.loc_area_2_id != self.loc_area_2_id:
+            if self.loc_area_1_id and self.loc_area_1_id.parent_id != self.loc_area_2_id:
                 self.loc_area_1_id = False
     
     @api.onchange('loc_area_3_id')
@@ -311,7 +311,7 @@ class FarmerGroup(models.Model):
         if self.loc_area_3_id:
             self.loc_area_4_id = self.loc_area_3_id.parent_id
             
-            if self.loc_area_2_id and self.loc_area_2_id.loc_area_3_id != self.loc_area_3_id:
+            if self.loc_area_2_id and self.loc_area_2_id.parent_id != self.loc_area_3_id:
                 self.loc_area_2_id = False
                 self.loc_area_1_id = False
     

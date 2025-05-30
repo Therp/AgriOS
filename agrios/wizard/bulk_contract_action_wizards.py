@@ -14,13 +14,21 @@ class BulkContractAbstractWizard(models.AbstractModel):
     view_contracts = fields.Boolean('View Contracts')
     
     country_id = fields.Many2one('res.country', string='Country')
-    loc_area_6_ids = fields.Many2many('area.level.6', string='Location Area 6')
-    loc_area_5_ids = fields.Many2many('area.level.5', string='Location Area 5')
-    loc_area_4_ids = fields.Many2many('area.level.4', string='Location Area 4')
-    loc_area_3_ids = fields.Many2many('area.level.3', string='Location Area 3')
-    loc_area_2_ids = fields.Many2many('area.level.2', string='Location Area 2')
-    loc_area_1_ids = fields.Many2many('area.level.1', string='Location Area 1')
+    loc_area_6_ids = fields.Many2many('area.level.6', domain="[('country_id','=', country_id)]", string='Location Area 6')
+    loc_area_5_ids = fields.Many2many('area.level.5', domain="[('country_id','=', country_id)]", string='Location Area 5')
+    loc_area_4_ids = fields.Many2many('area.level.4', domain="[('country_id','=', country_id)]", string='Location Area 4')
+    loc_area_3_ids = fields.Many2many('area.level.3', domain="[('country_id','=', country_id)]", string='Location Area 3')
+    loc_area_2_ids = fields.Many2many('area.level.2', domain="[('country_id','=', country_id)]", string='Location Area 2')
+    loc_area_1_ids = fields.Many2many('area.level.1', domain="[('country_id','=', country_id)]", string='Location Area 1')
     farmer_group_ids = fields.Many2many('farmer.group', string='Farmer Groups')
+
+    loc_area_1_label = fields.Char('Location Area 1 Label', compute="_compute_loc_area_details")
+    loc_area_2_label = fields.Char('Location Area 2 Label', compute="_compute_loc_area_details")
+    loc_area_3_label = fields.Char('Location Area 3 Label', compute="_compute_loc_area_details")
+    loc_area_4_label = fields.Char('Location Area 4 Label', compute="_compute_loc_area_details")
+    loc_area_5_label = fields.Char('Location Area 5 Label', compute="_compute_loc_area_details")
+    loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
+    loc_area_max_level = fields.Integer('Max Location Area', compute="_compute_loc_area_details")
     
     season_id = fields.Many2one('season', 'Season', domain=[('status','in',('open','lock'))])
     product_id = fields.Many2one('product.product', 'Harvestable Product', domain=[('harvest_product','=',True)])
@@ -33,7 +41,7 @@ class BulkContractAbstractWizard(models.AbstractModel):
     
     @api.onchange('loc_area_3_ids')
     def _onchange_loc_area_3_ids(self):
-        self.loc_area_2_ids = self.loc_area_2_ids.filtered(lambda loc_area_2: loc_area_2.loc_area_3_id.id in self.loc_area_3_ids.ids)
+        self.loc_area_2_ids = self.loc_area_2_ids.filtered(lambda loc_area_2: loc_area_2.parent_id.id in self.loc_area_3_ids.ids)
     
     @api.onchange('loc_area_2_ids')
     def _onchange_loc_area_2_ids(self):
@@ -60,6 +68,20 @@ class BulkContractAbstractWizard(models.AbstractModel):
             self.contract_ids = self.env['offtake.agreement'].search(self._get_computed_contracts_domain())
         else:
             self.contract_ids = False
+
+    @api.onchange('country_id')
+    def _compute_loc_area_details(self):
+        cll_env = self.env['country.location.level']
+        for action in self:
+            country_id = action.country_id
+            loc_details, max_level = cll_env._get_country_details(action.country_id.id)
+            action.loc_area_1_label = loc_details[1]
+            action.loc_area_2_label = loc_details[2]
+            action.loc_area_3_label = loc_details[3]
+            action.loc_area_4_label = loc_details[4]
+            action.loc_area_5_label = loc_details[5]
+            action.loc_area_6_label = loc_details[6]
+            action.loc_area_max_level = max_level
     
     def btn_confirm(self):
         self.ensure_one()
