@@ -3,8 +3,7 @@
 from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 
-# import pydevd_pycharm
-# pydevd_pycharm.settrace('localhost', port=5555, stdoutToServer=True, stderrToServer=True)
+
 class BulkContractAbstractWizard(models.AbstractModel):
     _name = 'bulk.contract.abstract.wizard'
     _description = 'Bulk Contract Action Abstract Wizard'
