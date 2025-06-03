@@ -11,7 +11,7 @@
         		<field name="farmer_requires_contract" invisible="1"/>
         	</xpath>
             <xpath expr="//field[@name = 'partner_shipping_id']" position="after">
-                <field name="agrios_oa_id" readonly="state == 'sale' and locked" invisible="not verified_partner_farmer" required="verified_partner_farmer and farmer_requires_contract" options="{'no_create': True}" context="{'verify_agrios_sale': company_id}" groups="agrios.group_farmer_contract"/>
+                <field name="farmer_contract_id" readonly="state == 'sale' and locked" invisible="not verified_partner_farmer" required="verified_partner_farmer and farmer_requires_contract" options="{'no_create': True}" context="{'verify_agrios_sale': company_id}" groups="agrios.group_farmer_contract"/>
             	<field name="payment_in_kind" readonly="state == 'sale' and locked" groups="agrios.group_payments_in_kind"/>
             </xpath>
         </field>

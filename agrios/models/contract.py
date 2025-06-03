@@ -46,11 +46,11 @@ class FarmerContract(models.Model):
     total_contract_cost = fields.Monetary('Total Offtake Cost', compute='_compute_total_offtake_cost')
     total_inputs_cost = fields.Monetary('Total Inputs Cost', compute='_compute_total_inputs_cost')
     
-    oa_input_ids = fields.One2many('sale.order.line', 'agrios_oa_line_id', domain=[('state','not in',['draft','sent','cancel'])])
+    oa_input_ids = fields.One2many('sale.order.line', 'farmer_contract_line_id', domain=[('state','not in',['draft','sent','cancel'])])
     count_oa_input_sales = fields.Integer(compute='_compute_count_oa_input_sales')
     
     count_oa_purchases = fields.Integer(compute='_compute_count_oa_purchases')
-    farmer_contract_offtake_ids = fields.One2many('purchase.order.line', 'agrios_oa_line_id', domain=[('state','not in',['draft','sent','to approve','cancel'])])
+    farmer_contract_offtake_ids = fields.One2many('purchase.order.line', 'farmer_contract_line_id', domain=[('state','not in',['draft','sent','to approve','cancel'])])
     
     interaction_ids = fields.One2many('farmer.interaction', 'contract_id')
     ready_for_harvest = fields.Boolean('Ready For Harvest', default=False, copy=False)
@@ -87,12 +87,12 @@ class FarmerContract(models.Model):
     @api.depends('contract_stage', 'ready_for_harvest')
     def _compute_can_order_inputs(self):
         for contract in self:
-            contract.can_order_inputs = bool(contract.contract_stage == 'open' and (not contract.ready_for_harvest or contract.company_id.agrios_allow_operations_out_of_phase))
+            contract.can_order_inputs = bool(contract.contract_stage == 'open' and (not contract.ready_for_harvest or contract.company_id.allow_operations_out_of_phase))
     
     @api.depends('contract_stage', 'ready_for_harvest')
     def _compute_can_register_offtakes(self):
         for contract in self:
-            contract.can_register_offtakes = bool(contract.contract_stage == 'open' and (contract.ready_for_harvest or contract.company_id.agrios_allow_operations_out_of_phase))
+            contract.can_register_offtakes = bool(contract.contract_stage == 'open' and (contract.ready_for_harvest or contract.company_id.allow_operations_out_of_phase))
     
     def _compute_has_offtake_order(self):
         for contract in self:
@@ -136,11 +136,11 @@ class FarmerContract(models.Model):
     
     def _compute_count_oa_input_sales(self):
         for rec in self:
-            rec.count_oa_input_sales = self.env['sale.order'].search_count([('agrios_oa_id', '=', rec.id)])
+            rec.count_oa_input_sales = self.env['sale.order'].search_count([('farmer_contract_id', '=', rec.id)])
     
     def _compute_count_oa_purchases(self):
         for rec in self:
-            rec.count_oa_purchases = self.env['purchase.order'].search_count([('agrios_oa_id', '=', rec.id)])
+            rec.count_oa_purchases = self.env['purchase.order'].search_count([('farmer_contract_id', '=', rec.id)])
     
     def _compute_total_inputs_cost(self):
         for rec in self:
@@ -190,7 +190,7 @@ class FarmerContract(models.Model):
         self._cr.execute("""
             SELECT DISTINCT cont.id
             FROM farmer_contract cont
-            INNER JOIN purchase_order po ON po.agrios_oa_id = cont.id AND po.state != 'cancel'
+            INNER JOIN purchase_order po ON po.farmer_contract_id = cont.id AND po.state != 'cancel'
             """)
         return [('id', domain_operator, [r[0] for r in self._cr.fetchall()])]
     
@@ -252,7 +252,7 @@ class FarmerContract(models.Model):
             company_id = self._context['verify_agrios_purchase']
             company = self.env.company if self.env.company.id == company_id else self.env['res.company'].browse(company_id)
             
-            if not company.agrios_allow_operations_out_of_phase:
+            if not company.allow_operations_out_of_phase:
                 if not args: args = []
                 args = [('ready_for_harvest','=',True)] + args
         
@@ -260,7 +260,7 @@ class FarmerContract(models.Model):
             company_id = self._context['verify_agrios_sale']
             company = self.env.company if self.env.company.id == company_id else self.env['res.company'].browse(company_id)
             
-            if not company.agrios_allow_operations_out_of_phase:
+            if not company.allow_operations_out_of_phase:
                 if not args: args = []
                 args = [('ready_for_harvest','=',False)] + args
         
@@ -298,7 +298,7 @@ class FarmerContract(models.Model):
             'name': self.display_name + ' - ' + _('Order Inputs'),
             'view_mode': 'list,form',
             'res_model': 'sale.order',
-            'domain': [('agrios_oa_id', '=', self.id)],
+            'domain': [('farmer_contract_id', '=', self.id)],
             'help': '<p class="o_view_nocontent_smiling_face">Contract without any order inputs</p>',
             'context': {
                 'create': False,
@@ -328,7 +328,7 @@ class FarmerContract(models.Model):
             'name': self.display_name + ' - ' + _('Off-Takes'),
             'view_mode': 'list,form',
             'res_model': 'purchase.order',
-            'domain': [('agrios_oa_id','=',self.id)],
+            'domain': [('farmer_contract_id','=',self.id)],
             'help': '<p class="o_view_nocontent_smiling_face">Contract without any off-takes</p>',
             'context': {
                 'create': False,
@@ -383,7 +383,7 @@ class FarmerContract(models.Model):
             contract.message_post(body=_('Contract set ready for harvest.'))
     
     def _cron_close_expired_contracts(self):
-        for company in self.env['res.company'].sudo().search([('agrios_close_expired_contracts','=',True)]):
+        for company in self.env['res.company'].sudo().search([('close_expired_contracts','=',True)]):
             expired_contracts = self.sudo().search([('company_id','=',company.id),('expired_contract','=',True)])
             if expired_contracts:
                 expired_contracts.close_farmer_contract()

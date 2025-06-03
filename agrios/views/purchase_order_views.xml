@@ -11,7 +11,7 @@
         		<field name="farmer_requires_contract" invisible="1"/>
         	</xpath>
             <xpath expr="//field[@name = 'partner_id']" position="after">
-                <field name="agrios_oa_id" invisible="not verified_partner_farmer" required="verified_partner_farmer and farmer_requires_contract" options="{'no_create': True}" context="{'verify_agrios_purchase': company_id}" groups="agrios.group_farmer_contract"/>
+                <field name="farmer_contract_id" invisible="not verified_partner_farmer" required="verified_partner_farmer and farmer_requires_contract" options="{'no_create': True}" context="{'verify_agrios_purchase': company_id}" groups="agrios.group_farmer_contract"/>
             </xpath>
         </field>
     </record>

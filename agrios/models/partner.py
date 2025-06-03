@@ -101,7 +101,7 @@ class Farmer(models.Model):
     country_id = fields.Many2one(required=True, default=lambda self: self.env.company.country_id)
     interactions_count = fields.Integer(compute='_compute_interactions_count', string='Interactions')
     
-    agrios_unreconciled_aml_ids = fields.One2many('account.move.line', compute='_compute_agrios_unreconciled_aml_ids', readonly=False) # copy of enterprise unreconciled_aml_ids
+    unreconciled_aml_ids = fields.One2many('account.move.line', compute='_compute_agrios_unreconciled_aml_ids', readonly=False) # copy of enterprise unreconciled_aml_ids
     
     @api.depends('invoice_ids')
     @api.depends_context('company', 'allowed_company_ids')
@@ -110,7 +110,7 @@ class Farmer(models.Model):
         
         if hasattr(self[0], 'unreconciled_aml_ids'):
             for ptn in self:
-                ptn.agrios_unreconciled_aml_ids = ptn.unreconciled_aml_ids
+                ptn.unreconciled_aml_ids = ptn.unreconciled_aml_ids
         
         else:
             unreconciled_aml_ids = defaultdict(list)
@@ -125,7 +125,7 @@ class Farmer(models.Model):
                     overdue_data[partner] += amount_residual_sum
                 
             for partner in self:
-                partner.agrios_unreconciled_aml_ids = self.env['account.move.line'].browse(unreconciled_aml_ids.get(partner, []))
+                partner.unreconciled_aml_ids = self.env['account.move.line'].browse(unreconciled_aml_ids.get(partner, []))
     
     @api.depends('country_id')
     def _compute_loc_area_details(self):
@@ -172,7 +172,7 @@ class Farmer(models.Model):
                     farmer.can_order_inputs = True
                     farmer.can_order_inputs_confirm = False
                 elif farmer.open_contract_harvest_ids:
-                    farmer.can_order_inputs_confirm = (farmer.company_id or self.env.company).agrios_allow_operations_out_of_phase
+                    farmer.can_order_inputs_confirm = (farmer.company_id or self.env.company).allow_operations_out_of_phase
                     farmer.can_order_inputs = not farmer.can_order_inputs_confirm and not farmer.farmer_requires_contract
                 else:
                     farmer.can_order_inputs = not farmer.farmer_requires_contract
@@ -188,7 +188,7 @@ class Farmer(models.Model):
                     farmer.can_register_offtakes = True
                     farmer.can_register_offtakes_confirm = False
                 elif farmer.open_contract_input_ids:
-                    farmer.can_register_offtakes_confirm = (farmer.company_id or self.env.company).agrios_allow_operations_out_of_phase
+                    farmer.can_register_offtakes_confirm = (farmer.company_id or self.env.company).allow_operations_out_of_phase
                     farmer.can_register_offtakes = not farmer.can_register_offtakes_confirm and not farmer.farmer_requires_contract
                 else:
                     farmer.can_register_offtakes = not farmer.farmer_requires_contract
@@ -458,7 +458,7 @@ class Farmer(models.Model):
         for farmer in self:
             vals = {
                 'farmer_stage': 'verified',
-                'farmer_requires_contract': (farmer.company_id or self.env.company).agrios_default_contract_needed,
+                'farmer_requires_contract': (farmer.company_id or self.env.company).a_default_contract_needed,
             }
             
             if farmer.farmer_ref == '/':
@@ -541,8 +541,8 @@ class Farmer(models.Model):
         }
         
         if not self.farmer_requires_contract and self.crop_product_ids:
-            agrios_allow_operations_out_of_phase = (self.company_id or self.env.company).agrios_allow_operations_out_of_phase
-            if not (self.open_contract_input_ids or (agrios_allow_operations_out_of_phase and self.open_contract_ids)):
+            allow_operations_out_of_phase = (self.company_id or self.env.company).allow_operations_out_of_phase
+            if not (self.open_contract_input_ids or (allow_operations_out_of_phase and self.open_contract_ids)):
                 input_products = self.crop_product_ids.mapped('seed_ids') | self.crop_product_ids.mapped('seed_ids.related_inputs_ids') | self.crop_product_ids.mapped('related_inputs_ids')
                 
                 if input_products:

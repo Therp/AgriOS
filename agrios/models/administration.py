@@ -276,7 +276,7 @@ class FarmerGroup(models.Model):
         for farm_group in self:
             farm_group.total_due = 0.0
             for member in farm_group.member_ids:
-                for aml in member.agrios_unreconciled_aml_ids:
+                for aml in member.unreconciled_aml_ids:
                     if aml.company_id == farm_group.company_id and not aml.blocked:
                         farm_group.total_due += aml.amount_residual
     

@@ -20,10 +20,10 @@ class ResConfigSettings(models.TransientModel):
     group_payments_in_kind = fields.Boolean("Payments In Kind", implied_group='agrios.group_payments_in_kind')
     group_plot_maps = fields.Boolean("Plot On Maps", implied_group='agrios.group_plot_maps')
     
-    agrios_default_contract_needed = fields.Boolean(related='company_id.agrios_default_contract_needed', string="Default Contract Required", readonly=False)
-    agrios_close_expired_contracts = fields.Boolean(related='company_id.agrios_close_expired_contracts', string="Automatically Close Expired Contracts", readonly=False)
-    agrios_allow_operations_out_of_phase = fields.Boolean(related='company_id.agrios_allow_operations_out_of_phase', string="Allow Operations Out Of Phase", readonly=False)
-    agrios_payment_in_kind_optional = fields.Boolean(related='company_id.agrios_payment_in_kind_optional', string="Payments In Kind Optional Reconciliation", readonly=False)
+    a_default_contract_needed = fields.Boolean(related='company_id.a_default_contract_needed', string="Default Contract Required", readonly=False)
+    close_expired_contracts = fields.Boolean(related='company_id.close_expired_contracts', string="Automatically Close Expired Contracts", readonly=False)
+    allow_operations_out_of_phase = fields.Boolean(related='company_id.allow_operations_out_of_phase', string="Allow Operations Out Of Phase", readonly=False)
+    payment_in_kind_optional = fields.Boolean(related='company_id.payment_in_kind_optional', string="Payments In Kind Optional Reconciliation", readonly=False)
     
     land_area_uom = fields.Many2one('uom.uom', string='Land Area Unit of Measure', config_parameter='farmer_management.land_area_uom', domain=lambda self: self._get_land_area_uom_domain(), default=lambda self: self.env.ref('agrios.area_1', raise_if_not_found=False))
     max_plot_size = fields.Float(config_parameter='farmer_management.max_plot_size')
@@ -31,7 +31,7 @@ class ResConfigSettings(models.TransientModel):
     @api.onchange('group_farmer_contract')
     def _onchange_group_farmer_contract(self):
         if not self.group_farmer_contract:
-            self.agrios_default_contract_needed = False
+            self.a_default_contract_needed = False
     
     @api.constrains('land_area_uom')
     def _check_land_area_uom(self):

@@ -11,7 +11,7 @@ class PurchaseOrder(models.Model):
     farmer_requires_contract = fields.Boolean(related='partner_id.farmer_requires_contract', readonly=True, string='Requires Contract')
     partner_open_contract_ids = fields.One2many(related='partner_id.open_contract_ids', readonly=True)
     partner_open_contract_harvest_ids = fields.One2many(related='partner_id.open_contract_harvest_ids', readonly=True)
-    agrios_oa_id = fields.Many2one('farmer.contract', 'AgriOS Contract', domain="[('farmer_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
+    farmer_contract_id = fields.Many2one('farmer.contract', 'Farmer Contract', domain="[('farmer_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
     
     @api.depends('partner_id')
     def _compute_verified_partner_farmer(self):
@@ -21,28 +21,28 @@ class PurchaseOrder(models.Model):
     @api.onchange('partner_id')
     def _onchange_agrios_contract(self):
         if self.partner_id:
-            if self.agrios_oa_id and self.agrios_oa_id.farmer_id == self.partner_id:
+            if self.farmer_contract_id and self.farmer_contract_id.farmer_id == self.partner_id:
                 return
             
             company = self.company_id or self.env.company
             
-            if company.agrios_allow_operations_out_of_phase:
+            if company.allow_operations_out_of_phase:
                 contracts = self.partner_open_contract_ids
             else:
                 contracts = self.partner_open_contract_harvest_ids
             
             if len(contracts) == 1:
-                self.agrios_oa_id = contracts
+                self.farmer_contract_id = contracts
             else:
-                self.agrios_oa_id = False
+                self.farmer_contract_id = False
         else:
-            self.agrios_oa_id = False
+            self.farmer_contract_id = False
     
-    @api.onchange('agrios_oa_id')
+    @api.onchange('farmer_contract_id')
     def _onchange_agrios_oa_id(self):
-        if self.agrios_oa_id:
-            oftake_prd = self.agrios_oa_id.contracted_crop_id
-            balance_qty = max(self.agrios_oa_id.balance_qty * -1, 0)
+        if self.farmer_contract_id:
+            oftake_prd = self.farmer_contract_id.contracted_crop_id
+            balance_qty = max(self.farmer_contract_id.balance_qty * -1, 0)
             
             self.order_line = [(5,0,0), (0,0,{
                 'product_id': oftake_prd.id,
@@ -50,13 +50,13 @@ class PurchaseOrder(models.Model):
                 'product_qty': balance_qty,
                 'product_uom': oftake_prd.uom_po_id.id,
             })]
-            self.currency_id = self.agrios_oa_id.currency_id
+            self.currency_id = self.farmer_contract_id.currency_id
     
 
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
     
-    agrios_oa_line_id = fields.Many2one('farmer.contract', related='order_id.agrios_oa_id')
+    farmer_contract_line_id = fields.Many2one('farmer.contract', related='order_id.farmer_contract_id')
     date_order = fields.Datetime(store=True, index=True)
     loc_area_1_id = fields.Many2one(related='partner_id.loc_area_1_id', store=True)
     loc_area_2_id = fields.Many2one(related='partner_id.loc_area_2_id', store=True)
@@ -71,8 +71,8 @@ class PurchaseOrderLine(models.Model):
     def _compute_price_unit_and_date_planned_and_name(self):
         ret = super()._compute_price_unit_and_date_planned_and_name()
         
-        if self.order_id.agrios_oa_id and self.product_id and self.product_id == self.order_id.agrios_oa_id.contracted_crop_id:
-            self.price_unit = self.order_id.agrios_oa_id.contracted_unit_price
+        if self.order_id.farmer_contract_id and self.product_id and self.product_id == self.order_id.farmer_contract_id.contracted_crop_id:
+            self.price_unit = self.order_id.farmer_contract_id.contracted_unit_price
         
         return ret
     

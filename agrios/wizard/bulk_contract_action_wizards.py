@@ -245,7 +245,7 @@ class BulkContractOfftakeWizard(models.TransientModel):
         for contract in self.contract_ids:
             purchase_order = purchase_orders_env.create({
                 'partner_id': contract.farmer_id.id,
-                'agrios_oa_id': contract.id,
+                'farmer_contract_id': contract.id,
             })
             purchase_order.onchange_partner_id()
             purchase_order._onchange_agrios_oa_id()
