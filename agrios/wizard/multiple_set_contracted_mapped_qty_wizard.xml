@@ -11,11 +11,11 @@
 				<group>
 					<field name="contract_ids" nolabel="1" colspan="2">
 						<list string="Draft Contracts">
-			                <field name="outgrower_id" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
+			                <field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
 			                <field name="season_id"/>
 			                <field name="contracted_crop_id"/>
-			                <field name="unutilized_acreage"/>
-			                <field name="contracted_farm_acreage"/>
+			                <field name="non_contracted_acreage"/>
+			                <field name="contract_acreage"/>
 			                <field name="contract_stage"/>
 			            </list>
 					</field>

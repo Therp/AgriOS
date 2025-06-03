@@ -64,7 +64,7 @@
 	<record id="agrios_iu_res_partner_rule" model="ir.rule">
 		<field name="name">Internal User AgriOS Partner Edit Rule</field>
 		<field name="model_id" ref="base.model_res_partner"/>
-		<field name="domain_force">[('is_outgrower','=',False)]</field>
+		<field name="domain_force">[('is_farmer','=',False)]</field>
 		<field name="groups" eval="[(4, ref('base.group_user'))]"/>
 		<field name="perm_read" eval="False"/>
 		<field name="perm_write" eval="True"/>
@@ -74,7 +74,7 @@
 	<record id="agrios_user_res_partner_rule" model="ir.rule">
 		<field name="name">AgriOS User Partner Edit Rule</field>
 		<field name="model_id" ref="base.model_res_partner"/>
-		<field name="domain_force">[('is_outgrower','=',True), ('outgrower_stage','=','draft')]</field>
+		<field name="domain_force">[('is_farmer','=',True), ('farmer_stage','=','draft')]</field>
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_user'))]"/>
 		<field name="perm_read" eval="False"/>
 		<field name="perm_write" eval="True"/>
@@ -84,7 +84,7 @@
 	<record id="agrios_manager_res_partner_rule" model="ir.rule">
 		<field name="name">AgriOS Manager Partner Edit Rule</field>
 		<field name="model_id" ref="base.model_res_partner"/>
-		<field name="domain_force">[('is_outgrower','=',True), ('outgrower_stage','=','verified')]</field>
+		<field name="domain_force">[('is_farmer','=',True), ('farmer_stage','=','verified')]</field>
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_manager'))]"/>
 		<field name="perm_read" eval="False"/>
 		<field name="perm_write" eval="True"/>
@@ -95,7 +95,7 @@
 	<record id="tc_certified_farmer_rule" model="ir.rule">
 		<field name="name">Technical Coordinator Farmer Certification Rule</field>
 		<field name="model_id" ref="agrios.model_farmer_certification"/>
-		<field name="domain_force">[('outgrower_id','in',user.resposible_farmer_ids.ids)]</field>
+		<field name="domain_force">[('farmer_id','in',user.resposible_farmer_ids.ids)]</field>
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_tc'))]"/>
 	</record>
 	<record id="manager_certified_farmer_rule" model="ir.rule">
@@ -105,15 +105,15 @@
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_manager'))]"/>
 	</record>
 	
-	<record id="tc_offtake_agreement_rule" model="ir.rule">
+	<record id="tc_farmer_contract_rule" model="ir.rule">
 		<field name="name">Technical Coordinator Offtake Agreement Rule</field>
-		<field name="model_id" ref="agrios.model_offtake_agreement"/>
-		<field name="domain_force">[('outgrower_id','in',user.resposible_farmer_ids.ids)]</field>
+		<field name="model_id" ref="agrios.model_farmer_contract"/>
+		<field name="domain_force">[('farmer_id','in',user.resposible_farmer_ids.ids)]</field>
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_tc'))]"/>
 	</record>
-	<record id="manager_offtake_agreement_rule" model="ir.rule">
+	<record id="manager_farmer_contract_rule" model="ir.rule">
 		<field name="name">Manager Offtake Agreement Rule</field>
-		<field name="model_id" ref="agrios.model_offtake_agreement"/>
+		<field name="model_id" ref="agrios.model_farmer_contract"/>
 		<field name="domain_force">[(1,'=',1)]</field>
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_manager'))]"/>
 	</record>
@@ -147,7 +147,7 @@
 	<record id="tc_farmer_interaction_rule" model="ir.rule">
 		<field name="name">Technical Coordinator Farmer Interaction Rule</field>
 		<field name="model_id" ref="agrios.model_farmer_interaction"/>
-		<field name="domain_force">[('outgrower_id','in',user.resposible_farmer_ids.ids)]</field>
+		<field name="domain_force">[('farmer_id','in',user.resposible_farmer_ids.ids)]</field>
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_tc'))]"/>
 	</record>
 	<record id="manager_farmer_interaction_rule" model="ir.rule">
@@ -157,9 +157,9 @@
 		<field name="groups" eval="[(4, ref('agrios.group_agrios_manager'))]"/>
 	</record>
 	
-	<record id="offtake_agreement_comp_rule" model="ir.rule">
+	<record id="farmer_contract_comp_rule" model="ir.rule">
 		<field name="name">Offtake Agreement multi-company</field>
-		<field name="model_id" ref="model_offtake_agreement"/>
+		<field name="model_id" ref="model_farmer_contract"/>
 		<field name="domain_force">[('company_id', 'in', company_ids)]</field>
 	</record>
 	

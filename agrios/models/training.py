@@ -3,9 +3,9 @@
 from odoo import models, fields, api, _
 
 
-class TrainingType(models.Model):
-    _name = 'og.training'
-    _description = 'Training Subject'
+class TrainingTopic(models.Model):
+    _name = 'training.topic'
+    _description = 'Training Topic'
     _inherit = ['mail.thread']
     _order = 'name'
 
@@ -13,7 +13,7 @@ class TrainingType(models.Model):
     active = fields.Boolean(default=True, tracking=True)
 
     _sql_constraints = [
-        ('unique_name', 'UNIQUE(name)', 'Training already Exists'),
+        ('unique_name', 'UNIQUE(name)', 'Training Topic already Exists'),
     ]
 
 
@@ -25,7 +25,7 @@ class FarmerTraining(models.Model):
     
     name = fields.Char("Training No.", compute='_compute_name')
     active = fields.Boolean(default=True, tracking=True)
-    training_ids = fields.Many2many('og.training', tracking=True, required=True)
+    training_ids = fields.Many2many('training.topic', tracking=True, required=True)
     trainer_id = fields.Many2one('res.partner', required=True, tracking=True, domain=[('is_farmer_trainer','=',True)])
     training_state = fields.Selection([
         ('planned', 'Planned'),
@@ -39,8 +39,8 @@ class FarmerTraining(models.Model):
     training_type = fields.Selection([('internal', 'Internal'), ('external', 'External')], default='internal', tracking=True)
     training_content = fields.Text('Summary')
     count_training_participants = fields.Integer('#Participants', compute='_compute_count_training_participants')
-    training_participants_ids = fields.Many2many('res.partner', domain=[('is_outgrower','=',True),('outgrower_stage','=','verified')])
-    farmer_group_ids = fields.Many2many('farmer.group', string='Groups', domain="[('loc_area_1_id', '=?', loc_area_1_id)]", tracking=True)
+    training_participants_ids = fields.Many2many('res.partner', domain=[('is_farmer','=',True),('farmer_stage','=','verified')])
+    farmer_group_ids = fields.Many2many('farmer.group', string='Farmer Groups', domain="[('loc_area_1_id', '=?', loc_area_1_id)]", tracking=True)
     
     loc_area_1_id = fields.Many2one('area.level.1', string='Location Area 1', ondelete='restrict', required=True, tracking=True)
     loc_area_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
@@ -87,15 +87,15 @@ class FarmerTraining(models.Model):
     @api.depends('country_id')
     def _compute_loc_area_details(self):
         cll_env = self.env['country.location.level']
-        for outgrower in self:
-            loc_details, max_level = cll_env._get_country_details(outgrower.country_id.id)
-            outgrower.loc_area_1_label = loc_details[1]
-            outgrower.loc_area_2_label = loc_details[2]
-            outgrower.loc_area_3_label = loc_details[3]
-            outgrower.loc_area_4_label = loc_details[4]
-            outgrower.loc_area_5_label = loc_details[5]
-            outgrower.loc_area_6_label = loc_details[6]
-            outgrower.loc_area_max_level = max_level
+        for farmer in self:
+            loc_details, max_level = cll_env._get_country_details(farmer.country_id.id)
+            farmer.loc_area_1_label = loc_details[1]
+            farmer.loc_area_2_label = loc_details[2]
+            farmer.loc_area_3_label = loc_details[3]
+            farmer.loc_area_4_label = loc_details[4]
+            farmer.loc_area_5_label = loc_details[5]
+            farmer.loc_area_6_label = loc_details[6]
+            farmer.loc_area_max_level = max_level
     
     @api.onchange('loc_area_1_id')
     def _onchange_loc_area_1_id(self):
@@ -160,7 +160,7 @@ class FarmerTraining(models.Model):
                 rec.loc_area_1_id = rec.farmer_group_ids.loc_area_1_id[0]
             else:
                 rec.loc_area_1_id = False
-            rec.training_participants_ids = self.env['res.partner'].search([('is_outgrower','=',True),('outgrower_stage','=','verified'),('farmer_group_id','in',rec.farmer_group_ids.ids)])
+            rec.training_participants_ids = self.env['res.partner'].search([('is_farmer','=',True),('farmer_stage','=','verified'),('farmer_group_id','in',rec.farmer_group_ids.ids)])
     
     def action_done(self):
         self.write({'training_state': 'done'})

@@ -10,7 +10,7 @@ class AccountPaymentRegister(models.TransientModel):
     payment_in_kind_full_amount = fields.Monetary('Payment In Kind Full Amount', compute='_compute_payment_in_kind')
     payment_in_kind_amount = fields.Monetary('Payment In Kind Deduct Amount', compute='_compute_payment_in_kind')
     apply_payment_in_kind = fields.Boolean('Deduct Payment In Kind Amount', compute='_compute_apply_payment_in_kind', precompute=True, store=True)
-    payment_in_kind_optional = fields.Boolean(related='company_id.agrios_payment_in_kind_optional')
+    payment_in_kind_optional = fields.Boolean(related='company_id.payment_in_kind_optional')
     
     @api.depends('currency_id')
     def _compute_payment_in_kind(self):

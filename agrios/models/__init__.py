@@ -13,8 +13,8 @@ from . import purchase_order
 from . import product
 from . import company
 from . import res_config_settings
-from . import res_partner_area
-from . import res_partner_subplot
-from . import tree_yield
+from . import farmer_plot
+from . import farmer_subplot
+from . import plant_age_yield
 from . import account_journal
 from . import account_move

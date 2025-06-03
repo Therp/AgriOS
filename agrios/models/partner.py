@@ -8,26 +8,26 @@ from collections import defaultdict
 
 class Farmer(models.Model):
     _inherit = 'res.partner'
-    _rec_names_search = ['complete_name', 'email', 'ref', 'vat', 'company_registry', 'phone', 'outgrower_ref']
+    _rec_names_search = ['complete_name', 'email', 'ref', 'vat', 'company_registry', 'phone', 'farmer_ref']
     
     @api.model
-    def _get_farm_uom_domain(self):
+    def _get_land_area_uom_domain(self):
         return [('category_id.id', '=', self.env.ref('uom.uom_categ_surface').id), ('uom_type','=','bigger')]
     
     @api.model
-    def _default_farm_uom(self):
-        farm_uom = int(self.env['ir.config_parameter'].sudo().get_param('outgrower_management.farm_uom') or 0)
-        if not farm_uom:
-            farm_uom = self.env.ref('agrios.area_1', raise_if_not_found=False)
-        return farm_uom
+    def _default_land_area_uom(self):
+        land_area_uom = int(self.env['ir.config_parameter'].sudo().get_param('farmer_management.land_area_uom') or 0)
+        if not land_area_uom:
+            land_area_uom = self.env.ref('agrios.area_1', raise_if_not_found=False)
+        return land_area_uom
     
-    is_outgrower = fields.Boolean('Outgrower', default=False)
+    is_farmer = fields.Boolean('Farmer', default=False)
     is_farmer_trainer = fields.Boolean('Farmer Trainer', default=False)
-    outgrower_requires_contract = fields.Boolean('Requires Contract', tracking=True, default=False, help="If selected, this outgrower will require a valid offtake agreement contract to sell inputs or to buy off-takes. If unselected, no valid contract is needed for sales or purchases.")
+    farmer_requires_contract = fields.Boolean('Requires Contract', tracking=True, default=False, help="If selected, this farmer will require a valid offtake agreement contract to sell inputs or to buy off-takes. If unselected, no valid contract is needed for sales or purchases.")
     
-    outgrower_ref = fields.Char('Outgrower Reference', default='/', readonly=True, copy=False)
+    farmer_ref = fields.Char('Farmer Reference', default='/', readonly=True, copy=False)
     
-    farmer_group_id = fields.Many2one('farmer.group', 'Farmers Group', domain="[('loc_area_1_id', '=?', loc_area_1_id)]", tracking=True)
+    farmer_group_id = fields.Many2one('farmer.group', 'Farmer Group', domain="[('loc_area_1_id', '=?', loc_area_1_id)]", tracking=True)
     loc_area_1_id = fields.Many2one('area.level.1', 'Location Area 1', ondelete='restrict', tracking=True)
     loc_area_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
     loc_area_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
@@ -45,46 +45,44 @@ class Farmer(models.Model):
     
     manager_id = fields.Many2one(related='loc_area_1_id.manager_id')
     
-    # Basic outgrower details
+    # Basic farmer details
     gender = fields.Selection([('female', 'Female'), ('male', 'Male')], string='Gender')
-    outgrower_identification = fields.Char(string='National ID', tracking=True)
-    society_id = fields.Char(string='Society ID', tracking=True)
+    farmer_id_number = fields.Char(string='ID Number', tracking=True)
     birthday = fields.Date(string='Date of Birth')
     age = fields.Integer(compute='_compute_age')
-    outgrower_stage = fields.Selection([('draft', 'Draft'),('verified', 'Verified')], 'Outgrower Stage', default='draft', copy=False)
+    farmer_stage = fields.Selection([('draft', 'Draft'),('verified', 'Verified')], 'Farmer Stage', default='draft', copy=False)
     
     # farm details
-    farm_acreage = fields.Float('Own Farm', compute='_compute_land_acreage', inverse='_inverse_farm_acreage', store=True, tracking=True)
-    leased_acreage = fields.Float('Leased Farm', compute='_compute_land_acreage', inverse='_inverse_leased_acreage', store=True, tracking=True)
-    total_land_size = fields.Float('Total Farm', compute='_compute_total_land_size', store=True)
-    utilized_acreage = fields.Float('Utilized Farm', compute='_compute_utilized_acreage')
-    unutilized_acreage = fields.Float('Unutilized Farm', compute='_compute_unutilized_acreage')
+    own_acreage = fields.Float('Own Plot Acreage', compute='_compute_land_acreage', inverse='_inverse_farm_acreage', store=True, tracking=True)
+    leased_acreage = fields.Float('Leased Plot Acreage', compute='_compute_land_acreage', inverse='_inverse_leased_acreage', store=True, tracking=True)
+    total_acreage = fields.Float('Total Plot Acreage', compute='_compute_total_acreage', store=True)
+    total_contracted_acreage = fields.Float('Total Contracted Acreage', compute='_compute_total_contracted_acreage')
+    non_contracted_acreage = fields.Float('Non-Contracted Acreage', compute='_compute_non_contracted_acreage')
     
-    plot_ids = fields.One2many('res.partner.area', 'partner_id', 'Responsible Area', copy=False)
+    plot_ids = fields.One2many('farmer.plot', 'partner_id', 'Responsible Area', copy=False)
     
     # Linked Offtake Agreements
-    count_offtake_agreements = fields.Integer(compute='_compute_count_offtake_agreements')
-    offtake_agreement_ids = fields.One2many('offtake.agreement', 'outgrower_id', 'Contracts')
+    count_farmer_contracts = fields.Integer(compute='_compute_count_farmer_contracts')
+    farmer_contract_ids = fields.One2many('farmer.contract', 'farmer_id', 'Contracts')
     
-    open_contract_ids = fields.One2many('offtake.agreement', string='Open Contracts', compute='_compute_open_contracts')
-    open_contract_input_ids = fields.One2many('offtake.agreement', string='Open Contracts [Input State]', compute='_compute_open_contracts')
-    open_contract_harvest_ids = fields.One2many('offtake.agreement', string='Open Contracts [Harvest State]', compute='_compute_open_contracts')
+    open_contract_ids = fields.One2many('farmer.contract', string='Open Contracts', compute='_compute_open_contracts')
+    open_contract_input_ids = fields.One2many('farmer.contract', string='Open Contracts [Input State]', compute='_compute_open_contracts')
+    open_contract_harvest_ids = fields.One2many('farmer.contract', string='Open Contracts [Harvest State]', compute='_compute_open_contracts')
     
     count_input_sales = fields.Integer(compute='_compute_count_input_sales')
     count_harvest_offtakes = fields.Integer(compute='_compute_count_harvest_offtakes')
     count_trainings = fields.Integer(compute='_compute_count_trainings')
     
-    certification_ids = fields.One2many('farmer.certification', 'outgrower_id')
+    certification_ids = fields.One2many('farmer.certification', 'farmer_id')
     
     training_ids = fields.Many2many('farmer.training', domain=[('training_state', '=', 'done')])
     
-    harvest_crop_ids = fields.Many2many('product.product', 'res_partner_product_harvest_crops_rel', 'partner_id', 'product_id', 'Harvest Crops', domain=[('harvest_product','=',True)])
+    crop_product_ids = fields.Many2many('product.product', 'res_partner_product_harvest_crops_rel', 'partner_id', 'product_id', 'Crops', domain=[('crop_product','=',True)])
     
-    farm_uom = fields.Many2one('uom.uom', 'Unit of Measure', domain=lambda self: self._get_farm_uom_domain(), default=lambda self: self._default_farm_uom(), tracking=True)
+    land_area_uom = fields.Many2one('uom.uom', 'Land Area Unit of Measure', domain=lambda self: self._get_land_area_uom_domain(), default=lambda self: self._default_land_area_uom(), tracking=True)
     
     # extra farmer info
     family_size = fields.Integer()
-    coop_shares = fields.Integer()
     next_of_kin = fields.Char()
     nok_id = fields.Char(string='NOK ID')
     nok_phone = fields.Char(string='NOK Phone')
@@ -97,13 +95,13 @@ class Farmer(models.Model):
     can_order_inputs = fields.Boolean('Can Order Inputs [Without Confirmation]', compute='_compute_can_order_inputs')
     can_order_inputs_confirm = fields.Boolean('Can Order Inputs [With Confirmation]', compute='_compute_can_order_inputs')
     
-    can_regist_offtakes = fields.Boolean('Can Register Off-Takes [Without Confirmation]', compute='_compute_can_regist_offtakes')
-    can_regist_offtakes_confirm = fields.Boolean('Can Register Off-Takes [With Confirmation]', compute='_compute_can_regist_offtakes')
+    can_register_offtakes = fields.Boolean('Can Register Offtakes [Without Confirmation]', compute='_compute_can_register_offtakes')
+    can_register_offtakes_confirm = fields.Boolean('Can Register Offtakes [With Confirmation]', compute='_compute_can_register_offtakes')
     
     country_id = fields.Many2one(required=True, default=lambda self: self.env.company.country_id)
     interactions_count = fields.Integer(compute='_compute_interactions_count', string='Interactions')
     
-    agrios_unreconciled_aml_ids = fields.One2many('account.move.line', compute='_compute_agrios_unreconciled_aml_ids', readonly=False) # copy of enterprise unreconciled_aml_ids
+    unreconciled_aml_ids = fields.One2many('account.move.line', compute='_compute_agrios_unreconciled_aml_ids', readonly=False) # copy of enterprise unreconciled_aml_ids
     
     @api.depends('invoice_ids')
     @api.depends_context('company', 'allowed_company_ids')
@@ -112,7 +110,7 @@ class Farmer(models.Model):
         
         if hasattr(self[0], 'unreconciled_aml_ids'):
             for ptn in self:
-                ptn.agrios_unreconciled_aml_ids = ptn.unreconciled_aml_ids
+                ptn.unreconciled_aml_ids = ptn.unreconciled_aml_ids
         
         else:
             unreconciled_aml_ids = defaultdict(list)
@@ -127,90 +125,90 @@ class Farmer(models.Model):
                     overdue_data[partner] += amount_residual_sum
                 
             for partner in self:
-                partner.agrios_unreconciled_aml_ids = self.env['account.move.line'].browse(unreconciled_aml_ids.get(partner, []))
+                partner.unreconciled_aml_ids = self.env['account.move.line'].browse(unreconciled_aml_ids.get(partner, []))
     
     @api.depends('country_id')
     def _compute_loc_area_details(self):
         cll_env = self.env['country.location.level']
-        for outgrower in self:
-            loc_details, max_level = cll_env._get_country_details(outgrower.country_id.id)
-            outgrower.loc_area_1_label = loc_details[1]
-            outgrower.loc_area_2_label = loc_details[2]
-            outgrower.loc_area_3_label = loc_details[3]
-            outgrower.loc_area_4_label = loc_details[4]
-            outgrower.loc_area_5_label = loc_details[5]
-            outgrower.loc_area_6_label = loc_details[6]
-            outgrower.loc_area_max_level = max_level
+        for farmer in self:
+            loc_details, max_level = cll_env._get_country_details(farmer.country_id.id)
+            farmer.loc_area_1_label = loc_details[1]
+            farmer.loc_area_2_label = loc_details[2]
+            farmer.loc_area_3_label = loc_details[3]
+            farmer.loc_area_4_label = loc_details[4]
+            farmer.loc_area_5_label = loc_details[5]
+            farmer.loc_area_6_label = loc_details[6]
+            farmer.loc_area_max_level = max_level
     
-    @api.depends('plot_ids', 'plot_ids.farm_size')
+    @api.depends('plot_ids', 'plot_ids.plot_size')
     def _compute_land_acreage(self):
-        for outgrower in self:
-            if outgrower.plot_ids:
-                outgrower.farm_acreage = sum(outgrower.plot_ids.filtered(lambda plot: plot.is_owner).mapped('farm_size'))
-                outgrower.leased_acreage = sum(outgrower.plot_ids.filtered(lambda plot: not plot.is_owner).mapped('farm_size'))
+        for farmer in self:
+            if farmer.plot_ids:
+                farmer.own_acreage = sum(farmer.plot_ids.filtered(lambda plot: plot.is_owner).mapped('plot_size'))
+                farmer.leased_acreage = sum(farmer.plot_ids.filtered(lambda plot: not plot.is_owner).mapped('plot_size'))
             else:
-                outgrower.farm_acreage = outgrower.leased_acreage = 0.0
+                farmer.own_acreage = farmer.leased_acreage = 0.0
     
     def _inverse_farm_acreage(self):
         """Allows manual updates to farm_acreage via import"""
         for record in self:
-            record.farm_acreage = record.farm_acreage
+            record.own_acreage = record.own_acreage
     
     def _inverse_leased_acreage(self):
         """Allows manual updates to leased_acreage via import"""
         for record in self:
             record.leased_acreage = record.leased_acreage
 
-    @api.depends('farm_acreage', 'leased_acreage')
-    def _compute_total_land_size(self):
+    @api.depends('own_acreage', 'leased_acreage')
+    def _compute_total_acreage(self):
         for rec in self:
-            rec.total_land_size = rec.farm_acreage + rec.leased_acreage
+            rec.total_acreage = rec.own_acreage + rec.leased_acreage
     
-    @api.depends('outgrower_stage', 'outgrower_requires_contract', 'company_id')
+    @api.depends('farmer_stage', 'farmer_requires_contract', 'company_id')
     def _compute_can_order_inputs(self):
         for farmer in self:
-            if farmer.outgrower_stage == 'verified':
+            if farmer.farmer_stage == 'verified':
                 if farmer.open_contract_input_ids:
                     farmer.can_order_inputs = True
                     farmer.can_order_inputs_confirm = False
                 elif farmer.open_contract_harvest_ids:
-                    farmer.can_order_inputs_confirm = (farmer.company_id or self.env.company).agrios_allow_operations_out_of_phase
-                    farmer.can_order_inputs = not farmer.can_order_inputs_confirm and not farmer.outgrower_requires_contract
+                    farmer.can_order_inputs_confirm = (farmer.company_id or self.env.company).allow_operations_out_of_phase
+                    farmer.can_order_inputs = not farmer.can_order_inputs_confirm and not farmer.farmer_requires_contract
                 else:
-                    farmer.can_order_inputs = not farmer.outgrower_requires_contract
+                    farmer.can_order_inputs = not farmer.farmer_requires_contract
                     farmer.can_order_inputs_confirm = False
             else:
                 farmer.can_order_inputs = farmer.can_order_inputs_confirm = False
     
-    @api.depends('outgrower_stage', 'outgrower_requires_contract', 'company_id')
-    def _compute_can_regist_offtakes(self):
+    @api.depends('farmer_stage', 'farmer_requires_contract', 'company_id')
+    def _compute_can_register_offtakes(self):
         for farmer in self:
-            if farmer.outgrower_stage == 'verified':
+            if farmer.farmer_stage == 'verified':
                 if farmer.open_contract_harvest_ids:
-                    farmer.can_regist_offtakes = True
-                    farmer.can_regist_offtakes_confirm = False
+                    farmer.can_register_offtakes = True
+                    farmer.can_register_offtakes_confirm = False
                 elif farmer.open_contract_input_ids:
-                    farmer.can_regist_offtakes_confirm = (farmer.company_id or self.env.company).agrios_allow_operations_out_of_phase
-                    farmer.can_regist_offtakes = not farmer.can_regist_offtakes_confirm and not farmer.outgrower_requires_contract
+                    farmer.can_register_offtakes_confirm = (farmer.company_id or self.env.company).allow_operations_out_of_phase
+                    farmer.can_register_offtakes = not farmer.can_register_offtakes_confirm and not farmer.farmer_requires_contract
                 else:
-                    farmer.can_regist_offtakes = not farmer.outgrower_requires_contract
-                    farmer.can_regist_offtakes_confirm = False
+                    farmer.can_register_offtakes = not farmer.farmer_requires_contract
+                    farmer.can_register_offtakes_confirm = False
             else:
-                farmer.can_regist_offtakes = farmer.can_regist_offtakes_confirm = False
+                farmer.can_register_offtakes = farmer.can_register_offtakes_confirm = False
     
     def _compute_has_expired_contract(self):
         for farmer in self:
-            farmer.has_expired_contract = any(farmer.offtake_agreement_ids.mapped('expired_contract'))
+            farmer.has_expired_contract = any(farmer.farmer_contract_ids.mapped('expired_contract'))
     
     def _compute_open_contracts(self):
         for farmer in self:
-            farmer.open_contract_ids = farmer.offtake_agreement_ids.filtered(lambda cont: cont.contract_stage == 'open')
+            farmer.open_contract_ids = farmer.farmer_contract_ids.filtered(lambda cont: cont.contract_stage == 'open')
             farmer.open_contract_input_ids = farmer.open_contract_ids.filtered(lambda cont: not cont.ready_for_harvest)
             farmer.open_contract_harvest_ids = farmer.open_contract_ids.filtered(lambda cont: cont.ready_for_harvest)
     
-    def _compute_count_offtake_agreements(self):
+    def _compute_count_farmer_contracts(self):
         for rec in self:
-            rec.count_offtake_agreements = self.env['offtake.agreement'].search_count([('outgrower_id', '=', rec.id)])
+            rec.count_farmer_contracts = self.env['farmer.contract'].search_count([('farmer_id', '=', rec.id)])
     
     def _compute_count_input_sales(self):
         for rec in self:
@@ -222,7 +220,7 @@ class Farmer(models.Model):
     
     def _compute_count_trainings(self):
         for rec in self:
-            rec.count_trainings = self.env['offtake.agreement'].search_count([('outgrower_id', '=', rec.id)])
+            rec.count_trainings = self.env['farmer.contract'].search_count([('farmer_id', '=', rec.id)])
     
     @api.depends('certification_ids.cert_end_date')
     def _compute_certifications(self):
@@ -230,7 +228,7 @@ class Farmer(models.Model):
         
         for rec in self.sudo():
             rec.count_certifications = self.env['farmer.certification'].search_count([
-                ('outgrower_id','=',rec.id), ('cert_end_date','>=',today),
+                ('farmer_id','=',rec.id), ('cert_end_date','>=',today),
                 ('cert_start_date','<=',today), ('force_expired','=',False),
                 ('posted','=',True),
             ])
@@ -239,13 +237,13 @@ class Farmer(models.Model):
             else:
                 rec.certified = False
     
-    def _compute_utilized_acreage(self):
+    def _compute_total_contracted_acreage(self):
         for partner in self:
-            partner.utilized_acreage = sum(partner.offtake_agreement_ids.filtered(lambda contract: contract.contract_stage == 'open').mapped('contracted_farm_acreage'))
+            partner.total_contracted_acreage = sum(partner.farmer_contract_ids.filtered(lambda contract: contract.contract_stage == 'open').mapped('contract_acreage'))
     
-    def _compute_unutilized_acreage(self):
+    def _compute_non_contracted_acreage(self):
         for rec in self:
-            rec.unutilized_acreage = rec.total_land_size - rec.utilized_acreage
+            rec.non_contracted_acreage = rec.total_acreage - rec.total_contracted_acreage
     
     @api.depends('birthday')
     def _compute_age(self):
@@ -260,19 +258,19 @@ class Farmer(models.Model):
             else:
                 record['age'] = 0
         
-    @api.depends('outgrower_ref')
+    @api.depends('farmer_ref')
     def _compute_display_name(self):
         ret = super()._compute_display_name()
         
         for partner in self:
-            if partner.outgrower_ref and partner.outgrower_ref != '/':
-                partner.display_name = f"[{partner.outgrower_ref}] {partner.display_name or ''}"
+            if partner.farmer_ref and partner.farmer_ref != '/':
+                partner.display_name = f"[{partner.farmer_ref}] {partner.display_name or ''}"
         
         return ret
         
     def _compute_interactions_count(self):
         for partner in self:
-            partner.interactions_count = self.env['farmer.interaction'].search_count([('outgrower_id', '=', partner.id)])
+            partner.interactions_count = self.env['farmer.interaction'].search_count([('farmer_id', '=', partner.id)])
     
     def _search_certified(self, operator, value):
         if (operator == '=' and not value) or (operator == '!=' and value):
@@ -281,7 +279,7 @@ class Farmer(models.Model):
             domain_operator = 'in'
         
         self._cr.execute("""
-            SELECT DISTINCT outgrower_id
+            SELECT DISTINCT farmer_id
             FROM farmer_certification
             WHERE posted = True
               AND force_expired = FALSE
@@ -354,8 +352,8 @@ class Farmer(models.Model):
             self._cr.execute("""
                 SELECT DISTINCT ptn1.id
                 FROM res_partner ptn1
-                INNER JOIN res_partner ptn2 ON ptn1.id != ptn2.id AND ptn1.outgrower_identification = ptn2.outgrower_identification
-                WHERE ptn1.outgrower_identification IS NOT NULL
+                INNER JOIN res_partner ptn2 ON ptn1.id != ptn2.id AND ptn1.farmer_id_number = ptn2.farmer_id_number
+                WHERE ptn1.farmer_id_number IS NOT NULL
             """)
             ident_duplicate_ids = [ptn[0] for ptn in self._cr.fetchall()]
             if domain:
@@ -382,7 +380,7 @@ class Farmer(models.Model):
     def _get_view(self, view_id=None, view_type='form', **options):
         arch, view = super()._get_view(view_id=view_id, view_type=view_type, **options)
         
-        if view_type == 'search' and view == self.env.ref('agrios.view_outgrower_search_filter', raise_if_not_found=False):
+        if view_type == 'search' and view == self.env.ref('agrios.view_farmer_search_filter', raise_if_not_found=False):
             company_country_id = self.env.company.country_id.id
             loc_details, max_level = self.env['country.location.level']._get_country_details(company_country_id)
             
@@ -418,7 +416,7 @@ class Farmer(models.Model):
             
             lev1 = arch.xpath("//filter[@name='groupby_loc_area_1_id']")[0].set('string', loc_details[1])
         
-        elif view_type == 'list' and view == self.env.ref('agrios.view_outgrower_tree', raise_if_not_found=False):
+        elif view_type == 'list' and view == self.env.ref('agrios.view_farmer_tree', raise_if_not_found=False):
             company_country_id = self.env.company.country_id.id
             loc_details, max_level = self.env['country.location.level']._get_country_details(company_country_id)
             
@@ -456,17 +454,17 @@ class Farmer(models.Model):
         
         return arch, view
     
-    def verify_outgrower(self):
-        for outgrower in self:
+    def verify_farmer(self):
+        for farmer in self:
             vals = {
-                'outgrower_stage': 'verified',
-                'outgrower_requires_contract': (outgrower.company_id or self.env.company).agrios_default_contract_needed,
+                'farmer_stage': 'verified',
+                'farmer_requires_contract': (farmer.company_id or self.env.company).a_default_contract_needed,
             }
             
-            if outgrower.outgrower_ref == '/':
-                vals['outgrower_ref'] = self.env['ir.sequence'].next_by_code('outgrower.farmer')
+            if farmer.farmer_ref == '/':
+                vals['farmer_ref'] = self.env['ir.sequence'].next_by_code('farmer')
             
-            outgrower.with_context(mail_notrack=True).write(vals)
+            farmer.with_context(mail_notrack=True).write(vals)
     
     def action_view_interactions(self):
         self.ensure_one()
@@ -475,22 +473,22 @@ class Farmer(models.Model):
             'name': 'Interactions',
             'res_model': 'farmer.interaction',
             'view_mode': 'list,form',
-            'domain': [('outgrower_id', '=', self.id)],
+            'domain': [('farmer_id', '=', self.id)],
             'context': {
-                'default_outgrower_id':self.id
+                'default_farmer_id':self.id
             }
         }
     
-    def action_view_offtake_agreements(self):
+    def action_view_farmer_contracts(self):
         self.ensure_one()
         return {
             'type': 'ir.actions.act_window',
             'name': 'Offtake Agreements',
             'view_mode': 'list,form',
-            'res_model': 'offtake.agreement',
-            'domain': [('outgrower_id', '=', self.id)],
+            'res_model': 'farmer.contract',
+            'domain': [('farmer_id', '=', self.id)],
             'context': {
-                'default_outgrower_id': self.id,
+                'default_farmer_id': self.id,
                 'default_company_id': self.company_id.id or self.env.company.id,
             },
             'help': _("""
@@ -542,10 +540,10 @@ class Farmer(models.Model):
             }
         }
         
-        if not self.outgrower_requires_contract and self.harvest_crop_ids:
-            agrios_allow_operations_out_of_phase = (self.company_id or self.env.company).agrios_allow_operations_out_of_phase
-            if not (self.open_contract_input_ids or (agrios_allow_operations_out_of_phase and self.open_contract_ids)):
-                input_products = self.harvest_crop_ids.mapped('seed_ids') | self.harvest_crop_ids.mapped('seed_ids.related_inputs_ids') | self.harvest_crop_ids.mapped('related_inputs_ids')
+        if not self.farmer_requires_contract and self.crop_product_ids:
+            allow_operations_out_of_phase = (self.company_id or self.env.company).allow_operations_out_of_phase
+            if not (self.open_contract_input_ids or (allow_operations_out_of_phase and self.open_contract_ids)):
+                input_products = self.crop_product_ids.mapped('seed_ids') | self.crop_product_ids.mapped('seed_ids.related_inputs_ids') | self.crop_product_ids.mapped('related_inputs_ids')
                 
                 if input_products:
                     order_line_vals = []
@@ -553,7 +551,7 @@ class Farmer(models.Model):
                     for input_prd in input_products:
                         order_line_vals.append((0,0,{
                             'product_id': input_prd.id,
-                            'product_uom_qty': (self.total_land_size * input_prd.qty_per_acreage) or 1.0,
+                            'product_uom_qty': (self.total_acreage * input_prd.qty_per_acreage) or 1.0,
                         }))
                     
                     action['context']['default_order_line'] = order_line_vals
@@ -580,7 +578,7 @@ class Farmer(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'name': _('New Farm Of %s') % self.display_name,
-            'res_model': 'res.partner.area',
+            'res_model': 'farmer.plot',
             'view_mode': 'form',
             'target': 'new',
             'context': {
@@ -593,7 +591,7 @@ class Farmer(models.Model):
     def get_offtake_estimate(self, crop_product):
         """Get the total estimate per acre"""
         self.ensure_one()
-        estimated_yield = crop_product.est_yield
+        estimated_yield = crop_product.estimated_yield
         
         if crop_product.harvest_product_type == 'tree_crop':
             domain = [
