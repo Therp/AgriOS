@@ -202,7 +202,7 @@ class FarmerContract(models.Model):
             if rec.contracted_crop_id and rec.contract_acreage:
                 crop_product = rec.contracted_crop_id
                 est_offtake = (
-                    crop_product.est_yield if crop_product.harvest_product_type == 'perennial' 
+                    crop_product.estimated_yield if crop_product.harvest_product_type == 'perennial' 
                     else rec.farmer_id.get_offtake_estimate(crop_product)
                 )
                 rec.contracted_offtake_qty = est_offtake * rec.contract_acreage
@@ -219,15 +219,15 @@ class FarmerContract(models.Model):
         if self.contracted_crop_id:
             if len(self.available_seed_ids) == 1:
                 self.seed_variety_id = self.available_seed_ids
-            elif self.seed_variety_id and self.seed_variety_id.harvest_crop_id != self.contracted_crop_id:
+            elif self.seed_variety_id and self.seed_variety_id.crop_product_id != self.contracted_crop_id:
                 self.seed_variety_id = False
         else:
             self.seed_variety_id = False
     
     @api.onchange('seed_variety_id')
     def _onchange_seed_variety_id(self):
-        if not self.contracted_crop_id and self.seed_variety_id.harvest_crop_id:
-            self.contracted_crop_id = self.seed_variety_id.harvest_crop_id
+        if not self.contracted_crop_id and self.seed_variety_id.crop_product_id:
+            self.contracted_crop_id = self.seed_variety_id.crop_product_id
     
     @api.onchange('farmer_id')
     def _onchange_farmer_id(self):

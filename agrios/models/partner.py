@@ -77,7 +77,7 @@ class Farmer(models.Model):
     
     training_ids = fields.Many2many('farmer.training', domain=[('training_state', '=', 'done')])
     
-    crop_product_ids = fields.Many2many('product.product', 'res_partner_product_harvest_crops_rel', 'partner_id', 'product_id', 'Crops', domain=[('harvest_product','=',True)])
+    crop_product_ids = fields.Many2many('product.product', 'res_partner_product_harvest_crops_rel', 'partner_id', 'product_id', 'Crops', domain=[('crop_product','=',True)])
     
     land_area_uom = fields.Many2one('uom.uom', 'Land Area Unit of Measure', domain=lambda self: self._get_land_area_uom_domain(), default=lambda self: self._default_land_area_uom(), tracking=True)
     
@@ -159,7 +159,7 @@ class Farmer(models.Model):
         for record in self:
             record.leased_acreage = record.leased_acreage
 
-    @api.depends('farm_acreage', 'leased_acreage')
+    @api.depends('own_acreage', 'leased_acreage')
     def _compute_total_acreage(self):
         for rec in self:
             rec.total_acreage = rec.own_acreage + rec.leased_acreage
@@ -591,7 +591,7 @@ class Farmer(models.Model):
     def get_offtake_estimate(self, crop_product):
         """Get the total estimate per acre"""
         self.ensure_one()
-        estimated_yield = crop_product.est_yield
+        estimated_yield = crop_product.estimated_yield
         
         if crop_product.harvest_product_type == 'tree_crop':
             domain = [

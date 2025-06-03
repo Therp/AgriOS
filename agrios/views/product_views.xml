@@ -12,7 +12,7 @@
 				<separator/>
 				<filter string="Seed Varieties" name="filter_seed_product" domain="[('seed_product','=',True)]" groups="agrios.group_seed_varieties"/>
 				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
-				<filter string="Harvest Products" name="filter_harvest_product" domain="[('harvest_product','=',True)]"/>
+				<filter string="Harvest Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
 			</xpath>
 		</field>
 	</record>
@@ -23,17 +23,17 @@
         <field name="inherit_id" ref="product.product_template_kanban_view"/>
         <field name="arch" type="xml">
         	<xpath expr="/kanban" position="attributes">
-        		<attribute name="default_order">is_favorite desc, seed_product desc, harvest_product desc, input_product desc desc, name</attribute>
+        		<attribute name="default_order">is_favorite desc, seed_product desc, crop_product desc, input_product desc desc, name</attribute>
         	</xpath>
         	<xpath expr="//field[@name='categ_id']" position="after">
         		<field name="input_product"/>
-        		<field name="harvest_product"/>
+        		<field name="crop_product"/>
         		<field name="seed_product"/>
         	</xpath>
         	<xpath expr="//field[@name='list_price']/.." position="before">
         		<div t-if="record.seed_product.raw_value === true" class="mt-1" style="background-color: #00a3ff54;">Seed Variety</div>
         		<div t-if="record.input_product.raw_value === true" class="mt-1" style="background-color: #edff7f54;">Input Product</div>
-        		<div t-if="record.harvest_product.raw_value === true" class="mt-1" style="background-color: #82ff7f54;">Harvest Product</div>
+        		<div t-if="record.crop_product.raw_value === true" class="mt-1" style="background-color: #82ff7f54;">Crop Product</div>
         	</xpath>
         </field>
     </record>
@@ -50,33 +50,33 @@
             <xpath expr="//page[@name='purchase']" position='after'>
                 <page name="agrios_page" string="AgriOS Details" groups="agrios.group_agrios_readonly">
                     <group>
-                        <group string="Input Info" invisible="type != 'consu' or harvest_product or seed_product">
+                        <group string="Input Info" invisible="type != 'consu' or crop_product or seed_product">
                             <field name="input_product"/>
                             
                             <label for="qty_per_acreage" invisible="not input_product"/>
                             <div class="o_row mw-50" invisible="not input_product">
                                 <field name="qty_per_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
                                 <div>
-                                    <field name="farm_measure"/>
+                                    <field name="land_area_uom"/>
                                 </div>
                             </div>
                         </group>
                         <group string="Crop Info" invisible="type != 'consu' or input_product">
-                            <field name="harvest_product"/>
-                            <field name="harvest_product_type" invisible="not harvest_product"/>
-                            <field name="maturity_days" invisible="not harvest_product"/>
-                            <label groups="agrios.group_plot_management" for="est_yield" invisible="not harvest_product or harvest_product_type == 'tree_crop'"/>
-                            <div groups="agrios.group_plot_management" invisible="not harvest_product or harvest_product_type == 'tree_crop'">
-                                <field name="est_yield" class="oe_inline" nolabel="1"/>
-                                <field name="farm_measure" class="oe_inline"/>
+                            <field name="crop_product"/>
+                            <field name="harvest_product_type" invisible="not crop_product"/>
+                            <field name="maturity_days" invisible="not crop_product"/>
+                            <label groups="agrios.group_plot_management" for="estimated_yield" invisible="not crop_product or harvest_product_type == 'tree_crop'"/>
+                            <div groups="agrios.group_plot_management" invisible="not crop_product or harvest_product_type == 'tree_crop'">
+                                <field name="estimated_yield" class="oe_inline" nolabel="1"/>
+                                <field name="land_area_uom" class="oe_inline"/>
                             </div>
-							<label for="est_yield" groups="!agrios.group_plot_management"/>
+							<label for="estimated_yield" groups="!agrios.group_plot_management"/>
 							<div groups="!agrios.group_plot_management">
-                                <field name="est_yield" groups="!agrios.group_plot_management" class="oe_inline" nolabel="1"/>
-                                <field name="farm_measure" groups="!agrios.group_plot_management" class="oe_inline"/>
+                                <field name="estimated_yield" groups="!agrios.group_plot_management" class="oe_inline" nolabel="1"/>
+                                <field name="land_area_uom" groups="!agrios.group_plot_management" class="oe_inline"/>
                             </div>
-							<separator string="Anual Tree Yield" invisible="not harvest_product or harvest_product_type != 'tree_crop'" groups="agrios.group_plot_management"/>
-                            <field name="tree_yield_ids" nolabel="1" colspan="2" invisible="not harvest_product or harvest_product_type != 'tree_crop'" groups="agrios.group_plot_management">
+							<separator string="Anual Tree Yield" invisible="not crop_product or harvest_product_type != 'tree_crop'" groups="agrios.group_plot_management"/>
+                            <field name="tree_yield_ids" nolabel="1" colspan="2" invisible="not crop_product or harvest_product_type != 'tree_crop'" groups="agrios.group_plot_management">
 								<list editable="bottom">
                                     <control>
                                         <create name="add_line_control" string="New Yield"/>
@@ -86,18 +86,18 @@
 								</list>
 							</field>
 
-                            <field name="related_inputs_ids" widget="many2many_tags" invisible="not harvest_product"/>
-                            <field name="seed_ids" widget="many2many_tags" invisible="not harvest_product" help="To set seed varieties, select this harvest product as the harverst crop of the seed..." groups="agrios.group_seed_varieties"/>
+                            <field name="related_inputs_ids" widget="many2many_tags" invisible="not crop_product"/>
+                            <field name="seed_ids" widget="many2many_tags" invisible="not crop_product" help="To set seed varieties, select this harvest product as the harverst crop of the seed..." groups="agrios.group_seed_varieties"/>
                         </group>
                         <group string="Seed Info" invisible="type != 'consu' or input_product" groups="agrios.group_seed_varieties">
                         	<field name="seed_product"/>
-                        	<field name="harvest_crop_id" required="seed_product" invisible="not seed_product" context="{'default_harvest_product': True}"/>
+                        	<field name="crop_product_id" required="seed_product" invisible="not seed_product" context="{'default_harvest_product': True}"/>
                         	
                         	<label for="qty_per_acreage" invisible="not seed_product"/>
                             <div class="o_row mw-50" invisible="not seed_product">
                                 <field name="qty_per_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
                                 <div>
-                                    <field name="farm_measure"/>
+                                    <field name="land_area_uom"/>
                                 </div>
                             </div>
                         	
@@ -132,7 +132,7 @@
 			<xpath expr="//field[@name='categ_id']" position="after">
 				<separator/>
 				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
-				<filter string="Harvest Products" name="filter_harvest_product" domain="[('harvest_product','=',True)]"/>
+				<filter string="Harvest Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
 			</xpath>
 		</field>
 	</record>

@@ -31,7 +31,7 @@ class BulkContractAbstractWizard(models.AbstractModel):
     loc_area_max_level = fields.Integer('Max Location Area', compute="_compute_loc_area_details")
     
     season_id = fields.Many2one('season', 'Season', domain=[('status','in',('open','lock'))])
-    crop_product_id = fields.Many2one('product.product', 'Crop Product', domain=[('harvest_product','=',True)])
+    crop_product_id = fields.Many2one('product.product', 'Crop Product', domain=[('crop_product','=',True)])
     expired_filter = fields.Selection([('expired','Expired Only'),('not_expired','Not Expired Only')], 'Expired Contracts')
 
     @api.onchange('country_id')

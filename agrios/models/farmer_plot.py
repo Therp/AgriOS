@@ -21,16 +21,16 @@ class FarmerPlot(models.Model):
     name = fields.Char('Name', required=True, tracking=True)
     
     gshape_name = fields.Char('Gshape Name')
-    gshape_type = fields.Selection([('circle', 'Circle'),('polygon', 'Polygon'),('rectangle', 'Rectangle')], 'Plot Shape Type')
+    plot_shape_type = fields.Selection([('circle', 'Circle'),('polygon', 'Polygon'),('rectangle', 'Rectangle')], 'Plot Shape Type')
     gshape_description = fields.Text('Description')
     
     partner_id = fields.Many2one('res.partner', 'Farmer', domain="[('is_farmer','=',True)]", required=True, ondelete='cascade', tracking=True, index=True)
     active = fields.Boolean('Active', default=True, tracking=True)
-    year_of_farm_establishment = fields.Char('Year of Farm Establishment', tracking=True)
+    year_established = fields.Char('Year Established', tracking=True)
     registration_year = fields.Integer('Year of Registration')
     is_owner = fields.Boolean('Owned By Farmer', help='If the Farmer owns the plot of land or not', default=True)
-    farm_in_protected_area = fields.Boolean('Farm in Protected Area')
-    land_area_uom_id = fields.Many2one('uom.uom', 'Farm UOM', domain=_get_land_area_uom_domain, default=_get_default_land_area_uom, tracking=True, readonly=True)
+    located_in_protected_area = fields.Boolean('Located in Protected Area')
+    plot_uom_id = fields.Many2one('uom.uom', 'Plot UOM', domain=_get_land_area_uom_domain, default=_get_default_land_area_uom, tracking=True, readonly=True)
     plot_size = fields.Float('Plot Size', required=True, tracking=True)
     farm_condition = fields.Selection([('bad', 'Bad'),('needsimprovement','Needs Improvement'),('good','Good'),('verygood','Very Good')], default=False)
     intercropping = fields.Boolean('Intercropping')
@@ -56,7 +56,7 @@ class FarmerPlot(models.Model):
     main_road_distance = fields.Float('Main Road Distance (km)')
     gps_location = fields.Char('GPS Location', tracking=True)
     
-    plot_polygon = fields.Json('Plot Area')
+    plot_polygon = fields.Json('Plot Polygon')
     country_code = fields.Char(compute='_compute_country_code', default=lambda self: self.env.company.country_id.code or False)
     
     def _compute_country_code(self):
@@ -136,10 +136,10 @@ class FarmerPlot(models.Model):
             if self.loc_area_5_id and self.loc_area_5_id.parent_id != self.loc_area_6_id:
                 self.loc_area_5_id = False
     
-    @api.constrains('year_of_farm_establishment')
+    @api.constrains('year_established')
     def _check_year_of_farm_establishment(self):
         for rec in self:
-            year = rec.year_of_farm_establishment
+            year = rec.year_established
             
             if year:
                 if not year.isdigit():
