@@ -30,8 +30,8 @@
         <field name="arch" type="xml">
             <list editable="bottom">
                 <field name="name"/>
-                <field name="manager_id" options="{'no_create': True}" optional="show"/>
                 <field name="country_id" options="{'no_create': True}" optional="show"/>
+                <field name="manager_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
     </record>
@@ -49,10 +49,10 @@
         <field name="arch" type="xml">
             <list editable="bottom">
                 <field name="name"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
                 <field name="is_parent_required" column_invisible="True"/>
                 <field name="parent_id" string="Parent Area" required="is_parent_required" options="{'no_create': True}" optional="show"/>
                 <field name="manager_id" options="{'no_create': True}" optional="show"/>
-                <field name="country_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
     </record>
@@ -70,10 +70,10 @@
         <field name="arch" type="xml">
             <list editable="bottom">
                 <field name="name"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
                 <field name="is_parent_required" column_invisible="True"/>
                 <field name="parent_id" string="Parent Area" required="is_parent_required" options="{'no_create': True}" optional="show"/>
                 <field name="manager_id" options="{'no_create': True}" optional="show"/>
-                <field name="country_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
     </record>
@@ -92,10 +92,10 @@
         <field name="arch" type="xml">
             <list sample="1" editable="top">
                 <field name="name"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
                 <field name="is_parent_required" column_invisible="True"/>
                 <field name="parent_id" string="Parent Area" options="{'no_create': true}" required="is_parent_required" optional="show"/>
                 <field name="manager_id" options="{'no_create': True}" optional="show"/>
-                <field name="country_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
     </record>
@@ -109,6 +109,8 @@
                 	<group>
                 		<field name="name"/>
                 		<field name="country_id" options="{'no_create': True}"/>
+                        <field name="is_parent_required" column_invisible="True"/>
+                        <field name="parent_id" string="Parent Area" options="{'no_create': true}" required="is_parent_required" optional="show"/>
                 	</group>
                 </sheet>
             </form>
@@ -138,9 +140,10 @@
         <field name="arch" type="xml">
             <list sample="1" editable="top">
                 <field name="name"/>
-                <field name="parent_id"/>
-                <field name="manager_id" options="{'no_create': True}" optional="show"/>
                 <field name="country_id" options="{'no_create': True}" optional="show"/>
+                <field name="is_parent_required" column_invisible="True"/>
+                <field name="parent_id" string="Parent Area" options="{'no_create': true}" required="is_parent_required" optional="show"/>
+                <field name="manager_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
     </record>
@@ -168,9 +171,9 @@
         <field name="arch" type="xml">
             <list sample="1" editable="bottom">
                 <field name="name"/>
+                <field name="country_id" options="{'no_create': True}" optional="show"/>
                 <field name="parent_id" optional="show"/>
                 <field name="manager_id" options="{'no_create': True}" optional="show"/>
-                <field name="country_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
     </record>
