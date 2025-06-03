@@ -3,7 +3,7 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 from odoo.tools import index_exists
-
+from markupsafe import Markup
 from dateutil.relativedelta import relativedelta
 
 
@@ -150,7 +150,7 @@ class FarmerCertification(models.Model):
                 
                 for valid_farmer_certification in certification.valid_farmer_certification_ids.sudo():
                     valid_farmer_certification.force_expired = True
-                    valid_farmer_certification.message_post(body=_('This Certification record was set as expired due to a new one being added: %s') % certification._get_html_link(), body_is_html=True)
+                    valid_farmer_certification.message_post(body=Markup(_('This Certification record was set as expired due to a new one being added: %s') % certification._get_html_link()))
     
     def action_set_draft(self):
         for certification in self:
