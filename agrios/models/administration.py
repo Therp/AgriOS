@@ -77,7 +77,7 @@ class AreaLevel5(models.Model):
     name = fields.Char('Name', required=True)
     manager_id = fields.Many2one('res.users', 'Area Manager')
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
-    parent_id = fields.Many2one('area.level.6', 'Parent Area')
+    parent_id = fields.Many2one('area.level.6', 'Parent Area', domain="[('country_id','=',country_id)]")
     active = fields.Boolean('Active', default=True)
     is_parent_required = fields.Boolean(compute='_compute_is_parent_required', string='Parent Area Required')
     
@@ -100,7 +100,7 @@ class AreaLevel4(models.Model):
     name = fields.Char('Name', required=True)
     manager_id = fields.Many2one('res.users', 'Area Manager')
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
-    parent_id = fields.Many2one('area.level.5', 'Parent Area')
+    parent_id = fields.Many2one('area.level.5', 'Parent Area', domain="[('country_id','=',country_id)]")
     active = fields.Boolean('Active', default=True)
     is_parent_required = fields.Boolean(compute='_compute_is_parent_required', string='Parent Area Required')
     
@@ -123,7 +123,7 @@ class Arealevel3(models.Model): # AreaLevel3
     name = fields.Char(required=True)
     manager_id = fields.Many2one('res.users', 'Area Manager')
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
-    parent_id = fields.Many2one('area.level.4', 'Parent Area')
+    parent_id = fields.Many2one('area.level.4', 'Parent Area', domain="[('country_id','=',country_id)]")
     active = fields.Boolean('Active', default=True)
     is_parent_required = fields.Boolean(compute='_compute_is_parent_required', string='Parent Area Required')
     
@@ -144,15 +144,22 @@ class Arealevel2(models.Model): # AreaLevel2
     _order = 'country_id, name'
     
     name = fields.Char(required=True)
-    parent_id = fields.Many2one('area.level.3', 'Parent Area', required=True, ondelete='restrict')
+    parent_id = fields.Many2one('area.level.3', 'Parent Area', domain="[('country_id','=',country_id)]", ondelete='restrict')
     manager_id = fields.Many2one('res.users', 'Area Manager')
     active = fields.Boolean('Active', default=True)
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
+    is_parent_required = fields.Boolean(compute='_compute_is_parent_required', string='Parent Area Required')
     
     _sql_constraints = [
         ('unique_loc_area_2_name', 'UNIQUE(name)','An Location Area with this name already Exists'),
     ]
+
+    @api.depends('country_id')
+    def _compute_is_parent_required(self):
+        for record in self:
+            loc_details, max_level = self.env['country.location.level']._get_country_details(record.country_id.id)
+            record.is_parent_required = max_level > 2
     
     @api.model
     def _name_search(self, name, domain=None, operator='ilike', limit=None, order=None):
@@ -181,7 +188,7 @@ class AreaLevel1(models.Model): # AreaLevel1
     _order = 'country_id, name, parent_id'
     
     name = fields.Char(required=True)
-    parent_id = fields.Many2one('area.level.2', 'Parent Area', required=True, ondelete='restrict')
+    parent_id = fields.Many2one('area.level.2', 'Parent Area', domain="[('country_id','=',country_id)]", required=True, ondelete='restrict')
     active = fields.Boolean('Active', default=True)
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     
