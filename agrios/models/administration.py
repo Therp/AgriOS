@@ -244,10 +244,10 @@ class FarmerGroup(models.Model):
     company_id = fields.Many2one('res.company', string='Company', required=True, readonly=True, default=lambda self: self.env.company)
     currency_id = fields.Many2one(related='company_id.currency_id', store=True, readonly=True)
     
-    chairperson_id = fields.Many2one('res.partner', tracking=True, domain="[('is_outgrower','=',True),('farmer_group_id','=',id),('outgrower_stage','=','verified')]")
-    group_sec_id = fields.Many2one('res.partner', 'Secretary', tracking=True, domain="[('is_outgrower','=', True),('farmer_group_id','=',id),('outgrower_stage','=','verified')]")
-    group_treasurer_id = fields.Many2one('res.partner', 'Treasurer', tracking=True, domain="[('is_outgrower','=',True),('farmer_group_id','=',id),('outgrower_stage','=','verified')]")
-    member_ids = fields.One2many('res.partner', 'farmer_group_id', domain=[('is_outgrower','=',True),('outgrower_stage','=','verified')])
+    chairperson_id = fields.Many2one('res.partner', tracking=True, domain="[('is_farmer','=',True),('farmer_group_id','=',id),('farmer_stage','=','verified')]")
+    group_sec_id = fields.Many2one('res.partner', 'Secretary', tracking=True, domain="[('is_farmer','=', True),('farmer_group_id','=',id),('farmer_stage','=','verified')]")
+    group_treasurer_id = fields.Many2one('res.partner', 'Treasurer', tracking=True, domain="[('is_farmer','=',True),('farmer_group_id','=',id),('farmer_stage','=','verified')]")
+    member_ids = fields.One2many('res.partner', 'farmer_group_id', domain=[('is_farmer','=',True),('farmer_stage','=','verified')])
     
     total_due = fields.Monetary('Group Amount Due', compute='_compute_total_due', help="Sum amount due of all the group members")
     
@@ -283,15 +283,15 @@ class FarmerGroup(models.Model):
     @api.depends('country_id')
     def _compute_loc_area_details(self):
         cll_env = self.env['country.location.level']
-        for outgrower in self:
-            loc_details, max_level = cll_env._get_country_details(outgrower.country_id.id)
-            outgrower.loc_area_1_label = loc_details[1]
-            outgrower.loc_area_2_label = loc_details[2]
-            outgrower.loc_area_3_label = loc_details[3]
-            outgrower.loc_area_4_label = loc_details[4]
-            outgrower.loc_area_5_label = loc_details[5]
-            outgrower.loc_area_6_label = loc_details[6]
-            outgrower.loc_area_max_level = max_level
+        for farmer in self:
+            loc_details, max_level = cll_env._get_country_details(farmer.country_id.id)
+            farmer.loc_area_1_label = loc_details[1]
+            farmer.loc_area_2_label = loc_details[2]
+            farmer.loc_area_3_label = loc_details[3]
+            farmer.loc_area_4_label = loc_details[4]
+            farmer.loc_area_5_label = loc_details[5]
+            farmer.loc_area_6_label = loc_details[6]
+            farmer.loc_area_max_level = max_level
     
     @api.onchange('loc_area_1_id')
     def _onchange_loc_area_1_id(self):

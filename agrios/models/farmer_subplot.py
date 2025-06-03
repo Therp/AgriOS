@@ -10,10 +10,10 @@ class ResPartnerSubplot(models.Model):
     _description = "Farmer Subplots"
     
     plot_id = fields.Many2one('farmer.plot', 'Plot', required=True, ondelete='cascade')
-    product_id = fields.Many2one('product.product', string='Harvest Crop', domain=[('harvest_product','=',True)], inverse="_update_farmer_harvest_products", required=True)
+    product_id = fields.Many2one('product.product', string='Crop', domain=[('harvest_product','=',True)], inverse="_update_farmer_harvest_products", required=True)
     acreage = fields.Float('Acreage', required=True)
     partner_id = fields.Many2one(related="plot_id.partner_id")
-    farm_size = fields.Float(related="plot_id.farm_size", store=True)
+    plot_size = fields.Float(related="plot_id.plot_size", store=True)
     product_type = fields.Selection(related="product_id.harvest_product_type", store=True)
     number_of_trees = fields.Integer('Number of Trees')
     year_of_plantation = fields.Integer('Year of Plantation')
@@ -51,10 +51,10 @@ class ResPartnerSubplot(models.Model):
         for record in self:
             record.annual_estimated_yield = record.get_crop_yield_estimate(duration=0)
     
-    @api.constrains('acreage', 'farm_size')
+    @api.constrains('acreage', 'plot_size')
     def _validate_acreage(self):
         for record in self:
-            if record.acreage > record.farm_size:
+            if record.acreage > record.plot_size:
                 raise ValidationError(_("The acreage of the subplot cannot be greater than the acreage of the linked plot."))
     
     @api.constrains('product_type', 'number_of_trees', 'year_of_plantation')
@@ -71,8 +71,8 @@ class ResPartnerSubplot(models.Model):
     
     def _update_farmer_harvest_products(self):
         for record in self:
-            if record.product_id not in record.partner_id.harvest_crop_ids:
+            if record.product_id not in record.partner_id.crop_product_ids:
                 record.partner_id.write({
-                    'harvest_crop_ids': [Command.link(record.product_id.id)]
+                    'crop_product_ids': [Command.link(record.product_id.id)]
                 })
     

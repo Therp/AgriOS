@@ -9,7 +9,7 @@
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
             <search>
-                <field name="order_partner_id" string="Farmer" domain="[('is_outgrower','=',True)]"/>
+                <field name="order_partner_id" string="Farmer" domain="[('is_farmer','=',True)]"/>
                 <field name="product_id"/>
                 <field name="loc_area_1_id" string="Location Area 1 / Location Area 2 / Location Area 3" filter_domain="['|','|',('loc_area_1_id','ilike',self),('loc_area_2_id','ilike',self),('loc_area_3_id','ilike',self)]"/>
                 <field name="farmer_group_id"/>
@@ -69,7 +69,7 @@
 		<field name="res_model">sale.order.line</field>
 		<field name="view_mode">list</field>
 		<field name="context">{'search_default_filter_state_sale': 1, 'search_default_groupby_date_order': 1, 'search_default_groupby_product_id': 1}</field>
-		<field name="domain">[('order_partner_id.is_outgrower','=',True),('display_type','=',False)]</field>
+		<field name="domain">[('order_partner_id.is_farmer','=',True),('display_type','=',False)]</field>
 		<field name="search_view_id" ref="sale_order_line_input_report_search"/>
 	</record>
 	<record id="sale_order_line_input_report_action_tree" model="ir.actions.act_window.view">
@@ -88,7 +88,7 @@
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
             <search>
-                <field name="partner_id" string="Farmer" domain="[('is_outgrower','=',True)]"/>
+                <field name="partner_id" string="Farmer" domain="[('is_farmer','=',True)]"/>
                 <field name="product_id"/>
                 <field name="loc_area_1_id" string="Location Area 1 / Location Area 2 / Location Area 3" filter_domain="['|','|',('loc_area_1_id','ilike',self),('loc_area_2_id','ilike',self),('loc_area_3_id','ilike',self)]"/>
                 <field name="farmer_group_id"/>
@@ -148,7 +148,7 @@
 		<field name="res_model">purchase.order.line</field>
 		<field name="view_mode">list</field>
 		<field name="context">{'search_default_filter_state_approved': 1, 'search_default_groupby_date_order': 1, 'search_default_groupby_product_id': 1}</field>
-		<field name="domain">[('partner_id.is_outgrower','=',True),('display_type','=',False)]</field>
+		<field name="domain">[('partner_id.is_farmer','=',True),('display_type','=',False)]</field>
 		<field name="search_view_id" ref="purchase_order_line_offtake_report_search"/>
 	</record>
 	<record id="purchase_order_line_offtake_report_action_tree" model="ir.actions.act_window.view">

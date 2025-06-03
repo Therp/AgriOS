@@ -18,15 +18,15 @@ class CertificationType(models.Model):
     style = fields.Selection([('info','Blue'),('muted','Grey'),('success','Green'),('warning','Orange'),('danger','Red')], 'Color Style')
     active = fields.Boolean(default=True)
     certification_ids = fields.One2many('farmer.certification', 'certification_type_id')
-    outgrower_count = fields.Integer('Certified Farmers', compute='_compute_outgrower_count')
+    farmer_count = fields.Integer('Certified Farmers', compute='_compute_farmer_count')
     
     _sql_constraints = [
         ('_check_validity', 'CHECK(validity_period > 0)', "Validity Period MUST be greater than zero"),
     ]
     
-    def _compute_outgrower_count(self):
+    def _compute_farmer_count(self):
         for rec in self:
-            rec.outgrower_count = len(rec.certification_ids.mapped('outgrower_id'))
+            rec.farmer_count = len(rec.certification_ids.mapped('farmer_id'))
     
 
 class CorrectiveAction(models.Model):
@@ -48,7 +48,7 @@ class FarmerCertification(models.Model):
     _description = 'Farmer Certification'
     _order = 'cert_end_date DESC'
     
-    outgrower_id = fields.Many2one('res.partner', required=True, tracking=True, index=True, domain=[('is_outgrower','=',True),('outgrower_stage','=','verified')])
+    farmer_id = fields.Many2one('res.partner', required=True, tracking=True, index=True, domain=[('is_farmer','=',True),('farmer_stage','=','verified')])
     certification_type_id = fields.Many2one('certification.type', required=True, tracking=True)
     cert_serial_num = fields.Char('Serial No.', tracking=True, readonly=True)
     cert_start_date = fields.Date('Start Date', required=True, tracking=True, readonly=True)
@@ -63,15 +63,15 @@ class FarmerCertification(models.Model):
     
     style = fields.Selection(related='certification_type_id.style', readonly=True)
     
-    valid_outgrower_cert_ids = fields.Many2many('farmer.certification', compute='_compute_valid_outgrower_cert')
-    valid_outgrower_cert_count = fields.Integer(compute='_compute_valid_outgrower_cert')
+    valid_farmer_certification_ids = fields.Many2many('farmer.certification', compute='_compute_valid_farmer_certification')
+    valid_farmer_certification_count = fields.Integer(compute='_compute_valid_farmer_certification')
     display_name = fields.Char(compute='_compute_display_name', store=True, compute_sudo=True)
     
-    @api.depends('outgrower_id', 'state')
-    def _compute_valid_outgrower_cert(self):
+    @api.depends('farmer_id', 'state')
+    def _compute_valid_farmer_certification(self):
         for certification in self:
-            certification.valid_outgrower_cert_ids = certification.outgrower_id.certification_ids.filtered(lambda cert: cert != certification and cert.state == 'valid')
-            certification.valid_outgrower_cert_count = len(certification.valid_outgrower_cert_ids)
+            certification.valid_farmer_certification_ids = certification.farmer_id.certification_ids.filtered(lambda cert: cert != certification and cert.state == 'valid')
+            certification.valid_farmer_certification_count = len(certification.valid_farmer_certification_ids)
     
     @api.depends('certification_type_id', 'cert_start_date')
     def _compute_cert_end_date(self):
@@ -95,11 +95,11 @@ class FarmerCertification(models.Model):
             else:
                 certification.state = 'expired'
     
-    @api.depends('outgrower_id.name', 'certification_type_id.name', 'cert_start_date')
+    @api.depends('farmer_id.name', 'certification_type_id.name', 'cert_start_date')
     def _compute_display_name(self):
         for certification in self:
-            if certification.outgrower_id and certification.certification_type_id and certification.cert_start_date:
-                certification.display_name = f"{self.outgrower_id.name} - {self.certification_type_id.name} - {self.cert_start_date.year}"
+            if certification.farmer_id and certification.certification_type_id and certification.cert_start_date:
+                certification.display_name = f"{self.farmer_id.name} - {self.certification_type_id.name} - {self.cert_start_date.year}"
             else:
                 certification.display_name = _('Draft Certification')
     
@@ -148,9 +148,9 @@ class FarmerCertification(models.Model):
                 certification.posted = True
                 certification.message_post(body=_('Certification validated'))
                 
-                for valid_outgrower_cert in certification.valid_outgrower_cert_ids.sudo():
-                    valid_outgrower_cert.force_expired = True
-                    valid_outgrower_cert.message_post(body=_('This Certification record was set as expired due to a new one being added: %s') % certification._get_html_link(), body_is_html=True)
+                for valid_farmer_certification in certification.valid_farmer_certification_ids.sudo():
+                    valid_farmer_certification.force_expired = True
+                    valid_farmer_certification.message_post(body=_('This Certification record was set as expired due to a new one being added: %s') % certification._get_html_link(), body_is_html=True)
     
     def action_set_draft(self):
         for certification in self:

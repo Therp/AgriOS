@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': "AgriOS",
-    'summary': """Efficiently manage an outgrower network""",
-    'description': """Database to register and manage outgrowers""",
+    'summary': """Efficiently manage an farmer network""",
+    'description': """Database to register and manage farmers""",
     'author': "Advance Insight",
     'website': "https://www.advanceinsight.dev",
     'category': 'Advance Insight Product',

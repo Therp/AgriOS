@@ -8,7 +8,7 @@
         <field name="model">farmer.certification</field>
         <field name="arch" type="xml">
             <search>
-                <field name="outgrower_id" domain="[('is_outgrower','=',True)]"/>
+                <field name="farmer_id" domain="[('is_farmer','=',True)]"/>
                 <field name="certification_type_id"/>
                 <field name="cert_serial_num"/>
                 <separator/>
@@ -16,7 +16,7 @@
                 <separator/>
                 <filter string="Archived" name="filter_not_active" domain="[('active','=',False)]"/>
                 <group expand="1" string="Group By">
-                    <filter string="Outgrower" name="groupby_outgrower_id" context="{'group_by': 'outgrower_id'}"/>
+                    <filter string="Farmer" name="groupby_farmer_id" context="{'group_by': 'farmer_id'}"/>
                     <filter string="Certification Type" name="groupby_certification_type_id" context="{'group_by': 'certification_type_id'}"/>
                 	<filter string="Start Date" name="groupby_cert_start_date" context="{'group_by': 'cert_start_date'}"/>
                 	<filter string="End Date" name="groupby_cert_end_date" context="{'group_by': 'cert_end_date'}"/>
@@ -31,7 +31,7 @@
 		<field name="arch" type="xml">
 			<list sample="1" decoration-info="style=='info'" decoration-muted="style=='muted'" decoration-success="style=='success'" decoration-warning="style=='warning'" decoration-danger="style=='danger'">
 				<field name="certification_type_id"/>
-				<field name="outgrower_id" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
+				<field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
 				<field name="cert_serial_num" optional="show"/>
 				<field name="cert_start_date"/>
 				<field name="cert_end_date"/>
@@ -48,11 +48,11 @@
 		<field name="arch" type="xml">
 			<form>
 				<field name="active" invisible="1"/>
-				<field name="valid_outgrower_cert_count" invisible="1"/>
+				<field name="valid_farmer_certification_count" invisible="1"/>
 				
 				<header>
-					<button name="btn_validate" string="Validate" class="oe_highlight" type="object" data-hotkey="v" invisible="state != 'draft' or valid_outgrower_cert_count == 0" confirm="There is another valid certification for this contact. If you validate this one, that certification will be set to expired. Are you sure you want to continue?" groups="agrios.group_agrios_user"/>
-					<button name="btn_validate" string="Validate" class="oe_highlight" type="object" data-hotkey="v" invisible="state != 'draft' or valid_outgrower_cert_count &gt; 0" groups="agrios.group_agrios_user"/>
+					<button name="btn_validate" string="Validate" class="oe_highlight" type="object" data-hotkey="v" invisible="state != 'draft' or valid_farmer_certification_count == 0" confirm="There is another valid certification for this contact. If you validate this one, that certification will be set to expired. Are you sure you want to continue?" groups="agrios.group_agrios_user"/>
+					<button name="btn_validate" string="Validate" class="oe_highlight" type="object" data-hotkey="v" invisible="state != 'draft' or valid_farmer_certification_count &gt; 0" groups="agrios.group_agrios_user"/>
 					<button name="btn_set_draft" string="Set To Draft" type="object" data-hotkey="b" invisible="state == 'draft' or origin != 'manual'" groups="agrios.group_agrios_user"/>
 					<field name="state" widget="statusbar"/>
 				</header> 
@@ -62,7 +62,7 @@
 					
 					<group>
 						<group>
-							<field name="outgrower_id" context="{'form_view_ref': 'agrios.view_outgrower_form'}" options="{'no_create': True}" readonly="state != 'draft'"/>
+							<field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_form'}" options="{'no_create': True}" readonly="state != 'draft'"/>
 							<field name="cert_start_date" readonly="state != 'draft'"/>
 							<field name="final_score" readonly="state != 'draft'"/>
 							<field name="origin" invisible="True"/>
@@ -94,7 +94,7 @@
 		<field name="domain">[]</field>
 		<field name="help" type="html">
 			<p class="o_view_nocontent_smiling_face">
-				Create the first Outgrower Certification Record
+				Create the first Farmer Certification Record
 			</p>
 			<p>
 				Odoo helps you track all certification records
@@ -114,7 +114,7 @@
 				<field name="certifying_organisation_id"/>
 				<field name="validity_period"/>
 				<field name="style" optional="show" placeholder="Black"/>
-				<field name="outgrower_count"/>
+				<field name="farmer_count"/>
 			</list>
 		</field>
 	</record>

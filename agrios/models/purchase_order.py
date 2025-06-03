@@ -7,21 +7,21 @@ from odoo.exceptions import ValidationError
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
     
-    verified_partner_outgrower = fields.Boolean(compute='_compute_verified_partner_outgrower')
-    outgrower_requires_contract = fields.Boolean(related='partner_id.outgrower_requires_contract', readonly=True)
+    verified_partner_farmer = fields.Boolean(compute='_compute_verified_partner_farmer')
+    farmer_requires_contract = fields.Boolean(related='partner_id.farmer_requires_contract', readonly=True)
     partner_open_contract_ids = fields.One2many(related='partner_id.open_contract_ids', readonly=True)
     partner_open_contract_harvest_ids = fields.One2many(related='partner_id.open_contract_harvest_ids', readonly=True)
-    agrios_oa_id = fields.Many2one('farmer.contract', 'AgriOS Contract', domain="[('outgrower_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
+    agrios_oa_id = fields.Many2one('farmer.contract', 'AgriOS Contract', domain="[('farmer_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
     
     @api.depends('partner_id')
-    def _compute_verified_partner_outgrower(self):
+    def _compute_verified_partner_farmer(self):
         for so in self:
-            so.verified_partner_outgrower = (so.partner_id.is_outgrower and so.partner_id.outgrower_stage == 'verified')
+            so.verified_partner_farmer = (so.partner_id.is_farmer and so.partner_id.farmer_stage == 'verified')
     
     @api.onchange('partner_id')
     def _onchange_agrios_contract(self):
         if self.partner_id:
-            if self.agrios_oa_id and self.agrios_oa_id.outgrower_id == self.partner_id:
+            if self.agrios_oa_id and self.agrios_oa_id.farmer_id == self.partner_id:
                 return
             
             company = self.company_id or self.env.company
@@ -72,7 +72,7 @@ class PurchaseOrderLine(models.Model):
         ret = super()._compute_price_unit_and_date_planned_and_name()
         
         if self.order_id.agrios_oa_id and self.product_id and self.product_id == self.order_id.agrios_oa_id.contracted_crop_id:
-            self.price_unit = self.order_id.agrios_oa_id.offtake_unit_price
+            self.price_unit = self.order_id.agrios_oa_id.contracted_unit_price
         
         return ret
     

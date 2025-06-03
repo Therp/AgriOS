@@ -10,13 +10,13 @@ class FarmerPlot(models.Model):
     _description = 'Farmer Plot'
     _order = 'partner_id'
     
-    def _get_farm_uom_domain(self):
+    def _get_land_area_uom_domain(self):
         surface_uom = self.env.ref('uom.uom_categ_surface', raise_if_not_found=False).id
         return [('category_id.id', '=', surface_uom),('uom_type', '=', 'bigger')]
     
-    def _get_default_farm_uom(self):
-        farm_uom_config = self.env['ir.config_parameter'].sudo().get_param('outgrower_management.farm_uom')
-        return farm_uom_config and int(farm_uom_config) or self.env.ref('agrios.area_1', raise_if_not_found=False)
+    def _get_default_land_area_uom(self):
+        land_area_uom_config = self.env['ir.config_parameter'].sudo().get_param('farmer_management.land_area_uom')
+        return land_area_uom_config and int(land_area_uom_config) or self.env.ref('agrios.area_1', raise_if_not_found=False)
     
     name = fields.Char('Name', required=True, tracking=True)
     
@@ -24,14 +24,14 @@ class FarmerPlot(models.Model):
     gshape_type = fields.Selection([('circle', 'Circle'),('polygon', 'Polygon'),('rectangle', 'Rectangle')], 'Plot Shape Type')
     gshape_description = fields.Text('Description')
     
-    partner_id = fields.Many2one('res.partner', 'Outgrower', domain="[('is_outgrower','=',True)]", required=True, ondelete='cascade', tracking=True, index=True)
+    partner_id = fields.Many2one('res.partner', 'Farmer', domain="[('is_farmer','=',True)]", required=True, ondelete='cascade', tracking=True, index=True)
     active = fields.Boolean('Active', default=True, tracking=True)
     year_of_farm_establishment = fields.Char('Year of Farm Establishment', tracking=True)
     registration_year = fields.Integer('Year of Registration')
-    is_owner = fields.Boolean('Owned By Outgrower', help='If the outgrower owns the plot of land or not', default=True)
+    is_owner = fields.Boolean('Owned By Farmer', help='If the Farmer owns the plot of land or not', default=True)
     farm_in_protected_area = fields.Boolean('Farm in Protected Area')
-    farm_uom_id = fields.Many2one('uom.uom', 'Farm UOM', domain=_get_farm_uom_domain, default=_get_default_farm_uom, tracking=True, readonly=True)
-    farm_size = fields.Float('Farm Area', required=True, tracking=True)
+    land_area_uom_id = fields.Many2one('uom.uom', 'Farm UOM', domain=_get_land_area_uom_domain, default=_get_default_land_area_uom, tracking=True, readonly=True)
+    plot_size = fields.Float('Plot Size', required=True, tracking=True)
     farm_condition = fields.Selection([('bad', 'Bad'),('needsimprovement','Needs Improvement'),('good','Good'),('verygood','Very Good')], default=False)
     intercropping = fields.Boolean('Intercropping')
     subplot_ids = fields.One2many('res.partner.subplot', 'plot_id', string='Subplots')
@@ -83,15 +83,15 @@ class FarmerPlot(models.Model):
     @api.depends('country_id')
     def _compute_loc_area_details(self):
         cll_env = self.env['country.location.level']
-        for outgrower in self:
-            loc_details, max_level = cll_env._get_country_details(outgrower.country_id.id)
-            outgrower.loc_area_1_label = loc_details[1]
-            outgrower.loc_area_2_label = loc_details[2]
-            outgrower.loc_area_3_label = loc_details[3]
-            outgrower.loc_area_4_label = loc_details[4]
-            outgrower.loc_area_5_label = loc_details[5]
-            outgrower.loc_area_6_label = loc_details[6]
-            outgrower.loc_area_max_level = max_level
+        for farmer in self:
+            loc_details, max_level = cll_env._get_country_details(farmer.country_id.id)
+            farmer.loc_area_1_label = loc_details[1]
+            farmer.loc_area_2_label = loc_details[2]
+            farmer.loc_area_3_label = loc_details[3]
+            farmer.loc_area_4_label = loc_details[4]
+            farmer.loc_area_5_label = loc_details[5]
+            farmer.loc_area_6_label = loc_details[6]
+            farmer.loc_area_max_level = max_level
     
     @api.onchange('loc_area_1_id')
     def _onchange_loc_area_1_id(self):
@@ -147,10 +147,10 @@ class FarmerPlot(models.Model):
                 if len(year) != 4:
                     raise ValidationError(_("Year must be 4 digits!"))
     
-    @api.constrains('farm_size')
-    def _check_farm_size(self):
+    @api.constrains('plot_size')
+    def _check_plot_size(self):
         for rec in self:
-            if rec.farm_size < 0.0:
+            if rec.plot_size < 0.0:
                 raise ValidationError(_("Farm size of plot needs to be higher than 0."))
     
     @api.model

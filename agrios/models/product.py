@@ -9,7 +9,6 @@ class ProductTemplate(models.Model):
     input_product = fields.Boolean('Input Product', help="Product to be sold/given to farmers to help them produce harvestable products. E.g. seeds, fertilizer, cultivation material, etc")
     harvest_product = fields.Boolean('Harvest Product', help="Products produced and harvested by a farmer. E.g. pumpkins, chilli peppers, cocoa, etc")
     seed_product = fields.Boolean('Seed Variety', help="Select this field if this product is a seed.")
-    mechanisation_service = fields.Boolean('Mechanization')
     harvest_product_type = fields.Selection([('perennial','Perennial'),('tree_crop','Grow From Trees')], string="Crop Type", default='perennial')
     tree_yield_ids = fields.One2many('plant.age.yield', 'product_id', string='Tree Yields')
     
@@ -30,14 +29,14 @@ class ProductTemplate(models.Model):
     
     @api.depends('input_product', 'harvest_product')
     def _compute_farm_measure(self):
-        farm_uom_id = int(self.env['ir.config_parameter'].sudo().get_param('outgrower_management.farm_uom') or 0)
-        if farm_uom_id:
-            farm_uom = self.env['uom.uom'].browse(farm_uom_id)
+        land_area_uom_id = int(self.env['ir.config_parameter'].sudo().get_param('farmer_management.land_area_uom') or 0)
+        if land_area_uom_id:
+            land_area_uom = self.env['uom.uom'].browse(land_area_uom_id)
         else:
-            farm_uom = self.env.ref('agrios.area_1')
+            land_area_uom = self.env.ref('agrios.area_1')
         
         for product in self:
-            product.farm_measure = f"/{farm_uom.name}"
+            product.farm_measure = f"/{land_area_uom.name}"
     
     @api.onchange('input_product')
     def _onchange_input_product(self):

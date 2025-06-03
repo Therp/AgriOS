@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
 	
-	<record id="outgrower_farmer_seq" model="ir.sequence">
-        <field name="name">Outgrower Farmer</field>
-        <field name="code">outgrower.farmer</field>
+	<record id="farmer_seq" model="ir.sequence">
+        <field name="name">Farmer</field>
+        <field name="code">farmer</field>
         <field name="prefix">OF</field>
         <field name="padding">5</field>
         <field name="company_id" eval="False"/>

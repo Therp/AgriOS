@@ -7,12 +7,12 @@
         <field name="arch" type="xml">
             <search>
             	<field name="name"/>
-                <field name="outgrower_id" domain="[('is_outgrower','=',True)]"/>
+                <field name="farmer_id" domain="[('is_farmer','=',True)]"/>
                 <field name="contract_id" groups="agrios.group_farmer_contract"/>
                 <separator/>
                 <filter string="Archived" name="filter_not_active" domain="[('active','=',False)]"/>
                 <group expand="1" string="Group By">
-                    <filter string="Outgrower" name="groupby_outgrower_id" context="{'group_by': 'outgrower_id'}"/>
+                    <filter string="Farmer" name="groupby_farmer_id" context="{'group_by': 'farmer_id'}"/>
                     <filter string="Date" name="groupby_interaction_date" context="{'group_by': 'interaction_date'}"/>
                     <filter string="Interaction Type" name="groupby_interaction_type" context="{'group_by': 'interaction_type'}"/>
                 </group>
@@ -26,7 +26,7 @@
         <field name="arch" type="xml">
             <list sample="1">
                 <field name="interaction_date"/>
-                <field name="outgrower_id" context="{'form_view_ref': 'agrios.view_outgrower_form'}"/>
+                <field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
                 <field name="interaction_type"/>
                 <field name="name"/>
             </list>
@@ -42,7 +42,7 @@
                     <group>
                         <group>
                             <field name="name"/>
-                            <field name="outgrower_id" context="{'form_view_ref': 'agrios.view_outgrower_form'}" required="1"/>
+                            <field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_form'}" required="1"/>
                             <field name="contract_id" options="{'no_create': True}" groups="agrios.group_farmer_contract"/>
                         </group>
                         <group>
@@ -61,8 +61,8 @@
         </field>
     </record>
 	
-    <record id="action_outgrower_interaction" model="ir.actions.act_window">
-        <field name="name">Outgrower Interactions</field>
+    <record id="action_farmer_interaction" model="ir.actions.act_window">
+        <field name="name">Farmer Interactions</field>
         <field name="res_model">farmer.interaction</field>
         <field name="view_mode">list,form</field>
         <field name="help" type="html">
@@ -70,7 +70,7 @@
                 No Interactions Created Yet
             </p>
             <p>
-                Odoo helps you easily track all Outgrower Interactions (Calls, Visits, e.t.c).
+                Odoo helps you easily track all Farmer Interactions (Calls, Visits, e.t.c).
                 You can create this on the Offtake Agreement form.
             </p>
         </field>

@@ -13,7 +13,6 @@
 				<filter string="Seed Varieties" name="filter_seed_product" domain="[('seed_product','=',True)]" groups="agrios.group_seed_varieties"/>
 				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
 				<filter string="Harvest Products" name="filter_harvest_product" domain="[('harvest_product','=',True)]"/>
-				<filter string="Mechanization Service Products" name="filter_mechanisation_service" domain="[('mechanisation_service','=',True)]"/>
 			</xpath>
 		</field>
 	</record>
@@ -24,19 +23,17 @@
         <field name="inherit_id" ref="product.product_template_kanban_view"/>
         <field name="arch" type="xml">
         	<xpath expr="/kanban" position="attributes">
-        		<attribute name="default_order">is_favorite desc, seed_product desc, harvest_product desc, input_product desc, mechanisation_service desc, name</attribute>
+        		<attribute name="default_order">is_favorite desc, seed_product desc, harvest_product desc, input_product desc desc, name</attribute>
         	</xpath>
         	<xpath expr="//field[@name='categ_id']" position="after">
         		<field name="input_product"/>
         		<field name="harvest_product"/>
-        		<field name="mechanisation_service"/>
         		<field name="seed_product"/>
         	</xpath>
         	<xpath expr="//field[@name='list_price']/.." position="before">
         		<div t-if="record.seed_product.raw_value === true" class="mt-1" style="background-color: #00a3ff54;">Seed Variety</div>
         		<div t-if="record.input_product.raw_value === true" class="mt-1" style="background-color: #edff7f54;">Input Product</div>
         		<div t-if="record.harvest_product.raw_value === true" class="mt-1" style="background-color: #82ff7f54;">Harvest Product</div>
-        		<div t-if="record.mechanisation_service.raw_value === true" class="mt-1" style="background-color: #7fb6ff47;">Mechanization Service Product</div>
         	</xpath>
         </field>
     </record>
@@ -105,11 +102,6 @@
                             </div>
                         	
                         	<field name="related_inputs_ids" widget="many2many_tags" invisible="not seed_product"/>
-                        </group>
-                    </group>
-                    <group>
-                        <group string="Services" invisible="type != 'service'">
-                            <field name="mechanisation_service"/>
                         </group>
                     </group>
                 </page>

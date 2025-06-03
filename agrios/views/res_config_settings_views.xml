@@ -19,7 +19,7 @@
 									<div>
 										<field name="agrios_default_contract_needed" class="w-auto"/>
                                     	<label for="agrios_default_contract_needed"/>
-                                    	<span class="o_doc_link" style="cursor: help; margin-left: -7px;" title="If selected, outgrowers will require, by default, a valid contract to sell inputs or to buy off-takes from them. If unselected, no contract, by default, is needed. Individual cases can be changed on each outgrower record form page."/>
+                                    	<span class="o_doc_link" style="cursor: help; margin-left: -7px;" title="If selected, farmers will require, by default, a valid contract to sell inputs or to buy off-takes from them. If unselected, no contract, by default, is needed. Individual cases can be changed on each farmer record form page."/>
 									</div>
 									<div>
 										<field name="agrios_close_expired_contracts" class="w-auto"/>
@@ -49,7 +49,7 @@
 				  			<field name="group_farmers_interactions"/>
 							<div class="content-group">
 								<div invisible="not group_farmers_interactions">
-									<button name="%(agrios.action_outgrower_interaction)d" icon="oi-arrow-right" type="action" string="Farmer Interactions" class="btn-link"/>
+									<button name="%(agrios.action_farmer_interaction)d" icon="oi-arrow-right" type="action" string="Farmer Interactions" class="btn-link"/>
 								</div>
 							</div>
 						</setting>
@@ -61,14 +61,14 @@
 								</div>
 							</div>
 						</setting>
-						<setting id="payments_in_kind" help="Allows payments in kind to be done to outgrowers input requests.">
+						<setting id="payments_in_kind" help="Allows payments in kind to be done to farmers input requests.">
 							<field name="group_payments_in_kind"/>
 							<div class="content-group">
 								<div class="mt16" invisible="not group_payments_in_kind">
 									<div>
 										<field name="agrios_payment_in_kind_optional" class="w-auto"/>
                                     	<label for="agrios_payment_in_kind_optional"/>
-                                    	<span class="o_doc_link" style="cursor: help; margin-left: -7px;" title="If selected, users will be able to decide if an off-take purchase will be paid or not by the outgrower 'payment in kind' inputs. If not selected, off-take purchases will always be paid (fully or partially) by any open 'payment in kind' input sales the outgrower has."/>
+                                    	<span class="o_doc_link" style="cursor: help; margin-left: -7px;" title="If selected, users will be able to decide if an off-take purchase will be paid or not by the farmer 'payment in kind' inputs. If not selected, off-take purchases will always be paid (fully or partially) by any open 'payment in kind' input sales the farmer has."/>
 									</div>
 								</div>
 							</div>
@@ -76,17 +76,17 @@
 					</block>
 					
 					<block title="Farm">
-						<setting id="farm_uom" string="Land Size UoM" help="Set the unit of measure that the area of farms are measured.">
+						<setting id="land_area_uom" string="Land Size UoM" help="Set the unit of measure that the area of farms are measured.">
 							<div class="content-group">
-								<field name="farm_uom" options="{'no_create': True}" readonly="farm_uom == True" class="o_light_label"/>
+								<field name="land_area_uom" options="{'no_create': True}" readonly="land_area_uom == True" class="o_light_label"/>
 							</div>
 						</setting>
-						<setting id="max_land_size" string="Max Land Size" help="Leave the value as 0.0 to allow any farm size to be set.">
+						<setting id="max_plot_size" string="Max Plot Size" help="Leave the value as 0.0 to allow any farm size to be set.">
 							<div class="content-group">
-								<field name="max_land_size" class="o_light_label"/>
+								<field name="max_plot_size" class="o_light_label"/>
 							</div>
 					 	</setting>
-						<setting id="plots_management" string="Complex Plot Management" help="Allows the creation of plot records (which determine the total acreage of the Outgrower), the registration of trees planted, and the use several crops per plot of land">
+						<setting id="plots_management" string="Complex Plot Management" help="Allows the creation of plot records (which determine the total acreage of the Farmer), the registration of trees planted, and the use several crops per plot of land">
 							<field name="group_plot_management"/>
 							<div class="content-group">
 								<div class="mt16" invisible="not group_plot_management">

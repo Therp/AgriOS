@@ -45,8 +45,8 @@
 	
 	<!-- Farmers Training -->
 	
-	<record id="view_outgrower_training_search" model="ir.ui.view">
-        <field name="name">view.outgrower.training.search</field>
+	<record id="view_farmer_training_search" model="ir.ui.view">
+        <field name="name">view.farmer.training.search</field>
         <field name="model">farmer.training</field>
         <field name="arch" type="xml">
             <search>
@@ -159,11 +159,11 @@
                     </group>
                     <notebook>
                         <page string="Participants">
-                            <field name="training_participants_ids" options="{'no_create': True}" readonly="training_state != 'planned'" context="{'form_view_ref': 'agrios.view_outgrower_form'}">
+                            <field name="training_participants_ids" options="{'no_create': True}" readonly="training_state != 'planned'" context="{'form_view_ref': 'agrios.view_farmer_form'}">
                                 <list>
                                     <field name="name"/>
                                     <field name="phone"/>
-                                    <field name="outgrower_identification"/>
+                                    <field name="farmer_id_number"/>
                                     <field name="gender"/>
                                     <field name="farmer_group_id"/>
                                 </list>

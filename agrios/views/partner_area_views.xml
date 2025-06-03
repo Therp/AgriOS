@@ -15,7 +15,7 @@
                 <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
                 <separator/>
                 <group expand="0" name="group_by" string="Group By">
-                    <filter string="Outgrower" name="groupby_partner_id" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Farmer" name="groupby_partner_id" context="{'group_by': 'partner_id'}"/>
                 </group>
             </search>
         </field>
@@ -35,7 +35,7 @@
                 <field name="loc_area_4_id" optional="show"/>
 				<field name="loc_area_5_id" optional="show"/>
 				<field name="loc_area_6_id" optional="show"/>
-                <field name="farm_size" sum="Total" optional="show"/>
+                <field name="plot_size" sum="Total" optional="show"/>
                 <field name="gshape_description" optional="hide"/>
             </list>
         </field>
@@ -53,12 +53,12 @@
                     <group>
                         <group>
                             <field name="name" required="1" placeholder="Name"/>
-                            <field name="partner_id" context="{'default_is_outgrower': True, 'form_view_ref': 'agrios.view_outgrower_form'}" invisible="context.get('plot_partner_invisible')" readonly="context.get('plot_partner_readonly')" force_save="1"/>
+                            <field name="partner_id" context="{'default_is_farmer': True, 'form_view_ref': 'agrios.view_farmer_form'}" invisible="context.get('plot_partner_invisible')" readonly="context.get('plot_partner_readonly')" force_save="1"/>
                             <field name="is_owner"/>
-                            <label for="farm_size"/>
+                            <label for="plot_size"/>
                             <div class="o_row">
-                                <field name="farm_size" class="oe_inline" nolabel="1"/>
-                                <field name="farm_uom_id" force_save="1" options="{'no_open': True}"/>
+                                <field name="plot_size" class="oe_inline" nolabel="1"/>
+                                <field name="land_area_uom_id" force_save="1" options="{'no_open': True}"/>
                             </div>
                             <field name="farm_condition"/>
                             <field name="intercropping"/>
@@ -107,7 +107,7 @@
                     <notebook>
                     	<page name="plot_map_page" string="Plot Map" groups="agrios.group_plot_maps">
                     		<group>
-		                    	<field name="plot_polygon" widget="map" nolabel="1" colspan="2" options="{'polyline_inactive': True, 'rectangle_inactive': True, 'circle_inactive': True, 'marker_inactive': True, 'area_field': 'farm_size', 'area_measurement': 'acres'}"/>
+		                    	<field name="plot_polygon" widget="map" nolabel="1" colspan="2" options="{'polyline_inactive': True, 'rectangle_inactive': True, 'circle_inactive': True, 'marker_inactive': True, 'area_field': 'plot_size', 'area_measurement': 'acres'}"/>
 		                    </group>
                     	</page>
                     	<page name="subplots_page" string="Sub Plots">
@@ -147,7 +147,7 @@
     </record>
 	
     <record id="farmer_plot_action" model="ir.actions.act_window">
-        <field name="name">Outgrower Plots</field>
+        <field name="name">Farmer Plots</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">farmer.plot</field>
         <field name="view_mode">list,form</field>

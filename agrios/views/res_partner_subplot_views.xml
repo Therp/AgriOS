@@ -26,9 +26,9 @@
             <list string="Subplots">
                 <field name="partner_id"/>
                 <field name="plot_id" string="Farm/Main Plot"/>
-                <field name="product_id" string="Harvest Crop"/>
+                <field name="product_id" string="Crop"/>
                 <field name="acreage"/>
-                <field name="farm_size" optional="hide"/>
+                <field name="plot_size" optional="hide"/>
                 <field name="number_of_trees" optional="hide"/>
                 <field name="year_of_plantation" optional="hide"/>
                 <field name="age" optional="hide"/>

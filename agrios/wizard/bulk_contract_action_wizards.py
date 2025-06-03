@@ -31,7 +31,7 @@ class BulkContractAbstractWizard(models.AbstractModel):
     loc_area_max_level = fields.Integer('Max Location Area', compute="_compute_loc_area_details")
     
     season_id = fields.Many2one('season', 'Season', domain=[('status','in',('open','lock'))])
-    product_id = fields.Many2one('product.product', 'Harvestable Product', domain=[('harvest_product','=',True)])
+    crop_product_id = fields.Many2one('product.product', 'Crop Product', domain=[('harvest_product','=',True)])
     expired_filter = fields.Selection([('expired','Expired Only'),('not_expired','Not Expired Only')], 'Expired Contracts')
 
     @api.onchange('country_id')
@@ -62,7 +62,7 @@ class BulkContractAbstractWizard(models.AbstractModel):
         if self.farmer_group_ids:
             self.loc_area_1_ids = self.farmer_group_ids.mapped('loc_area_1_id')
     
-    @api.onchange('view_contracts', 'company_id', 'loc_area_3_ids', 'loc_area_2_ids', 'loc_area_1_ids', 'farmer_group_ids', 'season_id', 'product_id', 'expired_filter')
+    @api.onchange('view_contracts', 'company_id', 'loc_area_3_ids', 'loc_area_2_ids', 'loc_area_1_ids', 'farmer_group_ids', 'season_id', 'crop_product_id', 'expired_filter')
     def _compute_contracts(self):
         if self.view_contracts:
             self.contract_ids = self.env['farmer.contract'].search(self._get_computed_contracts_domain())
@@ -98,8 +98,8 @@ class BulkContractAbstractWizard(models.AbstractModel):
         if self.company_id:
             domain.append( ('company_id','=',self.company_id.id) )
         
-        if self.product_id:
-            domain.append( ('contracted_crop_id','=',self.product_id.id) )
+        if self.crop_product_id:
+            domain.append( ('contracted_crop_id','=',self.crop_product_id.id) )
         
         if self.season_id:
             domain.append( ('season_id','=',self.season_id.id) )
@@ -110,13 +110,13 @@ class BulkContractAbstractWizard(models.AbstractModel):
             domain.append( ('expired_contract','=',False) )
         
         if self.farmer_group_ids:
-            domain.append( ('outgrower_id.farmer_group_id','in',self.farmer_group_ids.ids) )
+            domain.append( ('farmer_id.farmer_group_id','in',self.farmer_group_ids.ids) )
         elif self.loc_area_1_ids:
-            domain.append( ('outgrower_id.loc_area_1_id','in',self.loc_area_1_ids.ids) )
+            domain.append( ('farmer_id.loc_area_1_id','in',self.loc_area_1_ids.ids) )
         elif self.loc_area_2_ids:
-            domain.append( ('outgrower_id.loc_area_2_id','in',self.loc_area_2_ids.ids) )
+            domain.append( ('farmer_id.loc_area_2_id','in',self.loc_area_2_ids.ids) )
         elif self.loc_area_3_ids:
-            domain.append( ('outgrower_id.loc_area_3_id','in',self.loc_area_3_ids.ids) )
+            domain.append( ('farmer_id.loc_area_3_id','in',self.loc_area_3_ids.ids) )
         
         return domain
         
@@ -244,7 +244,7 @@ class BulkContractOfftakeWizard(models.TransientModel):
         
         for contract in self.contract_ids:
             purchase_order = purchase_orders_env.create({
-                'partner_id': contract.outgrower_id.id,
+                'partner_id': contract.farmer_id.id,
                 'agrios_oa_id': contract.id,
             })
             purchase_order.onchange_partner_id()
