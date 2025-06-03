@@ -7,8 +7,8 @@ from odoo.exceptions import ValidationError
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
     
-    verified_partner_farmer = fields.Boolean(compute='_compute_verified_partner_farmer')
-    farmer_requires_contract = fields.Boolean(related='partner_id.farmer_requires_contract', readonly=True)
+    verified_partner_farmer = fields.Boolean(compute='_compute_verified_partner_farmer', string='Verified Partner Farmer')
+    farmer_requires_contract = fields.Boolean(related='partner_id.farmer_requires_contract', readonly=True, string='Requires Contract')
     partner_open_contract_ids = fields.One2many(related='partner_id.open_contract_ids', readonly=True)
     partner_open_contract_input_ids = fields.One2many(related='partner_id.open_contract_input_ids', readonly=True)
     agrios_oa_id = fields.Many2one('farmer.contract', 'AgriOS Contract', domain="[('farmer_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
