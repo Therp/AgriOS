@@ -19,11 +19,11 @@ access_agrios_user_certification_type,ams_user access.certification.type,model_c
 access_agrios_readonly_area_level_1,ams_readonly access.area.level.1,model_area_level_1,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_admin_area_level_1,ams_admin access.area_level_1,model_area_level_1,agrios.group_agrios_admin,1,1,1,1
 
-access_agrios_readonly_offtake_agreement,ams_readonly access.offtake.agreement,model_offtake_agreement,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_user_offtake_agreement,ams_user access.offtake.agreement,model_offtake_agreement,agrios.group_agrios_user,1,1,1,1
+access_agrios_readonly_farmer_contract,ams_readonly access.farmer.contract,model_farmer_contract,agrios.group_agrios_readonly,1,0,0,0
+access_agrios_user_farmer_contract,ams_user access.farmer.contract,model_farmer_contract,agrios.group_agrios_user,1,1,1,1
 
-access_agrios_readonly_og_training,ams_readonly access.og.training,model_og_training,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_admin_og_training,ams_admin access.og.training,model_og_training,agrios.group_agrios_admin,1,1,1,1
+access_agrios_readonly_training_topic,ams_readonly access.training.topic,model_training_topic,agrios.group_agrios_readonly,1,0,0,0
+access_agrios_admin_training_topic,ams_admin access.training.topic,model_training_topic,agrios.group_agrios_admin,1,1,1,1
 
 user_access_corrective_action,user.access.corrective.action,model_corrective_action,agrios.group_agrios_readonly,1,0,0,0
 manager_access_corrective_action,manager.access.corrective.action,model_corrective_action,agrios.group_agrios_manager,1,1,1,1
@@ -47,22 +47,22 @@ access_agrios_manager_stock_move,ams_user access.stock.move,stock.model_stock_mo
 access_agrios_manager_product_product,ams_user access.product.product,product.model_product_product,agrios.group_agrios_manager,1,1,1,0
 access_agrios_manager_product_template,ams_user access.product.template,product.model_product_template,agrios.group_agrios_manager,1,1,1,0
 
-access_bulk_contract_approval_wizard,bulk.contract.approval.wizard,model_bulk_contract_approval_wizard,agrios.group_offtake_agreement,1,1,1,1
-access_bulk_contract_close_wizard,bulk.contract.close.wizard,model_bulk_contract_close_wizard,agrios.group_offtake_agreement,1,1,1,1
-access_bulk_contract_cancel_wizard,bulk.contract.cancel.wizard,model_bulk_contract_cancel_wizard,agrios.group_offtake_agreement,1,1,1,1
-access_bulk_contract_renew_wizard,bulk.contract.renew.wizard,model_bulk_contract_renew_wizard,agrios.group_offtake_agreement,1,1,1,1
-access_bulk_contract_offtake_wizard,bulk.contract.offtake.wizard,model_bulk_contract_offtake_wizard,agrios.group_offtake_agreement,1,1,1,1
-access_bulk_contract_harvest_ready_wizard,bulk.contract.harvest.ready.wizard,model_bulk_contract_harvest_ready_wizard,agrios.group_offtake_agreement,1,1,1,1
+access_bulk_contract_approval_wizard,bulk.contract.approval.wizard,model_bulk_contract_approval_wizard,agrios.group_farmer_contract,1,1,1,1
+access_bulk_contract_close_wizard,bulk.contract.close.wizard,model_bulk_contract_close_wizard,agrios.group_farmer_contract,1,1,1,1
+access_bulk_contract_cancel_wizard,bulk.contract.cancel.wizard,model_bulk_contract_cancel_wizard,agrios.group_farmer_contract,1,1,1,1
+access_bulk_contract_renew_wizard,bulk.contract.renew.wizard,model_bulk_contract_renew_wizard,agrios.group_farmer_contract,1,1,1,1
+access_bulk_contract_offtake_wizard,bulk.contract.offtake.wizard,model_bulk_contract_offtake_wizard,agrios.group_farmer_contract,1,1,1,1
+access_bulk_contract_harvest_ready_wizard,bulk.contract.harvest.ready.wizard,model_bulk_contract_harvest_ready_wizard,agrios.group_farmer_contract,1,1,1,1
 
-access_agrios_readonly_res_partner_area,ams_readonly access.res.partner.area,model_res_partner_area,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_user_res_partner_area,ams_user access.res.partner.area,model_res_partner_area,agrios.group_agrios_user,1,1,1,0
-access_agrios_admin_res_partner_area,ams_admin access.res.partner.area,model_res_partner_area,agrios.group_agrios_manager,1,1,1,1
+access_agrios_readonly_farmer_plot,ams_readonly access.farmer.plot,model_farmer_plot,agrios.group_agrios_readonly,1,0,0,0
+access_agrios_user_farmer_plot,ams_user access.farmer.plot,model_farmer_plot,agrios.group_agrios_user,1,1,1,0
+access_agrios_admin_farmer_plot,ams_admin access.farmer.plot,model_farmer_plot,agrios.group_agrios_manager,1,1,1,1
 
 access_agrios_readonly_res_partner_subplot,ams_readonly access.res.partner.subplot,model_res_partner_subplot,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_user_res_partner_subplot,ams_user access.res.partner.subplot,model_res_partner_subplot,agrios.group_agrios_user,1,1,1,1
 
-access_agrios_readonly_tree_yield,ams_readonly access.tree.yield,model_tree_yield,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_user_tree_yield,ams_user access.tree.yield,model_tree_yield,agrios.group_agrios_user,1,1,1,1
+access_agrios_readonly_tree_yield,ams_readonly access.plant.age.yield,model_plant_age_yield,agrios.group_agrios_readonly,1,0,0,0
+access_agrios_user_tree_yield,ams_user access.plant.age.yield,model_plant_age_yield,agrios.group_agrios_user,1,1,1,1
 
 user_access_country_location_level,user.access.country.location.level,model_country_location_level,agrios.group_agrios_readonly,1,0,0,0
 manager_access_ccountry_location_level,manager.access.country.location.level,model_country_location_level,agrios.group_agrios_manager,1,1,1,1

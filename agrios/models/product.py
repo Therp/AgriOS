@@ -11,7 +11,7 @@ class ProductTemplate(models.Model):
     seed_product = fields.Boolean('Seed Variety', help="Select this field if this product is a seed.")
     mechanisation_service = fields.Boolean('Mechanization')
     harvest_product_type = fields.Selection([('perennial','Perennial'),('tree_crop','Grow From Trees')], string="Crop Type", default='perennial')
-    tree_yield_ids = fields.One2many('tree.yield', 'product_id', string='Tree Yields')
+    tree_yield_ids = fields.One2many('plant.age.yield', 'product_id', string='Tree Yields')
     
     maturity_days = fields.Integer('Maturity Days')
     est_yield = fields.Float('Estimated Yield (kgs)')

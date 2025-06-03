@@ -4,9 +4,9 @@ from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 
 
-class TreeYield(models.Model):
-    _name = 'tree.yield'
-    _description = 'Projected Tree Yields'
+class PlantAgeYield(models.Model):
+    _name = 'plant.age.yield'
+    _description = 'Projected Plant Age Yields'
     _order = 'product_id, age'
     
     product_id = fields.Many2one('product.template', string='Crop', domain=[('harvest_product', '=', True),('harvest_product_type','=','tree_crop')], required=True, ondelete='cascade', index=True)

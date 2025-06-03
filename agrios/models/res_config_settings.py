@@ -11,7 +11,7 @@ class ResConfigSettings(models.TransientModel):
     def _get_farm_uom_domain(self):
         return [('category_id.id','=',self.env.ref('uom.uom_categ_surface').id), ('uom_type','=','bigger')]
         
-    group_offtake_agreement = fields.Boolean("Offtake Agreements Contracts", implied_group='agrios.group_offtake_agreement')
+    group_farmer_contract = fields.Boolean("Offtake Agreements Contracts", implied_group='agrios.group_farmer_contract')
     group_farmers_training = fields.Boolean("Farmers Training", implied_group='agrios.group_farmers_training')
     group_farmers_interactions = fields.Boolean("Farmer Interactions", implied_group='agrios.group_farmers_interactions')
     group_farmers_certifications = fields.Boolean("Farmer Certifications", implied_group='agrios.group_farmers_certifications')
@@ -28,9 +28,9 @@ class ResConfigSettings(models.TransientModel):
     farm_uom = fields.Many2one('uom.uom', string='Unit of Measure', config_parameter='outgrower_management.farm_uom', domain=lambda self: self._get_farm_uom_domain(), default=lambda self: self.env.ref('agrios.area_1', raise_if_not_found=False))
     max_land_size = fields.Float(config_parameter='outgrower_management.max_land_size')
     
-    @api.onchange('group_offtake_agreement')
-    def _onchange_group_offtake_agreement(self):
-        if not self.group_offtake_agreement:
+    @api.onchange('group_farmer_contract')
+    def _onchange_group_farmer_contract(self):
+        if not self.group_farmer_contract:
             self.agrios_default_contract_needed = False
     
     @api.constrains('farm_uom')

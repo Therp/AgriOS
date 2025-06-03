@@ -9,7 +9,7 @@ class BulkContractAbstractWizard(models.AbstractModel):
     _description = 'Bulk Contract Action Abstract Wizard'
     
     company_id = fields.Many2one('res.company', 'Company', required=True, readonly=True, ondelete='cascade', default=lambda self: self.env.company)
-    contract_ids = fields.Many2many('offtake.agreement', string='Contracts')
+    contract_ids = fields.Many2many('farmer.contract', string='Contracts')
     show_expired_filter = fields.Boolean(default=True)
     view_contracts = fields.Boolean('View Contracts')
     
@@ -65,7 +65,7 @@ class BulkContractAbstractWizard(models.AbstractModel):
     @api.onchange('view_contracts', 'company_id', 'loc_area_3_ids', 'loc_area_2_ids', 'loc_area_1_ids', 'farmer_group_ids', 'season_id', 'product_id', 'expired_filter')
     def _compute_contracts(self):
         if self.view_contracts:
-            self.contract_ids = self.env['offtake.agreement'].search(self._get_computed_contracts_domain())
+            self.contract_ids = self.env['farmer.contract'].search(self._get_computed_contracts_domain())
         else:
             self.contract_ids = False
 
@@ -130,7 +130,7 @@ class BulkContractAbstractWizard(models.AbstractModel):
                 'type': 'ir.actions.act_window',
                 'name': action_label,
                 'view_mode': 'list,form',
-                'res_model': 'offtake.agreement',
+                'res_model': 'farmer.contract',
                 'domain': [('id', 'in', contracts.ids)],
             }
     
@@ -148,7 +148,7 @@ class BulkContractApprovalWizard(models.TransientModel):
     
     def btn_confirm(self):
         super().btn_confirm()
-        self.contract_ids.confirm_offtake_agreement()
+        self.contract_ids.confirm_farmer_contract()
         return self._contracts_return_action(_('Contracts Confirmed'))
     
 
@@ -164,7 +164,7 @@ class BulkContractCloseWizard(models.TransientModel):
     
     def btn_confirm(self):
         super().btn_confirm()
-        self.contract_ids.close_offtake_agreement()
+        self.contract_ids.close_farmer_contract()
         return self._contracts_return_action(_('Contracts Closed'))
     
 
@@ -186,7 +186,7 @@ class BulkContractCancelWizard(models.TransientModel):
     
     def btn_confirm(self):
         super().btn_confirm()
-        self.contract_ids.cancel_offtake_agreement()
+        self.contract_ids.cancel_farmer_contract()
         return self._contracts_return_action(_('Contracts Cancelled'))
     
     @api.onchange('state_filter')
@@ -216,8 +216,8 @@ class BulkContractRenewWizard(models.TransientModel):
     def btn_confirm(self):
         super().btn_confirm()
         
-        contracts_env = self.env['offtake.agreement']
-        new_contracts = self.env['offtake.agreement']
+        contracts_env = self.env['farmer.contract']
+        new_contracts = self.env['farmer.contract']
         
         for contract_to_renew in self.contract_ids:
             new_contracts += contract_to_renew.copy(default={'season_id': self.new_season_id.id})
@@ -228,7 +228,7 @@ class BulkContractRenewWizard(models.TransientModel):
 class BulkContractOfftakeWizard(models.TransientModel):
     _name = 'bulk.contract.offtake.wizard'
     _inherit = ['bulk.contract.abstract.wizard']
-    _description = 'Bulk Contract Off-Take'
+    _description = 'Bulk Contract Offtake'
     
     contract_ids = fields.Many2many(domain=[('has_offtake_order','=',False),('contract_stage','=','open'),('ready_for_harvest','=',True)])
     

@@ -4,9 +4,9 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError, UserError
 
 
-class OfftakeAgreementContract(models.Model):
-    _name = 'offtake.agreement'
-    _description = 'Offtake Agreement Contract'
+class FarmerContract(models.Model):
+    _name = 'farmer.contract'
+    _description = 'Farmer Contract'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_names_search = ['name', 'outgrower_id']
     
@@ -175,7 +175,7 @@ class OfftakeAgreementContract(models.Model):
         
         self._cr.execute("""
             SELECT cont.id
-            FROM offtake_agreement cont
+            FROM farmer_contract cont
             INNER JOIN season ON cont.season_id = season.id AND season.end_date < CURRENT_DATE
             WHERE cont.contract_stage = 'open'
             """)
@@ -189,7 +189,7 @@ class OfftakeAgreementContract(models.Model):
         
         self._cr.execute("""
             SELECT DISTINCT cont.id
-            FROM offtake_agreement cont
+            FROM farmer_contract cont
             INNER JOIN purchase_order po ON po.agrios_oa_id = cont.id AND po.state != 'cancel'
             """)
         return [('id', domain_operator, [r[0] for r in self._cr.fetchall()])]
@@ -274,7 +274,7 @@ class OfftakeAgreementContract(models.Model):
             offtake_contract._onchange_offtake_qty()
     
     def btn_cancel_contract(self):
-        self.cancel_offtake_agreement()
+        self.cancel_farmer_contract()
     
     def action_create_agrios_oa_sale_orders(self):
         self.ensure_one()
@@ -335,7 +335,7 @@ class OfftakeAgreementContract(models.Model):
             }
         }
     
-    def confirm_offtake_agreement(self):
+    def confirm_farmer_contract(self):
         farm_area_cache = {}
         for offtake_contract in self:  # first do the validation loop not to create gaps in the sequence in case some case fails
             if offtake_contract.offtake_qty <= 0.0:
@@ -356,18 +356,18 @@ class OfftakeAgreementContract(models.Model):
             vals = {'contract_stage': 'open'}
             
             if offtake_contract.name == '/':
-                vals['name'] = self.env['ir.sequence'].next_by_code('offtake.agreement')
+                vals['name'] = self.env['ir.sequence'].next_by_code('farmer.contract')
             
             offtake_contract.write(vals)
         
             offtake_contract.message_post(body=_('Contract confirmed.'))
     
-    def close_offtake_agreement(self):
+    def close_farmer_contract(self):
         self.write({'contract_stage': 'closed'})
         for contract in self:
             contract.message_post(body=_('Contract closed.'))
     
-    def cancel_offtake_agreement(self):
+    def cancel_farmer_contract(self):
         for contract in self:
             if contract.oa_input_ids or contract.oa_offtake_ids:
                 raise UserError(_(f"Contract {contract.display_name} Warning - You can't cancel a contract with input orders or off-take order. Either cancel those orders or close the contract."))
@@ -386,5 +386,5 @@ class OfftakeAgreementContract(models.Model):
         for company in self.env['res.company'].sudo().search([('agrios_close_expired_contracts','=',True)]):
             expired_contracts = self.sudo().search([('company_id','=',company.id),('expired_contract','=',True)])
             if expired_contracts:
-                expired_contracts.close_offtake_agreement()
+                expired_contracts.close_farmer_contract()
     

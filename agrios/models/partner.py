@@ -60,15 +60,15 @@ class Farmer(models.Model):
     utilized_acreage = fields.Float('Utilized Farm', compute='_compute_utilized_acreage')
     unutilized_acreage = fields.Float('Unutilized Farm', compute='_compute_unutilized_acreage')
     
-    plot_ids = fields.One2many('res.partner.area', 'partner_id', 'Responsible Area', copy=False)
+    plot_ids = fields.One2many('farmer.plot', 'partner_id', 'Responsible Area', copy=False)
     
     # Linked Offtake Agreements
-    count_offtake_agreements = fields.Integer(compute='_compute_count_offtake_agreements')
-    offtake_agreement_ids = fields.One2many('offtake.agreement', 'outgrower_id', 'Contracts')
+    count_farmer_contracts = fields.Integer(compute='_compute_count_farmer_contracts')
+    farmer_contract_ids = fields.One2many('farmer.contract', 'outgrower_id', 'Contracts')
     
-    open_contract_ids = fields.One2many('offtake.agreement', string='Open Contracts', compute='_compute_open_contracts')
-    open_contract_input_ids = fields.One2many('offtake.agreement', string='Open Contracts [Input State]', compute='_compute_open_contracts')
-    open_contract_harvest_ids = fields.One2many('offtake.agreement', string='Open Contracts [Harvest State]', compute='_compute_open_contracts')
+    open_contract_ids = fields.One2many('farmer.contract', string='Open Contracts', compute='_compute_open_contracts')
+    open_contract_input_ids = fields.One2many('farmer.contract', string='Open Contracts [Input State]', compute='_compute_open_contracts')
+    open_contract_harvest_ids = fields.One2many('farmer.contract', string='Open Contracts [Harvest State]', compute='_compute_open_contracts')
     
     count_input_sales = fields.Integer(compute='_compute_count_input_sales')
     count_harvest_offtakes = fields.Integer(compute='_compute_count_harvest_offtakes')
@@ -200,17 +200,17 @@ class Farmer(models.Model):
     
     def _compute_has_expired_contract(self):
         for farmer in self:
-            farmer.has_expired_contract = any(farmer.offtake_agreement_ids.mapped('expired_contract'))
+            farmer.has_expired_contract = any(farmer.farmer_contract_ids.mapped('expired_contract'))
     
     def _compute_open_contracts(self):
         for farmer in self:
-            farmer.open_contract_ids = farmer.offtake_agreement_ids.filtered(lambda cont: cont.contract_stage == 'open')
+            farmer.open_contract_ids = farmer.farmer_contract_ids.filtered(lambda cont: cont.contract_stage == 'open')
             farmer.open_contract_input_ids = farmer.open_contract_ids.filtered(lambda cont: not cont.ready_for_harvest)
             farmer.open_contract_harvest_ids = farmer.open_contract_ids.filtered(lambda cont: cont.ready_for_harvest)
     
-    def _compute_count_offtake_agreements(self):
+    def _compute_count_farmer_contracts(self):
         for rec in self:
-            rec.count_offtake_agreements = self.env['offtake.agreement'].search_count([('outgrower_id', '=', rec.id)])
+            rec.count_farmer_contracts = self.env['farmer.contract'].search_count([('outgrower_id', '=', rec.id)])
     
     def _compute_count_input_sales(self):
         for rec in self:
@@ -222,7 +222,7 @@ class Farmer(models.Model):
     
     def _compute_count_trainings(self):
         for rec in self:
-            rec.count_trainings = self.env['offtake.agreement'].search_count([('outgrower_id', '=', rec.id)])
+            rec.count_trainings = self.env['farmer.contract'].search_count([('outgrower_id', '=', rec.id)])
     
     @api.depends('certification_ids.cert_end_date')
     def _compute_certifications(self):
@@ -241,7 +241,7 @@ class Farmer(models.Model):
     
     def _compute_utilized_acreage(self):
         for partner in self:
-            partner.utilized_acreage = sum(partner.offtake_agreement_ids.filtered(lambda contract: contract.contract_stage == 'open').mapped('contracted_farm_acreage'))
+            partner.utilized_acreage = sum(partner.farmer_contract_ids.filtered(lambda contract: contract.contract_stage == 'open').mapped('contracted_farm_acreage'))
     
     def _compute_unutilized_acreage(self):
         for rec in self:
@@ -481,13 +481,13 @@ class Farmer(models.Model):
             }
         }
     
-    def action_view_offtake_agreements(self):
+    def action_view_farmer_contracts(self):
         self.ensure_one()
         return {
             'type': 'ir.actions.act_window',
             'name': 'Offtake Agreements',
             'view_mode': 'list,form',
-            'res_model': 'offtake.agreement',
+            'res_model': 'farmer.contract',
             'domain': [('outgrower_id', '=', self.id)],
             'context': {
                 'default_outgrower_id': self.id,
@@ -580,7 +580,7 @@ class Farmer(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'name': _('New Farm Of %s') % self.display_name,
-            'res_model': 'res.partner.area',
+            'res_model': 'farmer.plot',
             'view_mode': 'form',
             'target': 'new',
             'context': {

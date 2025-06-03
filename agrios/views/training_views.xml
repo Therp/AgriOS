@@ -5,7 +5,7 @@
 	
     <record id="view_training_topic_tree" model="ir.ui.view">
         <field name="name">view.training.topics.tree</field>
-        <field name="model">og.training</field>
+        <field name="model">training.topic</field>
         <field name="arch" type="xml">
             <list sample="1" editable="top">
                 <field name="name"/>
@@ -16,7 +16,7 @@
 	
 	<record id="view_training_topic_form" model="ir.ui.view">
         <field name="name">view.training.topic.form</field>
-        <field name="model">og.training</field>
+        <field name="model">training.topic</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -30,7 +30,7 @@
     
     <record id="action_farmer_training_topics" model="ir.actions.act_window">
         <field name="name">Training Topics</field>
-        <field name="res_model">og.training</field>
+        <field name="res_model">training.topic</field>
         <field name="view_mode">list</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

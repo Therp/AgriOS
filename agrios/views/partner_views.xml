@@ -10,7 +10,7 @@
 				<page name="agrios_page" string="AgriOS" groups="agrios.group_agrios_readonly">
 					<group>
 						<field name="is_outgrower"/>
-						<field name="outgrower_requires_contract" invisible="not is_outgrower" groups="agrios.group_offtake_agreement"/>
+						<field name="outgrower_requires_contract" invisible="not is_outgrower" groups="agrios.group_farmer_contract"/>
                     	<field name="is_farmer_trainer" groups="agrios.group_farmers_training"/>
 					</group>
                 </page>
@@ -70,7 +70,7 @@
 				<field name="loc_area_5_id" optional="show"/>
 				<field name="loc_area_6_id" optional="show"/>
 				<field name="count_certifications" optional="show" groups="agrios.group_farmers_certifications"/>
-				<field name="outgrower_requires_contract" groups="agrios.group_offtake_agreement" optional="hide"/>
+				<field name="outgrower_requires_contract" groups="agrios.group_farmer_contract" optional="hide"/>
 				<field name="user_id" optional="show"/>
 			</list>
 		</field>
@@ -109,7 +109,7 @@
 				<field name="can_order_inputs_confirm" invisible="1"/>
 				<field name="can_regist_offtakes" invisible="1"/>
 				<field name="can_regist_offtakes_confirm" invisible="1"/>
-				<field name="has_expired_contract" invisible="1" groups="agrios.group_offtake_agreement"/>
+				<field name="has_expired_contract" invisible="1" groups="agrios.group_farmer_contract"/>
 				<field name="plot_ids" invisible="1"/>
 				<field name="loc_area_max_level" invisible="1"/>
 				
@@ -128,7 +128,7 @@
 				</header>
 				<sheet>
 					<widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active == True"/> 
-					<widget name="web_ribbon" title="Expired Contract" bg_color="text-bg-warning" invisible="not has_expired_contract" groups="agrios.group_offtake_agreement"/>
+					<widget name="web_ribbon" title="Expired Contract" bg_color="text-bg-warning" invisible="not has_expired_contract" groups="agrios.group_farmer_contract"/>
 					
 					<div class="oe_button_box" name="button_box">
 						<span class="fa-stack fa-3x oe_avatar" invisible="not count_certifications">
@@ -136,8 +136,8 @@
 						<button name="action_view_interactions" type="object" icon="fa-list-alt" string="Interactions" class="oe_stat_button">
 							<field name="interactions_count" widget="statinfo" />
 						</button>
-						<button class="oe_stat_button" name="action_view_offtake_agreements" type="object" icon="fa-file-text" invisible="outgrower_stage != 'verified'" groups="agrios.group_offtake_agreement">
-							<field name="count_offtake_agreements" string="Contracts" widget="statinfo"/>
+						<button class="oe_stat_button" name="action_view_farmer_contracts" type="object" icon="fa-file-text" invisible="outgrower_stage != 'verified'" groups="agrios.group_farmer_contract">
+							<field name="count_farmer_contracts" string="Contracts" widget="statinfo"/>
 						</button>
 						<button class="oe_stat_button" name="action_view_agrios_sale_orders" type="object" icon="fa-shopping-cart" invisible="outgrower_stage != 'verified'" groups="sales_team.group_sale_salesman">
 							<field name="count_input_sales" string="Input Orders" widget="statinfo"/>
@@ -235,15 +235,15 @@
 									</div>
 								</group>
 								<group>
-									<label for="utilized_acreage" groups="agrios.group_offtake_agreement"/>
-									<div class="o_row mw-50" groups="agrios.group_offtake_agreement">
+									<label for="utilized_acreage" groups="agrios.group_farmer_contract"/>
+									<div class="o_row mw-50" groups="agrios.group_farmer_contract">
 										<field name="utilized_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
 										<div class="mb-3">
 											<field name="farm_uom" readonly="1" options="{'no_open': True}"/>
 										</div>
 									</div>
-									<label for="unutilized_acreage" groups="agrios.group_offtake_agreement"/>
-									<div class="o_row mw-50" groups="agrios.group_offtake_agreement">
+									<label for="unutilized_acreage" groups="agrios.group_farmer_contract"/>
+									<div class="o_row mw-50" groups="agrios.group_farmer_contract">
 										<field name="unutilized_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
 										<div class="mb-3">
 											<field name="farm_uom" readonly="1" options="{'no_open': True}"/>
@@ -269,11 +269,11 @@
 								</field>
 							</group>
 						</page>
-						<page name="contract" string="Contracts" invisible="outgrower_stage != 'verified'" groups="agrios.group_offtake_agreement">
+						<page name="contract" string="Contracts" invisible="outgrower_stage != 'verified'" groups="agrios.group_farmer_contract">
 							<group>
 								<field name="outgrower_requires_contract" groups="agrios.group_agrios_manager"/>
 							</group>
-							<field name="offtake_agreement_ids" readonly="True">
+							<field name="farmer_contract_ids" readonly="True">
 								<list decoration-muted="contract_stage=='closed'" decoration-danger="contract_stage=='cancelled' or expired_contract">
 									<field name="name"/>
 									<field name="season_id"/>

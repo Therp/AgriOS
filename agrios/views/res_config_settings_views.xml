@@ -9,13 +9,13 @@
 			<xpath expr="//form" position="inside">
 				<app data-string="AgriOS" string="AgriOS" name="agrios">
 					<block title="Operations" name="operations_setting_container">
-						<setting id="offtake_agreements" help="Allows the management of offtake agreement contract with the farmers." company_dependent="1">
-							<field name="group_offtake_agreement"/>
+						<setting id="farmer_contracts" help="Allows the management of offtake agreement contract with the farmers." company_dependent="1">
+							<field name="group_farmer_contract"/>
 							<div class="content-group">
-								<div invisible="not group_offtake_agreement">
-									 <button name="%(agrios.action_offtake_agreements)d" icon="oi-arrow-right" type="action" string="Offtake Agreements" class="btn-link"/>
+								<div invisible="not group_farmer_contract">
+									 <button name="%(agrios.action_farmer_contracts)d" icon="oi-arrow-right" type="action" string="Offtake Agreements" class="btn-link"/>
 								</div>
-								<div class="mt16" invisible="not group_offtake_agreement">
+								<div class="mt16" invisible="not group_farmer_contract">
 									<div>
 										<field name="agrios_default_contract_needed" class="w-auto"/>
                                     	<label for="agrios_default_contract_needed"/>

@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
     outgrower_requires_contract = fields.Boolean(related='partner_id.outgrower_requires_contract', readonly=True)
     partner_open_contract_ids = fields.One2many(related='partner_id.open_contract_ids', readonly=True)
     partner_open_contract_input_ids = fields.One2many(related='partner_id.open_contract_input_ids', readonly=True)
-    agrios_oa_id = fields.Many2one('offtake.agreement', 'AgriOS Contract', domain="[('outgrower_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
+    agrios_oa_id = fields.Many2one('farmer.contract', 'AgriOS Contract', domain="[('outgrower_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
     payment_in_kind = fields.Boolean('Payment In Kind', tracking=True)
     
     @api.depends('partner_id')

@@ -216,7 +216,7 @@ class AreaLevel1(models.Model): # AreaLevel1
 
 class FarmerGroup(models.Model):
     _name = 'farmer.group'
-    _description = "Farmers' Group"
+    _description = "Farmer Group"
     _order = 'name, loc_area_1_id'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     

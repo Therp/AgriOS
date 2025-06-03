@@ -8,7 +8,7 @@
             <search>
             	<field name="name"/>
                 <field name="outgrower_id" domain="[('is_outgrower','=',True)]"/>
-                <field name="contract_id" groups="agrios.group_offtake_agreement"/>
+                <field name="contract_id" groups="agrios.group_farmer_contract"/>
                 <separator/>
                 <filter string="Archived" name="filter_not_active" domain="[('active','=',False)]"/>
                 <group expand="1" string="Group By">
@@ -43,7 +43,7 @@
                         <group>
                             <field name="name"/>
                             <field name="outgrower_id" context="{'form_view_ref': 'agrios.view_outgrower_form'}" required="1"/>
-                            <field name="contract_id" options="{'no_create': True}" groups="agrios.group_offtake_agreement"/>
+                            <field name="contract_id" options="{'no_create': True}" groups="agrios.group_farmer_contract"/>
                         </group>
                         <group>
                             <field name="interaction_date"/>

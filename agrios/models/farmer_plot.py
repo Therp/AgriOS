@@ -4,10 +4,10 @@ from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 
 
-class ResPartnerArea(models.Model):
-    _name = 'res.partner.area'
+class FarmerPlot(models.Model):
+    _name = 'farmer.plot'
     _inherit = ["mail.thread"]
-    _description = 'Outgrower Farm Plot'
+    _description = 'Farmer Plot'
     _order = 'partner_id'
     
     def _get_farm_uom_domain(self):
@@ -67,17 +67,17 @@ class ResPartnerArea(models.Model):
     def init(self):
         super().init()
         self._cr.execute("""
-            UPDATE res_partner_area
+            UPDATE farmer_plot
             SET loc_area_2_id = ll1.parent_id
             FROM area_level_1 ll1
-            WHERE res_partner_area.loc_area_1_id = ll1.id
-            AND res_partner_area.loc_area_2_id IS NULL;
+            WHERE farmer_plot.loc_area_1_id = ll1.id
+            AND farmer_plot.loc_area_2_id IS NULL;
             
-            UPDATE res_partner_area
+            UPDATE farmer_plot
             SET loc_area_3_id = ll2.parent_id
             FROM area_level_2 ll2
-            WHERE res_partner_area.loc_area_2_id = ll2.id
-            AND res_partner_area.loc_area_3_id IS NULL;
+            WHERE farmer_plot.loc_area_2_id = ll2.id
+            AND farmer_plot.loc_area_3_id IS NULL;
         """)
     
     @api.depends('country_id')
@@ -157,7 +157,7 @@ class ResPartnerArea(models.Model):
     def _get_view(self, view_id=None, view_type='form', **options):
         arch, view = super()._get_view(view_id=view_id, view_type=view_type, **options)
         
-        if view_type == 'list' and view == self.env.ref('agrios.res_partner_area_tree', raise_if_not_found=False):
+        if view_type == 'list' and view == self.env.ref('agrios.farmer_plot_tree', raise_if_not_found=False):
             company_country_id = self.env.company.country_id.id
             loc_details, max_level = self.env['country.location.level']._get_country_details(company_country_id)
             

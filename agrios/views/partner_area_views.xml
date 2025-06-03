@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	
-	<record id="res_partner_area_search" model="ir.ui.view">
-        <field name="name">res.partner.area.search</field>
-        <field name="model">res.partner.area</field>
+	<record id="farmer_plot_search" model="ir.ui.view">
+        <field name="name">farmer.plot.search</field>
+        <field name="model">farmer.plot</field>
         <field name="arch" type="xml">
             <search string="Plots">
                 <field name="name"/>
@@ -21,9 +21,9 @@
         </field>
     </record>
 	
-	<record id="res_partner_area_tree" model="ir.ui.view">
-        <field name="name">res.partner.area.tree</field>
-        <field name="model">res.partner.area</field>
+	<record id="farmer_plot_tree" model="ir.ui.view">
+        <field name="name">farmer.plot.tree</field>
+        <field name="model">farmer.plot</field>
         <field name="arch" type="xml">
             <list string="Plots">
                 <field name="partner_id"/>
@@ -41,9 +41,9 @@
         </field>
     </record>
 	
-    <record id="res_partner_area_form" model="ir.ui.view">
-        <field name="name">res.partner.area.form</field>
-        <field name="model">res.partner.area</field>
+    <record id="farmer_plot_form" model="ir.ui.view">
+        <field name="name">farmer.plot.form</field>
+        <field name="model">farmer.plot</field>
         <field name="arch" type="xml">
             <form string="Plot">
             	<field name="loc_area_max_level" invisible="1"/>
@@ -146,10 +146,10 @@
         </field>
     </record>
 	
-    <record id="res_partner_area_action" model="ir.actions.act_window">
+    <record id="farmer_plot_action" model="ir.actions.act_window">
         <field name="name">Outgrower Plots</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">res.partner.area</field>
+        <field name="res_model">farmer.plot</field>
         <field name="view_mode">list,form</field>
     </record>
 	

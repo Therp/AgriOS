@@ -8,10 +8,10 @@
         <menuitem name="Outgrowers" id="agrios_outgrower_outgrowers" parent="agrios_outgrowers" action="action_verified_outgrowers" sequence="10"/>
         <menuitem name="Leads" id="agrios_outgrower_leads" parent="agrios_outgrowers" action="action_outgrower_leads" sequence="20"/>
         <menuitem name="Farmer Groups" id="agrios_organisation_group" parent="agrios_outgrowers" action="action_farmer_groups" sequence="30"/>
-        <menuitem name="Outgrower Plots" id="menu_partner_area" parent="agrios_outgrowers" action="res_partner_area_action" sequence="40" groups="agrios.group_plot_management"/>
+        <menuitem name="Outgrower Plots" id="menu_partner_area" parent="agrios_outgrowers" action="farmer_plot_action" sequence="40" groups="agrios.group_plot_management"/>
         <menuitem name="Outgrower Subplots" id="menu_partner_subplots" parent="agrios_outgrowers" action="res_partner_subplot_action" sequence="41" groups="agrios.group_plot_management"/>
-      <menuitem name="Contracts" id="agrios_contracts" parent="agrios_menu_root" sequence="20" groups="agrios.group_offtake_agreement"/>
-        <menuitem name="Contracts" id="offtake_agreements_menu" action="action_offtake_agreements" parent="agrios_contracts" sequence="10"/>
+      <menuitem name="Contracts" id="agrios_contracts" parent="agrios_menu_root" sequence="20" groups="agrios.group_farmer_contract"/>
+        <menuitem name="Contracts" id="farmer_contracts_menu" action="action_farmer_contracts" parent="agrios_contracts" sequence="10"/>
         <menuitem name="Bulk Operations" id="bulk_operations_menu" parent="agrios_contracts" sequence="100"/>
           <menuitem name="Approve Contracts" id="bulk_contract_approval_wizard_menu" action="bulk_contract_approval_wizard_action" parent="bulk_operations_menu" sequence="10" groups="agrios.group_agrios_manager"/>
           <menuitem name="Close Contracts" id="bulk_contract_close_wizard_menu" action="bulk_contract_close_wizard_action" parent="bulk_operations_menu" sequence="20" groups="agrios.group_agrios_manager"/>
@@ -31,7 +31,7 @@
         <menuitem name="Off-Take Analysis" id="purchase_order_line_offtake_report_menu" parent="agrios_reports" action="purchase_order_line_offtake_report_action" sequence="20"/>
       <menuitem name="Configuration" id="agrios_configuration" parent="agrios_menu_root" sequence="300" groups="agrios.group_agrios_admin"/>
         <menuitem name="Settings" id="agrios_configuration_settings" parent="agrios_configuration" action="action_agrios_configuration_settings" sequence="0"/>
-        <menuitem name="Seasons" id="agrios_configuration_season" parent="agrios_configuration" action="action_seasons" sequence="10" groups="agrios.group_offtake_agreement"/>
+        <menuitem name="Seasons" id="agrios_configuration_season" parent="agrios_configuration" action="action_seasons" sequence="10" groups="agrios.group_farmer_contract"/>
         <menuitem name="Activity Types" id="agrios_configuration_activity" parent="agrios_configuration" action="mail.mail_activity_type_action" sequence="20"/>
         <menuitem id="agrios_organisation" name="Administration" parent="agrios_configuration" sequence="60"/>
           <menuitem name="Location Area 6" id="loc_area_6_menu" parent="agrios_organisation" action="loc_area_6_action" sequence="4" groups="base.group_no_one"/>

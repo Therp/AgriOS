@@ -75,7 +75,7 @@
 				</group></h2>
 				
 				<group string="Contracts That Will Be Affected" invisible="not view_contracts">
-					<field name="contract_ids" nolabel="1" colspan="2" context="{'list_view_ref': 'agrios.view_offtake_agreement_no_create_edit_tree'}"/>
+					<field name="contract_ids" nolabel="1" colspan="2" context="{'list_view_ref': 'agrios.view_farmer_contract_no_create_edit_tree'}"/>
 				</group>
 				
 				<footer>

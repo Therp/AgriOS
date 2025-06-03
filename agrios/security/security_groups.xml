@@ -73,7 +73,7 @@
 		<field name="comment">the user will have access to records of the Location Area 1 farmers he/she coordinates.</field>
 	</record>
 	
-   	<record id="group_offtake_agreement" model="res.groups">
+   	<record id="group_farmer_contract" model="res.groups">
 		<field name="name">AgriOS - Manage Offtake Agreements</field>
 		<field name="category_id" ref="base.module_category_hidden"/>
 	</record>

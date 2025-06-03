@@ -11,7 +11,7 @@ class PurchaseOrder(models.Model):
     outgrower_requires_contract = fields.Boolean(related='partner_id.outgrower_requires_contract', readonly=True)
     partner_open_contract_ids = fields.One2many(related='partner_id.open_contract_ids', readonly=True)
     partner_open_contract_harvest_ids = fields.One2many(related='partner_id.open_contract_harvest_ids', readonly=True)
-    agrios_oa_id = fields.Many2one('offtake.agreement', 'AgriOS Contract', domain="[('outgrower_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
+    agrios_oa_id = fields.Many2one('farmer.contract', 'AgriOS Contract', domain="[('outgrower_id','=',partner_id),('contract_stage','=','open'),('company_id','=',company_id)]")
     
     @api.depends('partner_id')
     def _compute_verified_partner_outgrower(self):
@@ -56,7 +56,7 @@ class PurchaseOrder(models.Model):
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
     
-    agrios_oa_line_id = fields.Many2one('offtake.agreement', related='order_id.agrios_oa_id')
+    agrios_oa_line_id = fields.Many2one('farmer.contract', related='order_id.agrios_oa_id')
     date_order = fields.Datetime(store=True, index=True)
     loc_area_1_id = fields.Many2one(related='partner_id.loc_area_1_id', store=True)
     loc_area_2_id = fields.Many2one(related='partner_id.loc_area_2_id', store=True)

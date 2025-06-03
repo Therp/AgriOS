@@ -9,7 +9,7 @@ class ResPartnerSubplot(models.Model):
     _name = 'res.partner.subplot'
     _description = "Farmer Subplots"
     
-    plot_id = fields.Many2one('res.partner.area', 'Plot', required=True, ondelete='cascade')
+    plot_id = fields.Many2one('farmer.plot', 'Plot', required=True, ondelete='cascade')
     product_id = fields.Many2one('product.product', string='Harvest Crop', domain=[('harvest_product','=',True)], inverse="_update_farmer_harvest_products", required=True)
     acreage = fields.Float('Acreage', required=True)
     partner_id = fields.Many2one(related="plot_id.partner_id")
@@ -33,7 +33,7 @@ class ResPartnerSubplot(models.Model):
         self.ensure_one()
         annual_estimated_yield = 0
         if self.product_type == 'tree_crop':
-            tree_yield = self.env['tree.yield'].search([
+            tree_yield = self.env['plant.age.yield'].search([
                 ('product_id', '=', self.product_id.id),
                 ('age', '<=', self.age + duration)
             ], order='age desc', limit=1)

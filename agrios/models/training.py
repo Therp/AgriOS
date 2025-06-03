@@ -3,9 +3,9 @@
 from odoo import models, fields, api, _
 
 
-class TrainingType(models.Model):
-    _name = 'og.training'
-    _description = 'Training Subject'
+class TrainingTopic(models.Model):
+    _name = 'training.topic'
+    _description = 'Training Topic'
     _inherit = ['mail.thread']
     _order = 'name'
 
@@ -13,7 +13,7 @@ class TrainingType(models.Model):
     active = fields.Boolean(default=True, tracking=True)
 
     _sql_constraints = [
-        ('unique_name', 'UNIQUE(name)', 'Training already Exists'),
+        ('unique_name', 'UNIQUE(name)', 'Training Topic already Exists'),
     ]
 
 
@@ -25,7 +25,7 @@ class FarmerTraining(models.Model):
     
     name = fields.Char("Training No.", compute='_compute_name')
     active = fields.Boolean(default=True, tracking=True)
-    training_ids = fields.Many2many('og.training', tracking=True, required=True)
+    training_ids = fields.Many2many('training.topic', tracking=True, required=True)
     trainer_id = fields.Many2one('res.partner', required=True, tracking=True, domain=[('is_farmer_trainer','=',True)])
     training_state = fields.Selection([
         ('planned', 'Planned'),

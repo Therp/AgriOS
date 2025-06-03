@@ -8,7 +8,7 @@ class ConfirmContractsWizard(models.TransientModel):
     _name = 'multiple.confirm.draft.contracts.wizard'
     _description = 'Confirm Multiple Contracts'
     
-    contract_ids = fields.Many2many('offtake.agreement', string='Draft Contracts To Confirm', domain=[('contract_stage','=','draft')])
+    contract_ids = fields.Many2many('farmer.contract', string='Draft Contracts To Confirm', domain=[('contract_stage','=','draft')])
     
     @api.model
     def default_get(self, default_fields):
@@ -17,12 +17,12 @@ class ConfirmContractsWizard(models.TransientModel):
         if 'contract_ids' in default_fields:
             if ret.get('contract_ids'):
                 contract_ids = ret['contract_ids']
-            elif self._context.get('active_model') == 'offtake.agreement':
+            elif self._context.get('active_model') == 'farmer.contract':
                 contract_ids = self._context.get('active_ids')
             else:
                 contract_ids = []
             
-            self._cr.execute("SELECT id FROM offtake_agreement WHERE contract_stage = 'draft' and id IN %s", (tuple(contract_ids),))
+            self._cr.execute("SELECT id FROM farmer_contract WHERE contract_stage = 'draft' and id IN %s", (tuple(contract_ids),))
             draft_contract_ids = [c[0] for c in self._cr.fetchall()]
             
             if not draft_contract_ids:
@@ -34,7 +34,7 @@ class ConfirmContractsWizard(models.TransientModel):
     
     def confirm_contracts(self):
         draft_contracts = self.contract_ids.filtered(lambda cont: cont.contract_stage == 'draft')
-        draft_contracts.confirm_offtake_agreement()
+        draft_contracts.confirm_farmer_contract()
         
         return {
                 'type': 'ir.actions.client',
