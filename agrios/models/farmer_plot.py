@@ -32,9 +32,9 @@ class FarmerPlot(models.Model):
     located_in_protected_area = fields.Boolean('Located in Protected Area')
     plot_uom_id = fields.Many2one('uom.uom', 'Plot UOM', domain=_get_land_area_uom_domain, default=_get_default_land_area_uom, tracking=True, readonly=True)
     plot_size = fields.Float('Plot Size', required=True, tracking=True)
-    farm_condition = fields.Selection([('bad', 'Bad'),('needsimprovement','Needs Improvement'),('good','Good'),('verygood','Very Good')], default=False)
+    plot_condition = fields.Selection([('bad', 'Bad'),('needsimprovement','Needs Improvement'),('good','Good'),('verygood','Very Good')], default=False, string='Plot Condition')
     intercropping = fields.Boolean('Intercropping')
-    subplot_ids = fields.One2many('res.partner.subplot', 'plot_id', string='Subplots')
+    subplot_ids = fields.One2many('farmer.plot.crop.area', 'plot_id', string='Subplots')
     
     loc_area_1_id = fields.Many2one('area.level.1', 'Location Area 1', tracking=True)
     loc_area_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)

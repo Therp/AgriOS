@@ -5,16 +5,16 @@ from odoo.exceptions import ValidationError
 from datetime import datetime
 
 
-class ResPartnerSubplot(models.Model):
-    _name = 'res.partner.subplot'
+class FarmerPlotCropArea(models.Model):
+    _name = 'farmer.plot.crop.area'
     _description = "Farmer Subplots"
     
     plot_id = fields.Many2one('farmer.plot', 'Plot', required=True, ondelete='cascade')
-    product_id = fields.Many2one('product.product', string='Crop', domain=[('crop_product','=',True)], inverse="_update_farmer_harvest_products", required=True)
+    crop_product_id = fields.Many2one('product.product', string='Crop Product', domain=[('crop_product','=',True)], inverse="_update_farmer_harvest_products", required=True)
     acreage = fields.Float('Acreage', required=True)
-    partner_id = fields.Many2one(related="plot_id.partner_id")
+    farmer_id = fields.Many2one(related="plot_id.partner_id", string='Farmer')
     plot_size = fields.Float(related="plot_id.plot_size", store=True)
-    product_type = fields.Selection(related="product_id.harvest_product_type", store=True)
+    product_type = fields.Selection(related="crop_product_id.harvest_product_type", store=True)
     number_of_trees = fields.Integer('Number of Trees')
     year_of_plantation = fields.Integer('Year of Plantation')
     age = fields.Integer('Age', compute='_compute_age')
@@ -34,19 +34,19 @@ class ResPartnerSubplot(models.Model):
         annual_estimated_yield = 0
         if self.product_type == 'tree_crop':
             tree_yield = self.env['plant.age.yield'].search([
-                ('crop_product_id', '=', self.product_id.id),
+                ('crop_product_id', '=', self.crop_product_id.id),
                 ('age', '<=', self.age + duration)
             ], order='age desc', limit=1)
             
             if tree_yield:
                 annual_estimated_yield = tree_yield.annual_yield * self.number_of_trees
         elif self.product_type == 'perennial':
-            annual_estimated_yield = self.product_id.estimated_yield * self.acreage
+            annual_estimated_yield = self.crop_product_id.estimated_yield * self.acreage
         else:
             annual_estimated_yield = 0
         return annual_estimated_yield
         
-    @api.depends('product_id', 'product_type', 'year_of_plantation', 'number_of_trees', 'acreage')
+    @api.depends('crop_product_id', 'product_type', 'year_of_plantation', 'number_of_trees', 'acreage')
     def _compute_annual_estimated_yield(self):
         for record in self:
             record.annual_estimated_yield = record.get_crop_yield_estimate(duration=0)
@@ -71,8 +71,8 @@ class ResPartnerSubplot(models.Model):
     
     def _update_farmer_harvest_products(self):
         for record in self:
-            if record.product_id not in record.partner_id.crop_product_ids:
+            if record.crop_product_id not in record.partner_id.crop_product_ids:
                 record.partner_id.write({
-                    'crop_product_ids': [Command.link(record.product_id.id)]
+                    'crop_product_ids': [Command.link(record.crop_product_id.id)]
                 })
     

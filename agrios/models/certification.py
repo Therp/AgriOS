@@ -63,7 +63,7 @@ class FarmerCertification(models.Model):
     
     style = fields.Selection(related='certification_type_id.style', readonly=True)
     
-    valid_farmer_certification_ids = fields.Many2many('farmer.certification', compute='_compute_valid_farmer_certification')
+    valid_farmer_certification_ids = fields.Many2many('farmer.certification', compute='_compute_valid_farmer_certification', string="Valid Farmer Certifications")
     valid_farmer_certification_count = fields.Integer(compute='_compute_valid_farmer_certification')
     display_name = fields.Char(compute='_compute_display_name', store=True, compute_sudo=True)
     

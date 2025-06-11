@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook/page[last()]" position="after">
                 <page string="Responsible Farmers" groups="base.group_no_one">
-                    <field name="resposible_farmer_ids" nolabel="1" colspan="2"/>
+                    <field name="responsible_farmer_ids" nolabel="1" colspan="2"/>
                 </page>
             </xpath>
         </field>

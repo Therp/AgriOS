@@ -14,7 +14,7 @@ from . import product
 from . import company
 from . import res_config_settings
 from . import farmer_plot
-from . import farmer_subplot
+from . import farmer_plot_crop_area
 from . import plant_age_yield
 from . import account_journal
 from . import account_move
