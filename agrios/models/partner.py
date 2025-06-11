@@ -77,7 +77,7 @@ class Farmer(models.Model):
     
     training_ids = fields.Many2many('farmer.training', domain=[('training_state', '=', 'done')])
     
-    crop_product_ids = fields.Many2many('product.product', 'res_partner_product_harvest_crops_rel', 'partner_id', 'product_id', 'Crops', domain=[('crop_product','=',True)])
+    crop_product_ids = fields.Many2many('product.product', 'res_partner_product_harvest_crops_rel', 'partner_id', 'product_id', domain=[('crop_product','=',True)], string="Crop Products")
     
     land_area_uom = fields.Many2one('uom.uom', 'Land Area Unit of Measure', domain=lambda self: self._get_land_area_uom_domain(), default=lambda self: self._default_land_area_uom(), tracking=True)
     
@@ -458,7 +458,7 @@ class Farmer(models.Model):
         for farmer in self:
             vals = {
                 'farmer_stage': 'verified',
-                'farmer_requires_contract': (farmer.company_id or self.env.company).a_default_contract_needed,
+                'farmer_requires_contract': (farmer.company_id or self.env.company).a_default_contract_required,
             }
             
             if farmer.farmer_ref == '/':
@@ -598,7 +598,7 @@ class Farmer(models.Model):
                 ('plot_id', 'in', self.plot_ids.ids),
                 ('product_id', '=', crop_product.id)
             ]
-            subplots = self.env['res.partner.subplot'].search(domain)
+            subplots = self.env['farmer.plot.crop.area'].search(domain)
         
             if subplots:
                 total_yield = sum(subplots.mapped('annual_estimated_yield'))

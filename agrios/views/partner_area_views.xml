@@ -60,7 +60,7 @@
                                 <field name="plot_size" class="oe_inline" nolabel="1"/>
                                 <field name="plot_uom_id" force_save="1" options="{'no_open': True}"/>
                             </div>
-                            <field name="farm_condition"/>
+                            <field name="plot_condition"/>
                             <field name="intercropping"/>
                         </group>
                         <group>
@@ -113,7 +113,7 @@
                     	<page name="subplots_page" string="Sub Plots">
                     		<field name="subplot_ids">
 	                            <list>
-	                                <field name="product_id" options="{'no_create': True}"/>
+	                                <field name="crop_product_id" options="{'no_create': True}"/>
 	                                <field name="acreage"/>
 	                                <field name="annual_estimated_yield"/>
 	                            </list>
@@ -121,7 +121,7 @@
 	                                <sheet>
 	                                    <group>
 	                                        <group>
-	                                            <field name="product_id"/>
+	                                            <field name="crop_product_id"/>
 	                                            <field name="product_type"/>
 	                                            <field name="acreage"/>
 	                                        </group>

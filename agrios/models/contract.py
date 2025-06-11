@@ -43,14 +43,14 @@ class FarmerContract(models.Model):
     offtake_available_qty = fields.Integer('Pending Offtake Qty', compute='_compute_offtake_available_qty')
     
     contracted_unit_price = fields.Monetary()
-    total_contract_cost = fields.Monetary('Total Offtake Cost', compute='_compute_total_offtake_cost')
+    total_contract_cost = fields.Monetary('Total Contract Cost', compute='_compute_total_offtake_cost')
     total_inputs_cost = fields.Monetary('Total Inputs Cost', compute='_compute_total_inputs_cost')
     
     oa_input_ids = fields.One2many('sale.order.line', 'farmer_contract_line_id', domain=[('state','not in',['draft','sent','cancel'])])
     count_oa_input_sales = fields.Integer(compute='_compute_count_oa_input_sales')
     
     count_oa_purchases = fields.Integer(compute='_compute_count_oa_purchases')
-    farmer_contract_offtake_ids = fields.One2many('purchase.order.line', 'farmer_contract_line_id', domain=[('state','not in',['draft','sent','to approve','cancel'])])
+    farmer_contract_offtake_ids = fields.One2many('purchase.order.line', 'farmer_contract_line_id',string="Farmer Contract Offtakes", domain=[('state','not in',['draft','sent','to approve','cancel'])])
     
     interaction_ids = fields.One2many('farmer.interaction', 'contract_id')
     ready_for_harvest = fields.Boolean('Ready For Harvest', default=False, copy=False)
@@ -64,7 +64,7 @@ class FarmerContract(models.Model):
     active_contract = fields.Boolean('Active Contract', compute='_compute_active_contract')
     expired_contract = fields.Boolean('Contract Expired', compute='_compute_expired_contract', search='_search_expired_contract')
     
-    has_offtake_order = fields.Boolean('Has Off-Take Order', compute='_compute_has_offtake_order', search='_search_has_offtake_order')
+    has_offtake_order = fields.Boolean('Has Offtake Order', compute='_compute_has_offtake_order', search='_search_has_offtake_order')
     
     company_id = fields.Many2one('res.company', string='Company', required=True, default=lambda self: self.env.company)
     currency_id = fields.Many2one(related='company_id.currency_id', store=True)
@@ -74,7 +74,7 @@ class FarmerContract(models.Model):
     can_order_inputs = fields.Boolean(compute='_compute_can_order_inputs')
     can_register_offtakes = fields.Boolean(compute='_compute_can_register_offtakes')
     
-    farmer_crop_product_ids = fields.Many2many(related='farmer_id.crop_product_ids')
+    farmer_crop_product_ids = fields.Many2many(related='farmer_id.crop_product_ids', string='Crop Products')
     
     @api.depends('ready_for_harvest', 'contract_stage')
     def _compute_harvest_state(self):

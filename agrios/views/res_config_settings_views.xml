@@ -17,8 +17,8 @@
 								</div>
 								<div class="mt16" invisible="not group_farmer_contract">
 									<div>
-										<field name="a_default_contract_needed" class="w-auto"/>
-                                    	<label for="a_default_contract_needed"/>
+										<field name="a_default_contract_required" class="w-auto"/>
+                                    	<label for="a_default_contract_required"/>
                                     	<span class="o_doc_link" style="cursor: help; margin-left: -7px;" title="If selected, farmers will require, by default, a valid contract to sell inputs or to buy off-takes from them. If unselected, no contract, by default, is needed. Individual cases can be changed on each farmer record form page."/>
 									</div>
 									<div>

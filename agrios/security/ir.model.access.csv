@@ -58,8 +58,8 @@ access_agrios_readonly_farmer_plot,ams_readonly access.farmer.plot,model_farmer_
 access_agrios_user_farmer_plot,ams_user access.farmer.plot,model_farmer_plot,agrios.group_agrios_user,1,1,1,0
 access_agrios_admin_farmer_plot,ams_admin access.farmer.plot,model_farmer_plot,agrios.group_agrios_manager,1,1,1,1
 
-access_agrios_readonly_res_partner_subplot,ams_readonly access.res.partner.subplot,model_res_partner_subplot,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_user_res_partner_subplot,ams_user access.res.partner.subplot,model_res_partner_subplot,agrios.group_agrios_user,1,1,1,1
+access_agrios_readonly_farmer_plot_crop_area,ams_readonly access.farmer.plot.crop.area,model_farmer_plot_crop_area,agrios.group_agrios_readonly,1,0,0,0
+access_agrios_user_farmer_plot_crop_area,ams_user access.farmer.plot.crop.area,model_farmer_plot_crop_area,agrios.group_agrios_user,1,1,1,1
 
 access_agrios_readonly_tree_yield,ams_readonly access.plant.age.yield,model_plant_age_yield,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_user_tree_yield,ams_user access.plant.age.yield,model_plant_age_yield,agrios.group_agrios_user,1,1,1,1

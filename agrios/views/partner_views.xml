@@ -262,7 +262,7 @@
 						                <field name="loc_area_2_id" optional="hide"/>
 						                <field name="loc_area_3_id" optional="hide"/>
 						                <field name="plot_size" sum="Total" optional="show"/>
-						                <field name="farm_condition" optional="show"/>
+						                <field name="plot_condition" optional="show"/>
 						                <field name="gshape_description" optional="hide"/>
 									</list>
 								</field>
