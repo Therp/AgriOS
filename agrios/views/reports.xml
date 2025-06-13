@@ -11,7 +11,7 @@
             <search>
                 <field name="order_partner_id" string="Farmer" domain="[('is_farmer','=',True)]"/>
                 <field name="product_id"/>
-                <field name="loc_area_1_id" string="Location Area 1 / Location Area 2 / Location Area 3" filter_domain="['|','|',('loc_area_1_id','ilike',self),('loc_area_2_id','ilike',self),('loc_area_3_id','ilike',self)]"/>
+                <field name="loc_area_1_id" string="Area Level 1 / Area Level 2 / Area Level 3" filter_domain="['|','|',('loc_area_1_id','ilike',self),('loc_area_2_id','ilike',self),('loc_area_3_id','ilike',self)]"/>
                 <field name="farmer_group_id"/>
                 <field name="order_id"/>
                 <separator/>
@@ -25,9 +25,9 @@
                     <filter string="Farmer" name="groupby_order_partner_id" context="{'group_by':'order_partner_id'}"/>
                     <filter string="Product" name="groupby_product_id" context="{'group_by':'product_id'}"/>
                     <separator/>
-                    <filter string="Location Area 1" name="groupby_loc_area_1_id" context="{'group_by':'loc_area_1_id'}"/>
-                    <filter string="Location Area 2" name="groupby_loc_area_2_id" context="{'group_by':'loc_area_2_id'}"/>
-                    <filter string="Location Area 3" name="groupby_loc_area_3_id" context="{'group_by':'loc_area_3_id'}"/>
+                    <filter string="Area Level 1" name="groupby_loc_area_1_id" context="{'group_by':'loc_area_1_id'}"/>
+                    <filter string="Area Level 2" name="groupby_loc_area_2_id" context="{'group_by':'loc_area_2_id'}"/>
+                    <filter string="Area Level 3" name="groupby_loc_area_3_id" context="{'group_by':'loc_area_3_id'}"/>
                     <filter string="Farmer Group" name="groupby_farmer_group_id" context="{'group_by':'farmer_group_id'}"/>
                     <separator/>
                     <filter string="Order" name="groupby_order_id" context="{'group_by':'order_id'}"/>
@@ -90,7 +90,7 @@
             <search>
                 <field name="partner_id" string="Farmer" domain="[('is_farmer','=',True)]"/>
                 <field name="product_id"/>
-                <field name="loc_area_1_id" string="Location Area 1 / Location Area 2 / Location Area 3" filter_domain="['|','|',('loc_area_1_id','ilike',self),('loc_area_2_id','ilike',self),('loc_area_3_id','ilike',self)]"/>
+                <field name="loc_area_1_id" string="Area Level 1 / Area Level 2 / Area Level 3" filter_domain="['|','|',('loc_area_1_id','ilike',self),('loc_area_2_id','ilike',self),('loc_area_3_id','ilike',self)]"/>
                 <field name="farmer_group_id"/>
                 <field name="order_id"/>
                 <separator/>
@@ -104,9 +104,9 @@
                     <filter string="Farmer" name="groupby_partner_id" context="{'group_by':'partner_id'}"/>
                     <filter string="Product" name="groupby_product_id" context="{'group_by':'product_id'}"/>
                     <separator/>
-                    <filter string="Location Area 1" name="groupby_loc_area_1_id" context="{'group_by':'loc_area_1_id'}"/>
-                    <filter string="Location Area 2" name="groupby_loc_area_2_id" context="{'group_by':'loc_area_2_id'}"/>
-                    <filter string="Location Area 3" name="groupby_loc_area_3_id" context="{'group_by':'loc_area_3_id'}"/>
+                    <filter string="Area Level 1" name="groupby_loc_area_1_id" context="{'group_by':'loc_area_1_id'}"/>
+                    <filter string="Area Level 2" name="groupby_loc_area_2_id" context="{'group_by':'loc_area_2_id'}"/>
+                    <filter string="Area Level 3" name="groupby_loc_area_3_id" context="{'group_by':'loc_area_3_id'}"/>
                     <filter string="Farmer Group" name="groupby_farmer_group_id" context="{'group_by':'farmer_group_id'}"/>
                     <separator/>
                     <filter string="Order" name="groupby_order_id" context="{'group_by':'order_id'}"/>

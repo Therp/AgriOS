@@ -6,7 +6,7 @@ from odoo.tools import ormcache
 
 class CountryLocationLevel(models.Model):
     _name = 'country.location.level'
-    _description = 'Country Location Area'
+    _description = 'Country Area Level'
     _order = 'country_id, level'
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
@@ -27,11 +27,11 @@ class CountryLocationLevel(models.Model):
         else:
             loc_details = {}
         
-        max_level = 1
+        max_level = 0
         
         for level in range(1, 7):
             if level not in loc_details:
-                loc_details[level] = '- Undefined -' if level != 1 else 'Village'
+                loc_details[level] = '- Undefined -'
             elif level > max_level:
                 max_level = level
         
@@ -128,7 +128,7 @@ class Arealevel3(models.Model): # AreaLevel3
     is_parent_required = fields.Boolean(compute='_compute_is_parent_required', string='Parent Area Required')
     
     _sql_constraints = [
-        ('unique_region_name', 'UNIQUE(name)', 'An Location Area with this name already exists!'),
+        ('unique_region_name', 'UNIQUE(name)', 'An Area Level with this name already exists!'),
     ]
     
     @api.depends('country_id')
@@ -152,7 +152,7 @@ class Arealevel2(models.Model): # AreaLevel2
     is_parent_required = fields.Boolean(compute='_compute_is_parent_required', string='Parent Area Required')
     
     _sql_constraints = [
-        ('unique_loc_area_2_name', 'UNIQUE(name)','An Location Area with this name already Exists'),
+        ('unique_loc_area_2_name', 'UNIQUE(name)','An Area Level with this name already Exists'),
     ]
 
     @api.depends('country_id')
@@ -197,7 +197,7 @@ class AreaLevel1(models.Model): # AreaLevel1
 
     
     _sql_constraints = [
-        ('unique_level_1_level_3_combination', 'UNIQUE(name, loc_area_2_id)', 'An Location Area with this name already Exists in the specified Location Area 2'),
+        ('unique_level_1_level_3_combination', 'UNIQUE(name, loc_area_2_id)', 'An Area Level with this name already Exists in the specified Area Level 2'),
     ]
     
     @api.model
@@ -230,20 +230,20 @@ class FarmerGroup(models.Model):
     name = fields.Char(required=True)
     active = fields.Boolean(default=True)
     
-    loc_area_1_id = fields.Many2one('area.level.1', string='Location Area 1', tracking=True, required=True)
-    loc_area_2_id = fields.Many2one('area.level.2', 'Location Area 2', ondelete='restrict', tracking=True)
-    loc_area_3_id = fields.Many2one('area.level.3', 'Location Area 3', ondelete='restrict', tracking=True)
-    loc_area_4_id = fields.Many2one('area.level.4', 'Location Area 4', ondelete='restrict', tracking=True)
-    loc_area_5_id = fields.Many2one('area.level.5', 'Location Area 5', ondelete='restrict', tracking=True)
-    loc_area_6_id = fields.Many2one('area.level.6', 'Location Area 6', ondelete='restrict', tracking=True)
+    loc_area_1_id = fields.Many2one('area.level.1', string='Area Level 1', tracking=True, required=True)
+    loc_area_2_id = fields.Many2one('area.level.2', 'Area Level 2', ondelete='restrict', tracking=True)
+    loc_area_3_id = fields.Many2one('area.level.3', 'Area Level 3', ondelete='restrict', tracking=True)
+    loc_area_4_id = fields.Many2one('area.level.4', 'Area Level 4', ondelete='restrict', tracking=True)
+    loc_area_5_id = fields.Many2one('area.level.5', 'Area Level 5', ondelete='restrict', tracking=True)
+    loc_area_6_id = fields.Many2one('area.level.6', 'Area Level 6', ondelete='restrict', tracking=True)
     
-    loc_area_1_label = fields.Char('Location Area 1 Label', compute="_compute_loc_area_details")
-    loc_area_2_label = fields.Char('Location Area 2 Label', compute="_compute_loc_area_details")
-    loc_area_3_label = fields.Char('Location Area 3 Label', compute="_compute_loc_area_details")
-    loc_area_4_label = fields.Char('Location Area 4 Label', compute="_compute_loc_area_details")
-    loc_area_5_label = fields.Char('Location Area 5 Label', compute="_compute_loc_area_details")
-    loc_area_6_label = fields.Char('Location Area 6 Label', compute="_compute_loc_area_details")
-    loc_area_max_level = fields.Integer('Max Location Area', compute="_compute_loc_area_details")
+    loc_area_1_label = fields.Char('Area Level 1 Label', compute="_compute_loc_area_details")
+    loc_area_2_label = fields.Char('Area Level 2 Label', compute="_compute_loc_area_details")
+    loc_area_3_label = fields.Char('Area Level 3 Label', compute="_compute_loc_area_details")
+    loc_area_4_label = fields.Char('Area Level 4 Label', compute="_compute_loc_area_details")
+    loc_area_5_label = fields.Char('Area Level 5 Label', compute="_compute_loc_area_details")
+    loc_area_6_label = fields.Char('Area Level 6 Label', compute="_compute_loc_area_details")
+    loc_area_max_level = fields.Integer('Max Area Level', compute="_compute_loc_area_details")
     
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     manager_id = fields.Many2one(related='loc_area_1_id.manager_id')
@@ -259,7 +259,7 @@ class FarmerGroup(models.Model):
     total_due = fields.Monetary('Group Amount Due', compute='_compute_total_due', help="Sum amount due of all the group members")
     
     _sql_constraints = [
-        ('unique_group_loc_area_1_combination', 'UNIQUE(name, loc_area_1_id)', 'A Group with this name already Exists in the specified Location Area 1')
+        ('unique_group_loc_area_1_combination', 'UNIQUE(name, loc_area_1_id)', 'A Group with this name already Exists in the specified Area Level 1')
     ]
     
     def init(self):
