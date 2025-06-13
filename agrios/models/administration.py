@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 from odoo.tools import ormcache
+from odoo.exceptions import ValidationError
 
 
 class CountryLocationLevel(models.Model):
@@ -154,6 +155,13 @@ class Arealevel2(models.Model): # AreaLevel2
     _sql_constraints = [
         ('unique_loc_area_2_name', 'UNIQUE(name)','An Location Area with this name already Exists'),
     ]
+    @api.constrains('country_id', 'parent_id')
+    def _check_parent_required_if_country_requires_level2(self):
+        cll_env = self.env['country.location.level']
+        for area in self:
+            loc_details, max_level = cll_env._get_country_details(area.country_id.id)
+            if max_level >2 and not area.parent_id:
+                raise ValidationError("Parent Area is required for countries that require Level 2 areas.")
 
     @api.depends('country_id')
     def _compute_is_parent_required(self):
@@ -188,7 +196,7 @@ class AreaLevel1(models.Model): # AreaLevel1
     _order = 'country_id, name, parent_id'
     
     name = fields.Char(required=True)
-    parent_id = fields.Many2one('area.level.2', 'Parent Area', domain="[('country_id','=',country_id)]", required=True, ondelete='restrict')
+    parent_id = fields.Many2one('area.level.2', 'Parent Area', domain="[('country_id','=',country_id)]", ondelete='restrict')
     active = fields.Boolean('Active', default=True)
     country_id = fields.Many2one('res.country', 'Country', required=True, default=lambda self: self.env.company.country_id)
     
@@ -199,7 +207,15 @@ class AreaLevel1(models.Model): # AreaLevel1
     _sql_constraints = [
         ('unique_level_1_level_3_combination', 'UNIQUE(name, loc_area_2_id)', 'An Location Area with this name already Exists in the specified Location Area 2'),
     ]
-    
+
+    @api.constrains('country_id', 'parent_id')
+    def _check_parent_required_if_country_requires_level2(self):
+        cll_env = self.env['country.location.level']
+        for area in self:
+            loc_details, max_level = cll_env._get_country_details(area.country_id.id)
+            if max_level >1 and not area.parent_id:
+                raise ValidationError("Parent Area is required for countries that require Level 2 areas.")
+
     @api.model
     def _name_search(self, name, domain=None, operator='ilike', limit=None, order=None):
         if self._context.get('filter_loc_area_2s'):
