@@ -172,7 +172,7 @@
             <list sample="1" editable="bottom">
                 <field name="name"/>
                 <field name="country_id" options="{'no_create': True}" optional="show"/>
-                <field name="parent_id" optional="show"/>
+                <field name="parent_id" optional="show" options="{'no_create': True}"/>
                 <field name="manager_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
