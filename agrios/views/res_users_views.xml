@@ -11,6 +11,7 @@
                     <field name="responsible_farmer_ids" nolabel="1" colspan="2"/>
                 </page>
             </xpath>
+
         </field>
     </record>
 	

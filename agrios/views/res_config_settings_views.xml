@@ -7,7 +7,7 @@
 		<field name="inherit_id" ref="base.res_config_settings_view_form"/>
 		<field name="arch" type="xml">
 			<xpath expr="//form" position="inside">
-				<app data-string="AgriOS" string="AgriOS" name="agrios">
+				<app data-string="Farmers" string="Farmers" name="agrios">
 					<block title="Operations" name="operations_setting_container">
 						<setting id="farmer_contracts" help="Allows the management of offtake agreement contract with the farmers." company_dependent="1">
 							<field name="group_farmer_contract"/>

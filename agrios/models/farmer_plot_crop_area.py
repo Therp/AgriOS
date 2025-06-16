@@ -7,7 +7,7 @@ from datetime import datetime
 
 class FarmerPlotCropArea(models.Model):
     _name = 'farmer.plot.crop.area'
-    _description = "Farmer Subplots"
+    _description = "Plot Crop Area"
     
     plot_id = fields.Many2one('farmer.plot', 'Plot', required=True, ondelete='cascade')
     crop_product_id = fields.Many2one('product.product', string='Crop Product', domain=[('crop_product','=',True)], inverse="_update_farmer_harvest_products", required=True)
