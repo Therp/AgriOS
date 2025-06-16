@@ -59,11 +59,11 @@
 						<field name="loc_area_2_ids"  nolabel="1" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
 							   context="{'filter_loc_area_3s': loc_area_3_ids}" invisible="loc_area_max_level &lt; 2"
 							   />
-						<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 1">
+						<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 1 or not country_id">
 							<field name="loc_area_1_label"/>
 						</td>
 						<field name="loc_area_1_ids"  nolabel="1" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
-							   context="{'filter_loc_area_3s': loc_area_2_ids}" invisible="loc_area_max_level &lt; 1"
+							   context="{'filter_loc_area_3s': loc_area_2_ids}" invisible="loc_area_max_level &lt; 1 or not country_id"
 							   />
 						<field name="farmer_group_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
 							   invisible="not loc_area_1_ids"  placeholder="Select farmer groups..."/>

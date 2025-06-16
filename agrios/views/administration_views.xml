@@ -22,7 +22,7 @@
     </record>
 	
 	
-	<!-- Location Area 4, 5, 6 -->
+	<!-- Area Level 4, 5, 6 -->
 	
     <record id="loc_area_6_tree" model="ir.ui.view">
         <field name="name">area.level.6.tree</field>
@@ -37,7 +37,7 @@
     </record>
     	
 	<record id="loc_area_6_action" model="ir.actions.act_window">
-        <field name="name">Location Area 6</field>
+        <field name="name">Area Level 6</field>
         <field name="res_model">area.level.6</field>
         <field name="view_mode">list</field>
     </record>
@@ -58,7 +58,7 @@
     </record>
     	
 	<record id="loc_area_5_action" model="ir.actions.act_window">
-        <field name="name">Location Area 5</field>
+        <field name="name">Area Level 5</field>
         <field name="res_model">area.level.5</field>
         <field name="view_mode">list</field>
     </record>
@@ -79,12 +79,12 @@
     </record>
     	
 	<record id="loc_area_4_action" model="ir.actions.act_window">
-        <field name="name">Location Area 4</field>
+        <field name="name">Area Level 4</field>
         <field name="res_model">area.level.4</field>
         <field name="view_mode">list</field>
     </record>
 	
-	<!-- Location Area 3 -->
+	<!-- Area Level 3 -->
 	
     <record id="view_loc_area_3_tree" model="ir.ui.view">
         <field name="name">view.area.level.3.tree</field>
@@ -118,21 +118,21 @@
     </record>
 	
 	<record id="action_loc_area_3" model="ir.actions.act_window">
-        <field name="name">Location Area 3</field>
+        <field name="name">Area Level 3</field>
         <field name="res_model">area.level.3</field>
         <field name="view_mode">list</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create the first Location Area 3
+                Create the first Area Level 3
             </p>
             <p>
-                Odoo helps you easily track all activities related to a Location Area 3
+                Odoo helps you easily track all activities related to a Area Level 3
             </p>
         </field>
     </record>
 	
     
-    <!-- Location Area 2 -->
+    <!-- Area Level 2 -->
     
     <record id="view_loc_area_2_tree" model="ir.ui.view">
         <field name="name">view.area.level.2.tree</field>
@@ -149,21 +149,21 @@
     </record>
 	
     <record id="action_loc_area_2" model="ir.actions.act_window">
-        <field name="name">Location Area 2</field>
+        <field name="name">Area Level 2</field>
         <field name="res_model">area.level.2</field>
         <field name="view_mode">list</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create the first Location Area 
+                Create the first Area Level 
             </p>
             <p>
-                Odoo helps you easily track all activities related to a Location Area 2
+                Odoo helps you easily track all activities related to a Area Level 2
             </p>
         </field>
     </record>
 	
 	
-	<!-- Location Area 1 -->
+	<!-- Area Level 1 -->
 	
     <record id="view_loc_area_1_tree" model="ir.ui.view">
         <field name="name">view.area.level.1.tree</field>
@@ -172,22 +172,22 @@
             <list sample="1" editable="bottom">
                 <field name="name"/>
                 <field name="country_id" options="{'no_create': True}" optional="show"/>
-                <field name="parent_id" optional="show"/>
+                <field name="parent_id" optional="show" options="{'no_create': True}"/>
                 <field name="manager_id" options="{'no_create': True}" optional="show"/>
             </list>
         </field>
     </record>
 	
 	<record id="action_loc_area_1" model="ir.actions.act_window">
-        <field name="name">Location Area 1</field>
+        <field name="name">Area Level 1</field>
         <field name="res_model">area.level.1</field>
         <field name="view_mode">list</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create the first Location Area 1
+                Create the first Area Level 1
             </p>
             <p>
-                Odoo helps you easily track all activities related to a Location Area 1
+                Odoo helps you easily track all activities related to a Area Level 1
             </p>
         </field>
     </record>

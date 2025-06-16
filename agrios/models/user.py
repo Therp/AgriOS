@@ -6,7 +6,7 @@ from odoo import models, fields, _
 class User(models.Model):
     _inherit = 'res.users'
     
-    loc_area_1_ids = fields.One2many('area.level.1', 'manager_id', 'Location Area 1s', readonly=True, copy=False)
+    loc_area_1_ids = fields.One2many('area.level.1', 'manager_id', 'Area Level 1s', readonly=True, copy=False)
     responsible_farmer_ids = fields.Many2many('res.partner', string='Farmers Responsible', compute='_compute_responsible_farmer_ids')
     
     def _compute_responsible_farmer_ids(self):
