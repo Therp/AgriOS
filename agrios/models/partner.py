@@ -318,7 +318,6 @@ class Farmer(models.Model):
                 self.loc_area_2_id = False
                 self.loc_area_1_id = False
 
-    
     @api.onchange('loc_area_4_id')
     def _onchange_loc_area_4_id(self):
         if self.loc_area_4_id:
@@ -328,7 +327,6 @@ class Farmer(models.Model):
                 self.loc_area_3_id = False
                 self.loc_area_2_id = False
                 self.loc_area_1_id = False
-
 
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):

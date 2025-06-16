@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.tools import ormcache
 from odoo.exceptions import ValidationError
 
@@ -155,13 +155,14 @@ class Arealevel2(models.Model): # AreaLevel2
     _sql_constraints = [
         ('unique_loc_area_2_name', 'UNIQUE(name)','An Area Level with this name already Exists'),
     ]
+
     @api.constrains('country_id', 'parent_id')
     def _check_parent_required_if_country_requires_level2(self):
         cll_env = self.env['country.location.level']
         for area in self:
             loc_details, max_level = cll_env._get_country_details(area.country_id.id)
             if max_level >2 and not area.parent_id:
-                raise ValidationError("Parent Area is required for countries that require Level 2 areas.")
+                raise ValidationError(_("Parent Area is required for countries that require Level 2 areas."))
 
     @api.depends('country_id')
     def _compute_is_parent_required(self):
@@ -214,7 +215,7 @@ class AreaLevel1(models.Model): # AreaLevel1
         for area in self:
             loc_details, max_level = cll_env._get_country_details(area.country_id.id)
             if max_level >1 and not area.parent_id:
-                raise ValidationError("Parent Area is required for countries that require Level 2 areas.")
+                raise ValidationError(_("Parent Area is required for countries that require Level 2 areas."))
 
     @api.model
     def _name_search(self, name, domain=None, operator='ilike', limit=None, order=None):
