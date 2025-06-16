@@ -133,7 +133,7 @@
 					<div class="oe_button_box" name="button_box">
 						<span class="fa-stack fa-3x oe_avatar" invisible="not count_certifications">
 						</span>
-						<button name="action_view_interactions" type="object" icon="fa-list-alt" string="Interactions" class="oe_stat_button">
+						<button name="action_view_interactions" type="object" icon="fa-list-alt" string="Interactions" class="oe_stat_button" groups="agrios.group_farmers_interactions">
 							<field name="interactions_count" widget="statinfo" />
 						</button>
 						<button class="oe_stat_button" name="action_view_farmer_contracts" type="object" icon="fa-file-text" invisible="farmer_stage != 'verified'" groups="agrios.group_farmer_contract">
