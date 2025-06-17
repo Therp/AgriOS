@@ -111,7 +111,8 @@ class FarmerTraining(models.Model):
             self.loc_area_3_id = self.loc_area_2_id.parent_id
         else:
             self.loc_area_3_id = False
-        self.loc_area_3_id = False
+
+        self.loc_area_1_id = False
 
     @api.onchange('loc_area_3_id')
     def _onchange_region_id(self):
