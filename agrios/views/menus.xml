@@ -4,31 +4,32 @@
 	<!-- Identation bellow represents the menus hierarchy -->
 	
     <menuitem name="Farmers" id="agrios_menu_root" web_icon="agrios,static/description/icon.png" groups="agrios.group_agrios_readonly"  sequence="150"/>
-      <menuitem name="Farmers" id="agrios_farmers" parent="agrios_menu_root" sequence="10"/>
-        <menuitem name="Farmers" id="agrios_farmer_farmers" parent="agrios_farmers" action="action_verified_farmers" sequence="10"/>
-        <menuitem name="Leads" id="agrios_farmer_leads" parent="agrios_farmers" action="action_farmer_leads" sequence="20"/>
-        <menuitem name="Farmer Groups" id="agrios_organisation_group" parent="agrios_farmers" action="action_farmer_groups" sequence="30"/>
-        <menuitem name="Farmer Plots" id="menu_partner_area" parent="agrios_farmers" action="farmer_plot_action" sequence="40" groups="agrios.group_plot_management"/>
-        <menuitem name="Farmer Subplots" id="menu_partner_subplots" parent="agrios_farmers" action="farmer_plot_crop_area_action" sequence="41" groups="agrios.group_plot_management"/>
-      <menuitem name="Contracts" id="agrios_contracts" parent="agrios_menu_root" sequence="20" groups="agrios.group_farmer_contract"/>
+      <menuitem name="Farmers" id="agrios_farmer_farmers" parent="agrios_menu_root" action="action_verified_farmers" sequence="10"/>
+        <menuitem name="Farmers" id="agrios_farmer_farmers_main" parent="agrios_farmer_farmers" action="action_verified_farmers" sequence="10"/>
+        <menuitem name="Leads" id="agrios_farmer_leads" parent="agrios_farmer_farmers" action="action_farmer_leads" sequence="15"/>
+      <menuitem name="Farmer Groups" id="agrios_organisation_group" parent="agrios_menu_root" action="action_farmer_groups" sequence="20"/>
+      <menuitem name="Farmer Plots" id="menu_partner_area" parent="agrios_menu_root" action="farmer_plot_action" sequence="25" groups="agrios.group_plot_management"/>
+        <menuitem name="Farmer Plots" id="menu_partner_area_main" parent="menu_partner_area" action="farmer_plot_action" sequence="10" groups="agrios.group_plot_management"/>
+        <menuitem name="Farmer Subplots" id="menu_partner_subplots" parent="menu_partner_area" action="farmer_plot_crop_area_action" sequence="10" groups="agrios.group_plot_management"/>
+      <menuitem name="Contracts" id="agrios_contracts" parent="agrios_menu_root" sequence="40" groups="agrios.group_farmer_contract"/>
         <menuitem name="Contracts" id="farmer_contracts_menu" action="action_farmer_contracts" parent="agrios_contracts" sequence="10"/>
         <menuitem name="Bulk Operations" id="bulk_operations_menu" parent="agrios_contracts" sequence="100"/>
           <menuitem name="Approve Contracts" id="bulk_contract_approval_wizard_menu" action="bulk_contract_approval_wizard_action" parent="bulk_operations_menu" sequence="10" groups="agrios.group_agrios_manager"/>
           <menuitem name="Close Contracts" id="bulk_contract_close_wizard_menu" action="bulk_contract_close_wizard_action" parent="bulk_operations_menu" sequence="20" groups="agrios.group_agrios_manager"/>
           <menuitem name="Cancel Contracts" id="bulk_contract_cancel_wizard_menu" action="bulk_contract_cancel_wizard_action" parent="bulk_operations_menu" sequence="30" groups="agrios.group_agrios_manager"/>
           <menuitem name="Contracts Harvest Ready" id="bulk_contract_harvest_ready_wizard_menu" action="bulk_contract_harvest_ready_wizard_action" parent="bulk_operations_menu" sequence="40" groups="agrios.group_agrios_manager"/>
-          <menuitem name="Contracts Off-Take" id="bulk_contract_offtake_wizard_menu" action="bulk_contract_offtake_wizard_action" parent="bulk_operations_menu" sequence="50" groups="agrios.group_agrios_manager"/>
+          <menuitem name="Contracts Offtake" id="bulk_contract_offtake_wizard_menu" action="bulk_contract_offtake_wizard_action" parent="bulk_operations_menu" sequence="50" groups="agrios.group_agrios_manager"/>
           <menuitem name="Contracts Renewal" id="bulk_contract_renew_wizard_menu" action="bulk_contract_renew_wizard_action" parent="bulk_operations_menu" sequence="60" groups="agrios.group_agrios_manager"/>
-      <menuitem name="Products" id="menu_product"  parent="agrios_menu_root" sequence="30" groups="agrios.group_agrios_manager"/>
+      <menuitem name="Products" id="menu_product"  parent="agrios_menu_root" sequence="50" groups="agrios.group_agrios_manager"/>
         <menuitem name="Products" id="sub_menu_product" parent="menu_product" action="agrios_product_template_action" sequence="10"/>
         <menuitem name="Product Variants" id="sub_menu_product_variants" parent="menu_product" action="agrios_product_product_action" sequence="20" groups="product.group_product_variant"/>
-      <menuitem name="Orders" id="menu_agrios_orders" parent="agrios_menu_root" sequence="40"/>
+   <menuitem name="Interactions" id="agrios_farmer_interaction" parent="agrios_menu_root" sequence="60" action="action_farmer_interaction" groups="agrios.group_farmers_interactions"/>
+  <menuitem name="Orders" id="menu_agrios_orders" parent="agrios_menu_root" sequence="70"/>
         <menuitem name="Input Orders" id="agrios_input_orders_menu" parent="menu_agrios_orders" action="agrios_input_orders_action" sequence="10"/>
-        <menuitem name="Off-Take Orders" id="agrios_offtake_orders_menu" parent="menu_agrios_orders" action="agrios_offtake_orders_action" sequence="20"/>
-      <menuitem name="Interactions" id="agrios_farmer_interaction" parent="agrios_menu_root" sequence="70" action="action_farmer_interaction" groups="agrios.group_farmers_interactions"/>
+        <menuitem name="Offtake Orders" id="agrios_offtake_orders_menu" parent="menu_agrios_orders" action="agrios_offtake_orders_action" sequence="20"/>
       <menuitem name="Reports" id="agrios_reports" parent="agrios_menu_root" sequence="120"/>
         <menuitem name="Input Order Analysis" id="sale_order_line_input_report_menu" parent="agrios_reports" action="sale_order_line_input_report_action" sequence="10"/>
-        <menuitem name="Off-Take Analysis" id="purchase_order_line_offtake_report_menu" parent="agrios_reports" action="purchase_order_line_offtake_report_action" sequence="20"/>
+        <menuitem name="Offtake Analysis" id="purchase_order_line_offtake_report_menu" parent="agrios_reports" action="purchase_order_line_offtake_report_action" sequence="20"/>
       <menuitem name="Configuration" id="agrios_configuration" parent="agrios_menu_root" sequence="300" groups="agrios.group_agrios_admin"/>
         <menuitem name="Settings" id="agrios_configuration_settings" parent="agrios_configuration" action="action_agrios_configuration_settings" sequence="0"/>
         <menuitem name="Seasons" id="agrios_configuration_season" parent="agrios_configuration" action="action_seasons" sequence="10" groups="agrios.group_farmer_contract"/>
