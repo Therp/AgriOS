@@ -305,8 +305,6 @@ class Farmer(models.Model):
     def _onchange_loc_area_2_id(self):
         if self.loc_area_2_id:
             self.loc_area_3_id = self.loc_area_2_id.parent_id
-        else:
-            self.loc_area_3_id = False
 
         self.loc_area_1_id = False
     
@@ -314,8 +312,6 @@ class Farmer(models.Model):
     def _onchange_region_id(self):
         if self.loc_area_3_id:
             self.loc_area_4_id = self.loc_area_3_id.parent_id
-        else:
-            self.loc_area_4_id = False
 
         self.loc_area_2_id = False
         self.loc_area_1_id = False
@@ -324,8 +320,6 @@ class Farmer(models.Model):
     def _onchange_loc_area_4_id(self):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
-        else:
-            self.loc_area_5_id = False
 
         self.loc_area_3_id = False
         self.loc_area_2_id = False
@@ -335,8 +329,6 @@ class Farmer(models.Model):
     def _onchange_loc_area_5_id(self):
         if self.loc_area_5_id:
             self.loc_area_6_id = self.loc_area_5_id.parent_id
-        else:
-            self.loc_area_6_id = False
 
         self.loc_area_4_id = False
         self.loc_area_3_id = False
