@@ -187,7 +187,7 @@
 	</record>
 	
 	
-	<!-- Bulk Contract Off-Take -->
+	<!-- Bulk Contract Offtake -->
 	
 	<record id="bulk_contract_offtake_wizard_form" model="ir.ui.view">
 		<field name="name">bulk.contract.offtake.wizard.form</field>
@@ -202,7 +202,7 @@
 	</record>
 	
 	<record id="bulk_contract_offtake_wizard_action" model="ir.actions.act_window">
-		<field name="name">Contracts Off-Take</field>
+		<field name="name">Contracts Offtake</field>
 		<field name="res_model">bulk.contract.offtake.wizard</field>
 		<field name="view_mode">form</field>
 		<field name="target">new</field>

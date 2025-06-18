@@ -119,8 +119,8 @@
 					<button string="Order Inputs" name="action_create_agrios_so" type="object" class="oe_highlight" invisible="not can_order_inputs" groups="sales_team.group_sale_salesman"/>
 					<button string="Order Inputs" name="action_create_agrios_so" type="object" invisible="not can_order_inputs_confirm" groups="sales_team.group_sale_salesman" confirm="All active farmer contracts are not at the input stage, confirm that you still would like to order inputs?"/>
 					
-					<button string="Off-Take" name="action_create_agrios_po" type="object" class="oe_highlight" invisible="not can_register_offtakes" groups="purchase.group_purchase_user"/>
-					<button string="Off-Take" name="action_create_agrios_po" type="object" invisible="not can_register_offtakes_confirm" groups="purchase.group_purchase_user" confirm="All active farmer contracts are not at the harvest stage, confirm that you still would like to register an off-take?"/>
+					<button string="Offtake" name="action_create_agrios_po" type="object" class="oe_highlight" invisible="not can_register_offtakes" groups="purchase.group_purchase_user"/>
+					<button string="Offtake" name="action_create_agrios_po" type="object" invisible="not can_register_offtakes_confirm" groups="purchase.group_purchase_user" confirm="All active farmer contracts are not at the harvest stage, confirm that you still would like to register an off-take?"/>
 					
 					<button string="Create Farm" name="action_create_farm" type="object" class="oe_highlight" groups="agrios.group_plot_management"/>
 					

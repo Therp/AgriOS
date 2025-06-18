@@ -80,7 +80,7 @@
 	</record>
 	
 	
-	<!-- Off-Take Analysis -->
+	<!-- Offtake Analysis -->
 	
 	<record id="purchase_order_line_offtake_report_search" model="ir.ui.view">
         <field name="name">purchase.order.line.offtake.report.search</field>
@@ -144,7 +144,7 @@
 	</record>
 	
 	<record id="purchase_order_line_offtake_report_action" model="ir.actions.act_window">
-		<field name="name">Off-Take Analysis</field>
+		<field name="name">Offtake Analysis</field>
 		<field name="res_model">purchase.order.line</field>
 		<field name="view_mode">list</field>
 		<field name="context">{'search_default_filter_state_approved': 1, 'search_default_groupby_date_order': 1, 'search_default_groupby_product_id': 1}</field>

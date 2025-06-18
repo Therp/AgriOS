@@ -221,7 +221,7 @@
 	</record>
 	
 	<record id="action_farmer_contracts" model="ir.actions.act_window">
-		<field name="name">Offtake Agreement Contracts</field>
+		<field name="name">Contracts</field>
 		<field name="res_model">farmer.contract</field>
 		<field name="view_mode">list,form</field>
 		<field name="context">{"search_default_filter_open": 1}</field>

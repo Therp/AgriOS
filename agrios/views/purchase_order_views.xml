@@ -17,7 +17,7 @@
     </record>
 	
 	<record id="agrios_offtake_orders_action" model="ir.actions.act_window">
-	    <field name="name">Off-Take Orders</field>
+	    <field name="name">Offtake Orders</field>
 	    <field name="res_model">purchase.order</field>
 	    <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
 	    <field name="view_ids" eval="[(5, 0, 0),
