@@ -292,64 +292,59 @@ class Farmer(models.Model):
     def _onchange_farmer_group(self):
         if self.farmer_group_id.loc_area_1_id:
             self.loc_area_1_id = self.farmer_group_id.loc_area_1_id
-    
+
     @api.onchange('loc_area_1_id')
     def _onchange_loc_area_1_id(self):
         if self.loc_area_1_id:
             self.loc_area_2_id = self.loc_area_1_id.parent_id
-            
+
             if self.farmer_group_id and self.loc_area_1_id != self.farmer_group_id.loc_area_1_id:
                 self.farmer_group_id = False
-    
+
     @api.onchange('loc_area_2_id')
     def _onchange_loc_area_2_id(self):
         if self.loc_area_2_id:
             self.loc_area_3_id = self.loc_area_2_id.parent_id
-        else:
-            self.loc_area_3_id = False
 
-        self.loc_area_1_id = False
-    
+            if self.loc_area_1_id and self.loc_area_1_id.parent_id != self.loc_area_2_id:
+                self.loc_area_1_id = False
+
     @api.onchange('loc_area_3_id')
     def _onchange_region_id(self):
         if self.loc_area_3_id:
             self.loc_area_4_id = self.loc_area_3_id.parent_id
-        else:
-            self.loc_area_4_id = False
 
-        self.loc_area_2_id = False
-        self.loc_area_1_id = False
+            if self.loc_area_2_id and self.loc_area_2_id.parent_id != self.loc_area_3_id:
+                self.loc_area_2_id = False
 
     @api.onchange('loc_area_4_id')
     def _onchange_loc_area_4_id(self):
         if self.loc_area_4_id:
             self.loc_area_5_id = self.loc_area_4_id.parent_id
-        else:
-            self.loc_area_5_id = False
 
-        self.loc_area_3_id = False
-        self.loc_area_2_id = False
-        self.loc_area_1_id = False
+            if self.loc_area_3_id and self.loc_area_3_id.parent_id != self.loc_area_4_id:
+                self.loc_area_3_id = False
 
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):
         if self.loc_area_5_id:
             self.loc_area_6_id = self.loc_area_5_id.parent_id
-        else:
-            self.loc_area_6_id = False
 
-        self.loc_area_4_id = False
-        self.loc_area_3_id = False
-        self.loc_area_2_id = False
-        self.loc_area_1_id = False
+            if self.loc_area_4_id and self.loc_area_4_id.parent_id != self.loc_area_5_id:
+                self.loc_area_4_id = False
+                self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
 
     @api.onchange('loc_area_6_id')
     def _onchange_loc_area_6_id(self):
-        self.loc_area_5_id = False
-        self.loc_area_4_id = False
-        self.loc_area_3_id = False
-        self.loc_area_2_id = False
-        self.loc_area_1_id = False
+        if self.loc_area_6_id:
+            if self.loc_area_5_id and self.loc_area_5_id.parent_id != self.loc_area_6_id:
+                self.loc_area_5_id = False
+                self.loc_area_4_id = False
+                self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
     
     @api.model
     def web_search_read(self, domain, specification, offset=0, limit=None, order=None, count_limit=None):
