@@ -75,3 +75,10 @@ access_agrios_admin_area_level_5,ams_admin access.area.level.5,model_area_level_
 
 access_agrios_readonly_area_level_6,ams_readonly access.area.level.6,model_area_level_6,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_admin_area_level_6,ams_admin access.area.level.6,model_area_level_6,agrios.group_agrios_admin,1,1,1,1
+
+access_highest_education_user,res.highest.education.user,model_res_highest_education,base.group_user,1,0,1,0
+access_highest_education_manager,res.highest.education.manager,model_res_highest_education,agrios.group_agrios_manager,1,1,1,1
+
+access_id_type_user,res.id.type.user,model_res_id_type,base.group_user,1,0,1,0
+access_id_type_manager,res.id.type.manager,model_res_id_type,agrios.group_agrios_manager,1,1,1,1
+

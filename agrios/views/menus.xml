@@ -34,6 +34,9 @@
         <menuitem name="Settings" id="agrios_configuration_settings" parent="agrios_configuration" action="action_agrios_configuration_settings" sequence="0"/>
         <menuitem name="Seasons" id="agrios_configuration_season" parent="agrios_configuration" action="action_seasons" sequence="10" groups="agrios.group_farmer_contract"/>
         <menuitem name="Activity Types" id="agrios_configuration_activity" parent="agrios_configuration" action="mail.mail_activity_type_action" sequence="20"/>
+        <menuitem name="Categorization Details" id="agrios_categorization" parent="agrios_configuration" action="action_highest_education" sequence="30" groups="agrios.group_agrios_manager"/>
+            <menuitem name="Highest Education" id="agrios_categorization_education" parent="agrios_categorization" action="action_highest_education" sequence="10" groups="agrios.group_agrios_manager"/>
+            <menuitem name="ID Type" id="agrios_categorization_id_type" parent="agrios_categorization" action="action_id_type" sequence="20" groups="agrios.group_agrios_manager"/>
         <menuitem id="agrios_organisation" name="Administration" parent="agrios_configuration" sequence="60"/>
           <menuitem name="Area Level 6" id="loc_area_6_menu" parent="agrios_organisation" action="loc_area_6_action" sequence="4" groups="base.group_no_one"/>
           <menuitem name="Area Level 5" id="loc_area_5_menu" parent="agrios_organisation" action="loc_area_5_action" sequence="5" groups="base.group_no_one"/>
@@ -47,7 +50,8 @@
       <menuitem id="agrios_training_configuration" name="Configuration" parent="agrios_training" sequence="10"/>
       <menuitem name="Training Topics" id="menu_agrios_training_topic" parent="agrios_training_configuration" action="action_farmer_training_topics" sequence="20"/>
       <menuitem name="Trainers" id="menu_agrios_trainers" parent="agrios_training_configuration" action="action_trainers" sequence="30"/>
-  <menuitem name="Certifications" id="agrios_certification" action="action_farmer_certificates" sequence="152" groups="agrios.group_farmers_certifications"/>
+
+  <menuitem name="Certifications" id="agrios_certification" action="action_farmer_certificates" sequence="153" groups="agrios.group_farmers_certifications"/>
     <menuitem name="Certifications" id="agrios_certification_certification" parent="agrios_certification" action="action_farmer_certificates" sequence="10" groups="agrios.group_farmers_certifications"/>
     <menuitem name="Configuration" id="agrios_certification_configuration" parent="agrios_certification" sequence="20" groups="agrios.group_farmers_certifications"/>
       <menuitem name="Certification Types" id="agrios_certification_type" parent="agrios_certification_configuration" action="action_certification_types" sequence="10" groups="agrios.group_agrios_manager"/>

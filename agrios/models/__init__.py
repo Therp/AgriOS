@@ -18,3 +18,5 @@ from . import farmer_plot_crop_area
 from . import plant_age_yield
 from . import account_journal
 from . import account_move
+from . import highest_education
+from . import id_type

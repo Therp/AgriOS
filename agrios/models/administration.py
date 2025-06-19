@@ -322,9 +322,6 @@ class FarmerGroup(models.Model):
         if self.loc_area_1_id:
             self.loc_area_2_id = self.loc_area_1_id.parent_id
 
-            if self.farmer_group_id and self.loc_area_1_id != self.farmer_group_id.loc_area_1_id:
-                self.farmer_group_id = False
-
     @api.onchange('loc_area_2_id')
     def _onchange_loc_area_2_id(self):
         if self.loc_area_2_id:

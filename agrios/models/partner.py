@@ -23,6 +23,7 @@ class Farmer(models.Model):
     
     is_farmer = fields.Boolean('Farmer', default=False)
     is_farmer_trainer = fields.Boolean('Farmer Trainer', default=False)
+    id_type_id = fields.Many2one('res.id.type', 'ID Type', ondelete='restrict', tracking=True)
     farmer_requires_contract = fields.Boolean('Requires Contract', tracking=True, default=False, help="If selected, this farmer will require a valid offtake agreement contract to sell inputs or to buy off-takes. If unselected, no valid contract is needed for sales or purchases.")
     
     farmer_ref = fields.Char('Farmer Reference', default='/', readonly=True, copy=False)
