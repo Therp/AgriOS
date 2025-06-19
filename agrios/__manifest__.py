@@ -46,6 +46,8 @@
         'views/reports.xml',
         'views/account_journal.xml',
         'views/account_move.xml',
+        'views/highest_education_views.xml',
+        'views/id_type_views.xml',
         'views/menus.xml',
     ],
     'demo': [
