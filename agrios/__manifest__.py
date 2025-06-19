@@ -6,7 +6,7 @@
     'author': "Advance Insight",
     'website': "https://www.advanceinsight.dev",
     'category': 'Advance Insight Product',
-    'version': '18.0.1.1.3',
+    'version': '18.0.1.1.4',
     'license': 'Other proprietary',
     'depends': [
         'contacts',
@@ -67,5 +67,6 @@
     'application': True,
     'installable': True,
     'auto_install': False,
+    'uninstall_hook': 'uninstall_hook',
     'sequence': -1,
 }
