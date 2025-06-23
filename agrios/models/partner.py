@@ -317,6 +317,7 @@ class Farmer(models.Model):
 
             if self.loc_area_2_id and self.loc_area_2_id.parent_id != self.loc_area_3_id:
                 self.loc_area_2_id = False
+                self.loc_area_1_id = False
 
     @api.onchange('loc_area_4_id')
     def _onchange_loc_area_4_id(self):
@@ -325,6 +326,8 @@ class Farmer(models.Model):
 
             if self.loc_area_3_id and self.loc_area_3_id.parent_id != self.loc_area_4_id:
                 self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
 
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):
