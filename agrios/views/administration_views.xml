@@ -239,10 +239,10 @@
                             <field name="total_due"/>
                         </group>
                         <group>
-                            <td class="o_td_label" style="font-weight: 500;">
+                            <td class="o_td_label" invisible="loc_area_max_level &lt; 1" style="font-weight: 500;">
 								<field name="loc_area_1_label"/>
 							</td>
-							<field name="loc_area_1_id" nolabel="1" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_2_id)]"/>
+							<field name="loc_area_1_id" nolabel="1" invisible="loc_area_max_level &lt; 1" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_2_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
 								<field name="loc_area_2_label"/>
