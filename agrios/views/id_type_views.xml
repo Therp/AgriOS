@@ -3,28 +3,16 @@
         <field name="name">res.id.type.list</field>
         <field name="model">res.id.type</field>
         <field name="arch" type="xml">
-            <list>
+            <list editable="bottom">
                 <field name="name"/>
             </list>
-        </field>
-    </record>
-
-    <record id="view_id_type_form" model="ir.ui.view">
-        <field name="name">res.id.type.form</field>
-        <field name="model">res.id.type</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <field name="name"/>
-                </sheet>
-            </form>
         </field>
     </record>
 
     <record id="action_id_type" model="ir.actions.act_window">
         <field name="name">ID Type</field>
         <field name="res_model">res.id.type</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list</field>
     </record>
 
 </odoo>

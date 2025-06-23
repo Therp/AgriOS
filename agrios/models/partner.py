@@ -23,7 +23,6 @@ class Farmer(models.Model):
     
     is_farmer = fields.Boolean('Farmer', default=False)
     is_farmer_trainer = fields.Boolean('Farmer Trainer', default=False)
-    id_type_id = fields.Many2one('res.id.type', 'ID Type', ondelete='restrict', tracking=True)
     farmer_requires_contract = fields.Boolean('Requires Contract', tracking=True, default=False, help="If selected, this farmer will require a valid offtake agreement contract to sell inputs or to buy off-takes. If unselected, no valid contract is needed for sales or purchases.")
     
     farmer_ref = fields.Char('Farmer Reference', default='/', readonly=True, copy=False)
@@ -87,7 +86,10 @@ class Farmer(models.Model):
     next_of_kin = fields.Char()
     nok_id = fields.Char(string='NOK ID')
     nok_phone = fields.Char(string='NOK Phone')
-    
+
+    highest_education_id = fields.Many2one('res.highest.education', 'Highest Education', ondelete='restrict', tracking=True)
+    id_type_id = fields.Many2one('res.id.type', 'ID Type', ondelete='restrict', tracking=True)
+
     count_certifications = fields.Integer('Valid Certifications', compute='_compute_certifications', help="Number of valid certifications")
     certified = fields.Boolean('Currently Certified', compute='_compute_certifications', search='_search_certified')
     

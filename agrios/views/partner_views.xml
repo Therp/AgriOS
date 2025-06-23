@@ -211,7 +211,7 @@
 							<field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6" domain="[('country_id','=',country_id)]"/>
 						</group>
 						<group string="Other Details">
-							<field name="manager_id"/>
+							<field name="manager_id" invisible="1"/>
 							<field name="user_id"/>
 						</group>
 					</group>
@@ -315,6 +315,7 @@
 							<group>
 								<group string="Farmer Extra Details">
 									<field name="family_size"/>
+									<field name="highest_education_id"/>
 									<field name="country_id"/>
 								</group>
 								<group string="Next Of Kin">
