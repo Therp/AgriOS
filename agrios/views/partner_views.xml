@@ -101,7 +101,7 @@
 		<field name="view_mode">list</field>
 	</record>
 	<record id="action_farmers_form" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_form"/>
+		<field name="view_id" ref="view_farmer_partner_form"/>
 		<field name="act_window_id" ref="action_verified_farmers"/>
 		<field name="sequence" eval="1"/>
 		<field name="view_mode">form</field>
@@ -130,7 +130,7 @@
 		<field name="view_mode">list</field>
 	</record>
 	<record id="action_farmer_leads_form" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_form"/>
+		<field name="view_id" ref="view_farmer_partner_form"/>
 		<field name="act_window_id" ref="action_farmer_leads"/>
 		<field name="sequence" eval="1"/>
 		<field name="view_mode">form</field>
@@ -161,7 +161,7 @@
 	</record>
 	
 	<record id="action_farmers_pending_form" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_form"/>
+		<field name="view_id" ref="view_farmer_partner_form"/>
 		<field name="act_window_id" ref="action_farmer_pending_verification"/>
 		<field name="sequence" eval="1"/>
 		<field name="view_mode">form</field>
@@ -189,7 +189,7 @@
 	</record>
 	
 	<record id="action_certified_farmers_form" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_form"/>
+		<field name="view_id" ref="view_farmer_partner_form"/>
 		<field name="act_window_id" ref="action_certified_farmers"/>
 		<field name="sequence" eval="1"/>
 		<field name="view_mode">form</field>
