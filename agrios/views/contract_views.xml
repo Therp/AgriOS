@@ -31,7 +31,7 @@
 		<field name="arch" type="xml">
 			<list sample="1" decoration-muted="contract_stage=='closed'" decoration-danger="contract_stage=='cancelled' or expired_contract">
 				<field name="name" column_invisible="bool(context.get('hide_contract_reference'))"/>
-				<field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
+				<field name="farmer_id" />
 				<field name="season_id" optional="show"/>
 				<field name="contracted_crop_id" optional="show"/>
 				<field name="contract_acreage" sum="Total Contracted Acreage" optional="show"/>
@@ -113,7 +113,7 @@
 					</div>
 					<group string="Contract Details">
 						<group>
-							<field name="farmer_id" options="{'limit': 1, 'no_create': True, 'no_create_edit': True}" readonly="contract_stage != 'draft'" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
+							<field name="farmer_id" options="{'limit': 1, 'no_create': True, 'no_create_edit': True}" readonly="contract_stage != 'draft'" />
 							<field name="farmer_id_number"/>
 							<field name="non_contracted_acreage"/>
 							<field name="harvest_state" invisible="contract_stage != 'open'"/>

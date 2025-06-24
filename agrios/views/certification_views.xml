@@ -31,7 +31,7 @@
 		<field name="arch" type="xml">
 			<list sample="1" decoration-info="style=='info'" decoration-muted="style=='muted'" decoration-success="style=='success'" decoration-warning="style=='warning'" decoration-danger="style=='danger'">
 				<field name="certification_type_id"/>
-				<field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
+				<field name="farmer_id" />
 				<field name="cert_serial_num" optional="show"/>
 				<field name="cert_start_date"/>
 				<field name="cert_end_date"/>
@@ -62,7 +62,7 @@
 					
 					<group>
 						<group>
-							<field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_form'}" options="{'no_create': True}" readonly="state != 'draft'"/>
+							<field name="farmer_id"  options="{'no_create': True}" readonly="state != 'draft'"/>
 							<field name="cert_start_date" readonly="state != 'draft'"/>
 							<field name="final_score" readonly="state != 'draft'"/>
 							<field name="origin" invisible="True"/>

@@ -6,7 +6,7 @@
     'author': "Advance Insight",
     'website': "https://www.advanceinsight.dev",
     'category': 'Advance Insight Product',
-    'version': '18.0.1.1.9',
+    'version': '18.0.1.2.0',
     'license': 'Other proprietary',
     'depends': [
         'contacts',
@@ -35,6 +35,7 @@
         'views/certification_views.xml',
         'views/interaction_views.xml',
         'views/contract_views.xml',
+        'views/res_partner_farmer_views.xml',
         'views/partner_views.xml',
         'views/partner_area_views.xml',
         'views/farmer_plot_crop_area_views.xml',

@@ -232,9 +232,9 @@
                     </div>
                     <group>
                         <group>
-                            <field name="chairperson_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
-                            <field name="group_sec_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
-                            <field name="group_treasurer_id" options="{'no_create': True}" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
+                            <field name="chairperson_id" options="{'no_create': True}" />
+                            <field name="group_sec_id" options="{'no_create': True}" />
+                            <field name="group_treasurer_id" options="{'no_create': True}" />
                             <field name="manager_id"/>
                             <field name="total_due"/>
                         </group>
@@ -275,7 +275,7 @@
                     </group>
                     <notebook>
                         <page string="Farmers">
-                            <field name="member_ids" readonly="True" context="{'form_view_ref': 'agrios.view_farmer_form'}"/>
+                            <field name="member_ids" readonly="True" />
                         </page>
                     </notebook>
                 </sheet>

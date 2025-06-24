@@ -159,7 +159,7 @@
                     </group>
                     <notebook>
                         <page string="Participants">
-                            <field name="training_participants_ids" options="{'no_create': True}" readonly="training_state != 'planned'" context="{'form_view_ref': 'agrios.view_farmer_form'}">
+                            <field name="training_participants_ids" options="{'no_create': True}" readonly="training_state != 'planned'" >
                                 <list>
                                     <field name="name"/>
                                     <field name="phone"/>
