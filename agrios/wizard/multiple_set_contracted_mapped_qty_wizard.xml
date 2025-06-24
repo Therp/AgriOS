@@ -11,7 +11,7 @@
 				<group>
 					<field name="contract_ids" nolabel="1" colspan="2">
 						<list string="Draft Contracts">
-			                <field name="farmer_id" context="{'form_view_ref': 'agrios.view_farmer_partner_form'}"/>
+			                <field name="farmer_id" />
 			                <field name="season_id"/>
 			                <field name="contracted_crop_id"/>
 			                <field name="non_contracted_acreage"/>
