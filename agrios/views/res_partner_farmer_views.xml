@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-<!--	Hide farmers in contact view-->
+
+	<!--	Hide farmers in contact view-->
 	<record id="contacts.action_contacts" model="ir.actions.act_window">
         <field name="domain">[('is_farmer', '=', False)]</field>
     </record>
@@ -44,7 +45,7 @@
 			<xpath expr="//page[@name='accounting']" position="attributes">
 				<attribute name="invisible">['|',('is_farmer', '=', True),('&amp;',('is_company', '=', False),('parent_id', '!=', False))]</attribute>
 			  </xpath>
-<!--			Add Pages-->
+			<!-- Add Pages-->
 			<xpath expr="//page[@name='internal_notes']" position="after">
 				<page name="agrios_page" string="AgriOS" groups="agrios.group_agrios_readonly">
 					<group>
@@ -166,7 +167,7 @@
 					</group>
 				</page>
 			</xpath>
-<!--			Header-->
+			<!--Header-->
 			<xpath expr="//sheet" position="before">
 				<header>
 					<button string="Verify" name="verify_farmer" type="object" class="oe_highlight" confirm="Are you sure you want to Verify this Farmer?" invisible="farmer_stage != 'draft' or active == False or not is_farmer" groups="agrios.group_agrios_manager"/>
@@ -242,7 +243,7 @@
 						</group>
 					</group>
 			</xpath>
-			<!--			REPLACE partner name-->
+			<!--REPLACE partner name-->
 			<xpath expr="//div[hasclass('oe_title')]/h1" position="replace">
 				     <h1 invisible="is_farmer">
                                 <field id="company" options="{'line_breaks': False}" widget="text" class="text-break"
@@ -260,7 +261,7 @@
 						</h1>
 
 			</xpath>
-			<!--			Button Box-->
+			<!--Button Box-->
 			<xpath expr="//div[hasclass('oe_button_box')]" position="inside">
 				<span class="fa-stack fa-3x oe_avatar" invisible="not count_certifications or not is_farmer">
 				</span>
@@ -278,7 +279,7 @@
 				</button>
 
 			</xpath>
-
 		</field>
 	</record>
+
 </odoo>
