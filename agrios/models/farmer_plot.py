@@ -93,6 +93,11 @@ class FarmerPlot(models.Model):
             farmer.loc_area_6_label = loc_details[6]
             farmer.loc_area_max_level = max_level
 
+    @api.onchange('farmer_group_id')
+    def _onchange_farmer_group(self):
+        if self.farmer_group_id.loc_area_1_id:
+            self.loc_area_1_id = self.farmer_group_id.loc_area_1_id
+
     @api.onchange('loc_area_1_id')
     def _onchange_loc_area_1_id(self):
         if self.loc_area_1_id:
@@ -113,6 +118,7 @@ class FarmerPlot(models.Model):
 
             if self.loc_area_2_id and self.loc_area_2_id.parent_id != self.loc_area_3_id:
                 self.loc_area_2_id = False
+                self.loc_area_1_id = False
 
     @api.onchange('loc_area_4_id')
     def _onchange_loc_area_4_id(self):
@@ -121,6 +127,8 @@ class FarmerPlot(models.Model):
 
             if self.loc_area_3_id and self.loc_area_3_id.parent_id != self.loc_area_4_id:
                 self.loc_area_3_id = False
+                self.loc_area_2_id = False
+                self.loc_area_1_id = False
 
     @api.onchange('loc_area_5_id')
     def _onchange_loc_area_5_id(self):
@@ -142,6 +150,7 @@ class FarmerPlot(models.Model):
                 self.loc_area_3_id = False
                 self.loc_area_2_id = False
                 self.loc_area_1_id = False
+
     @api.constrains('year_established')
     def _check_year_of_farm_establishment(self):
         for rec in self:
