@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+<!--	Hide farmers in contact view-->
+	<record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="domain">[('is_farmer', '=', False)]</field>
+    </record>
 
 	<record id="view_farmer_partner_form" model="ir.ui.view">
 		<field name="name">res.partner.form</field>
