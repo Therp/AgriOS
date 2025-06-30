@@ -1,0 +1,632 @@
+<odoo>
+    <data noupdate="1">
+
+        <!-- Accounts -->
+        <record id="account_income" model="account.account">
+            <field name="name">444000 Product Sales</field>
+            <field name="code">444000</field>
+            <field name="internal_group">income</field>
+        </record>
+
+        <record id="account_expense" model="account.account">
+            <field name="name">644000 Expenses</field>
+            <field name="code">644000</field>
+            <field name="internal_group">expense</field>
+        </record>
+
+        <record id="account_valuation" model="account.account">
+            <field name="name">444100 Stock Valuation</field>
+            <field name="code">444100</field>
+            <field name="internal_group">asset</field>
+        </record>
+
+        <record id="account_input" model="account.account">
+            <field name="name">444200 Stock Interim (Received)</field>
+            <field name="code">444200</field>
+            <field name="internal_group">asset</field>
+        </record>
+
+        <record id="account_output" model="account.account">
+            <field name="name">444300 Stock Interim (Delivered)</field>
+            <field name="code">444300</field>
+            <field name="internal_group">asset</field>
+        </record>
+
+        <!-- Journal -->
+        <record id="inventory_valuation_journal" model="account.journal">
+            <field name="name">Inventory Valuation</field>
+            <field name="type">general</field>
+            <field name="code">AGINV</field>
+        </record>
+
+        <!-- Product Category -->
+        <record id="product_category_materials_tools_chemicals" model="product.category">
+            <field name="name">Materials &amp; Tools &amp; Chemicals</field>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_crops_and_seeds" model="product.category">
+            <field name="name">Crops &amp; Seeds</field>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_soil_fertility" model="product.category">
+            <field name="name">Soil fertility</field>
+            <field name="parent_id" ref="product_category_materials_tools_chemicals"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_post_harvest_management" model="product.category">
+            <field name="name">Post harvest management</field>
+            <field name="parent_id" ref="product_category_materials_tools_chemicals"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_tools" model="product.category">
+            <field name="name">Tools</field>
+            <field name="parent_id" ref="product_category_materials_tools_chemicals"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_raw_material" model="product.category">
+            <field name="name">Raw material</field>
+            <field name="parent_id" ref="product_category_materials_tools_chemicals"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_seeds" model="product.category">
+            <field name="name">Seeds</field>
+            <field name="parent_id" ref="product_category_crops_and_seeds"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_pulses" model="product.category">
+            <field name="name">Pulses</field>
+            <field name="parent_id" ref="product_category_crops_and_seeds"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_fruit" model="product.category">
+            <field name="name">Fruit</field>
+            <field name="parent_id" ref="product_category_crops_and_seeds"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_grains" model="product.category">
+            <field name="name">Grains</field>
+            <field name="parent_id" ref="product_category_crops_and_seeds"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_edible_leafy_vegetable" model="product.category">
+            <field name="name">Edible Leafy Vegetable</field>
+            <field name="parent_id" ref="product_category_crops_and_seeds"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_root_vegetable" model="product.category">
+            <field name="name">Root Vegetable</field>
+            <field name="parent_id" ref="product_category_crops_and_seeds"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+        <record id="product_category_spices" model="product.category">
+            <field name="name">Spices</field>
+            <field name="parent_id" ref="product_category_crops_and_seeds"/>
+            <field name="property_account_income_categ_id" ref="account_income"/>
+            <field name="property_account_expense_categ_id" ref="account_expense"/>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+            <field name="property_stock_valuation_account_id" ref="account_valuation"/>
+            <field name="property_stock_account_input_categ_id" ref="account_input"/>
+            <field name="property_stock_account_output_categ_id" ref="account_output"/>
+            <field name="property_stock_journal" ref="inventory_valuation_journal"/>
+        </record>
+
+        <!--    Products-->
+
+        <record id="product_demo_1" model="product.template">
+            <field name="name">Oranges</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">100</field>
+            <field name="list_price">200</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_fruit"/>
+        </record>
+        <record id="product_demo_2" model="product.template">
+            <field name="name">Mangoes</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">90</field>
+            <field name="list_price">180</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_fruit"/>
+        </record>
+
+        <record id="product_demo_3" model="product.template">
+            <field name="name">Maize</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">80</field>
+            <field name="list_price">160</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_grains"/>
+        </record>
+        <record id="product_demo_4" model="product.template">
+            <field name="name">Avocadoes</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">110</field>
+            <field name="list_price">220</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_fruit"/>
+        </record>
+        <record id="product_demo_5" model="product.template">
+            <field name="name">Cassava</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">100</field>
+            <field name="list_price">200</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_root_vegetable"/>
+        </record>
+        <record id="product_demo_6" model="product.template">
+            <field name="name">Potatoes</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">90</field>
+            <field name="list_price">180</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_root_vegetable"/>
+        </record>
+        <record id="product_demo_7" model="product.template">
+            <field name="name">Red Chilli</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">200</field>
+            <field name="list_price">400</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_spices"/>
+        </record>
+        <record id="product_demo_8" model="product.template">
+            <field name="name">Cocoa</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">190</field>
+            <field name="list_price">380</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_fruit"/>
+        </record>
+        <record id="product_demo_9" model="product.template">
+            <field name="name">Spinach</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">180</field>
+            <field name="list_price">360</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_edible_leafy_vegetable"/>
+        </record>
+        <record id="product_demo_10" model="product.template">
+            <field name="name">Sorghum</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">210</field>
+            <field name="list_price">420</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_grains"/>
+        </record>
+        <record id="product_demo_11" model="product.template">
+            <field name="name">Beans</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">200</field>
+            <field name="list_price">400</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_pulses"/>
+        </record>
+        <record id="product_demo_12" model="product.template">
+            <field name="name">Tomatoes</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">190</field>
+            <field name="list_price">380</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_fruit"/>
+        </record>
+        <record id="product_demo_13" model="product.template">
+            <field name="name">Onions</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_kg"/>
+            <field name="uom_po_id" ref="demo_uom_kg"/>
+            <field name="standard_price">60</field>
+            <field name="list_price">120</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_edible_leafy_vegetable"/>
+        </record>
+        <record id="product_demo_14" model="product.template">
+            <field name="name">Safi organic foliar 1L</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">650</field>
+            <field name="list_price">650</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_soil_fertility"/>
+        </record>
+        <record id="product_demo_15" model="product.template">
+            <field name="name">Hygrow Fertiliser 50 kg</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">2000</field>
+            <field name="list_price">2800</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_soil_fertility"/>
+        </record>
+        <record id="product_demo_16" model="product.template">
+            <field name="name">Elite Bags - 110kg</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">180</field>
+            <field name="list_price">200</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_post_harvest_management"/>
+        </record>
+        <record id="product_demo_17" model="product.template">
+            <field name="name">Chandarua - large sheet - (7*7)m</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">3000</field>
+            <field name="list_price">3500</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_post_harvest_management"/>
+        </record>
+        <record id="product_demo_18" model="product.template">
+            <field name="name">Chandarua - large sheet - (12*12)m</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">7000</field>
+            <field name="list_price">9000</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_post_harvest_management"/>
+        </record>
+        <record id="product_demo_19" model="product.template">
+            <field name="name">50KG Sisal sack - New</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">330</field>
+            <field name="list_price">500</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_post_harvest_management"/>
+        </record>
+        <record id="product_demo_20" model="product.template">
+            <field name="name">Plastic crate</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">725</field>
+            <field name="list_price">900</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_post_harvest_management"/>
+        </record>
+        <record id="product_demo_21" model="product.template">
+            <field name="name">Maize - Duma 43, 2 kg</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">840</field>
+            <field name="list_price">900</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_seeds"/>
+        </record>
+        <record id="product_demo_22" model="product.template">
+            <field name="name">Maize - DK 8031, 2 kg</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">800</field>
+            <field name="list_price">950</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_seeds"/>
+        </record>
+        <record id="product_demo_23" model="product.template">
+            <field name="name">Beans - Nyota F1, 2 kg</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">600</field>
+            <field name="list_price">800</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_seeds"/>
+        </record>
+        <record id="product_demo_24" model="product.template">
+            <field name="name">Tomato - Kilele F1, 10 kg</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">350</field>
+            <field name="list_price">400</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_seeds"/>
+        </record>
+        <record id="product_demo_25" model="product.template">
+            <field name="name">Spinach - Simlaw, 25g</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">100</field>
+            <field name="list_price">120</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_seeds"/>
+        </record>
+        <record id="product_demo_26" model="product.template">
+            <field name="name">Spinach - Simlaw, 50g</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">150</field>
+            <field name="list_price">200</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_seeds"/>
+        </record>
+        <record id="product_demo_27" model="product.template">
+            <field name="name">Onion - Highchem, 25g</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">250</field>
+            <field name="list_price">300</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_seeds"/>
+        </record>
+        <record id="product_demo_28" model="product.template">
+            <field name="name">Onion - Highchem, 50g</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">450</field>
+            <field name="list_price">500</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_seeds"/>
+        </record>
+        <record id="product_demo_29" model="product.template">
+            <field name="name">Knapsack sprayer - 16 litre - Metal nozzle</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">1500</field>
+            <field name="list_price">1800</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_tools"/>
+        </record>
+        <record id="product_demo_30" model="product.template">
+            <field name="name">Knapsack sprayer - 20 litre - Metal nozzle</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">1800</field>
+            <field name="list_price">2000</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_tools"/>
+        </record>
+        <record id="product_demo_31" model="product.template">
+            <field name="name">Raw - Neem Concentrate - 5 L</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">6000</field>
+            <field name="list_price">0</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_raw_material"/>
+        </record>
+        <record id="product_demo_32" model="product.template">
+            <field name="name">Raw - Organic soap - 1 L</field>
+            <field name="sale_ok">true</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">60</field>
+            <field name="list_price">0</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+            <field name="categ_id" ref="product_category_raw_material"/>
+        </record>
+        <record id="product_demo_33" model="product.template">
+            <field name="name">General Supplies</field>
+            <field name="sale_ok">false</field>
+            <field name="purchase_ok">true</field>
+            <field name="uom_id" ref="demo_uom_units"/>
+            <field name="uom_po_id" ref="demo_uom_units"/>
+            <field name="standard_price">0</field>
+            <field name="list_price">0</field>
+            <field name="type">consu</field>
+            <field name="invoice_policy">delivery</field>
+            <field name="purchase_method">purchase</field>
+        </record>
+
+
+    </data>
+</odoo>

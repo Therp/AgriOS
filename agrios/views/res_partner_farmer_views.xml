@@ -331,12 +331,6 @@
             <xpath expr="//button[@name='action_view_partner_invoices']" position="attributes">
                 <attribute name="invisible">farmer_stage != "verified"</attribute>
             </xpath>
-            <xpath expr="//button[@name='425']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//button[@name='431']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
             <xpath expr="//button[@name='action_view_stock_lots']" position="attributes">
                 <attribute name="invisible">is_farmer == True</attribute>
             </xpath>
