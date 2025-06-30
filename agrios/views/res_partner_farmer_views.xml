@@ -48,8 +48,12 @@
                 </attribute>
             </xpath>
             <!-- Add Pages-->
+            <xpath expr="//page[@name='internal_notes']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
             <xpath expr="//page[@name='internal_notes']" position="after">
-                <page name="agrios_page" string="AgriOS" groups="agrios.group_agrios_readonly">
+                <page name="agrios_page" string="AgriOS" groups="agrios.group_agrios_readonly"
+                      invisible="not is_farmer">
                     <group>
                         <field name="farmer_requires_contract" invisible="not is_farmer"
                                groups="agrios.group_farmer_contract"/>
@@ -302,7 +306,8 @@
                 <span class="fa-stack fa-3x oe_avatar" invisible="not count_certifications or not is_farmer">
                 </span>
                 <button name="action_view_interactions" type="object" icon="fa-list-alt" string="Interactions"
-                        invisible="not is_farmer" class="oe_stat_button" groups="agrios.group_farmers_interactions">
+                        invisible="farmer_stage != 'verified' or not is_farmer" class="oe_stat_button"
+                        groups="agrios.group_farmers_interactions">
                     <field name="interactions_count" widget="statinfo"/>
                 </button>
                 <button class="oe_stat_button" name="action_view_farmer_contracts" type="object" icon="fa-file-text"
@@ -320,6 +325,21 @@
                     <field string="Off-takes" name="count_harvest_offtakes" widget="statinfo"/>
                 </button>
 
+            </xpath>
+            <xpath expr="//button[@name='action_view_sale_order']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_partner_invoices']" position="attributes">
+                <attribute name="invisible">farmer_stage != "verified"</attribute>
+            </xpath>
+            <xpath expr="//button[@name='425']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//button[@name='431']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_stock_lots']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
             </xpath>
         </field>
     </record>
