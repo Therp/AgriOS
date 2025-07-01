@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
-import json
 
 from odoo import models, _
 from odoo.exceptions import ValidationError
 
-from geopy.distance import distance as geo_distance
-from datetime import datetime, date
 from markupsafe import Markup
 import time
+
 
 class KoboAssetAction(models.BaseModel):
     _inherit = 'kobo.asset.action'
@@ -17,59 +15,65 @@ class KoboAssetAction(models.BaseModel):
         farmer_plot_env = self.env['farmer.plot'].sudo()
         for asset_input in asset_inputs.sudo():
             try:
+                start_comp_time = time.time()
                 company = asset_input.asset_id.company_id
                 country_id = company.country_id
                 values_dict = asset_input.get_inputs_dict()
                 plot_name, warning_message = self._convert_received_char(values_dict, ['Plot_Name', 'plot_name'])
+
                 if not plot_name:
                     warning_message = _(f"No Plot Name selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+
                 farmer, warning_message = self._convert_received_int_to_record(values_dict, ['Farmer', 'farmer'], 'res.partner')
                 if not farmer:
                     warning_message = _(f"No Farmer selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+
                 plot_land_ownership, warning_message = self._convert_received_char(values_dict, ['Plot_Land_Ownership', 'plot_land_ownership'])
                 if not plot_land_ownership:
                     warning_message = _(f"No Plot Land Ownership selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+
                 plot_established_year, warning_message = self._convert_received_int(values_dict, ['Plot_Year_Established', 'plot_established_year'])
                 if not plot_established_year:
                     warning_message = _(f"No Plot Established Year selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+
                 plot_condition, warning_message = self._convert_received_char(values_dict, ['Plot_Condition', 'plot_condition'])
                 if not plot_condition:
                     warning_message = _(f"No Plot Condition selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+
                 plot_main_road, warning_message = self._convert_received_char(values_dict, ['Plot_Main_Road', 'plot_main_road'])
                 if not plot_main_road:
                     warning_message = _(f"No Plot Main_Road selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+
                 plot_main_road_distance, warning_message = self._convert_received_float(values_dict, ['Plot_Main_Road_Distance', 'plot_main_road_distance'])
                 if not plot_main_road_distance:
                     warning_message = _(f"No Plot Main_Road_Distance selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+
                 plot_description, warning_message = self._convert_received_char(values_dict, ['Plot_Description', 'plot_description'])
                 if not plot_description:
                     warning_message = _(f"No Plot Description selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
-                land_uom, warning_message = self._convert_received_char(values_dict, ['Land_UoM', 'land_uom'])
-                if not land_uom:
-                    warning_message = _(f"No Land UoM selected!")
-                    if raise_exp: raise ValidationError(warning_message)
-                    else: asset_input.action_warning = warning_message; continue
+
                 plot_polygon, warning_message = self._convert_received_char(values_dict, ['Plot_Polygon', 'plot_polygon'])
                 if not plot_polygon:
                     warning_message = _(f"No Plot Polygon selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+
                 plot_polygon_area, warning_message = self._convert_received_float(values_dict, ['Plot_Polygon_Size_Calculation', 'plot_polygon_area'])
                 if not plot_polygon_area:
                     warning_message = _(f"No Plot Polygon_Area selected!")
@@ -84,9 +88,9 @@ class KoboAssetAction(models.BaseModel):
                     latitude = float(latitude)
                     longitude = float(longitude)
                     points.append([latitude, longitude])
-                shape = [{"type": "polygon", "points": points}]
 
-                is_owner =  True if plot_land_ownership == 'yes' else False
+                shape = [{"type": "polygon", "points": points}]
+                is_owner = plot_land_ownership == 'yes'
 
                 farm_area = farmer_plot_env.create({
                     'partner_id': farmer.id,
@@ -106,6 +110,13 @@ class KoboAssetAction(models.BaseModel):
                 })
                 farm_area.message_post(body=Markup(_('Created via Kobo input %s') % asset_input._get_html_link()))
 
+                asset_input.write({
+                    'action_id': self.id,
+                    'partner_ids': [(6, 0, farmer.ids)],
+                    'action_warning': warning_message,
+                    'action_ref': f'farmer.plot,{farm_area.id}',
+                    'action_comp_time': (time.time() - start_comp_time),
+                })
 
             except Exception as exp:
                 if raise_exp:
