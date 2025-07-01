@@ -42,5 +42,6 @@
         <field name="level" eval="3"/>
         <field name="name">Province</field>
     </record>
+
 	
 </odoo>
