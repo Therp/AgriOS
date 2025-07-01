@@ -97,7 +97,7 @@ class KoboAssetAction(models.BaseModel):
                     'is_owner': is_owner,
                     'year_established': plot_established_year,
                     'plot_polygon': shape,
-                    'country_id': country_id,
+                    'country_id': country_id.id,
                     'plot_size': plot_polygon_area,
                     'plot_condition': plot_condition,
                     'gshape_description': plot_description,
