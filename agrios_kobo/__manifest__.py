@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Kobo Toolbox Integration - OMS",
-    'summary': """Kobo Toolbox Extention For OMS Application""",
+    'name': "Kobo Toolbox Integration - Agrios",
+    'summary': """Kobo Toolbox Extention For Agrios Application""",
     'author': "Advance Insight",
     'website': "https://advanceinsight.dev",
     'category': 'Services/AIODKIntegration',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.0.1',
     'license': 'Other proprietary',
     'depends': [
         'ai_kobo_integration',
-        'ai_oms',
+        'agrios',
     ],
     'data': [
         'security/ir.model.access.csv',
