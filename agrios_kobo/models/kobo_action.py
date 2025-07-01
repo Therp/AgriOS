@@ -3,6 +3,7 @@
 from odoo import models, _
 from odoo.exceptions import ValidationError
 
+from geopy.distance import distance as geo_distance
 from datetime import datetime, date
 from markupsafe import Markup
 import time
@@ -11,6 +12,93 @@ import time
 class KoboAssetAction(models.BaseModel):
     _inherit = 'kobo.asset.action'
     
+    def farm_mapping_action(self, asset_inputs):
+        raise_exp = self._context.get('raise_exp', True)
+        farmer_plot_env = self.env['farmer.plot'].sudo()
+        for asset_input in asset_inputs.sudo():
+            try:
+                values_dict = asset_input.get_inputs_dict()
+                plot_name, warning_message = self._convert_received_char(values_dict, ['Plot_Name', 'plot_name'])
+                farmer, warning_message = self._convert_received_int_to_record(values_dict, ['Farmer', 'farmer'], 'res.partner')
+                plot_land_ownership, warning_message = self._convert_received_char(values_dict, ['Plot_Land_Ownership', 'plot_land_ownership'])
+                plot_established_year, warning_message = self._convert_received_int(values_dict, ['Plot_Year_Established', 'plot_established_year'])
+                plot_condition, warning_message = self._convert_received_char(values_dict, ['Plot_Condition', 'plot_condition'])
+                plot_main_road, warning_message = self._convert_received_char(values_dict, ['Plot_Main_Road', 'plot_main_road'])
+                plot_main_road_distance, warning_message = self._convert_received_float(values_dict, ['Plot_Main_Road_Distance', 'plot_main_road_distance'])
+                plot_description, warning_message = self._convert_received_char(values_dict, ['Plot_Description', 'plot_description'])
+                land_uom, warning_message = self._convert_received_char(values_dict, ['Land_UoM', 'land_uom'])
+                plot_polygon, warning_message = self._convert_received_char(values_dict, ['Plot_Polygon', 'plot_polygon'])
+                plot_polygon_area, warning_message = self._convert_received_float(values_dict, ['Plot_Polygon_Size_Calculation', 'plot_polygon_area'])
+                if not plot_name:
+                    warning_message = _(f"No Plot Name selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+
+                #TODO add validations
+
+                gshape_paths = {
+                    'type': 'polygon',
+                    'options': {
+                        'paths': []
+                    },
+                    'lines': {},
+                }
+
+                geo_loc_points = plot_polygon.split(';')
+                fisrt_point = None
+                last_point = None
+                path_idx = 0
+
+                for geo_points in geo_loc_points[:-1]:
+                    point = geo_points.split(' ')
+
+                    if not fisrt_point:
+                        fisrt_point = point
+
+                    latitude, longitude, altitude, accuracy = point
+                    latitude = float(latitude)
+                    longitude = float(longitude)
+
+                    gshape_paths['options']['paths'].append({
+                        'lat': latitude,
+                        'lng': longitude,
+                    })
+                    if last_point:
+                        path_idx += 1
+                        gshape_paths['lines'][str(path_idx)] = {
+                            'start': {
+                                'lat': float(last_point[0]),
+                                'lng': float(last_point[1]),
+                            },
+                            'stop': {
+                                'lat': latitude,
+                                'lng': longitude,
+                            },
+                            'length': geo_distance((last_point[0], last_point[1]), (latitude, longitude)).m,
+                        }
+
+                    last_point = point
+
+                path_idx += 1
+                gshape_paths['lines'][str(path_idx)] = {
+                    'start': {
+                        'lat': float(fisrt_point[0]),
+                        'lng': float(fisrt_point[1]),
+                    },
+                    'stop': {
+                        'lat': float(last_point[0]),
+                        'lng': float(last_point[1]),
+                    },
+                    'length': geo_distance((fisrt_point[0], fisrt_point[1]), (last_point[0], last_point[1])).m,
+                }
+
+            except Exception as exp:
+                if raise_exp:
+                    raise
+                else:
+                    asset_input.action_warning = _("Exception caught: %s") % exp
+
+
     def farmer_input_order_action(self, asset_inputs):
         raise_exp = self._context.get('raise_exp', True)
         

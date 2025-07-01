@@ -25,5 +25,10 @@
 	    <field name="name">Farmer Input Order</field>
 	    <field name="action_method">farmer_input_order_action</field>
 	</record>
+
+	<record id="farm_mapping_action" model="kobo.asset.action">
+	    <field name="name">Farm Mapping Action</field>
+	    <field name="action_method">farm_mapping_action</field>
+	</record>
 	
 </odoo>
