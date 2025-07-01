@@ -52,7 +52,7 @@
                 <attribute name="invisible">is_farmer == True</attribute>
             </xpath>
             <xpath expr="//page[@name='internal_notes']" position="after">
-                <page name="agrios_page" string="AgriOS" groups="agrios.group_agrios_readonly" invisible="is_farmer">
+                <page name="agrios_page" string="AgriOS" groups="agrios.group_agrios_readonly" invisible="not is_farmer">
                     <group>
                         <field name="farmer_requires_contract" invisible="not is_farmer"
                                groups="agrios.group_farmer_contract"/>
@@ -330,12 +330,6 @@
             </xpath>
             <xpath expr="//button[@name='action_view_partner_invoices']" position="attributes">
                 <attribute name="invisible">farmer_stage != "verified"</attribute>
-            </xpath>
-            <xpath expr="//button[@name='425']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//button[@name='431']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_stock_lots']" position="attributes">
                 <attribute name="invisible">is_farmer == True</attribute>
