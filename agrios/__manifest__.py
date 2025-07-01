@@ -52,9 +52,10 @@
         'views/menus.xml',
     ],
     'demo': [
-        'demo/uom.xml',
-        'demo/tax.xml',
-        'demo/demo_product_categories.xml',
+        'demo/products_general.xml',
+        # 'demo/master_data.xml',
+        # 'demo/demo_hierarchy.xml',
+        # 'demo/demo_farmers_and_groups.xml',
     ],
     'assets': {
         'web.assets_backend': [
