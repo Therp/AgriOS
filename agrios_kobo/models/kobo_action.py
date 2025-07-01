@@ -9,7 +9,6 @@ from datetime import datetime, date
 from markupsafe import Markup
 import time
 
-
 class KoboAssetAction(models.BaseModel):
     _inherit = 'kobo.asset.action'
     
@@ -18,24 +17,65 @@ class KoboAssetAction(models.BaseModel):
         farmer_plot_env = self.env['farmer.plot'].sudo()
         for asset_input in asset_inputs.sudo():
             try:
+                company = asset_input.asset_id.company_id
+                country_id = company.country_id
                 values_dict = asset_input.get_inputs_dict()
                 plot_name, warning_message = self._convert_received_char(values_dict, ['Plot_Name', 'plot_name'])
-                farmer, warning_message = self._convert_received_int_to_record(values_dict, ['Farmer', 'farmer'], 'res.partner')
-                plot_land_ownership, warning_message = self._convert_received_char(values_dict, ['Plot_Land_Ownership', 'plot_land_ownership'])
-                plot_established_year, warning_message = self._convert_received_int(values_dict, ['Plot_Year_Established', 'plot_established_year'])
-                plot_condition, warning_message = self._convert_received_char(values_dict, ['Plot_Condition', 'plot_condition'])
-                plot_main_road, warning_message = self._convert_received_char(values_dict, ['Plot_Main_Road', 'plot_main_road'])
-                plot_main_road_distance, warning_message = self._convert_received_float(values_dict, ['Plot_Main_Road_Distance', 'plot_main_road_distance'])
-                plot_description, warning_message = self._convert_received_char(values_dict, ['Plot_Description', 'plot_description'])
-                land_uom, warning_message = self._convert_received_char(values_dict, ['Land_UoM', 'land_uom'])
-                plot_polygon, warning_message = self._convert_received_char(values_dict, ['Plot_Polygon', 'plot_polygon'])
-                plot_polygon_area, warning_message = self._convert_received_float(values_dict, ['Plot_Polygon_Size_Calculation', 'plot_polygon_area'])
                 if not plot_name:
                     warning_message = _(f"No Plot Name selected!")
                     if raise_exp: raise ValidationError(warning_message)
                     else: asset_input.action_warning = warning_message; continue
+                farmer, warning_message = self._convert_received_int_to_record(values_dict, ['Farmer', 'farmer'], 'res.partner')
+                if not farmer:
+                    warning_message = _(f"No Farmer selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                plot_land_ownership, warning_message = self._convert_received_char(values_dict, ['Plot_Land_Ownership', 'plot_land_ownership'])
+                if not plot_land_ownership:
+                    warning_message = _(f"No Plot Land Ownership selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                plot_established_year, warning_message = self._convert_received_int(values_dict, ['Plot_Year_Established', 'plot_established_year'])
+                if not plot_established_year:
+                    warning_message = _(f"No Plot Established Year selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                plot_condition, warning_message = self._convert_received_char(values_dict, ['Plot_Condition', 'plot_condition'])
+                if not plot_condition:
+                    warning_message = _(f"No Plot Condition selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                plot_main_road, warning_message = self._convert_received_char(values_dict, ['Plot_Main_Road', 'plot_main_road'])
+                if not plot_main_road:
+                    warning_message = _(f"No Plot Main_Road selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                plot_main_road_distance, warning_message = self._convert_received_float(values_dict, ['Plot_Main_Road_Distance', 'plot_main_road_distance'])
+                if not plot_main_road_distance:
+                    warning_message = _(f"No Plot Main_Road_Distance selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                plot_description, warning_message = self._convert_received_char(values_dict, ['Plot_Description', 'plot_description'])
+                if not plot_description:
+                    warning_message = _(f"No Plot Description selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                land_uom, warning_message = self._convert_received_char(values_dict, ['Land_UoM', 'land_uom'])
+                if not land_uom:
+                    warning_message = _(f"No Land UoM selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                plot_polygon, warning_message = self._convert_received_char(values_dict, ['Plot_Polygon', 'plot_polygon'])
+                if not plot_polygon:
+                    warning_message = _(f"No Plot Polygon selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
+                plot_polygon_area, warning_message = self._convert_received_float(values_dict, ['Plot_Polygon_Size_Calculation', 'plot_polygon_area'])
+                if not plot_polygon_area:
+                    warning_message = _(f"No Plot Polygon_Area selected!")
+                    if raise_exp: raise ValidationError(warning_message)
+                    else: asset_input.action_warning = warning_message; continue
 
-                #TODO add validations
                 geo_loc_points = plot_polygon.split(';')
                 points = []
                 for geo_points in geo_loc_points[:-1]:
@@ -46,7 +86,7 @@ class KoboAssetAction(models.BaseModel):
                     points.append([latitude, longitude])
                 shape = [{"type": "polygon", "points": points}]
 
-
+                is_owner =  True if plot_land_ownership == 'yes' else False
 
                 farm_area = farmer_plot_env.create({
                     'partner_id': farmer.id,
@@ -54,13 +94,17 @@ class KoboAssetAction(models.BaseModel):
                     'gshape_name': plot_name,
                     'main_road': plot_main_road,
                     'main_road_distance': plot_main_road_distance,
-                    'is_owner': True if plot_land_ownership is 'yes' else False,
-                    'registration_year': plot_established_year,
+                    'is_owner': is_owner,
+                    'year_established': plot_established_year,
                     'plot_polygon': shape,
+                    'country_id': country_id,
                     'plot_size': plot_polygon_area,
+                    'plot_condition': plot_condition,
+                    'gshape_description': plot_description,
                     'located_in_protected_area': False,
                     'active': True,
                 })
+                farm_area.message_post(body=Markup(_('Created via Kobo input %s') % asset_input._get_html_link()))
 
 
             except Exception as exp:
