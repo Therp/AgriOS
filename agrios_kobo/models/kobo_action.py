@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 
 from odoo import models, _
 from odoo.exceptions import ValidationError
@@ -35,62 +36,32 @@ class KoboAssetAction(models.BaseModel):
                     else: asset_input.action_warning = warning_message; continue
 
                 #TODO add validations
-
-                gshape_paths = {
-                    'type': 'polygon',
-                    'options': {
-                        'paths': []
-                    },
-                    'lines': {},
-                }
-
                 geo_loc_points = plot_polygon.split(';')
-                fisrt_point = None
-                last_point = None
-                path_idx = 0
-
+                points = []
                 for geo_points in geo_loc_points[:-1]:
                     point = geo_points.split(' ')
-
-                    if not fisrt_point:
-                        fisrt_point = point
-
                     latitude, longitude, altitude, accuracy = point
                     latitude = float(latitude)
                     longitude = float(longitude)
+                    points.append([latitude, longitude])
+                shape = [{"type": "polygon", "points": points}]
 
-                    gshape_paths['options']['paths'].append({
-                        'lat': latitude,
-                        'lng': longitude,
-                    })
-                    if last_point:
-                        path_idx += 1
-                        gshape_paths['lines'][str(path_idx)] = {
-                            'start': {
-                                'lat': float(last_point[0]),
-                                'lng': float(last_point[1]),
-                            },
-                            'stop': {
-                                'lat': latitude,
-                                'lng': longitude,
-                            },
-                            'length': geo_distance((last_point[0], last_point[1]), (latitude, longitude)).m,
-                        }
 
-                    last_point = point
 
-                path_idx += 1
-                gshape_paths['lines'][str(path_idx)] = {
-                    'start': {
-                        'lat': float(fisrt_point[0]),
-                        'lng': float(fisrt_point[1]),
-                    },
-                    'stop': {
-                        'lat': float(last_point[0]),
-                        'lng': float(last_point[1]),
-                    },
-                    'length': geo_distance((fisrt_point[0], fisrt_point[1]), (last_point[0], last_point[1])).m,
-                }
+                farm_area = farmer_plot_env.create({
+                    'partner_id': farmer.id,
+                    'name': plot_name,
+                    'gshape_name': plot_name,
+                    'main_road': plot_main_road,
+                    'main_road_distance': plot_main_road_distance,
+                    'is_owner': True if plot_land_ownership is 'yes' else False,
+                    'registration_year': plot_established_year,
+                    'plot_polygon': shape,
+                    'plot_size': plot_polygon_area,
+                    'located_in_protected_area': False,
+                    'active': True,
+                })
+
 
             except Exception as exp:
                 if raise_exp:
