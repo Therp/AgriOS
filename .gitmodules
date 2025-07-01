@@ -1,4 +1,0 @@
-[submodule "addons/kobo-integration"]
-	path = addons/kobo-integration
-	url = git@github.com:advanceinsight/kobo-integration.git
-	branch = 18.0
