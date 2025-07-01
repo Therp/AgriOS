@@ -52,11 +52,13 @@
         'views/menus.xml',
     ],
     'demo': [
+
+        'demo/master_data.xml',
+        'demo/demo_hierarchy.xml',
         'demo/products_general.xml',
-        # 'demo/master_data.xml',
-        # 'demo/demo_hierarchy.xml',
-        # 'demo/demo_farmers_and_groups.xml',
+        'demo/demo_farmers_and_groups.xml',
     ],
+
     'assets': {
         'web.assets_backend': [
             'agrios/static/src/module/module_styles.scss',
@@ -70,7 +72,7 @@
     'application': True,
     'installable': True,
     'auto_install': False,
-    'post_init_hook': 'set_default_country',
+    'post_init_hook': 'post_init_hook',
     'uninstall_hook': 'uninstall_hook',
     'sequence': -1,
 }
