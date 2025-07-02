@@ -124,7 +124,6 @@ class KoboAssetAction(models.BaseModel):
                 else:
                     asset_input.action_warning = _("Exception caught: %s") % exp
 
-
     def farmer_input_order_action(self, asset_inputs):
         raise_exp = self._context.get('raise_exp', True)
         
