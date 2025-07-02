@@ -93,7 +93,7 @@ class KoboAssetAction(models.BaseModel):
                 is_owner = plot_land_ownership == 'yes'
 
                 farm_area = farmer_plot_env.create({
-                    'partner_id': farmer.id,
+                    'farmer_id': farmer.id,
                     'name': plot_name,
                     'gshape_name': plot_name,
                     'main_road': plot_main_road,
