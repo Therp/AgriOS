@@ -52,14 +52,6 @@
                 <attribute name="invisible">is_farmer == True</attribute>
             </xpath>
             <xpath expr="//page[@name='internal_notes']" position="after">
-                <page name="agrios_page" string="AgriOS" groups="agrios.group_agrios_readonly" invisible="not is_farmer">
-                    <group>
-                        <field name="farmer_requires_contract" invisible="not is_farmer"
-                               groups="agrios.group_farmer_contract"/>
-                        <field name="is_farmer_trainer" groups="agrios.group_farmers_training"/>
-                        <field name="is_farmer" invisible="0"/>
-                    </group>
-                </page>
                 <page name="farm_detail" invisible="not is_farmer" string="Farm Details">
                     <group>
                         <group>
