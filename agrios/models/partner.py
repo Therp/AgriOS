@@ -59,7 +59,7 @@ class Farmer(models.Model):
     total_contracted_acreage = fields.Float('Total Contracted Acreage', compute='_compute_total_contracted_acreage')
     non_contracted_acreage = fields.Float('Non-Contracted Acreage', compute='_compute_non_contracted_acreage')
     
-    plot_ids = fields.One2many('farmer.plot', 'partner_id', 'Responsible Area', copy=False)
+    plot_ids = fields.One2many('farmer.plot', 'farmer_id', 'Responsible Area', copy=False)
     
     # Linked Offtake Agreements
     count_farmer_contracts = fields.Integer(compute='_compute_count_farmer_contracts')

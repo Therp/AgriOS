@@ -12,7 +12,7 @@ class FarmerPlotCropArea(models.Model):
     plot_id = fields.Many2one('farmer.plot', 'Plot', required=True, ondelete='cascade')
     crop_product_id = fields.Many2one('product.product', string='Crop Product', domain=[('crop_product','=',True)], inverse="_update_farmer_harvest_products", required=True)
     acreage = fields.Float('Acreage', required=True)
-    farmer_id = fields.Many2one(related="plot_id.partner_id", string='Farmer')
+    farmer_id = fields.Many2one(related="plot_id.farmer_id", string='Farmer')
     plot_size = fields.Float(related="plot_id.plot_size", store=True)
     product_type = fields.Selection(related="crop_product_id.harvest_product_type", store=True)
     number_of_trees = fields.Integer('Number of Trees')
@@ -71,8 +71,8 @@ class FarmerPlotCropArea(models.Model):
     
     def _update_farmer_harvest_products(self):
         for record in self:
-            if record.crop_product_id not in record.partner_id.crop_product_ids:
-                record.partner_id.write({
+            if record.crop_product_id not in record.farmer_id.crop_product_ids:
+                record.farmer_id.write({
                     'crop_product_ids': [Command.link(record.crop_product_id.id)]
                 })
     

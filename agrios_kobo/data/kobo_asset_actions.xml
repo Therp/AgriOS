@@ -27,7 +27,7 @@
 	</record>
 
 	<record id="farm_mapping_action" model="kobo.asset.action">
-	    <field name="name">Farm Mapping Action</field>
+	    <field name="name">Plot Mapping Action</field>
 	    <field name="action_method">farm_mapping_action</field>
 	</record>
 	

@@ -8,7 +8,7 @@ class FarmerPlot(models.Model):
     _name = 'farmer.plot'
     _inherit = ["mail.thread"]
     _description = 'Farmer Plot'
-    _order = 'partner_id'
+    _order = 'farmer_id'
     
     def _get_land_area_uom_domain(self):
         surface_uom = self.env.ref('uom.uom_categ_surface', raise_if_not_found=False).id
@@ -24,7 +24,7 @@ class FarmerPlot(models.Model):
     plot_shape_type = fields.Selection([('circle', 'Circle'),('polygon', 'Polygon'),('rectangle', 'Rectangle')], 'Plot Shape Type')
     gshape_description = fields.Text('Description')
     
-    partner_id = fields.Many2one('res.partner', 'Farmer', domain="[('is_farmer','=',True)]", required=True, ondelete='cascade', tracking=True, index=True)
+    farmer_id = fields.Many2one('res.partner', 'Farmer', domain="[('is_farmer','=',True)]", required=True, ondelete='cascade', tracking=True, index=True)
     active = fields.Boolean('Active', default=True, tracking=True)
     year_established = fields.Char('Year Established', tracking=True)
     registration_year = fields.Integer('Year of Registration')
