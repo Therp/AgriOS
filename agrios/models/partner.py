@@ -588,7 +588,7 @@ class Farmer(models.Model):
             'view_mode': 'form',
             'target': 'new',
             'context': {
-                'default_partner_id': self.id,
+                'default_farmer_id': self.id,
                 'default_name': _('%s Farm #%d') % (self.display_name, (len(self.plot_ids) + 1)),
                 'plot_partner_readonly': True,
             }
