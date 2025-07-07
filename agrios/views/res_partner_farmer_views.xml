@@ -201,7 +201,7 @@
                             groups="purchase.group_purchase_user"
                             confirm="All active farmer contracts are not at the harvest stage, confirm that you still would like to register an off-take?"/>
 
-                    <button string="Create Farm" name="action_create_farm" type="object" invisible="not is_farmer"
+                    <button string="Create Plot" name="action_create_farm" type="object" invisible="not is_farmer"
                             class="oe_highlight" groups="agrios.group_plot_management"/>
 
                     <field name="farmer_stage" invisible="not is_farmer" clickable="False" widget="statusbar"/>
