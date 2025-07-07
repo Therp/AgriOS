@@ -467,7 +467,7 @@ class Farmer(models.Model):
                 'farmer_requires_contract': (farmer.company_id or self.env.company).a_default_contract_required,
             }
             
-            if farmer.farmer_ref == '/':
+            if not farmer.farmer_ref or farmer.farmer_ref == '/':
                 vals['farmer_ref'] = self.env['ir.sequence'].next_by_code('farmer')
             
             farmer.with_context(mail_notrack=True).write(vals)
