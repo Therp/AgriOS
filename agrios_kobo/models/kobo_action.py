@@ -39,34 +39,10 @@ class KoboAssetAction(models.BaseModel):
                     else: asset_input.action_warning = warning_message; continue
 
                 plot_established_year, warning_message = self._convert_received_int(values_dict, ['Plot_Year_Established', 'plot_established_year'])
-                if not plot_established_year:
-                    warning_message = _(f"No Plot Established Year selected!")
-                    if raise_exp: raise ValidationError(warning_message)
-                    else: asset_input.action_warning = warning_message; continue
-
                 plot_condition, warning_message = self._convert_received_char(values_dict, ['Plot_Condition', 'plot_condition'])
-                if not plot_condition:
-                    warning_message = _(f"No Plot Condition selected!")
-                    if raise_exp: raise ValidationError(warning_message)
-                    else: asset_input.action_warning = warning_message; continue
-
                 plot_main_road, warning_message = self._convert_received_char(values_dict, ['Plot_Main_Road', 'plot_main_road'])
-                if not plot_main_road:
-                    warning_message = _(f"No Plot Main_Road selected!")
-                    if raise_exp: raise ValidationError(warning_message)
-                    else: asset_input.action_warning = warning_message; continue
-
                 plot_main_road_distance, warning_message = self._convert_received_float(values_dict, ['Plot_Main_Road_Distance', 'plot_main_road_distance'])
-                if not plot_main_road_distance:
-                    warning_message = _(f"No Plot Main_Road_Distance selected!")
-                    if raise_exp: raise ValidationError(warning_message)
-                    else: asset_input.action_warning = warning_message; continue
-
                 plot_description, warning_message = self._convert_received_char(values_dict, ['Plot_Description', 'plot_description'])
-                if not plot_description:
-                    warning_message = _(f"No Plot Description selected!")
-                    if raise_exp: raise ValidationError(warning_message)
-                    else: asset_input.action_warning = warning_message; continue
 
                 plot_polygon, warning_message = self._convert_received_char(values_dict, ['Plot_Polygon', 'plot_polygon'])
                 if not plot_polygon:
