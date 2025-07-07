@@ -96,6 +96,7 @@
                             <div class="content-group">
                                 <div>
                                     <button name="action_load_demo_for_agrios"
+                                            groups="base.group_no_one"
                                             type="object"
                                             class="btn btn-secondary"
                                             string="Load Demo Data"/>
