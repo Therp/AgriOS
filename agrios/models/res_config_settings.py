@@ -2,8 +2,7 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError, UserError
-from odoo.modules.loading import load_demo as core_load_demo
-from odoo.modules.loading import load_data as load_data
+from odoo.modules.loading import load_data
 from odoo.modules.graph import Graph
 from odoo.modules.module import get_manifest
 import logging
@@ -54,13 +53,11 @@ class ResConfigSettings(models.TransientModel):
         self.ensure_one()
         env = self.env(su=True)
         info = get_manifest('agrios')
-        if not info:
-            return
         graph = Graph()
         node = graph.add_node('agrios', info)
         graph.update_from_db(env.cr)
         node.demo = True
-        load_data(env(su=True), {}, 'init', kind='demo', package=node)
+        load_data(env, {}, 'init', kind='demo', package=node)
 
         env.clear()
         env['res.groups']._update_user_groups_view()
