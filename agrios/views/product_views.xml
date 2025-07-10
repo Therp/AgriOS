@@ -12,7 +12,7 @@
 				<separator/>
 				<filter string="Seed Varieties" name="filter_seed_product" domain="[('seed_product','=',True)]" groups="agrios.group_seed_varieties"/>
 				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
-				<filter string="Harvest Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
+				<filter string="Crop Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
 			</xpath>
 		</field>
 	</record>
@@ -48,7 +48,7 @@
         	</xpath>
         	
             <xpath expr="//page[@name='purchase']" position='after'>
-                <page name="agrios_page" string="AgriOS Details" groups="agrios.group_agrios_readonly">
+                <page name="agrios_page" string="Farming Details" groups="agrios.group_agrios_readonly">
                     <group>
                         <group string="Input Info" invisible="type != 'consu' or crop_product or seed_product">
                             <field name="input_product"/>
@@ -132,7 +132,7 @@
 			<xpath expr="//field[@name='categ_id']" position="after">
 				<separator/>
 				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
-				<filter string="Harvest Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
+				<filter string="Crop Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
 			</xpath>
 		</field>
 	</record>
