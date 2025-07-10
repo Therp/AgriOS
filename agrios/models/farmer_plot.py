@@ -19,11 +19,8 @@ class FarmerPlot(models.Model):
         return land_area_uom_config and int(land_area_uom_config) or self.env.ref('agrios.area_1', raise_if_not_found=False)
     
     name = fields.Char('Name', required=True, tracking=True)
-    
-    gshape_name = fields.Char('Gshape Name')
     plot_shape_type = fields.Selection([('circle', 'Circle'),('polygon', 'Polygon'),('rectangle', 'Rectangle')], 'Plot Shape Type')
-    gshape_description = fields.Text('Description')
-    
+    plot_description = fields.Text('Description')
     farmer_id = fields.Many2one('res.partner', 'Farmer', domain="[('is_farmer','=',True)]", required=True, ondelete='cascade', tracking=True, index=True)
     active = fields.Boolean('Active', default=True, tracking=True)
     year_established = fields.Char('Year Established', tracking=True)

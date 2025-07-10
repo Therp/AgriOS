@@ -33,6 +33,9 @@
             <xpath expr="//field[@name='company_type']" position="attributes">
                 <attribute name="invisible">is_farmer == True</attribute>
             </xpath>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
             <xpath expr="//form[1]/sheet[1]/group[1]/group[2]" position="attributes">
                 <attribute name="invisible">is_farmer == True</attribute>
             </xpath>
@@ -112,7 +115,7 @@
                                 <field name="loc_area_3_id" optional="hide"/>
                                 <field name="plot_size" sum="Total" optional="show"/>
                                 <field name="plot_condition" optional="show"/>
-                                <field name="gshape_description" optional="hide"/>
+                                <field name="plot_description" optional="hide"/>
                             </list>
                         </field>
                     </group>
