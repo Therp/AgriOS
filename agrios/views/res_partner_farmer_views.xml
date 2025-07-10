@@ -164,7 +164,6 @@
                         <group string="Farmer Extra Details">
                             <field name="family_size"/>
                             <field name="highest_education_id"/>
-                            <field name="country_id"/>
                         </group>
                         <group string="Next Of Kin">
                             <field name="next_of_kin" placeholder="NOK Full Name"/>
