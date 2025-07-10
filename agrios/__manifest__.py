@@ -6,7 +6,7 @@
     'author': "Advance Insight",
     'website': "https://www.advanceinsight.dev",
     'category': 'Advance Insight Product',
-    'version': '18.0.1.2.8',
+    'version': '18.0.1.2.9',
     'license': 'Other proprietary',
     'depends': [
         'contacts',
@@ -14,6 +14,8 @@
         'sale_management',
         'purchase',
         'stock',
+        'hr',
+        'account_usability',
     ],
     'data': [
         'security/security_groups.xml',
