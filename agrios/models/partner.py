@@ -583,7 +583,7 @@ class Farmer(models.Model):
         
         return {
             'type': 'ir.actions.act_window',
-            'name': _('New Farm Of %s') % self.display_name,
+            'name': _('New Plot Of %s') % self.display_name,
             'res_model': 'farmer.plot',
             'view_mode': 'form',
             'target': 'new',

@@ -28,5 +28,23 @@
 	    <field name="search_view_id" ref="purchase.purchase_order_view_search"/>
 	    <field name="context">{}</field>
 	</record>
+
+	<record id="res_partner_view_purchase_buttons_override" model="ir.ui.view">
+		<field name="name">res.partner.purchase.stock.form.override</field>
+		<field name="model">res.partner</field>
+		<field name="inherit_id" ref="purchase_stock.res_partner_view_purchase_buttons_inherit"/>
+		<field name="arch" type="xml">
+		  	<xpath expr="//button[@name='%(purchase_stock.action_purchase_vendor_delay_report)d']" position="replace"/>
+		</field>
+  	</record>
+
+	<record id="res_partner_view_purchase_buttons_override_purchases" model="ir.ui.view">
+		<field name="name">res.partner.view.purchase.buttons.override</field>
+		<field name="model">res.partner</field>
+		<field name="inherit_id" ref="purchase.res_partner_view_purchase_buttons"/>
+		<field name="arch" type="xml">
+		  	<xpath expr="//button[@name='%(purchase.act_res_partner_2_purchase_order)d']" position="replace"/>
+		</field>
+  	</record>
 	
 </odoo>

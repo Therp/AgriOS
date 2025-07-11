@@ -71,7 +71,6 @@ class KoboAssetAction(models.BaseModel):
                 farm_area = farmer_plot_env.create({
                     'farmer_id': farmer.id,
                     'name': plot_name,
-                    'gshape_name': plot_name,
                     'main_road': plot_main_road,
                     'main_road_distance': plot_main_road_distance,
                     'is_owner': is_owner,

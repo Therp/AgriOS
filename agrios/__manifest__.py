@@ -6,7 +6,7 @@
     'author': "Advance Insight",
     'website': "https://www.advanceinsight.dev",
     'category': 'Advance Insight Product',
-    'version': '18.0.1.2.9',
+    'version': '18.0.1.3.0',
     'license': 'Other proprietary',
     'depends': [
         'contacts',

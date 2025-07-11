@@ -36,7 +36,7 @@
 				<field name="loc_area_5_id" optional="show"/>
 				<field name="loc_area_6_id" optional="show"/>
                 <field name="plot_size" sum="Total" optional="show"/>
-                <field name="gshape_description" optional="hide"/>
+                <field name="plot_description" optional="hide"/>
             </list>
         </field>
     </record>
@@ -137,7 +137,7 @@
 	                        </field>
                     	</page>
                     	<page name="desc_page" string="Plot Description">
-                    		<field name="gshape_description" placeholder="Internal description of the plot..."/>
+                    		<field name="plot_description" placeholder="Internal description of the plot..."/>
                     	</page>
                     </notebook>
                 </sheet>
