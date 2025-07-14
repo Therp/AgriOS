@@ -6,7 +6,7 @@
     'author': "Advance Insight",
     'website': "https://www.advanceinsight.dev",
     'category': 'Advance Insight Product',
-    'version': '18.0.1.3.0',
+    'version': '18.0.1.3.1',
     'license': 'Other proprietary',
     'depends': [
         'contacts',
@@ -31,6 +31,7 @@
         'wizard/multiple_set_contracted_mapped_qty_wizard.xml',
         'wizard/bulk_contract_action_wizard.xml',
         'wizard/account_payment_register_views.xml',
+        'views/agrios_data.xml',
         'views/season_views.xml',
         'views/administration_views.xml',
         'views/training_views.xml',

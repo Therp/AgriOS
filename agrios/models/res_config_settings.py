@@ -2,9 +2,6 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError, UserError
-from odoo.modules.loading import load_data
-from odoo.modules.graph import Graph
-from odoo.modules.module import get_manifest
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -49,18 +46,4 @@ class ResConfigSettings(models.TransientModel):
             if farmers_count > 0:
                 raise ValidationError(_("You cannot change the UoM once an farmer has been registered."))
 
-    def action_load_demo_for_agrios(self):
-        self.ensure_one()
-        env = self.env(su=True)
-        info = get_manifest('agrios')
-        graph = Graph()
-        node = graph.add_node('agrios', info)
-        graph.update_from_db(env.cr)
-        node.demo = True
-        load_data(env, {}, 'init', kind='demo', package=node)
 
-        env.clear()
-        env['res.groups']._update_user_groups_view()
-        env['res.partner'].search([('is_farmer', '=', True)]).verify_farmer()
-
-        return {'type': 'ir.actions.client', 'tag': 'reload'}

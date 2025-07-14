@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<templates>
+
+    <t t-name="agrios.loadData" t-inherit="res_config_dev_tool" t-inherit-mode="extension">
+        <xpath expr="//div[@id='developer_tool']//SettingsBlock//Setting" position='inside'>
+            <a t-if="isDebug and !isDemoDataActive"
+               class="d-block o_web_settings_load_new_data"
+               t-on-click.prevent="onClickLoadAgriosData"
+               href="#">
+                Load Agrios Data
+            </a>
+        </xpath>
+    </t>
+
+</templates>
