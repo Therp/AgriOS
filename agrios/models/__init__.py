@@ -20,4 +20,3 @@ from . import account_journal
 from . import account_move
 from . import highest_education
 from . import id_type
-from . import agrios_demo

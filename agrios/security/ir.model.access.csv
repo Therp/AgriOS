@@ -81,5 +81,6 @@ access_highest_education_manager,res.highest.education.manager,model_res_highest
 
 access_id_type_user,res.id.type.user,model_res_id_type,base.group_user,1,0,1,0
 access_id_type_manager,res.id.type.manager,model_res_id_type,agrios.group_agrios_manager,1,1,1,1
+
 access_agrios_demo,agrios.demo,model_agrios_demo,base.group_no_one,1,1,1,1
 

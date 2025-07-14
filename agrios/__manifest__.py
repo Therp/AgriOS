@@ -31,7 +31,7 @@
         'wizard/multiple_set_contracted_mapped_qty_wizard.xml',
         'wizard/bulk_contract_action_wizard.xml',
         'wizard/account_payment_register_views.xml',
-        'views/agrios_data.xml',
+        'wizard/agrios_data.xml',
         'views/season_views.xml',
         'views/administration_views.xml',
         'views/training_views.xml',

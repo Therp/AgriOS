@@ -12,7 +12,6 @@ class AgriosDemo(models.TransientModel):
     _name = 'agrios.demo'
     _description = 'Agrios Demo'
 
-
     @assert_log_admin_access
     def action_load_demo_for_agrios(self):
         self.ensure_one()
