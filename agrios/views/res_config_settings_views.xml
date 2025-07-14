@@ -89,22 +89,6 @@
                                 </div>
                             </div>
                         </setting>
-                        <setting id="agrios_demo_data"
-                                 groups="base.group_no_one"
-                                 help="Load Demo Data."
-                                 company_dependent="1">
-                            <div class="content-group">
-                                <div>
-                                    <button name="action_load_demo_for_agrios"
-                                            groups="base.group_no_one"
-                                            type="object"
-                                            class="btn btn-secondary"
-                                            string="Load Demo Data"/>
-
-                                </div>
-
-                            </div>
-                        </setting>
                     </block>
 
                     <block title="Farm">
