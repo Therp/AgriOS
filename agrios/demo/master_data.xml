@@ -76,7 +76,7 @@
         <record id="certification_type_certified_with_warning" model="certification.type">
             <field name="name">Certified with Warning</field>
             <field name="validity_period">12</field>
-            <field name="style">warning</field>
+            <field name="style">success</field>
         </record>
         <record id="certification_type_disqualified" model="certification.type">
             <field name="name">Disqualified</field>
