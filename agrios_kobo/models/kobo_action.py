@@ -79,7 +79,7 @@ class KoboAssetAction(models.BaseModel):
                     'country_id': country_id.id,
                     'plot_size': plot_polygon_area,
                     'plot_condition': plot_condition,
-                    'gshape_description': plot_description,
+                    'plot_description': plot_description,
                     'located_in_protected_area': False,
                     'active': True,
                 })
