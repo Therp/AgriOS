@@ -8,7 +8,6 @@ from odoo.modules.module import get_manifest
 
 
 class AgriosDemo(models.TransientModel):
-
     _name = 'agrios.demo'
     _description = 'Agrios Demo'
 
