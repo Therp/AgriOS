@@ -6,6 +6,7 @@ from odoo.modules.loading import load_data
 from odoo.modules.graph import Graph
 from odoo.modules.module import get_manifest
 
+
 class AgriosDemo(models.TransientModel):
 
     _name = 'agrios.demo'
