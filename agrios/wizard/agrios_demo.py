@@ -5,7 +5,6 @@ from odoo.addons.base.models.ir_module import assert_log_admin_access
 from odoo.modules.loading import load_data
 from odoo.modules.graph import Graph
 from odoo.modules.module import get_manifest
-from odoo.exceptions import UserError
 
 class AgriosDemo(models.TransientModel):
 
@@ -16,12 +15,11 @@ class AgriosDemo(models.TransientModel):
     def action_load_demo_for_agrios(self):
         self.ensure_one()
         env = self.env(su=True)
-        currency = self.env['res.currency'].search([('name', '=', 'KES')], limit=1)
+        currency = self.env.ref('base.KES')
         if  currency:
+            currency.write({'active': True})
             self.env.company.write({'currency_id': currency.id})
 
-        company = self.env.company
-        company.write({'currency_id': currency.id})
         info = get_manifest('agrios')
         graph = Graph()
         node = graph.add_node('agrios', info)
