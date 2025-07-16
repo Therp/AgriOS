@@ -270,6 +270,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_soil_fertility"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">4</field>
         </record>
@@ -286,6 +288,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_soil_fertility"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">1</field>
         </record>
@@ -302,6 +306,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_post_harvest_management"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
         </record>
         <record id="product_demo_17" model="product.template">
@@ -317,6 +323,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_post_harvest_management"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
         </record>
         <record id="product_demo_18" model="product.template">
@@ -332,6 +340,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_post_harvest_management"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
         </record>
         <record id="product_demo_19" model="product.template">
@@ -347,6 +357,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_post_harvest_management"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
         </record>
         <record id="product_demo_20" model="product.template">
@@ -362,6 +374,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_post_harvest_management"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
         </record>
         <record id="product_demo_21" model="product.template">
@@ -377,6 +391,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_seeds"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">6</field>
         </record>
@@ -393,6 +409,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_seeds"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">6</field>
         </record>
@@ -409,7 +427,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_seeds"/>
-
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">5</field>
         </record>
@@ -426,6 +445,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_seeds"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">1</field>
         </record>
@@ -442,6 +463,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_seeds"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">10</field>
         </record>
@@ -458,6 +481,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_seeds"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">5</field>
         </record>
@@ -474,6 +499,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_seeds"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">10</field>
         </record>
@@ -490,6 +517,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_seeds"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">5</field>
         </record>
@@ -506,6 +535,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_tools"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
         </record>
         <record id="product_demo_30" model="product.template">
@@ -521,6 +552,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_tools"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
         </record>
         <record id="product_demo_31" model="product.template">
@@ -536,6 +569,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_raw_material"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">1</field>
         </record>
@@ -552,6 +587,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_raw_material"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="input_product">true</field>
             <field name="qty_per_acreage">4</field>
         </record>
@@ -565,6 +602,8 @@
             <field name="standard_price">0</field>
             <field name="list_price">0</field>
             <field name="type">consu</field>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
         </record>
@@ -582,6 +621,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_fruit"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="is_storable">true</field>
             <field name="crop_product">true</field>
             <field name="estimated_yield">340</field>
@@ -602,6 +643,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_fruit"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">610</field>
             <field name="related_inputs_ids"
@@ -621,6 +664,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_grains"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">313</field>
             <field name="related_inputs_ids"
@@ -639,6 +684,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_fruit"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">488</field>
             <field name="related_inputs_ids"
@@ -657,6 +704,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_root_vegetable"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">599</field>
             <field name="related_inputs_ids"
@@ -675,6 +724,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_root_vegetable"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">355</field>
             <field name="related_inputs_ids"
@@ -693,13 +744,15 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_spices"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">585</field>
             <field name="related_inputs_ids"
                    eval="[(6, 0, [ref('agrios.product_demo_15')])]"/>
         </record>
         <record id="product_demo_8" model="product.template">
-            <field name="name">Cocoa</field>
+            <field name="name">Bananas</field>
             <field name="sale_ok">true</field>
             <field name="purchase_ok">true</field>
             <field name="is_storable">true</field>
@@ -711,6 +764,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_fruit"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">400</field>
             <field name="related_inputs_ids"
@@ -729,6 +784,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_edible_leafy_vegetable"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">573</field>
             <field name="related_inputs_ids"
@@ -747,6 +804,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_grains"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">625</field>
             <field name="related_inputs_ids"
@@ -765,6 +824,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_pulses"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">419</field>
             <field name="related_inputs_ids"
@@ -783,6 +844,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_fruit"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">564</field>
             <field name="related_inputs_ids"
@@ -801,6 +864,8 @@
             <field name="invoice_policy">delivery</field>
             <field name="purchase_method">purchase</field>
             <field name="categ_id" ref="product_category_edible_leafy_vegetable"/>
+            <field name="taxes_id" eval="[(6, 0, [ref('agrios.tax_sale_vat_16')])]"/>
+            <field name="supplier_taxes_id" eval="[(6, 0, [ref('agrios.tax_purchase_vat_16')])]"/>
             <field name="crop_product">true</field>
             <field name="estimated_yield">340</field>
             <field name="related_inputs_ids"

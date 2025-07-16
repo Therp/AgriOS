@@ -8,7 +8,6 @@ from odoo.modules.module import get_manifest
 
 
 class AgriosDemo(models.TransientModel):
-
     _name = 'agrios.demo'
     _description = 'Agrios Demo'
 
@@ -16,6 +15,10 @@ class AgriosDemo(models.TransientModel):
     def action_load_demo_for_agrios(self):
         self.ensure_one()
         env = self.env(su=True)
+        currency = self.env.ref('base.KES')
+        currency.write({'active': True})
+        self.env.company.write({'currency_id': currency.id})
+
         info = get_manifest('agrios')
         graph = Graph()
         node = graph.add_node('agrios', info)
