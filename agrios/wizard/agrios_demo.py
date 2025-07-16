@@ -16,9 +16,8 @@ class AgriosDemo(models.TransientModel):
         self.ensure_one()
         env = self.env(su=True)
         currency = self.env.ref('base.KES')
-        if  currency:
-            currency.write({'active': True})
-            self.env.company.write({'currency_id': currency.id})
+        currency.write({'active': True})
+        self.env.company.write({'currency_id': currency.id})
 
         info = get_manifest('agrios')
         graph = Graph()
