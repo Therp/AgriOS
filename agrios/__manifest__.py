@@ -55,11 +55,14 @@
         'views/menus.xml',
     ],
     'demo': [
-
         'demo/master_data.xml',
-        'demo/demo_hierarchy.xml',
+        'demo/hierarchy.xml',
         'demo/products_general.xml',
-        'demo/demo_farmers.xml',
+        'demo/farmers.xml',
+        'demo/users.xml',
+        'demo/employee_department.xml',
+        'demo/plots.xml',
+        'demo/farmer_training.xml',
     ],
     'assets': {
         'web.assets_backend': [

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="demo_training_1" model="farmer.training">
+            <field name="country_id" ref="base.ke"/>
+            <field name="trainer_id" ref="trainer_demo_1"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="training_date">2025-03-07</field>
+            <field name="training_location">Main Market Square</field>
+            <field name="training_participants_ids"
+                   eval="[(6, 0, [partner_demo_farmer_21,partner_demo_farmer_24,partner_demo_farmer_27,partner_demo_farmer_30,partner_demo_farmer_146,partner_demo_farmer_167,partner_demo_farmer_199,partner_demo_farmer_201,partner_demo_farmer_226,partner_demo_farmer_258,partner_demo_farmer_287,partner_demo_farmer_325,partner_demo_farmer_352,partner_demo_farmer_365,partner_demo_farmer_449])]"/>
+        </record>
+
+    </data>
+</odoo>
