@@ -1,0 +1,1409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="farmer_plot_1" model="farmer.plot">
+            <field name="name">FARM - Esther Njeri</field>
+            <field name="plot_size">17</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.52786123456789, 36.98765432101234], [-0.52876123456789, 36.98675432101234], [-0.52966123456789, 36.98725432101234], [-0.52906123456789, 36.98815432101234], [-0.52816123456789, 36.98785432101234], [-0.52746123456789, 36.98855432101234], [-0.52686123456789, 36.98775432101234]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_1"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2013</field>
+        </record>
+        <record id="farmer_plot_2" model="farmer.plot">
+            <field name="name">FARM - Elizabeth Mutua</field>
+            <field name="plot_size">24</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.34567890123456, 37.89012345678901], [-2.34657890123456, 37.88922345678901], [-2.34747890123456, 37.88972345678901], [-2.34687890123456, 37.89062345678901], [-2.34597890123456, 37.89032345678901], [-2.34527890123456, 37.89102345678901], [-2.34467890123456, 37.89022345678901]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_100"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2020</field>
+        </record>
+        <record id="farmer_plot_3" model="farmer.plot">
+            <field name="name">FARM - Bridget Mukai Benjamin</field>
+            <field name="plot_size">6</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.12345678901234, 35.67890123456789], [1.12255678901234, 35.67800123456789], [1.12335678901234, 35.67750123456789], [1.12395678901234, 35.67840123456789], [1.12315678901234, 35.67870123456789], [1.12245678901234, 35.67940123456789], [1.12185678901234, 35.67860123456789]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_104"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2004</field>
+        </record>
+        <record id="farmer_plot_4" model="farmer.plot">
+            <field name="name">FARM - Francis K. Muthini</field>
+            <field name="plot_size">26</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.01234567890123, 38.76543210987654], [-3.01324567890123, 38.76453210987654], [-3.01414567890123, 38.76503210987654], [-3.01354567890123, 38.76593210987654], [-3.01264567890123, 38.76563210987654], [-3.01194567890123, 38.76633210987654], [-3.01134567890123, 38.76553210987654]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_105"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2009</field>
+        </record>
+        <record id="farmer_plot_5" model="farmer.plot">
+            <field name="name">FARM - Benedetah Musyoka</field>
+            <field name="plot_size">6</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.98765432101234, 36.54321098765432], [0.98675432101234, 36.54231098765432], [0.98755432101234, 36.54181098765432], [0.98815432101234, 36.54271098765432], [0.98735432101234, 36.54301098765432], [0.98665432101234, 36.54371098765432], [0.98605432101234, 36.54291098765432]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_106"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2020</field>
+        </record>
+        <record id="farmer_plot_6" model="farmer.plot">
+            <field name="name">FARM - Damaris Maulo</field>
+            <field name="plot_size">20</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.87654321098765, 37.43210987654321], [-1.87744321098765, 37.43120987654321], [-1.87834321098765, 37.43170987654321], [-1.87774321098765, 37.43260987654321], [-1.87684321098765, 37.43230987654321], [-1.87614321098765, 37.43300987654321], [-1.87554321098765, 37.43220987654321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_108"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2013</field>
+        </record>
+        <record id="farmer_plot_7" model="farmer.plot">
+            <field name="name">FARM - Felix K. Mwongela</field>
+            <field name="plot_size">10</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.76543210987654, 35.3210987654321], [-0.76633210987654, 35.3201987654321], [-0.76723210987654, 35.3206987654321], [-0.76663210987654, 35.3215987654321], [-0.76573210987654, 35.3212987654321], [-0.76503210987654, 35.3219987654321], [-0.76443210987654, 35.3211987654321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_109"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2005</field>
+        </record>
+        <record id="farmer_plot_8" model="farmer.plot">
+            <field name="name">FARM - Jennifer Nzau</field>
+            <field name="plot_size">25</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[2.10987654321098, 37.65432109876543], [2.10897654321098, 37.65342109876543], [2.10977654321098, 37.65292109876543], [2.11037654321098, 37.65382109876543], [2.10957654321098, 37.65412109876543], [2.10887654321098, 37.65482109876543], [2.10827654321098, 37.65402109876543]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_11"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_9" model="farmer.plot">
+            <field name="name">FARM - Angeline Mulinge Mangula</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.98765432101234, 38.10987654321098], [-2.98855432101234, 38.10897654321098], [-2.98945432101234, 38.10947654321098], [-2.98885432101234, 38.11037654321098], [-2.98795432101234, 38.11007654321098], [-2.98725432101234, 38.11077654321098], [-2.98665432101234, 38.10997654321098]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_110"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2020</field>
+        </record>
+        <record id="farmer_plot_10" model="farmer.plot">
+            <field name="name">FARM - Christine K. Mwongela</field>
+            <field name="plot_size">27</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.65432109876543, 38.98765432101234], [0.65342109876543, 38.98675432101234], [0.65422109876543, 38.98625432101234], [0.65482109876543, 38.98715432101234], [0.65402109876543, 38.98745432101234], [0.65332109876543, 38.98815432101234], [0.65272109876543, 38.98735432101234]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_111"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_11" model="farmer.plot">
+            <field name="name">FARM - Daniel Kitili</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.23456789012345, 37.12345678901234], [-1.23546789012345, 37.12255678901234], [-1.23636789012345, 37.12305678901234], [-1.23576789012345, 37.12395678901234], [-1.23486789012345, 37.12365678901234], [-1.23416789012345, 37.12435678901234], [-1.23356789012345, 37.12355678901234]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_114"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2000</field>
+        </record>
+        <record id="farmer_plot_12" model="farmer.plot">
+            <field name="name">FARM - Agnest Mumbua</field>
+            <field name="plot_size">11</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.12345678901234, 36.23456789012345], [-0.12435678901234, 36.23366789012345], [-0.12525678901234, 36.23416789012345], [-0.12465678901234, 36.23506789012345], [-0.12375678901234, 36.23476789012345], [-0.12305678901234, 36.23546789012345], [-0.12245678901234, 36.23466789012345]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_115"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_13" model="farmer.plot">
+            <field name="name">FARM - Faith Mutua</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.23456789012345, 36.34567890123456], [1.23366789012345, 36.34477890123456], [1.23446789012345, 36.34427890123456], [1.23506789012345, 36.34517890123456], [1.23426789012345, 36.34547890123456], [1.23356789012345, 36.34617890123456], [1.23296789012345, 36.34537890123456]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_116"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_14" model="farmer.plot">
+            <field name="name">FARM - Festus Munywauvoo</field>
+            <field name="plot_size">19</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.34567890123456, 37.45678901234567], [-1.34657890123456, 37.45588901234567], [-1.34747890123456, 37.45638901234567], [-1.34687890123456, 37.45728901234567], [-1.34597890123456, 37.45698901234567], [-1.34527890123456, 37.45768901234567], [-1.34467890123456, 37.45688901234567]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_118"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2022</field>
+        </record>
+        <record id="farmer_plot_15" model="farmer.plot">
+            <field name="name">FARM - David Muthama</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.45678901234567, 37.56789012345678], [0.45588901234567, 37.56699012345678], [0.45668901234567, 37.56649012345678], [0.45728901234567, 37.56739012345678], [0.45648901234567, 37.56769012345678], [0.45578901234567, 37.56839012345678], [0.45518901234567, 37.56759012345678]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_119"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2019</field>
+        </record>
+        <record id="farmer_plot_16" model="farmer.plot">
+            <field name="name">FARM - Annie John</field>
+            <field name="plot_size">12</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.45678901234567, 38.67890123456789], [-2.45768901234567, 38.67800123456789], [-2.45858901234567, 38.67850123456789], [-2.45798901234567, 38.67940123456789], [-2.45708901234567, 38.67910123456789], [-2.45638901234567, 38.67980123456789], [-2.45578901234567, 38.67900123456789]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_121"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2021</field>
+        </record>
+        <record id="farmer_plot_17" model="farmer.plot">
+            <field name="name">FARM - Felistar Mbuva</field>
+            <field name="plot_size">29</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.56789012345678, 35.7890123456789], [-0.56879012345678, 35.7881123456789], [-0.56969012345678, 35.7886123456789], [-0.56909012345678, 35.7895123456789], [-0.56819012345678, 35.7892123456789], [-0.56749012345678, 35.7899123456789], [-0.56689012345678, 35.7891123456789]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_123"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2015</field>
+        </record>
+        <record id="farmer_plot_18" model="farmer.plot">
+            <field name="name">FARM - Benard Kimuli</field>
+            <field name="plot_size">18</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.56789012345678, 36.89012345678901], [1.56699012345678, 36.88922345678901], [1.56779012345678, 36.88872345678901], [1.56839012345678, 36.88962345678901], [1.56759012345678, 36.88992345678901], [1.56689012345678, 36.89062345678901], [1.56629012345678, 36.88982345678901]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_125"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2002</field>
+        </record>
+        <record id="farmer_plot_19" model="farmer.plot">
+            <field name="name">FARM - Cyrus N. Wambua</field>
+            <field name="plot_size">23</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.67890123456789, 37.90123456789012], [-1.67980123456789, 37.90033456789012], [-1.68070123456789, 37.90083456789012], [-1.68010123456789, 37.90173456789012], [-1.67920123456789, 37.90143456789012], [-1.67850123456789, 37.90213456789012], [-1.67790123456789, 37.90133456789012]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_129"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2012</field>
+        </record>
+        <record id="farmer_plot_20" model="farmer.plot">
+            <field name="name">FARM - Alphonse Wambua Ndua</field>
+            <field name="plot_size">12</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.67890123456789, 38.01234567890123], [0.67800123456789, 38.01144567890123], [0.67880123456789, 38.01094567890123], [0.67940123456789, 38.01184567890123], [0.67860123456789, 38.01214567890123], [0.67790123456789, 38.01284567890123], [0.67730123456789, 38.01204567890123]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_13"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2009</field>
+        </record>
+        <record id="farmer_plot_21" model="farmer.plot">
+            <field name="name">FARM - Janet Kilili</field>
+            <field name="plot_size">24</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.7890123456789, 38.12345678901234], [-2.7899123456789, 38.12255678901234], [-2.7908123456789, 38.12305678901234], [-2.7902123456789, 38.12395678901234], [-2.7893123456789, 38.12365678901234], [-2.7886123456789, 38.12435678901234], [-2.7880123456789, 38.12355678901234]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_130"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2011</field>
+        </record>
+        <record id="farmer_plot_22" model="farmer.plot">
+            <field name="name">FARM - Dennis Kipkemoi</field>
+            <field name="plot_size">20</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.89012345678901, 36.23456789012345], [-0.89102345678901, 36.23366789012345], [-0.89192345678901, 36.23416789012345], [-0.89132345678901, 36.23506789012345], [-0.89042345678901, 36.23476789012345], [-0.88972345678901, 36.23546789012345], [-0.88912345678901, 36.23466789012345]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_134"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2016</field>
+        </record>
+        <record id="farmer_plot_23" model="farmer.plot">
+            <field name="name">FARM - Kennedy Langat</field>
+            <field name="plot_size">23</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.7890123456789, 37.34567890123456], [1.7881123456789, 37.34477890123456], [1.7889123456789, 37.34427890123456], [1.7895123456789, 37.34517890123456], [1.7887123456789, 37.34547890123456], [1.7880123456789, 37.34617890123456], [1.7874123456789, 37.34537890123456]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_135"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2009</field>
+        </record>
+        <record id="farmer_plot_24" model="farmer.plot">
+            <field name="name">FARM - Hillary Kiprop</field>
+            <field name="plot_size">24</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.90123456789012, 38.45678901234567], [-1.90213456789012, 38.45588901234567], [-1.90303456789012, 38.45638901234567], [-1.90243456789012, 38.45728901234567], [-1.90153456789012, 38.45698901234567], [-1.90083456789012, 38.45768901234567], [-1.90023456789012, 38.45688901234567]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_136"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2020</field>
+        </record>
+        <record id="farmer_plot_25" model="farmer.plot">
+            <field name="name">FARM - Julius Kiprotich</field>
+            <field name="plot_size">15</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.90123456789012, 38.56789012345678], [0.90033456789012, 38.56699012345678], [0.90113456789012, 38.56649012345678], [0.90173456789012, 38.56739012345678], [0.90093456789012, 38.56769012345678], [0.90023456789012, 38.56839012345678], [0.89963456789012, 38.56759012345678]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_137"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2013</field>
+        </record>
+        <record id="farmer_plot_26" model="farmer.plot">
+            <field name="name">FARM - Harrison Kipchumba</field>
+            <field name="plot_size">19</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.01234567890123, 38.67890123456789], [-2.01324567890123, 38.67800123456789], [-2.01414567890123, 38.67850123456789], [-2.01354567890123, 38.67940123456789], [-2.01264567890123, 38.67910123456789], [-2.01194567890123, 38.67980123456789], [-2.01134567890123, 38.67900123456789]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_138"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2009</field>
+        </record>
+        <record id="farmer_plot_27" model="farmer.plot">
+            <field name="name">FARM - Felister Kyalo</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.12345678901234, 36.7890123456789], [-0.12435678901234, 36.7881123456789], [-0.12525678901234, 36.7886123456789], [-0.12465678901234, 36.7895123456789], [-0.12375678901234, 36.7892123456789], [-0.12305678901234, 36.7899123456789], [-0.12245678901234, 36.7891123456789]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_14"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2020</field>
+        </record>
+        <record id="farmer_plot_28" model="farmer.plot">
+            <field name="name">FARM - Everlyne Mwendwa</field>
+            <field name="plot_size">15</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.90123456789012, 37.89012345678901], [1.90033456789012, 37.88922345678901], [1.90113456789012, 37.88872345678901], [1.90173456789012, 37.88962345678901], [1.90093456789012, 37.88992345678901], [1.90023456789012, 37.89062345678901], [1.89963456789012, 37.88982345678901]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_142"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_29" model="farmer.plot">
+            <field name="name">FARM - Festus Wasua</field>
+            <field name="plot_size">18</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.23456789012345, 38.90123456789012], [-1.23546789012345, 38.90033456789012], [-1.23636789012345, 38.90083456789012], [-1.23576789012345, 38.90173456789012], [-1.23486789012345, 38.90143456789012], [-1.23416789012345, 38.90213456789012], [-1.23356789012345, 38.90133456789012]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_143"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2000</field>
+        </record>
+        <record id="farmer_plot_30" model="farmer.plot">
+            <field name="name">FARM - Annah Kyalo</field>
+            <field name="plot_size">5</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.23456789012345, 39.01234567890123], [0.23366789012345, 39.01144567890123], [0.23446789012345, 39.01094567890123], [0.23506789012345, 39.01184567890123], [0.23426789012345, 39.01214567890123], [0.23356789012345, 39.01284567890123], [0.23296789012345, 39.01204567890123]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_144"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2001</field>
+        </record>
+        <record id="farmer_plot_31" model="farmer.plot">
+            <field name="name">FARM - Benson Mutie</field>
+            <field name="plot_size">5</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.34567890123456, 39.12345678901234], [-2.34657890123456, 39.12255678901234], [-2.34747890123456, 39.12305678901234], [-2.34687890123456, 39.12395678901234], [-2.34597890123456, 39.12365678901234], [-2.34527890123456, 39.12435678901234], [-2.34467890123456, 39.12355678901234]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_145"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2023</field>
+        </record>
+        <record id="farmer_plot_32" model="farmer.plot">
+            <field name="name">FARM - Annah Munywoki</field>
+            <field name="plot_size">5</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.45678901234567, 37.23456789012345], [-0.45768901234567, 37.23366789012345], [-0.45858901234567, 37.23416789012345], [-0.45798901234567, 37.23506789012345], [-0.45708901234567, 37.23476789012345], [-0.45638901234567, 37.23546789012345], [-0.45578901234567, 37.23466789012345]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_146"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_33" model="farmer.plot">
+            <field name="name">FARM - Angeline Kisonge</field>
+            <field name="plot_size">5</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.34567890123456, 38.34567890123456], [1.34477890123456, 38.34477890123456], [1.34557890123456, 38.34427890123456], [1.34617890123456, 38.34517890123456], [1.34537890123456, 38.34547890123456], [1.34467890123456, 38.34617890123456], [1.34407890123456, 38.34537890123456]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_147"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2022</field>
+        </record>
+        <record id="farmer_plot_34" model="farmer.plot">
+            <field name="name">FARM - Fredrick Nganda Ngui</field>
+            <field name="plot_size">6</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.56789012345678, 39.45678901234567], [-1.56879012345678, 39.45588901234567], [-1.56969012345678, 39.45638901234567], [-1.56909012345678, 39.45728901234567], [-1.56819012345678, 39.45698901234567], [-1.56749012345678, 39.45768901234567], [-1.56689012345678, 39.45688901234567]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_148"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2013</field>
+        </record>
+        <record id="farmer_plot_35" model="farmer.plot">
+            <field name="name">FARM - Daniel Mutisya Wambua</field>
+            <field name="plot_size">6</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.56789012345678, 39.56789012345678], [0.56699012345678, 39.56699012345678], [0.56779012345678, 39.56649012345678], [0.56839012345678, 39.56739012345678], [0.56759012345678, 39.56769012345678], [0.56689012345678, 39.56839012345678], [0.56629012345678, 39.56759012345678]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_15"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2005</field>
+        </record>
+        <record id="farmer_plot_36" model="farmer.plot">
+            <field name="name">FARM - Catherine Mueni</field>
+            <field name="plot_size">6</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.67890123456789, 39.67890123456789], [-2.67980123456789, 39.67800123456789], [-2.68070123456789, 39.67850123456789], [-2.68010123456789, 39.67940123456789], [-2.67920123456789, 39.67910123456789], [-2.67850123456789, 39.67980123456789], [-2.67790123456789, 39.67900123456789]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_151"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2002</field>
+        </record>
+        <record id="farmer_plot_37" model="farmer.plot">
+            <field name="name">FARM - Gloria Kiini</field>
+            <field name="plot_size">5</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.7890123456789, 37.7890123456789], [-0.7899123456789, 37.7881123456789], [-0.7908123456789, 37.7886123456789], [-0.7902123456789, 37.7895123456789], [-0.7893123456789, 37.7892123456789], [-0.7886123456789, 37.7899123456789], [-0.7880123456789, 37.7891123456789]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_152"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2018</field>
+        </record>
+        <record id="farmer_plot_38" model="farmer.plot">
+            <field name="name">FARM - Josphine Mutunga</field>
+            <field name="plot_size">5</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.2345598745321, 36.7890598745321], [1.2338598745321, 36.7882598745321], [1.2347598745321, 36.7875598745321], [1.2354598745321, 36.7883598745321], [1.2348598745321, 36.7891598745321], [1.2342598745321, 36.7899598745321], [1.2335598745321, 36.7885598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_153"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_39" model="farmer.plot">
+            <field name="name">FARM - Agnes Kioko</field>
+            <field name="plot_size">5</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.4567598745321, 38.9876598745321], [-3.4574598745321, 38.9868598745321], [-3.4583598745321, 38.9875598745321], [-3.4579598745321, 38.9887598745321], [-3.4570598745321, 38.9882598745321], [-3.4563598745321, 38.9890598745321], [-3.4556598745321, 38.9876598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_155"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_40" model="farmer.plot">
+            <field name="name">FARM - Geoffrey Masaku</field>
+            <field name="plot_size">21</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.3456598745321, 36.8765598745321], [-1.3463598745321, 36.8757598745321], [-1.3472598745321, 36.8764598745321], [-1.3468598745321, 36.8776598745321], [-1.3459598745321, 36.8771598745321], [-1.3452598745321, 36.8779598745321], [-1.3445598745321, 36.8765598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_156"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2013</field>
+        </record>
+        <record id="farmer_plot_41" model="farmer.plot">
+            <field name="name">FARM - David Mulwa</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.9876598745321, 37.6543598745321], [0.9869598745321, 37.6535598745321], [0.9878598745321, 37.6528598745321], [0.9885598745321, 37.6536598745321], [0.9879598745321, 37.6544598745321], [0.9873598745321, 37.6552598745321], [0.9866598745321, 37.6538598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_157"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2001</field>
+        </record>
+        <record id="farmer_plot_42" model="farmer.plot">
+            <field name="name">FARM - Angeline Mutinda</field>
+            <field name="plot_size">30</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.1123598745321, 38.3210598745321], [-2.1130598745321, 38.3202598745321], [-2.1139598745321, 38.3209598745321], [-2.1135598745321, 38.3221598745321], [-2.1126598745321, 38.3216598745321], [-2.1119598745321, 38.3224598745321], [-2.1112598745321, 38.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_159"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2001</field>
+        </record>
+        <record id="farmer_plot_43" model="farmer.plot">
+            <field name="name">FARM - Kennedy M.Benard Mwandau</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.7654598745321, 35.9876598745321], [-0.7661598745321, 35.9868598745321], [-0.7670598745321, 35.9875598745321], [-0.7666598745321, 35.9887598745321], [-0.7657598745321, 35.9882598745321], [-0.7650598745321, 35.9890598745321], [-0.7643598745321, 35.9876598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_16"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2011</field>
+        </record>
+        <record id="farmer_plot_44" model="farmer.plot">
+            <field name="name">FARM - Bethmukai Koki</field>
+            <field name="plot_size">15</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.8765598745321, 36.5432598745321], [1.8758598745321, 36.5424598745321], [1.8767598745321, 36.5417598745321], [1.8774598745321, 36.5425598745321], [1.8768598745321, 36.5433598745321], [1.8762598745321, 36.5441598745321], [1.8755598745321, 36.5427598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_161"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2020</field>
+        </record>
+        <record id="farmer_plot_45" model="farmer.plot">
+            <field name="name">FARM - Jane Mukula</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.6543598745321, 39.8765598745321], [-3.6550598745321, 39.8757598745321], [-3.6559598745321, 39.8764598745321], [-3.6555598745321, 39.8776598745321], [-3.6546598745321, 39.8771598745321], [-3.6539598745321, 39.8779598745321], [-3.6532598745321, 39.8765598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_163"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2001</field>
+        </record>
+        <record id="farmer_plot_46" model="farmer.plot">
+            <field name="name">FARM - Julius M.</field>
+            <field name="plot_size">6</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.9876598745321, 37.2345598745321], [-1.9883598745321, 37.2337598745321], [-1.9892598745321, 37.2344598745321], [-1.9888598745321, 37.2356598745321], [-1.9879598745321, 37.2351598745321], [-1.9872598745321, 37.2359598745321], [-1.9865598745321, 37.2345598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_164"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2024</field>
+        </record>
+        <record id="farmer_plot_47" model="farmer.plot">
+            <field name="name">FARM - James Kimote Muema</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.6543598745321, 36.7890598745321], [0.6536598745321, 36.7882598745321], [0.6545598745321, 36.7875598745321], [0.6552598745321, 36.7883598745321], [0.6546598745321, 36.7891598745321], [0.6540598745321, 36.7899598745321], [0.6533598745321, 36.7885598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_166"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2002</field>
+        </record>
+        <record id="farmer_plot_48" model="farmer.plot">
+            <field name="name">FARM - Christine Nyambi</field>
+            <field name="plot_size">10</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.7890598745321, 38.0123598745321], [-2.7897598745321, 38.0115598745321], [-2.7906598745321, 38.0122598745321], [-2.7902598745321, 38.0134598745321], [-2.7893598745321, 38.0129598745321], [-2.7886598745321, 38.0137598745321], [-2.7879598745321, 38.0123598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_167"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2011</field>
+        </record>
+        <record id="farmer_plot_49" model="farmer.plot">
+            <field name="name">FARM - Agnes Mutua</field>
+            <field name="plot_size">15</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.4321598745321, 36.5432598745321], [-0.4328598745321, 36.5424598745321], [-0.4337598745321, 36.5431598745321], [-0.4333598745321, 36.5443598745321], [-0.4324598745321, 36.5438598745321], [-0.4317598745321, 36.5446598745321], [-0.4310598745321, 36.5432598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_168"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2019</field>
+        </record>
+        <record id="farmer_plot_50" model="farmer.plot">
+            <field name="name">FARM - Grace Mutunga</field>
+            <field name="plot_size">27</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.5432598745321, 38.7654598745321], [1.5425598745321, 38.7646598745321], [1.5434598745321, 38.7639598745321], [1.5441598745321, 38.7647598745321], [1.5435598745321, 38.7655598745321], [1.5429598745321, 38.7663598745321], [1.5422598745321, 38.7649598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_169"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2001</field>
+        </record>
+        <record id="farmer_plot_51" model="farmer.plot">
+            <field name="name">FARM - Daniel M. Muthengi</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.3210598745321, 37.6543598745321], [-3.3217598745321, 37.6535598745321], [-3.3226598745321, 37.6542598745321], [-3.3222598745321, 37.6554598745321], [-3.3213598745321, 37.6549598745321], [-3.3206598745321, 37.6557598745321], [-3.3199598745321, 37.6543598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_17"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2011</field>
+        </record>
+        <record id="farmer_plot_52" model="farmer.plot">
+            <field name="name">FARM - Duncun M. Mutisya</field>
+            <field name="plot_size">28</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.6543598745321, 36.9876598745321], [-1.6550598745321, 36.9868598745321], [-1.6559598745321, 36.9875598745321], [-1.6555598745321, 36.9887598745321], [-1.6546598745321, 36.9882598745321], [-1.6539598745321, 36.9890598745321], [-1.6532598745321, 36.9876598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_173"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2001</field>
+        </record>
+        <record id="farmer_plot_53" model="farmer.plot">
+            <field name="name">FARM - Felistas Mwangangi</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.3210598745321, 37.8765598745321], [0.3203598745321, 37.8757598745321], [0.3212598745321, 37.8750598745321], [0.3219598745321, 37.8758598745321], [0.3213598745321, 37.8766598745321], [0.3207598745321, 37.8774598745321], [0.3200598745321, 37.8760598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_174"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2003</field>
+        </record>
+        <record id="farmer_plot_54" model="farmer.plot">
+            <field name="name">FARM - Annah M. Carol</field>
+            <field name="plot_size">11</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.4567598745321, 39.0123598745321], [-2.4574598745321, 39.0115598745321], [-2.4583598745321, 39.0122598745321], [-2.4579598745321, 39.0134598745321], [-2.4570598745321, 39.0129598745321], [-2.4563598745321, 39.0137598745321], [-2.4556598745321, 39.0123598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_176"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2022</field>
+        </record>
+        <record id="farmer_plot_55" model="farmer.plot">
+            <field name="name">FARM - Jones Kituku</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.7890598745321, 37.3210598745321], [-0.7897598745321, 37.3202598745321], [-0.7906598745321, 37.3209598745321], [-0.7902598745321, 37.3221598745321], [-0.7893598745321, 37.3216598745321], [-0.7886598745321, 37.3224598745321], [-0.7879598745321, 37.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_177"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2016</field>
+        </record>
+        <record id="farmer_plot_56" model="farmer.plot">
+            <field name="name">FARM - Bonface Makau</field>
+            <field name="plot_size">11</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.0123598745321, 38.6543598745321], [1.0116598745321, 38.6535598745321], [1.0125598745321, 38.6528598745321], [1.0132598745321, 38.6536598745321], [1.0126598745321, 38.6544598745321], [1.0120598745321, 38.6552598745321], [1.0113598745321, 38.6538598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_178"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_57" model="farmer.plot">
+            <field name="name">FARM - Benedetta Simon</field>
+            <field name="plot_size">7</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.8765598745321, 38.7890598745321], [-3.8772598745321, 38.7882598745321], [-3.8781598745321, 38.7889598745321], [-3.8777598745321, 38.7901598745321], [-3.8768598745321, 38.7896598745321], [-3.8761598745321, 38.7904598745321], [-3.8754598745321, 38.7890598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_18"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2015</field>
+        </record>
+        <record id="farmer_plot_58" model="farmer.plot">
+            <field name="name">FARM - Joyce Mbithi</field>
+            <field name="plot_size">11</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.5432598745321, 37.8765598745321], [-1.5439598745321, 37.8757598745321], [-1.5448598745321, 37.8764598745321], [-1.5444598745321, 37.8776598745321], [-1.5435598745321, 37.8771598745321], [-1.5428598745321, 37.8779598745321], [-1.5421598745321, 37.8765598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_180"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2010</field>
+        </record>
+        <record id="farmer_plot_59" model="farmer.plot">
+            <field name="name">FARM - Eunice Mutua</field>
+            <field name="plot_size">9</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.7890598745321, 36.5432598745321], [0.7883598745321, 36.5424598745321], [0.7892598745321, 36.5417598745321], [0.7899598745321, 36.5425598745321], [0.7893598745321, 36.5433598745321], [0.7887598745321, 36.5441598745321], [0.7880598745321, 36.5427598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_181"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2018</field>
+        </record>
+        <record id="farmer_plot_60" model="farmer.plot">
+            <field name="name">FARM - Grace Wambui</field>
+            <field name="plot_size">11</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.6543598745321, 37.3210598745321], [-2.6550598745321, 37.3202598745321], [-2.6559598745321, 37.3209598745321], [-2.6555598745321, 37.3221598745321], [-2.6546598745321, 37.3216598745321], [-2.6539598745321, 37.3224598745321], [-2.6532598745321, 37.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_183"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_61" model="farmer.plot">
+            <field name="name">FARM - Ann Muthoni</field>
+            <field name="plot_size">24</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.9876598745321, 38.0123598745321], [-0.9883598745321, 38.0115598745321], [-0.9892598745321, 38.0122598745321], [-0.9888598745321, 38.0134598745321], [-0.9879598745321, 38.0129598745321], [-0.9872598745321, 38.0137598745321], [-0.9865598745321, 38.0123598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_184"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2009</field>
+        </record>
+        <record id="farmer_plot_62" model="farmer.plot">
+            <field name="name">FARM - Joyce Nekesa</field>
+            <field name="plot_size">16</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.3210598745321, 37.7890598745321], [1.3203598745321, 37.7882598745321], [1.3212598745321, 37.7875598745321], [1.3219598745321, 37.7883598745321], [1.3213598745321, 37.7891598745321], [1.3207598745321, 37.7899598745321], [1.3200598745321, 37.7885598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_186"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2013</field>
+        </record>
+        <record id="farmer_plot_63" model="farmer.plot">
+            <field name="name">FARM - Faith Chemutai</field>
+            <field name="plot_size">21</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.5432598745321, 38.4567598745321], [-3.5439598745321, 38.4559598745321], [-3.5448598745321, 38.4566598745321], [-3.5444598745321, 38.4578598745321], [-3.5435598745321, 38.4573598745321], [-3.5428598745321, 38.4581598745321], [-3.5421598745321, 38.4567598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_188"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_64" model="farmer.plot">
+            <field name="name">FARM - Jonathan Mulonzi</field>
+            <field name="plot_size">26</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.7890598745321, 36.6543598745321], [-1.7897598745321, 36.6535598745321], [-1.7906598745321, 36.6542598745321], [-1.7902598745321, 36.6554598745321], [-1.7893598745321, 36.6549598745321], [-1.7886598745321, 36.6557598745321], [-1.7879598745321, 36.6543598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_19"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_65" model="farmer.plot">
+            <field name="name">FARM - Agnes Chepkoech</field>
+            <field name="plot_size">28</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.4567598745321, 38.3210598745321], [0.4560598745321, 38.3202598745321], [0.4569598745321, 38.3195598745321], [0.4576598745321, 38.3203598745321], [0.4570598745321, 38.3211598745321], [0.4564598745321, 38.3219598745321], [0.4557598745321, 38.3205598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_191"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2015</field>
+        </record>
+        <record id="farmer_plot_66" model="farmer.plot">
+            <field name="name">FARM - David S. Mulwa</field>
+            <field name="plot_size">10</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.3210598745321, 39.5432598745321], [-2.3217598745321, 39.5424598745321], [-2.3226598745321, 39.5431598745321], [-2.3222598745321, 39.5443598745321], [-2.3213598745321, 39.5438598745321], [-2.3206598745321, 39.5446598745321], [-2.3199598745321, 39.5432598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_193"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2012</field>
+        </record>
+        <record id="farmer_plot_67" model="farmer.plot">
+            <field name="name">FARM - Franciscah Mbila</field>
+            <field name="plot_size">30</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.6543598745321, 37.7890598745321], [-0.6550598745321, 37.7882598745321], [-0.6559598745321, 37.7889598745321], [-0.6555598745321, 37.7901598745321], [-0.6546598745321, 37.7896598745321], [-0.6539598745321, 37.7904598745321], [-0.6532598745321, 37.7890598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_196"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2015</field>
+        </record>
+        <record id="farmer_plot_68" model="farmer.plot">
+            <field name="name">FARM - Dorine Keli</field>
+            <field name="plot_size">11</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.7890598745321, 36.0123598745321], [1.7883598745321, 36.0115598745321], [1.7892598745321, 36.0108598745321], [1.7899598745321, 36.0116598745321], [1.7893598745321, 36.0124598745321], [1.7887598745321, 36.0132598745321], [1.7880598745321, 36.0118598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_197"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2018</field>
+        </record>
+        <record id="farmer_plot_69" model="farmer.plot">
+            <field name="name">FARM - David Kisolo</field>
+            <field name="plot_size">4</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.0123598745321, 38.7890598745321], [-3.0130598745321, 38.7882598745321], [-3.0139598745321, 38.7889598745321], [-3.0135598745321, 38.7901598745321], [-3.0126598745321, 38.7896598745321], [-3.0119598745321, 38.7904598745321], [-3.0112598745321, 38.7890598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_202"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2004</field>
+        </record>
+        <record id="farmer_plot_70" model="farmer.plot">
+            <field name="name">FARM - Jackson Ngula Mutisya</field>
+            <field name="plot_size">1</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.3210598745321, 38.4567598745321], [-1.3217598745321, 38.4559598745321], [-1.3226598745321, 38.4566598745321], [-1.3222598745321, 38.4578598745321], [-1.3213598745321, 38.4573598745321], [-1.3206598745321, 38.4581598745321], [-1.3199598745321, 38.4567598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_206"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2024</field>
+        </record>
+        <record id="farmer_plot_71" model="farmer.plot">
+            <field name="name">FARM - Alfred M. Kinyae</field>
+            <field name="plot_size">30</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.0123598745321, 36.7890598745321], [0.0116598745321, 36.7882598745321], [0.0125598745321, 36.7875598745321], [0.0132598745321, 36.7883598745321], [0.0126598745321, 36.7891598745321], [0.0120598745321, 36.7899598745321], [0.0113598745321, 36.7885598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_207"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2005</field>
+        </record>
+        <record id="farmer_plot_72" model="farmer.plot">
+            <field name="name">FARM - John Mutuku</field>
+            <field name="plot_size">24</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.7890598745321, 37.5432598745321], [-2.7897598745321, 37.5424598745321], [-2.7906598745321, 37.5431598745321], [-2.7902598745321, 37.5443598745321], [-2.7893598745321, 37.5438598745321], [-2.7886598745321, 37.5446598745321], [-2.7879598745321, 37.5432598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_208"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2017</field>
+        </record>
+        <record id="farmer_plot_73" model="farmer.plot">
+            <field name="name">FARM - Justus M. Muange</field>
+            <field name="plot_size">21</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.4567598745321, 38.3210598745321], [-0.4574598745321, 38.3202598745321], [-0.4583598745321, 38.3209598745321], [-0.4579598745321, 38.3221598745321], [-0.4570598745321, 38.3216598745321], [-0.4563598745321, 38.3224598745321], [-0.4556598745321, 38.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_209"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2019</field>
+        </record>
+        <record id="farmer_plot_74" model="farmer.plot">
+            <field name="name">FARM - John Kamau</field>
+            <field name="plot_size">15</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.5432598745321, 37.0123598745321], [1.5425598745321, 37.0115598745321], [1.5434598745321, 37.0108598745321], [1.5441598745321, 37.0116598745321], [1.5435598745321, 37.0124598745321], [1.5429598745321, 37.0132598745321], [1.5422598745321, 37.0118598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_21"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2004</field>
+        </record>
+        <record id="farmer_plot_75" model="farmer.plot">
+            <field name="name">FARM - Daniel Maingi</field>
+            <field name="plot_size">24</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.3210598745321, 39.6543598745321], [-3.3217598745321, 39.6535598745321], [-3.3226598745321, 39.6542598745321], [-3.3222598745321, 39.6554598745321], [-3.3213598745321, 39.6549598745321], [-3.3206598745321, 39.6557598745321], [-3.3199598745321, 39.6543598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_211"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2023</field>
+        </record>
+        <record id="farmer_plot_76" model="farmer.plot">
+            <field name="name">FARM - Angeline Paul</field>
+            <field name="plot_size">7</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.0123598745321, 37.3210598745321], [-1.0130598745321, 37.3202598745321], [-1.0139598745321, 37.3209598745321], [-1.0135598745321, 37.3221598745321], [-1.0126598745321, 37.3216598745321], [-1.0119598745321, 37.3224598745321], [-1.0112598745321, 37.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_212"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2021</field>
+        </record>
+        <record id="farmer_plot_77" model="farmer.plot">
+            <field name="name">FARM - Benjamin M. Muema</field>
+            <field name="plot_size">17</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.3210598745321, 38.6543598745321], [0.3203598745321, 38.6535598745321], [0.3212598745321, 38.6528598745321], [0.3219598745321, 38.6536598745321], [0.3213598745321, 38.6544598745321], [0.3207598745321, 38.6552598745321], [0.3200598745321, 38.6538598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_213"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2010</field>
+        </record>
+        <record id="farmer_plot_78" model="farmer.plot">
+            <field name="name">FARM - Joseph M. Kiusya</field>
+            <field name="plot_size">23</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.5432598745321, 38.7890598745321], [-2.5439598745321, 38.7882598745321], [-2.5448598745321, 38.7889598745321], [-2.5444598745321, 38.7901598745321], [-2.5435598745321, 38.7896598745321], [-2.5428598745321, 38.7904598745321], [-2.5421598745321, 38.7890598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_215"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2006</field>
+        </record>
+        <record id="farmer_plot_79" model="farmer.plot">
+            <field name="name">FARM - Agnes Mbai</field>
+            <field name="plot_size">10</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.7890598745321, 36.4567598745321], [-0.7897598745321, 36.4559598745321], [-0.7906598745321, 36.4566598745321], [-0.7902598745321, 36.4578598745321], [-0.7893598745321, 36.4573598745321], [-0.7886598745321, 36.4581598745321], [-0.7879598745321, 36.4567598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_217"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2010</field>
+        </record>
+        <record id="farmer_plot_80" model="farmer.plot">
+            <field name="name">FARM - Fredrick Muange</field>
+            <field name="plot_size">27</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.8765598745321, 37.3210598745321], [1.8758598745321, 37.3202598745321], [1.8767598745321, 37.3195598745321], [1.8774598745321, 37.3203598745321], [1.8768598745321, 37.3211598745321], [1.8762598745321, 37.3219598745321], [1.8755598745321, 37.3205598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_218"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_81" model="farmer.plot">
+            <field name="name">FARM - Johnstone Makumbi</field>
+            <field name="plot_size">17</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.6543598745321, 37.9876598745321], [-3.6550598745321, 37.9868598745321], [-3.6559598745321, 37.9875598745321], [-3.6555598745321, 37.9887598745321], [-3.6546598745321, 37.9882598745321], [-3.6539598745321, 37.9890598745321], [-3.6532598745321, 37.9876598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_219"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2018</field>
+        </record>
+        <record id="farmer_plot_82" model="farmer.plot">
+            <field name="name">FARM - Brian Otieno</field>
+            <field name="plot_size">8</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.4567598745321, 38.6543598745321], [-1.4574598745321, 38.6535598745321], [-1.4583598745321, 38.6542598745321], [-1.4579598745321, 38.6554598745321], [-1.4570598745321, 38.6549598745321], [-1.4563598745321, 38.6557598745321], [-1.4556598745321, 38.6543598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_22"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2006</field>
+        </record>
+        <record id="farmer_plot_83" model="farmer.plot">
+            <field name="name">FARM - Annastacia Muthama</field>
+            <field name="plot_size">15</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.6543598745321, 37.0123598745321], [0.6536598745321, 37.0115598745321], [0.6545598745321, 37.0108598745321], [0.6552598745321, 37.0116598745321], [0.6546598745321, 37.0124598745321], [0.6540598745321, 37.0132598745321], [0.6533598745321, 37.0118598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_221"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2022</field>
+        </record>
+        <record id="farmer_plot_84" model="farmer.plot">
+            <field name="name">FARM - Jackson Kingoo</field>
+            <field name="plot_size">7</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.8765598745321, 39.3210598745321], [-2.8772598745321, 39.3202598745321], [-2.8781598745321, 39.3209598745321], [-2.8777598745321, 39.3221598745321], [-2.8768598745321, 39.3216598745321], [-2.8761598745321, 39.3224598745321], [-2.8754598745321, 39.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_223"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_85" model="farmer.plot">
+            <field name="name">FARM - Geoffrey K. Ndungi</field>
+            <field name="plot_size">23</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.5432598745321, 38.7890598745321], [-0.5439598745321, 38.7882598745321], [-0.5448598745321, 38.7889598745321], [-0.5444598745321, 38.7901598745321], [-0.5435598745321, 38.7896598745321], [-0.5428598745321, 38.7904598745321], [-0.5421598745321, 38.7890598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_224"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2001</field>
+        </record>
+        <record id="farmer_plot_86" model="farmer.plot">
+            <field name="name">FARM - John Kioko Kuisya</field>
+            <field name="plot_size">1</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.3210598745321, 36.4567598745321], [1.3203598745321, 36.4559598745321], [1.3212598745321, 36.4552598745321], [1.3219598745321, 36.4560598745321], [1.3213598745321, 36.4568598745321], [1.3207598745321, 36.4576598745321], [1.3200598745321, 36.4562598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_225"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2018</field>
+        </record>
+        <record id="farmer_plot_87" model="farmer.plot">
+            <field name="name">FARM - Julius S. Mwisa</field>
+            <field name="plot_size">19</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.9876598745321, 38.1234598745321], [-3.9883598745321, 38.1226598745321], [-3.9892598745321, 38.1233598745321], [-3.9888598745321, 38.1245598745321], [-3.9879598745321, 38.1240598745321], [-3.9872598745321, 38.1248598745321], [-3.9865598745321, 38.1234598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_226"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2021</field>
+        </record>
+        <record id="farmer_plot_88" model="farmer.plot">
+            <field name="name">FARM - Dorcus Mutisya</field>
+            <field name="plot_size">6</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.6543598745321, 37.7890598745321], [-1.6550598745321, 37.7882598745321], [-1.6559598745321, 37.7889598745321], [-1.6555598745321, 37.7901598745321], [-1.6546598745321, 37.7896598745321], [-1.6539598745321, 37.7904598745321], [-1.6532598745321, 37.7890598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_233"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2021</field>
+        </record>
+        <record id="farmer_plot_89" model="farmer.plot">
+            <field name="name">FARM - Hadah Nduva Kioko</field>
+            <field name="plot_size">12</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.1234598745321, 38.3210598745321], [0.1227598745321, 38.3202598745321], [0.1236598745321, 38.3195598745321], [0.1243598745321, 38.3203598745321], [0.1237598745321, 38.3211598745321], [0.1231598745321, 38.3219598745321], [0.1224598745321, 38.3205598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_234"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2013</field>
+        </record>
+        <record id="farmer_plot_90" model="farmer.plot">
+            <field name="name">FARM - Joshua M. Mutiso</field>
+            <field name="plot_size">25</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.3210598745321, 37.8765598745321], [-2.3217598745321, 37.8757598745321], [-2.3226598745321, 37.8764598745321], [-2.3222598745321, 37.8776598745321], [-2.3213598745321, 37.8771598745321], [-2.3206598745321, 37.8779598745321], [-2.3199598745321, 37.8765598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_236"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2011</field>
+        </record>
+        <record id="farmer_plot_91" model="farmer.plot">
+            <field name="name">FARM - David Odhiambo</field>
+            <field name="plot_size">19</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.0123598745321, 37.5432598745321], [-0.0130598745321, 37.5424598745321], [-0.0139598745321, 37.5431598745321], [-0.0135598745321, 37.5443598745321], [-0.0126598745321, 37.5438598745321], [-0.0119598745321, 37.5446598745321], [-0.0112598745321, 37.5432598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_238"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2022</field>
+        </record>
+        <record id="farmer_plot_92" model="farmer.plot">
+            <field name="name">FARM - Joseph Omondi</field>
+            <field name="plot_size">19</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.7890598745321, 38.0123598745321], [1.7883598745321, 38.0115598745321], [1.7892598745321, 38.0108598745321], [1.7899598745321, 38.0116598745321], [1.7893598745321, 38.0124598745321], [1.7887598745321, 38.0132598745321], [1.7880598745321, 38.0118598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_239"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_93" model="farmer.plot">
+            <field name="name">FARM - Ezekiel Kibet</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.1234598745321, 39.3210598745321], [-3.1241598745321, 39.3202598745321], [-3.1250598745321, 39.3209598745321], [-3.1246598745321, 39.3221598745321], [-3.1237598745321, 39.3216598745321], [-3.1230598745321, 39.3224598745321], [-3.1223598745321, 39.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_24"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2020</field>
+        </record>
+        <record id="farmer_plot_94" model="farmer.plot">
+            <field name="name">FARM - Isaac Kipchumba</field>
+            <field name="plot_size">9</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.7890598745321, 38.6543598745321], [-1.7897598745321, 38.6535598745321], [-1.7906598745321, 38.6542598745321], [-1.7902598745321, 38.6554598745321], [-1.7893598745321, 38.6549598745321], [-1.7886598745321, 38.6557598745321], [-1.7879598745321, 38.6543598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_243"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2019</field>
+        </record>
+        <record id="farmer_plot_95" model="farmer.plot">
+            <field name="name">FARM - Elijah Kiptanui</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.4567598745321, 36.7890598745321], [0.4560598745321, 36.7882598745321], [0.4569598745321, 36.7875598745321], [0.4576598745321, 36.7883598745321], [0.4570598745321, 36.7891598745321], [0.4564598745321, 36.7899598745321], [0.4557598745321, 36.7885598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_244"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2004</field>
+        </record>
+        <record id="farmer_plot_96" model="farmer.plot">
+            <field name="name">FARM - Isaac Kipkemoi</field>
+            <field name="plot_size">1</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.6543598745321, 39.0123598745321], [-2.6550598745321, 39.0115598745321], [-2.6559598745321, 39.0122598745321], [-2.6555598745321, 39.0134598745321], [-2.6546598745321, 39.0129598745321], [-2.6539598745321, 39.0137598745321], [-2.6532598745321, 39.0123598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_246"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_west"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2011</field>
+        </record>
+        <record id="farmer_plot_97" model="farmer.plot">
+            <field name="name">FARM - Francis Kipkoech</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.3210598745321, 38.4567598745321], [-0.3217598745321, 38.4559598745321], [-0.3226598745321, 38.4566598745321], [-0.3222598745321, 38.4578598745321], [-0.3213598745321, 38.4573598745321], [-0.3206598745321, 38.4581598745321], [-0.3199598745321, 38.4567598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_247"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2005</field>
+        </record>
+        <record id="farmer_plot_98" model="farmer.plot">
+            <field name="name">FARM - Elizabeth Mutindi</field>
+            <field name="plot_size">16</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.0123598745321, 37.7890598745321], [1.0116598745321, 37.7882598745321], [1.0125598745321, 37.7875598745321], [1.0132598745321, 37.7883598745321], [1.0126598745321, 37.7891598745321], [1.0120598745321, 37.7899598745321], [1.0113598745321, 37.7885598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_248"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2019</field>
+        </record>
+        <record id="farmer_plot_99" model="farmer.plot">
+            <field name="name">FARM - Joyce Maingi Mbithi</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.4567598745321, 38.3210598745321], [-3.4574598745321, 38.3202598745321], [-3.4583598745321, 38.3209598745321], [-3.4579598745321, 38.3221598745321], [-3.4570598745321, 38.3216598745321], [-3.4563598745321, 38.3224598745321], [-3.4556598745321, 38.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_249"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2001</field>
+        </record>
+        <record id="farmer_plot_100" model="farmer.plot">
+            <field name="name">FARM - Collins Ouma</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.1234598745321, 37.0123598745321], [-1.1241598745321, 37.0115598745321], [-1.1250598745321, 37.0122598745321], [-1.1246598745321, 37.0134598745321], [-1.1237598745321, 37.0129598745321], [-1.1230598745321, 37.0137598745321], [-1.1223598745321, 37.0123598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_25"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2005</field>
+        </record>
+        <record id="farmer_plot_101" model="farmer.plot">
+            <field name="name">FARM - Felix Kiltili</field>
+            <field name="plot_size">26</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.7890598745321, 38.6543598745321], [0.7883598745321, 38.6535598745321], [0.7892598745321, 38.6528598745321], [0.7899598745321, 38.6536598745321], [0.7893598745321, 38.6544598745321], [0.7887598745321, 38.6552598745321], [0.7880598745321, 38.6538598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_250"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_102" model="farmer.plot">
+            <field name="name">FARM - Johachim M. Kiusya</field>
+            <field name="plot_size">27</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.9876598745321, 38.7890598745321], [-2.9883598745321, 38.7882598745321], [-2.9892598745321, 38.7889598745321], [-2.9888598745321, 38.7901598745321], [-2.9879598745321, 38.7896598745321], [-2.9872598745321, 38.7904598745321], [-2.9865598745321, 38.7890598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_251"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2018</field>
+        </record>
+        <record id="farmer_plot_103" model="farmer.plot">
+            <field name="name">FARM - John Mbithe</field>
+            <field name="plot_size">3</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.6543598745321, 36.1234598745321], [-0.6550598745321, 36.1226598745321], [-0.6559598745321, 36.1233598745321], [-0.6555598745321, 36.1245598745321], [-0.6546598745321, 36.1240598745321], [-0.6539598745321, 36.1248598745321], [-0.6532598745321, 36.1234598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_253"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2019</field>
+        </record>
+        <record id="farmer_plot_104" model="farmer.plot">
+            <field name="name">FARM - David Syengo</field>
+            <field name="plot_size">15</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.8765598745321, 38.3210598745321], [1.8758598745321, 38.3202598745321], [1.8767598745321, 38.3195598745321], [1.8774598745321, 38.3203598745321], [1.8768598745321, 38.3211598745321], [1.8762598745321, 38.3219598745321], [1.8755598745321, 38.3205598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_254"/>
+            <field name="loc_area_1_id" ref="area_level_1_igembe_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_meru"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2017</field>
+        </record>
+        <record id="farmer_plot_105" model="farmer.plot">
+            <field name="name">FARM - Alphonse Nguli</field>
+            <field name="plot_size">12</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.7890598745321, 37.6543598745321], [-3.7897598745321, 37.6535598745321], [-3.7906598745321, 37.6542598745321], [-3.7902598745321, 37.6554598745321], [-3.7893598745321, 37.6549598745321], [-3.7886598745321, 37.6557598745321], [-3.7879598745321, 37.6543598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_255"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2022</field>
+        </record>
+        <record id="farmer_plot_106" model="farmer.plot">
+            <field name="name">FARM - Hamhed Musembi</field>
+            <field name="plot_size">13</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.4567598745321, 36.9876598745321], [-1.4574598745321, 36.9868598745321], [-1.4583598745321, 36.9875598745321], [-1.4579598745321, 36.9887598745321], [-1.4570598745321, 36.9882598745321], [-1.4563598745321, 36.9890598745321], [-1.4556598745321, 36.9876598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_257"/>
+            <field name="loc_area_1_id" ref="area_level_1_borabu"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyamira"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_107" model="farmer.plot">
+            <field name="name">FARM - Clement Nzilu</field>
+            <field name="plot_size">1</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.5432598745321, 38.0123598745321], [0.5425598745321, 38.0115598745321], [0.5434598745321, 38.0108598745321], [0.5441598745321, 38.0116598745321], [0.5435598745321, 38.0124598745321], [0.5429598745321, 38.0132598745321], [0.5422598745321, 38.0118598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_258"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibwezi_east"/>
+            <field name="loc_area_2_id" ref="area_level_2_makueni"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2010</field>
+        </record>
+        <record id="farmer_plot_108" model="farmer.plot">
+            <field name="name">FARM - Fredrick Mwangangi</field>
+            <field name="plot_size">12</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.1234598745321, 39.6543598745321], [-2.1241598745321, 39.6535598745321], [-2.1250598745321, 39.6542598745321], [-2.1246598745321, 39.6554598745321], [-2.1237598745321, 39.6549598745321], [-2.1230598745321, 39.6557598745321], [-2.1223598745321, 39.6543598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_259"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2024</field>
+        </record>
+        <record id="farmer_plot_109" model="farmer.plot">
+            <field name="name">FARM - Geoffrey Kiprotich</field>
+            <field name="plot_size">29</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.0123598745321, 38.7890598745321], [0.0116598745321, 38.7882598745321], [0.0125598745321, 38.7875598745321], [0.0132598745321, 38.7883598745321], [0.0126598745321, 38.7891598745321], [0.0120598745321, 38.7899598745321], [0.0113598745321, 38.7885598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_26"/>
+            <field name="loc_area_1_id" ref="area_level_1_kibra"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2013</field>
+        </record>
+        <record id="farmer_plot_110" model="farmer.plot">
+            <field name="name">FARM - Abigael Kilonzo</field>
+            <field name="plot_size">24</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.7890598745321, 36.4567598745321], [-2.7897598745321, 36.4559598745321], [-2.7906598745321, 36.4566598745321], [-2.7902598745321, 36.4578598745321], [-2.7893598745321, 36.4573598745321], [-2.7886598745321, 36.4581598745321], [-2.7879598745321, 36.4567598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_260"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2023</field>
+        </record>
+        <record id="farmer_plot_111" model="farmer.plot">
+            <field name="name">FARM - Julie Mutheu</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.8765598745321, 37.3210598745321], [-0.8772598745321, 37.3202598745321], [-0.8781598745321, 37.3209598745321], [-0.8777598745321, 37.3221598745321], [-0.8768598745321, 37.3216598745321], [-0.8761598745321, 37.3224598745321], [-0.8754598745321, 37.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_261"/>
+            <field name="loc_area_1_id" ref="area_level_1_fafi"/>
+            <field name="loc_area_2_id" ref="area_level_2_garissa"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2022</field>
+        </record>
+        <record id="farmer_plot_112" model="farmer.plot">
+            <field name="name">FARM - Franciscah Syokau</field>
+            <field name="plot_size">23</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[1.6543598745321, 38.0123598745321], [1.6536598745321, 38.0115598745321], [1.6545598745321, 38.0108598745321], [1.6552598745321, 38.0116598745321], [1.6546598745321, 38.0124598745321], [1.6540598745321, 38.0132598745321], [1.6533598745321, 38.0118598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_264"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2024</field>
+        </record>
+        <record id="farmer_plot_113" model="farmer.plot">
+            <field name="name">FARM - Josphene Matheka</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-3.3210598745321, 37.9876598745321], [-3.3217598745321, 37.9868598745321], [-3.3226598745321, 37.9875598745321], [-3.3222598745321, 37.9887598745321], [-3.3213598745321, 37.9882598745321], [-3.3206598745321, 37.9890598745321], [-3.3199598745321, 37.9876598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_265"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">good</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_114" model="farmer.plot">
+            <field name="name">FARM - Felista Mutwiwa</field>
+            <field name="plot_size">8</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-1.0123598745321, 38.6543598745321], [-1.0130598745321, 38.6535598745321], [-1.0139598745321, 38.6542598745321], [-1.0135598745321, 38.6554598745321], [-1.0126598745321, 38.6549598745321], [-1.0119598745321, 38.6557598745321], [-1.0112598745321, 38.6543598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_267"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">verygood</field>
+            <field name="year_established">2014</field>
+        </record>
+        <record id="farmer_plot_115" model="farmer.plot">
+            <field name="name">FARM - Antony Wambua</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[0.3210598745321, 36.1234598745321], [0.3203598745321, 36.1226598745321], [0.3212598745321, 36.1219598745321], [0.3219598745321, 36.1227598745321], [0.3213598745321, 36.1235598745321], [0.3207598745321, 36.1243598745321], [0.3200598745321, 36.1229598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_268"/>
+            <field name="loc_area_1_id" ref="area_level_1_gatundu_north"/>
+            <field name="loc_area_2_id" ref="area_level_2_kiambu"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">bad</field>
+            <field name="year_established">2011</field>
+        </record>
+        <record id="farmer_plot_116" model="farmer.plot">
+            <field name="name">FARM - Angeline N. Kimeu</field>
+            <field name="plot_size">19</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-2.5432598745321, 39.3210598745321], [-2.5439598745321, 39.3202598745321], [-2.5448598745321, 39.3209598745321], [-2.5444598745321, 39.3221598745321], [-2.5435598745321, 39.3216598745321], [-2.5428598745321, 39.3224598745321], [-2.5421598745321, 39.3210598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_269"/>
+            <field name="loc_area_1_id" ref="area_level_1_kieni"/>
+            <field name="loc_area_2_id" ref="area_level_2_nyeri"/>
+            <field name="is_owner">False</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2007</field>
+        </record>
+        <record id="farmer_plot_117" model="farmer.plot">
+            <field name="name">FARM - Edwin Kipchirchir</field>
+            <field name="plot_size">2</field>
+            <field name="plot_polygon"
+                   eval="[{'type': 'polygon', 'points': [[-0.2109598745321, 37.8765598745321], [-0.2116598745321, 37.8757598745321], [-0.2125598745321, 37.8764598745321], [-0.2121598745321, 37.8776598745321], [-0.2112598745321, 37.8771598745321], [-0.2105598745321, 37.8779598745321], [-0.2098598745321, 37.8765598745321]]}]"/>
+            <field name="farmer_id" ref="partner_demo_farmer_27"/>
+            <field name="loc_area_1_id" ref="area_level_1_dagoretti_south"/>
+            <field name="loc_area_2_id" ref="area_level_2_nairobi"/>
+            <field name="is_owner">True</field>
+            <field name="plot_condition">needsimprovement</field>
+            <field name="year_established">2020</field>
+        </record>
+    </data>
+</odoo>
