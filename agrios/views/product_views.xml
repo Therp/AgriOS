@@ -1,58 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	
-	<record id="agrios_product_template_search" model="ir.ui.view">
-		<field name="name">product.template.oms.search</field>
-		<field name="model">product.template</field>
-		<field name="inherit_id" ref="stock.product_template_search_form_view_stock"/>
-		<field name="mode">primary</field>
-		<field name="priority" eval ="20"/>
-		<field name="arch" type="xml">
-			<xpath expr="//field[@name='categ_id']" position="after">
-				<separator/>
-				<filter string="Seed Varieties" name="filter_seed_product" domain="[('seed_product','=',True)]" groups="agrios.group_seed_varieties"/>
-				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
-				<filter string="Crop Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
-			</xpath>
-		</field>
-	</record>
-	
-	<record id="product_template_kanban_view" model="ir.ui.view">
+
+    <record id="agrios_product_template_search" model="ir.ui.view">
+        <field name="name">product.template.oms.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.product_template_search_form_view_stock"/>
+        <field name="mode">primary</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <separator/>
+                <filter string="Seed Varieties" name="filter_seed_product" domain="[('seed_product','=',True)]"
+                        groups="agrios.group_seed_varieties"/>
+                <filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
+                <filter string="Crop Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_kanban_view" model="ir.ui.view">
         <field name="name">Product.template.product.kanban</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_kanban_view"/>
         <field name="arch" type="xml">
-        	<xpath expr="/kanban" position="attributes">
-        		<attribute name="default_order">is_favorite desc, seed_product desc, crop_product desc, input_product desc desc, name</attribute>
-        	</xpath>
-        	<xpath expr="//field[@name='categ_id']" position="after">
-        		<field name="input_product"/>
-        		<field name="crop_product"/>
-        		<field name="seed_product"/>
-        	</xpath>
-        	<xpath expr="//field[@name='list_price']/.." position="before">
-        		<div t-if="record.seed_product.raw_value === true" class="mt-1" style="background-color: #00a3ff54;">Seed Variety</div>
-        		<div t-if="record.input_product.raw_value === true" class="mt-1" style="background-color: #edff7f54;">Input Product</div>
-        		<div t-if="record.crop_product.raw_value === true" class="mt-1" style="background-color: #82ff7f54;">Crop Product</div>
-        	</xpath>
+            <xpath expr="/kanban" position="attributes">
+                <attribute name="default_order">is_favorite desc, seed_product desc, crop_product desc, input_product
+                    desc desc, name
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="input_product"/>
+                <field name="crop_product"/>
+                <field name="seed_product"/>
+            </xpath>
+            <xpath expr="//field[@name='list_price']/.." position="before">
+                <div t-if="record.seed_product.raw_value === true" class="mt-1" style="background-color: #00a3ff54;">
+                    Seed Variety
+                </div>
+                <div t-if="record.input_product.raw_value === true" class="mt-1" style="background-color: #edff7f54;">
+                    Input Product
+                </div>
+                <div t-if="record.crop_product.raw_value === true" class="mt-1" style="background-color: #82ff7f54;">
+                    Crop Product
+                </div>
+            </xpath>
         </field>
     </record>
-	
-	<record id="product_template_form_view" model="ir.ui.view">
+
+    <record id="product_template_form_view" model="ir.ui.view">
         <field name="name">view.crop.form</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
-        	<xpath expr="/form" position="inside">
-        		<field name="seed_product" invisible="1"/>
-        	</xpath>
-        	
+            <xpath expr="/form" position="inside">
+                <field name="seed_product" invisible="1"/>
+            </xpath>
+
             <xpath expr="//page[@name='purchase']" position='after'>
                 <page name="agrios_page" string="Farming Details" groups="agrios.group_agrios_readonly">
                     <group>
                         <group string="Input Info" invisible="type != 'consu' or crop_product or seed_product">
-                            <field name="input_product"/>
-                            
+                            <field name="input_product"
+                                   options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
+
                             <label for="qty_per_acreage" invisible="not input_product"/>
                             <div class="o_row mw-50" invisible="not input_product">
                                 <field name="qty_per_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
@@ -62,87 +72,109 @@
                             </div>
                         </group>
                         <group string="Crop Info" invisible="type != 'consu' or input_product">
-                            <field name="crop_product"/>
+                            <field name="crop_product"
+                                   options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
                             <field name="harvest_product_type" invisible="not crop_product"/>
                             <field name="maturity_days" invisible="not crop_product"/>
-                            <label groups="agrios.group_plot_management" for="estimated_yield" invisible="not crop_product or harvest_product_type == 'tree_crop'"/>
-                            <div groups="agrios.group_plot_management" invisible="not crop_product or harvest_product_type == 'tree_crop'">
+                            <label groups="agrios.group_plot_management" for="estimated_yield"
+                                   invisible="not crop_product or harvest_product_type == 'tree_crop'"/>
+                            <div groups="agrios.group_plot_management"
+                                 invisible="not crop_product or harvest_product_type == 'tree_crop'">
                                 <field name="estimated_yield" class="oe_inline" nolabel="1"/>
                                 <field name="land_area_uom" class="oe_inline"/>
                             </div>
-							<label for="estimated_yield" groups="!agrios.group_plot_management"/>
-							<div groups="!agrios.group_plot_management">
-                                <field name="estimated_yield" groups="!agrios.group_plot_management" class="oe_inline" nolabel="1"/>
+                            <label for="estimated_yield" groups="!agrios.group_plot_management"/>
+                            <div groups="!agrios.group_plot_management">
+                                <field name="estimated_yield" groups="!agrios.group_plot_management" class="oe_inline"
+                                       nolabel="1"/>
                                 <field name="land_area_uom" groups="!agrios.group_plot_management" class="oe_inline"/>
                             </div>
-							<separator string="Anual Tree Yield" invisible="not crop_product or harvest_product_type != 'tree_crop'" groups="agrios.group_plot_management"/>
-                            <field name="tree_yield_ids" nolabel="1" colspan="2" invisible="not crop_product or harvest_product_type != 'tree_crop'" groups="agrios.group_plot_management">
-								<list editable="bottom">
+                            <separator string="Anual Tree Yield"
+                                       invisible="not crop_product or harvest_product_type != 'tree_crop'"
+                                       groups="agrios.group_plot_management"/>
+                            <field name="tree_yield_ids" nolabel="1" colspan="2"
+                                   invisible="not crop_product or harvest_product_type != 'tree_crop'"
+                                   groups="agrios.group_plot_management">
+                                <list editable="bottom">
                                     <control>
                                         <create name="add_line_control" string="New Yield"/>
                                     </control>
-									<field name="age"/>
-									<field name="annual_yield"/>
-								</list>
-							</field>
+                                    <field name="age"/>
+                                    <field name="annual_yield"/>
+                                </list>
+                            </field>
 
-                            <field name="related_inputs_ids" widget="many2many_tags" invisible="not crop_product"/>
-                            <field name="seed_ids" widget="many2many_tags" invisible="not crop_product" help="To set seed varieties, select this harvest product as the harverst crop of the seed..." groups="agrios.group_seed_varieties"/>
+                            <field name="related_inputs_ids" widget="many2many_tags"
+                                   options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   invisible="not crop_product"/>
+                            <field name="seed_ids" options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   widget="many2many_tags" invisible="not crop_product"
+                                   help="To set seed varieties, select this harvest product as the harverst crop of the seed..."
+                                   groups="agrios.group_seed_varieties"/>
                         </group>
-                        <group string="Seed Info" invisible="type != 'consu' or input_product" groups="agrios.group_seed_varieties">
-                        	<field name="seed_product"/>
-                        	<field name="crop_product_id" required="seed_product" invisible="not seed_product" context="{'default_harvest_product': True}"/>
-                        	
-                        	<label for="qty_per_acreage" invisible="not seed_product"/>
+                        <group string="Seed Info" invisible="type != 'consu' or input_product"
+                               groups="agrios.group_seed_varieties">
+                            <field name="seed_product"
+                                   options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
+                            <field name="crop_product_id" required="seed_product"
+                                   options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   invisible="not seed_product" context="{'default_harvest_product': True}"/>
+
+                            <label for="qty_per_acreage" invisible="not seed_product"/>
                             <div class="o_row mw-50" invisible="not seed_product">
                                 <field name="qty_per_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
                                 <div>
                                     <field name="land_area_uom"/>
                                 </div>
                             </div>
-                        	
-                        	<field name="related_inputs_ids" widget="many2many_tags" invisible="not seed_product"/>
+
+                            <field name="related_inputs_ids"
+                                   options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   widget="many2many_tags" invisible="not seed_product"/>
                         </group>
                     </group>
                 </page>
             </xpath>
         </field>
     </record>
-	
-	<record id="agrios_product_template_action" model="ir.actions.act_window">
-		<field name="name">Products</field>
-		<field name="res_model">product.template</field>
-		<field name="view_mode">kanban,list,form</field>
-		<field name="search_view_id" ref="agrios_product_template_search"/>
-		<field name="context">{"search_default_filter_seed_product": 1, "search_default_filter_input_product": 1, "search_default_filter_harvest_product": 1, 'default_type': 'consu'}</field>
-		<field name="help" type="html">
-			<p class="o_view_nocontent_smiling_face">
-				No product found. Let's create one!
-			</p>
-		</field>
-	</record>
-	
-	<record id="agrios_product_product_search" model="ir.ui.view">
-		<field name="name">product.product.oms.search</field>
-		<field name="model">product.product</field>
-		<field name="inherit_id" ref="stock.stock_product_search_form_view"/>
-		<field name="mode">primary</field>
-		<field name="priority" eval ="20"/>
-		<field name="arch" type="xml">
-			<xpath expr="//field[@name='categ_id']" position="after">
-				<separator/>
-				<filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
-				<filter string="Crop Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
-			</xpath>
-		</field>
-	</record>
-	
-	<record id="agrios_product_product_action" model="ir.actions.act_window">
-		<field name="name">Product Variants</field>
-		<field name="res_model">product.product</field>
-		<field name="view_mode">list,form,kanban</field>
-		<field name="search_view_id" ref="agrios_product_product_search"/>
-		<field name="context">{"search_default_filter_input_product": 1, "search_default_filter_harvest_product": 1}</field>
-	</record>
-	
+
+    <record id="agrios_product_template_action" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="agrios_product_template_search"/>
+        <field name="context">{"search_default_filter_seed_product": 1, "search_default_filter_input_product": 1,
+            "search_default_filter_harvest_product": 1, 'default_type': 'consu'}
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No product found. Let's create one!
+            </p>
+        </field>
+    </record>
+
+    <record id="agrios_product_product_search" model="ir.ui.view">
+        <field name="name">product.product.oms.search</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.stock_product_search_form_view"/>
+        <field name="mode">primary</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <separator/>
+                <filter string="Input Products" name="filter_input_product" domain="[('input_product','=',True)]"/>
+                <filter string="Crop Products" name="filter_harvest_product" domain="[('crop_product','=',True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="agrios_product_product_action" model="ir.actions.act_window">
+        <field name="name">Product Variants</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="search_view_id" ref="agrios_product_product_search"/>
+        <field name="context">{"search_default_filter_input_product": 1, "search_default_filter_harvest_product": 1}
+        </field>
+    </record>
+
 </odoo>

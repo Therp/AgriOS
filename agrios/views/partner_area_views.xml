@@ -53,7 +53,11 @@
                     <group>
                         <group>
                             <field name="name" required="1" placeholder="Name"/>
-                            <field name="farmer_id" context="{'default_is_farmer': True}" invisible="context.get('plot_partner_invisible')" readonly="context.get('plot_partner_readonly')" force_save="1"/>
+                            <field name="farmer_id" context="{'default_is_farmer': True}"
+                                   invisible="context.get('plot_partner_invisible')"
+                                   options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   readonly="context.get('plot_partner_readonly')"
+                                   force_save="1"/>
                             <field name="is_owner"/>
                             <label for="plot_size"/>
                             <div class="o_row">
@@ -69,34 +73,46 @@
                             <td class="o_td_label" invisible="loc_area_max_level &lt; 1" style="font-weight: 500;">
 								<field name="loc_area_1_label"/>
 							</td>
-							<field name="loc_area_1_id" nolabel="1" invisible="loc_area_max_level &lt; 1" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_2_id)]"/>
+							<field name="loc_area_1_id" nolabel="1" invisible="loc_area_max_level &lt; 1"
+                                    options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   domain="[('country_id','=',country_id),('parent_id','=?',loc_area_2_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
 								<field name="loc_area_2_label"/>
 							</td>
-							<field name="loc_area_2_id" nolabel="1" invisible="loc_area_max_level &lt; 2" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_3_id)]"/>
+							<field name="loc_area_2_id" nolabel="1" invisible="loc_area_max_level &lt; 2"
+                                    options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   domain="[('country_id','=',country_id),('parent_id','=?',loc_area_3_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
 								<field name="loc_area_3_label"/>
 							</td>
-							<field name="loc_area_3_id" nolabel="1" invisible="loc_area_max_level &lt; 3" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
+							<field name="loc_area_3_id" nolabel="1" invisible="loc_area_max_level &lt; 3"
+                                    options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
 								<field name="loc_area_4_label"/>
 							</td>
-							<field name="loc_area_4_id" nolabel="1" invisible="loc_area_max_level &lt; 4" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_5_id)]"/>
+							<field name="loc_area_4_id" nolabel="1" invisible="loc_area_max_level &lt; 4"
+                                    options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   domain="[('country_id','=',country_id),('parent_id','=?',loc_area_5_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 5">
 								<field name="loc_area_5_label"/>
 							</td>
-							<field name="loc_area_5_id" nolabel="1" invisible="loc_area_max_level &lt; 5" domain="[('country_id','=',country_id),('parent_id','=?',loc_area_6_id)]"/>
+							<field name="loc_area_5_id" nolabel="1" invisible="loc_area_max_level &lt; 5"
+                                    options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   domain="[('country_id','=',country_id),('parent_id','=?',loc_area_6_id)]"/>
 							
 							<td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 6">
 								<field name="loc_area_6_label"/>
 							</td>
-							<field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6" domain="[('country_id','=',country_id)]"/>
+							<field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6"
+                                    options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                   domain="[('country_id','=',country_id)]"/>
                             
-                            <field name="country_id"/>
+                            <field name="country_id"  options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
                             
                             <field name="main_road"/>
                             <field name="main_road_distance"/>
@@ -121,7 +137,7 @@
 	                                <sheet>
 	                                    <group>
 	                                        <group>
-	                                            <field name="crop_product_id"/>
+	                                            <field name="crop_product_id"  options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
 	                                            <field name="product_type"/>
 	                                            <field name="acreage"/>
 	                                        </group>
