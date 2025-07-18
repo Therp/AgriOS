@@ -111,7 +111,7 @@
 		<field name="arch" type="xml">
 			<list sample="1" editable="top" decoration-info="style=='info'" decoration-muted="style=='muted'" decoration-success="style=='success'" decoration-warning="style=='warning'" decoration-danger="style=='danger'">
 				<field name="name"/>
-				<field name="certifying_organisation_id"/>
+				<field name="certifying_organisation_id" options="{'no_create': True}"/>
 				<field name="validity_period"/>
 				<field name="style" optional="show" placeholder="Black"/>
 				<field name="farmer_count"/>
