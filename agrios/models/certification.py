@@ -99,7 +99,7 @@ class FarmerCertification(models.Model):
     def _compute_display_name(self):
         for certification in self:
             if certification.farmer_id and certification.certification_type_id and certification.cert_start_date:
-                certification.display_name = f"{self.farmer_id.name} - {self.certification_type_id.name} - {self.cert_start_date.year}"
+                certification.display_name = f"{certification.farmer_id.name} - {certification.certification_type_id.name} - {certification.cert_start_date.year}"
             else:
                 certification.display_name = _('Draft Certification')
     

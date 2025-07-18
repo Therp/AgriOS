@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="department_admin_finance" model="hr.department">
+            <field name="name">Admin &amp; Finance</field>
+        </record>
+        <record id="department_field_operations" model="hr.department">
+            <field name="name">Field Operations</field>
+        </record>
+        <record id="department_hr_communication" model="hr.department">
+            <field name="name">HR &amp; Communication</field>
+        </record>
+        <record id="department_it" model="hr.department">
+            <field name="name">IT</field>
+        </record>
+        <record id="department_monitoring_evaluation" model="hr.department">
+            <field name="name">Monitoring &amp; Evaluation</field>
+        </record>
+        <record id="department_training" model="hr.department">
+            <field name="name">Training</field>
+        </record>
+        <!--      Employees-->
+
+        <record id="employee_1" model="hr.employee">
+            <field name="name">Joseph Njeri</field>
+            <field name="gender">male</field>
+            <field name="work_email">joseph.njeri@agri.org</field>
+            <field name="work_phone">254756647616</field>
+            <field name="job_title">Cooperative Manager</field>
+            <field name="department_id" ref="department_admin_finance"/>
+            <field name="identification_id">ID374061</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_1"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_2" model="hr.employee">
+            <field name="name">Jane Mwangi</field>
+            <field name="gender">female</field>
+            <field name="work_email">jane.mwangi@agri.org</field>
+            <field name="work_phone">254720355679</field>
+            <field name="job_title">Accountant</field>
+            <field name="department_id" ref="department_admin_finance"/>
+            <field name="parent_id" ref="employee_1"/>
+            <field name="identification_id">ID546294</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_2"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_3" model="hr.employee">
+            <field name="name">Grace Chebet</field>
+            <field name="gender">female</field>
+            <field name="work_email">grace.omondi@agri.org</field>
+            <field name="work_phone">254790560418</field>
+            <field name="job_title">Secretary</field>
+            <field name="department_id" ref="department_admin_finance"/>
+            <field name="parent_id" ref="employee_1"/>
+            <field name="identification_id">ID149160</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_3"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_4" model="hr.employee">
+            <field name="name">Jake Kimani</field>
+            <field name="gender">male</field>
+            <field name="work_email">joseph.kimani@agri.org</field>
+            <field name="work_phone">254780378250</field>
+            <field name="job_title">Operations Manager</field>
+            <field name="department_id" ref="department_field_operations"/>
+            <field name="parent_id" ref="employee_1"/>
+            <field name="identification_id">ID745319</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_4"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_5" model="hr.employee">
+            <field name="name">Martha Kariuki</field>
+            <field name="gender">female</field>
+            <field name="work_email">peter.omondi@agri.org</field>
+            <field name="work_phone">254735166671</field>
+            <field name="job_title">Field Officer</field>
+            <field name="department_id" ref="department_field_operations"/>
+            <field name="parent_id" ref="employee_4"/>
+            <field name="identification_id">ID979428</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_5"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_6" model="hr.employee">
+            <field name="name">Grace Mutua</field>
+            <field name="gender">female</field>
+            <field name="work_email">grace.mutua@agri.org</field>
+            <field name="work_phone">254757137769</field>
+            <field name="job_title">Field Officer</field>
+            <field name="department_id" ref="department_field_operations"/>
+            <field name="parent_id" ref="employee_4"/>
+            <field name="identification_id">ID439070</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_6"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_7" model="hr.employee">
+            <field name="name">Serah Omondi</field>
+            <field name="gender">female</field>
+            <field name="work_email">mary.omondi@agri.org</field>
+            <field name="work_phone">254765672291</field>
+            <field name="job_title">Field Officer</field>
+            <field name="department_id" ref="department_field_operations"/>
+            <field name="parent_id" ref="employee_4"/>
+            <field name="identification_id">ID744928</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_7"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_8" model="hr.employee">
+            <field name="name">Daniel Otieno</field>
+            <field name="gender">male</field>
+            <field name="work_email">daniel.otieno@agri.org</field>
+            <field name="work_phone">254748138360</field>
+            <field name="job_title">Field Officer</field>
+            <field name="department_id" ref="department_field_operations"/>
+            <field name="parent_id" ref="employee_4"/>
+            <field name="identification_id">ID332911</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_8"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_9" model="hr.employee">
+            <field name="name">Elizabeth Njeri</field>
+            <field name="gender">female</field>
+            <field name="work_email">elizabeth.otieno@agri.org</field>
+            <field name="work_phone">254774644788</field>
+            <field name="job_title">Field Officer</field>
+            <field name="department_id" ref="department_field_operations"/>
+            <field name="parent_id" ref="employee_4"/>
+            <field name="identification_id">ID424667</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_9"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_10" model="hr.employee">
+            <field name="name">Mary Onyango</field>
+            <field name="gender">female</field>
+            <field name="work_email">mary.otieno@agri.org</field>
+            <field name="work_phone">254784975509</field>
+            <field name="job_title">HR &amp; Communications Manager</field>
+            <field name="department_id" ref="department_hr_communication"/>
+            <field name="parent_id" ref="employee_1"/>
+            <field name="identification_id">ID524687</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_10"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_11" model="hr.employee">
+            <field name="name">Peter Omondi</field>
+            <field name="gender">male</field>
+            <field name="work_email">mary.kariuki@agri.org</field>
+            <field name="work_phone">254766583890</field>
+            <field name="job_title">IT Manager</field>
+            <field name="department_id" ref="department_it"/>
+            <field name="parent_id" ref="employee_1"/>
+            <field name="identification_id">ID653137</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_11"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_12" model="hr.employee">
+            <field name="name">Phyllis Odhiambo</field>
+            <field name="gender">female</field>
+            <field name="work_email">phyllis.odhiambo@agri.org</field>
+            <field name="work_phone">254708372291</field>
+            <field name="job_title">M&amp;E Manager</field>
+            <field name="department_id" ref="department_monitoring_evaluation"/>
+            <field name="parent_id" ref="employee_1"/>
+            <field name="identification_id">ID867570</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_12"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_13" model="hr.employee">
+            <field name="name">Elizabeth Kimani</field>
+            <field name="gender">female</field>
+            <field name="work_email">joseph.omondi@agri.org</field>
+            <field name="work_phone">254765127360</field>
+            <field name="job_title">Training Coordinator</field>
+            <field name="department_id" ref="department_training"/>
+            <field name="parent_id" ref="employee_1"/>
+            <field name="identification_id">ID685676</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_13"/>
+            <field name="active">True</field>
+        </record>
+        <record id="employee_14" model="hr.employee">
+            <field name="name">Dennis Wambui</field>
+            <field name="gender">male</field>
+            <field name="work_email">elizabeth.kimani@agri.org</field>
+            <field name="work_phone">254714159425</field>
+            <field name="job_title">Training Officer</field>
+            <field name="department_id" ref="department_training"/>
+            <field name="parent_id" ref="employee_13"/>
+            <field name="identification_id">ID439948</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="user_id" ref="user_14"/>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>
