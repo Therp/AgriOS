@@ -19,7 +19,7 @@
             <field name="phone">2549999123467</field>
             <field name="is_company">false</field>
             <field name="is_farmer_trainer">true</field>
-             <field name="category_id" eval="[
+            <field name="category_id" eval="[
                 (6, 0, [ ref('res_partner_category_internal_trainer') ])
               ]"/>
             <field name="country_id" ref="base.ke"/>
@@ -29,7 +29,7 @@
             <field name="phone">2549999123478</field>
             <field name="is_company">false</field>
             <field name="is_farmer_trainer">true</field>
-             <field name="category_id" eval="[
+            <field name="category_id" eval="[
                 (6, 0, [ ref('res_partner_category_internal_trainer') ])
               ]"/>
             <field name="country_id" ref="base.ke"/>

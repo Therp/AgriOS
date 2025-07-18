@@ -8,6 +8,7 @@ from odoo.modules.module import get_manifest
 import base64
 from odoo.modules.module import get_module_resource
 
+
 class AgriosDemo(models.TransientModel):
     _name = 'agrios.demo'
     _description = 'Agrios Demo'
