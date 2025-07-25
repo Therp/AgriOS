@@ -232,7 +232,7 @@
                         <field name="country_id" options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
                     </group>
                     <group string="Location Hierarchy">
-                        <field name="farmer_group_id"/>
+                        <field name="farmer_group_id"  options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
 
                         <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 1">
                             <field name="loc_area_1_label"/>
