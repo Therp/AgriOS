@@ -229,56 +229,56 @@
                         <field name="street"/>
                         <field name="city"/>
                         <field name="zip"/>
-                        <field name="country_id" options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
+                        <field name="country_id" options="{'no_open': True,'no_create': True}"/>
                     </group>
                     <group string="Location Hierarchy">
-                        <field name="farmer_group_id"  options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
+                        <field name="farmer_group_id" options="{'no_open': True,'no_create': True}"/>
 
                         <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 1">
                             <field name="loc_area_1_label"/>
                         </td>
                         <field name="loc_area_1_id" nolabel="1" invisible="loc_area_max_level &lt; 1"
-                                options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                               options="{'no_open': True,'no_create': True}"
                                domain="[('country_id','=',country_id),('parent_id','=?',loc_area_2_id)]"/>
 
                         <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
                             <field name="loc_area_2_label"/>
                         </td>
                         <field name="loc_area_2_id" nolabel="1" invisible="loc_area_max_level &lt; 2"
-                                options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                               options="{'no_open': True,'no_create': True}"
                                domain="[('country_id','=',country_id),('parent_id','=?',loc_area_3_id)]"/>
 
                         <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
                             <field name="loc_area_3_label"/>
                         </td>
                         <field name="loc_area_3_id" nolabel="1" invisible="loc_area_max_level &lt; 3"
-                                options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                               options="{'no_open': True,'no_create': True}"
                                domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
 
                         <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
                             <field name="loc_area_4_label"/>
                         </td>
                         <field name="loc_area_4_id" nolabel="1" invisible="loc_area_max_level &lt; 4"
-                                options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                               options="{'no_open': True,'no_create': True}"
                                domain="[('country_id','=',country_id),('parent_id','=?',loc_area_5_id)]"/>
 
                         <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 5">
                             <field name="loc_area_5_label"/>
                         </td>
                         <field name="loc_area_5_id" nolabel="1" invisible="loc_area_max_level &lt; 5"
-                                options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                               options="{'no_open': True,'no_create': True}"
                                domain="[('country_id','=',country_id),('parent_id','=?',loc_area_6_id)]"/>
 
                         <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 6">
                             <field name="loc_area_6_label"/>
                         </td>
                         <field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6"
-                                options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                               options="{'no_open': True,'no_create': True}"
                                domain="[('country_id','=',country_id)]"/>
                     </group>
                     <group string="Other Details">
-                        <field name="manager_id" invisible="1" />
-                        <field name="user_id"  options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
+                        <field name="manager_id" invisible="1"/>
+                        <field name="user_id" options="{'no_open': True,'no_create': True}"/>
                     </group>
                 </group>
             </xpath>
