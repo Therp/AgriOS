@@ -6,7 +6,7 @@
     'author': "Advance Insight",
     'website': "https://www.advanceinsight.dev",
     'category': 'Advance Insight Product',
-    'version': '18.0.1.3.5',
+    'version': '18.0.1.3.6',
     'license': 'Other proprietary',
     'depends': [
         'contacts',
@@ -66,7 +66,7 @@
         'demo/farmer_interaction.xml',
         'demo/farmer_interaction_no_contract.xml',
         'demo/certification.xml',
-        'demo/warehouse_stock.xml',
+        # 'demo/warehouse_stock.xml',
     ],
     'assets': {
         'web.assets_backend': [
