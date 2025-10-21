@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+# Copyright 2025 Advance Insight
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 {
     'name': "Kobo Toolbox Integration - Agrios",
     'summary': """Kobo Toolbox Extention For Agrios Application""",
@@ -6,7 +7,7 @@
     'website': "https://advanceinsight.dev",
     'category': 'Services/AIODKIntegration',
     'version': '18.0.1.0.5',
-    'license': 'Other proprietary',
+    "license": "LGPL-3",
     'depends': [
         'ai_kobo_integration',
         'agrios',
