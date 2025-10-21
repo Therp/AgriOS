@@ -1,1623 +1,1621 @@
 <?xml version='1.0' encoding='utf-8'?>
-<odoo>
-    <data noupdate="1">
-        <record id="country_location_level_sub_county" model="country.location.level">
-            <field name="name">Sub-County</field>
-            <field name="level">1</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="country_location_level_county" model="country.location.level">
-            <field name="name">County</field>
-            <field name="level">2</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_mombasa" model="area.level.2">
-            <field name="name">Mombasa</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kwale" model="area.level.2">
-            <field name="name">Kwale</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kilifi" model="area.level.2">
-            <field name="name">Kilifi</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_tana_river" model="area.level.2">
-            <field name="name">Tana River</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_lamu" model="area.level.2">
-            <field name="name">Lamu</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_taita_taveta" model="area.level.2">
-            <field name="name">Taita-Taveta</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_garissa" model="area.level.2">
-            <field name="name">Garissa</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_wajir" model="area.level.2">
-            <field name="name">Wajir</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_mandera" model="area.level.2">
-            <field name="name">Mandera</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_marsabit" model="area.level.2">
-            <field name="name">Marsabit</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_isiolo" model="area.level.2">
-            <field name="name">Isiolo</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_meru" model="area.level.2">
-            <field name="name">Meru</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_tharaka_nithi" model="area.level.2">
-            <field name="name">Tharaka-Nithi</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_embu" model="area.level.2">
-            <field name="name">Embu</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kitui" model="area.level.2">
-            <field name="name">Kitui</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_machakos" model="area.level.2">
-            <field name="name">Machakos</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_makueni" model="area.level.2">
-            <field name="name">Makueni</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_nyandarua" model="area.level.2">
-            <field name="name">Nyandarua</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_nyeri" model="area.level.2">
-            <field name="name">Nyeri</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kirinyaga" model="area.level.2">
-            <field name="name">Kirinyaga</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_murang'a" model="area.level.2">
-            <field name="name">Murang'a</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kiambu" model="area.level.2">
-            <field name="name">Kiambu</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_turkana" model="area.level.2">
-            <field name="name">Turkana</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_west_pokot" model="area.level.2">
-            <field name="name">West Pokot</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_samburu" model="area.level.2">
-            <field name="name">Samburu</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_trans_nzoia" model="area.level.2">
-            <field name="name">Trans Nzoia</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_uasin_gishu" model="area.level.2">
-            <field name="name">Uasin Gishu</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_elgeyo_marakwet" model="area.level.2">
-            <field name="name">Elgeyo-Marakwet</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_nandi" model="area.level.2">
-            <field name="name">Nandi</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_baringo" model="area.level.2">
-            <field name="name">Baringo</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_laikipia" model="area.level.2">
-            <field name="name">Laikipia</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_nakuru" model="area.level.2">
-            <field name="name">Nakuru</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_narok" model="area.level.2">
-            <field name="name">Narok</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kajiado" model="area.level.2">
-            <field name="name">Kajiado</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kericho" model="area.level.2">
-            <field name="name">Kericho</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_bomet" model="area.level.2">
-            <field name="name">Bomet</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kakamega" model="area.level.2">
-            <field name="name">Kakamega</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_vihiga" model="area.level.2">
-            <field name="name">Vihiga</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_bungoma" model="area.level.2">
-            <field name="name">Bungoma</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_busia" model="area.level.2">
-            <field name="name">Busia</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_siaya" model="area.level.2">
-            <field name="name">Siaya</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kisumu" model="area.level.2">
-            <field name="name">Kisumu</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_homa_bay" model="area.level.2">
-            <field name="name">Homa Bay</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_migori" model="area.level.2">
-            <field name="name">Migori</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_kisii" model="area.level.2">
-            <field name="name">Kisii</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_nyamira" model="area.level.2">
-            <field name="name">Nyamira</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_2_nairobi" model="area.level.2">
-            <field name="name">Nairobi</field>
-            <field name="country_id" ref="base.ke"/>
-        </record>
-        <record id="area_level_1_ainabkoi" model="area.level.1">
-            <field name="name">Ainabkoi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_uasin_gishu"/>
-        </record>
-        <record id="area_level_1_ainamoi" model="area.level.1">
-            <field name="name">Ainamoi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kericho"/>
-        </record>
-        <record id="area_level_1_aldai" model="area.level.1">
-            <field name="name">Aldai</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nandi"/>
-        </record>
-        <record id="area_level_1_alego_usonga" model="area.level.1">
-            <field name="name">Alego Usonga</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_siaya"/>
-        </record>
-        <record id="area_level_1_awendo" model="area.level.1">
-            <field name="name">Awendo</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_migori"/>
-        </record>
-        <record id="area_level_1_bahati" model="area.level.1">
-            <field name="name">Bahati</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_balambala" model="area.level.1">
-            <field name="name">Balambala</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_garissa"/>
-        </record>
-        <record id="area_level_1_banissa" model="area.level.1">
-            <field name="name">Banissa</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mandera"/>
-        </record>
-        <record id="area_level_1_baringo_central" model="area.level.1">
-            <field name="name">Baringo Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_baringo"/>
-        </record>
-        <record id="area_level_1_baringo_north" model="area.level.1">
-            <field name="name">Baringo North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_baringo"/>
-        </record>
-        <record id="area_level_1_baringo_south" model="area.level.1">
-            <field name="name">Baringo South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_baringo"/>
-        </record>
-        <record id="area_level_1_belgut" model="area.level.1">
-            <field name="name">Belgut</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kericho"/>
-        </record>
-        <record id="area_level_1_bobasi" model="area.level.1">
-            <field name="name">Bobasi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_bomachoge_borabu" model="area.level.1">
-            <field name="name">Bomachoge Borabu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_bomachoge_chache" model="area.level.1">
-            <field name="name">Bomachoge Chache</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_bomet_central" model="area.level.1">
-            <field name="name">Bomet Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bomet"/>
-        </record>
-        <record id="area_level_1_bomet_east" model="area.level.1">
-            <field name="name">Bomet East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bomet"/>
-        </record>
-        <record id="area_level_1_bonchari" model="area.level.1">
-            <field name="name">Bonchari</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_bondo" model="area.level.1">
-            <field name="name">Bondo</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_siaya"/>
-        </record>
-        <record id="area_level_1_borabu" model="area.level.1">
-            <field name="name">Borabu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyamira"/>
-        </record>
-        <record id="area_level_1_budalangi" model="area.level.1">
-            <field name="name">Budalangi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_busia"/>
-        </record>
-        <record id="area_level_1_bungoma_east" model="area.level.1">
-            <field name="name">Bungoma East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_bungoma_north" model="area.level.1">
-            <field name="name">Bungoma North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_bungoma_south" model="area.level.1">
-            <field name="name">Bungoma South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_bungoma_west" model="area.level.1">
-            <field name="name">Bungoma West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_bura" model="area.level.1">
-            <field name="name">Bura</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_tana_river"/>
-        </record>
-        <record id="area_level_1_bureti" model="area.level.1">
-            <field name="name">Bureti</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kericho"/>
-        </record>
-        <record id="area_level_1_butere" model="area.level.1">
-            <field name="name">Butere</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_butula" model="area.level.1">
-            <field name="name">Butula</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_busia"/>
-        </record>
-        <record id="area_level_1_buuri" model="area.level.1">
-            <field name="name">Buuri</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_central_imenti" model="area.level.1">
-            <field name="name">Central Imenti</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_changamwe" model="area.level.1">
-            <field name="name">Changamwe</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mombasa"/>
-        </record>
-        <record id="area_level_1_chepalungu" model="area.level.1">
-            <field name="name">Chepalungu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bomet"/>
-        </record>
-        <record id="area_level_1_cherangany" model="area.level.1">
-            <field name="name">Cherangany</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_trans_nzoia"/>
-        </record>
-        <record id="area_level_1_chesumei" model="area.level.1">
-            <field name="name">Chesumei</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nandi"/>
-        </record>
-        <record id="area_level_1_chetambe" model="area.level.1">
-            <field name="name">Chetambe</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_chuka" model="area.level.1">
-            <field name="name">Chuka</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_tharaka_nithi"/>
-        </record>
-        <record id="area_level_1_dadaab" model="area.level.1">
-            <field name="name">Dadaab</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_garissa"/>
-        </record>
-        <record id="area_level_1_dagoretti_north" model="area.level.1">
-            <field name="name">Dagoretti North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_dagoretti_south" model="area.level.1">
-            <field name="name">Dagoretti South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_eldama_ravine" model="area.level.1">
-            <field name="name">Eldama Ravine</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_baringo"/>
-        </record>
-        <record id="area_level_1_eldas" model="area.level.1">
-            <field name="name">Eldas</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_wajir"/>
-        </record>
-        <record id="area_level_1_embakasi_central" model="area.level.1">
-            <field name="name">Embakasi Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_embakasi_east" model="area.level.1">
-            <field name="name">Embakasi East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_embakasi_north" model="area.level.1">
-            <field name="name">Embakasi North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_embakasi_south" model="area.level.1">
-            <field name="name">Embakasi South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_embakasi_west" model="area.level.1">
-            <field name="name">Embakasi West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_emgwen" model="area.level.1">
-            <field name="name">Emgwen</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nandi"/>
-        </record>
-        <record id="area_level_1_emuhaya" model="area.level.1">
-            <field name="name">Emuhaya</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_vihiga"/>
-        </record>
-        <record id="area_level_1_emurua_dikirr" model="area.level.1">
-            <field name="name">Emurua Dikirr</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_narok"/>
-        </record>
-        <record id="area_level_1_endebess" model="area.level.1">
-            <field name="name">Endebess</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_trans_nzoia"/>
-        </record>
-        <record id="area_level_1_fafi" model="area.level.1">
-            <field name="name">Fafi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_garissa"/>
-        </record>
-        <record id="area_level_1_funyula" model="area.level.1">
-            <field name="name">Funyula</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_busia"/>
-        </record>
-        <record id="area_level_1_galole" model="area.level.1">
-            <field name="name">Galole</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_tana_river"/>
-        </record>
-        <record id="area_level_1_ganze" model="area.level.1">
-            <field name="name">Ganze</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kilifi"/>
-        </record>
-        <record id="area_level_1_garissa_township" model="area.level.1">
-            <field name="name">Garissa Township</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_garissa"/>
-        </record>
-        <record id="area_level_1_garsen" model="area.level.1">
-            <field name="name">Garsen</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_tana_river"/>
-        </record>
-        <record id="area_level_1_gatanga" model="area.level.1">
-            <field name="name">Gatanga</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_murang'a"/>
-        </record>
-        <record id="area_level_1_gatundu_north" model="area.level.1">
-            <field name="name">Gatundu North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_gatundu_south" model="area.level.1">
-            <field name="name">Gatundu South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_gem" model="area.level.1">
-            <field name="name">Gem</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_siaya"/>
-        </record>
-        <record id="area_level_1_gichugu" model="area.level.1">
-            <field name="name">Gichugu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kirinyaga"/>
-        </record>
-        <record id="area_level_1_gilgil" model="area.level.1">
-            <field name="name">Gilgil</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_githunguri" model="area.level.1">
-            <field name="name">Githunguri</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_hamisi" model="area.level.1">
-            <field name="name">Hamisi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_vihiga"/>
-        </record>
-        <record id="area_level_1_homa_bay_town" model="area.level.1">
-            <field name="name">Homa Bay Town</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_homa_bay"/>
-        </record>
-        <record id="area_level_1_igembe_central" model="area.level.1">
-            <field name="name">Igembe Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_igembe_north" model="area.level.1">
-            <field name="name">Igembe North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_igembe_south" model="area.level.1">
-            <field name="name">Igembe South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_ijara" model="area.level.1">
-            <field name="name">Ijara</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_garissa"/>
-        </record>
-        <record id="area_level_1_ikolomani" model="area.level.1">
-            <field name="name">Ikolomani</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_isiolo_north" model="area.level.1">
-            <field name="name">Isiolo North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_isiolo"/>
-        </record>
-        <record id="area_level_1_isiolo_south" model="area.level.1">
-            <field name="name">Isiolo South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_isiolo"/>
-        </record>
-        <record id="area_level_1_jomvu" model="area.level.1">
-            <field name="name">Jomvu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mombasa"/>
-        </record>
-        <record id="area_level_1_juja" model="area.level.1">
-            <field name="name">Juja</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_kabete" model="area.level.1">
-            <field name="name">Kabete</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_kabondo_kasipul" model="area.level.1">
-            <field name="name">Kabondo Kasipul</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_homa_bay"/>
-        </record>
-        <record id="area_level_1_kacheliba" model="area.level.1">
-            <field name="name">Kacheliba</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_west_pokot"/>
-        </record>
-        <record id="area_level_1_kaiti" model="area.level.1">
-            <field name="name">Kaiti</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_makueni"/>
-        </record>
-        <record id="area_level_1_kajiado_central" model="area.level.1">
-            <field name="name">Kajiado Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kajiado"/>
-        </record>
-        <record id="area_level_1_kajiado_east" model="area.level.1">
-            <field name="name">Kajiado East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kajiado"/>
-        </record>
-        <record id="area_level_1_kajiado_north" model="area.level.1">
-            <field name="name">Kajiado North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kajiado"/>
-        </record>
-        <record id="area_level_1_kajiado_south" model="area.level.1">
-            <field name="name">Kajiado South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kajiado"/>
-        </record>
-        <record id="area_level_1_kajiado_west" model="area.level.1">
-            <field name="name">Kajiado West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kajiado"/>
-        </record>
-        <record id="area_level_1_kaloleni" model="area.level.1">
-            <field name="name">Kaloleni</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kilifi"/>
-        </record>
-        <record id="area_level_1_kamukunji" model="area.level.1">
-            <field name="name">Kamukunji</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_kandara" model="area.level.1">
-            <field name="name">Kandara</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_murang'a"/>
-        </record>
-        <record id="area_level_1_kangema" model="area.level.1">
-            <field name="name">Kangema</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_murang'a"/>
-        </record>
-        <record id="area_level_1_kangundo" model="area.level.1">
-            <field name="name">Kangundo</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_machakos"/>
-        </record>
-        <record id="area_level_1_kapenguria" model="area.level.1">
-            <field name="name">Kapenguria</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_west_pokot"/>
-        </record>
-        <record id="area_level_1_kapseret" model="area.level.1">
-            <field name="name">Kapseret</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_uasin_gishu"/>
-        </record>
-        <record id="area_level_1_karachuonyo" model="area.level.1">
-            <field name="name">Karachuonyo</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_homa_bay"/>
-        </record>
-        <record id="area_level_1_kasarani" model="area.level.1">
-            <field name="name">Kasarani</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_kasipul" model="area.level.1">
-            <field name="name">Kasipul</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_homa_bay"/>
-        </record>
-        <record id="area_level_1_kathiani" model="area.level.1">
-            <field name="name">Kathiani</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_machakos"/>
-        </record>
-        <record id="area_level_1_keiyo_north" model="area.level.1">
-            <field name="name">Keiyo North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_elgeyo_marakwet"/>
-        </record>
-        <record id="area_level_1_keiyo_south" model="area.level.1">
-            <field name="name">Keiyo South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_elgeyo_marakwet"/>
-        </record>
-        <record id="area_level_1_kesses" model="area.level.1">
-            <field name="name">Kesses</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_uasin_gishu"/>
-        </record>
-        <record id="area_level_1_khwisero" model="area.level.1">
-            <field name="name">Khwisero</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_kiambaa" model="area.level.1">
-            <field name="name">Kiambaa</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_kiambu" model="area.level.1">
-            <field name="name">Kiambu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_kibra" model="area.level.1">
-            <field name="name">Kibra</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_kibwezi_east" model="area.level.1">
-            <field name="name">Kibwezi East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_makueni"/>
-        </record>
-        <record id="area_level_1_kibwezi_west" model="area.level.1">
-            <field name="name">Kibwezi West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_makueni"/>
-        </record>
-        <record id="area_level_1_kieni" model="area.level.1">
-            <field name="name">Kieni</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyeri"/>
-        </record>
-        <record id="area_level_1_kigumo" model="area.level.1">
-            <field name="name">Kigumo</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_murang'a"/>
-        </record>
-        <record id="area_level_1_kiharu" model="area.level.1">
-            <field name="name">Kiharu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_murang'a"/>
-        </record>
-        <record id="area_level_1_kilgoris" model="area.level.1">
-            <field name="name">Kilgoris</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_narok"/>
-        </record>
-        <record id="area_level_1_kilifi_north" model="area.level.1">
-            <field name="name">Kilifi North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kilifi"/>
-        </record>
-        <record id="area_level_1_kilifi_south" model="area.level.1">
-            <field name="name">Kilifi South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kilifi"/>
-        </record>
-        <record id="area_level_1_kilome" model="area.level.1">
-            <field name="name">Kilome</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_makueni"/>
-        </record>
-        <record id="area_level_1_kimilili" model="area.level.1">
-            <field name="name">Kimilili</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_kiminini" model="area.level.1">
-            <field name="name">Kiminini</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_trans_nzoia"/>
-        </record>
-        <record id="area_level_1_kinango" model="area.level.1">
-            <field name="name">Kinango</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kwale"/>
-        </record>
-        <record id="area_level_1_kinangop" model="area.level.1">
-            <field name="name">Kinangop</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyandarua"/>
-        </record>
-        <record id="area_level_1_kipipiri" model="area.level.1">
-            <field name="name">Kipipiri</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyandarua"/>
-        </record>
-        <record id="area_level_1_kipkelion_east" model="area.level.1">
-            <field name="name">Kipkelion East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kericho"/>
-        </record>
-        <record id="area_level_1_kipkelion_west" model="area.level.1">
-            <field name="name">Kipkelion West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kericho"/>
-        </record>
-        <record id="area_level_1_kirinyaga_central" model="area.level.1">
-            <field name="name">Kirinyaga Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kirinyaga"/>
-        </record>
-        <record id="area_level_1_kisauni" model="area.level.1">
-            <field name="name">Kisauni</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mombasa"/>
-        </record>
-        <record id="area_level_1_kisumu_central" model="area.level.1">
-            <field name="name">Kisumu Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisumu"/>
-        </record>
-        <record id="area_level_1_kisumu_east" model="area.level.1">
-            <field name="name">Kisumu East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisumu"/>
-        </record>
-        <record id="area_level_1_kisumu_west" model="area.level.1">
-            <field name="name">Kisumu West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisumu"/>
-        </record>
-        <record id="area_level_1_kitui_central" model="area.level.1">
-            <field name="name">Kitui Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kitui"/>
-        </record>
-        <record id="area_level_1_kitui_east" model="area.level.1">
-            <field name="name">Kitui East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kitui"/>
-        </record>
-        <record id="area_level_1_kitui_rural" model="area.level.1">
-            <field name="name">Kitui Rural</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kitui"/>
-        </record>
-        <record id="area_level_1_kitui_south" model="area.level.1">
-            <field name="name">Kitui South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kitui"/>
-        </record>
-        <record id="area_level_1_kitui_west" model="area.level.1">
-            <field name="name">Kitui West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kitui"/>
-        </record>
-        <record id="area_level_1_kitutu_chache" model="area.level.1">
-            <field name="name">Kitutu Chache</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_kitutu_masaba" model="area.level.1">
-            <field name="name">Kitutu Masaba</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_konoin" model="area.level.1">
-            <field name="name">Konoin</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bomet"/>
-        </record>
-        <record id="area_level_1_kuresoi_north" model="area.level.1">
-            <field name="name">Kuresoi North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_kuresoi_south" model="area.level.1">
-            <field name="name">Kuresoi South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_kuria_east" model="area.level.1">
-            <field name="name">Kuria East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_migori"/>
-        </record>
-        <record id="area_level_1_kuria_west" model="area.level.1">
-            <field name="name">Kuria West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_migori"/>
-        </record>
-        <record id="area_level_1_kwanza" model="area.level.1">
-            <field name="name">Kwanza</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_trans_nzoia"/>
-        </record>
-        <record id="area_level_1_lafey" model="area.level.1">
-            <field name="name">Lafey</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mandera"/>
-        </record>
-        <record id="area_level_1_lagdera" model="area.level.1">
-            <field name="name">Lagdera</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_garissa"/>
-        </record>
-        <record id="area_level_1_laikipia_east" model="area.level.1">
-            <field name="name">Laikipia East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_laikipia"/>
-        </record>
-        <record id="area_level_1_laikipia_north" model="area.level.1">
-            <field name="name">Laikipia North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_laikipia"/>
-        </record>
-        <record id="area_level_1_laikipia_west" model="area.level.1">
-            <field name="name">Laikipia West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_laikipia"/>
-        </record>
-        <record id="area_level_1_laisamis" model="area.level.1">
-            <field name="name">Laisamis</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_marsabit"/>
-        </record>
-        <record id="area_level_1_lamu_east" model="area.level.1">
-            <field name="name">Lamu East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_lamu"/>
-        </record>
-        <record id="area_level_1_lamu_west" model="area.level.1">
-            <field name="name">Lamu West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_lamu"/>
-        </record>
-        <record id="area_level_1_langata" model="area.level.1">
-            <field name="name">Langata</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_lari" model="area.level.1">
-            <field name="name">Lari</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_likoni" model="area.level.1">
-            <field name="name">Likoni</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mombasa"/>
-        </record>
-        <record id="area_level_1_likuyani" model="area.level.1">
-            <field name="name">Likuyani</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_limuru" model="area.level.1">
-            <field name="name">Limuru</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_loima" model="area.level.1">
-            <field name="name">Loima</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_turkana"/>
-        </record>
-        <record id="area_level_1_luanda" model="area.level.1">
-            <field name="name">Luanda</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_vihiga"/>
-        </record>
-        <record id="area_level_1_lugari" model="area.level.1">
-            <field name="name">Lugari</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_lunga_lunga" model="area.level.1">
-            <field name="name">Lunga Lunga</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kwale"/>
-        </record>
-        <record id="area_level_1_lurambi" model="area.level.1">
-            <field name="name">Lurambi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_maara" model="area.level.1">
-            <field name="name">Maara</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_tharaka_nithi"/>
-        </record>
-        <record id="area_level_1_machakos_town" model="area.level.1">
-            <field name="name">Machakos Town</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_machakos"/>
-        </record>
-        <record id="area_level_1_magarini" model="area.level.1">
-            <field name="name">Magarini</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kilifi"/>
-        </record>
-        <record id="area_level_1_makadara" model="area.level.1">
-            <field name="name">Makadara</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_makueni" model="area.level.1">
-            <field name="name">Makueni</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_makueni"/>
-        </record>
-        <record id="area_level_1_malava" model="area.level.1">
-            <field name="name">Malava</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_malindi" model="area.level.1">
-            <field name="name">Malindi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kilifi"/>
-        </record>
-        <record id="area_level_1_mandera_east" model="area.level.1">
-            <field name="name">Mandera East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mandera"/>
-        </record>
-        <record id="area_level_1_mandera_north" model="area.level.1">
-            <field name="name">Mandera North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mandera"/>
-        </record>
-        <record id="area_level_1_mandera_south" model="area.level.1">
-            <field name="name">Mandera South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mandera"/>
-        </record>
-        <record id="area_level_1_mandera_west" model="area.level.1">
-            <field name="name">Mandera West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mandera"/>
-        </record>
-        <record id="area_level_1_manga" model="area.level.1">
-            <field name="name">Manga</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyamira"/>
-        </record>
-        <record id="area_level_1_manyatta" model="area.level.1">
-            <field name="name">Manyatta</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_embu"/>
-        </record>
-        <record id="area_level_1_maragwa" model="area.level.1">
-            <field name="name">Maragwa</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_murang'a"/>
-        </record>
-        <record id="area_level_1_marakwet_east" model="area.level.1">
-            <field name="name">Marakwet East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_elgeyo_marakwet"/>
-        </record>
-        <record id="area_level_1_marakwet_west" model="area.level.1">
-            <field name="name">Marakwet West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_elgeyo_marakwet"/>
-        </record>
-        <record id="area_level_1_matayos" model="area.level.1">
-            <field name="name">Matayos</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_busia"/>
-        </record>
-        <record id="area_level_1_mathare" model="area.level.1">
-            <field name="name">Mathare</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_mathioya" model="area.level.1">
-            <field name="name">Mathioya</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_murang'a"/>
-        </record>
-        <record id="area_level_1_mathira" model="area.level.1">
-            <field name="name">Mathira</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyeri"/>
-        </record>
-        <record id="area_level_1_matuga" model="area.level.1">
-            <field name="name">Matuga</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kwale"/>
-        </record>
-        <record id="area_level_1_matungu" model="area.level.1">
-            <field name="name">Matungu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_matungulu" model="area.level.1">
-            <field name="name">Matungulu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_machakos"/>
-        </record>
-        <record id="area_level_1_mavoko" model="area.level.1">
-            <field name="name">Mavoko</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_machakos"/>
-        </record>
-        <record id="area_level_1_mbeere_north" model="area.level.1">
-            <field name="name">Mbeere North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_embu"/>
-        </record>
-        <record id="area_level_1_mbeere_south" model="area.level.1">
-            <field name="name">Mbeere South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_embu"/>
-        </record>
-        <record id="area_level_1_mbooni" model="area.level.1">
-            <field name="name">Mbooni</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_makueni"/>
-        </record>
-        <record id="area_level_1_mogotio" model="area.level.1">
-            <field name="name">Mogotio</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_baringo"/>
-        </record>
-        <record id="area_level_1_moiben" model="area.level.1">
-            <field name="name">Moiben</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_uasin_gishu"/>
-        </record>
-        <record id="area_level_1_mosop" model="area.level.1">
-            <field name="name">Mosop</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nandi"/>
-        </record>
-        <record id="area_level_1_moyale" model="area.level.1">
-            <field name="name">Moyale</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_marsabit"/>
-        </record>
-        <record id="area_level_1_msambweni" model="area.level.1">
-            <field name="name">Msambweni</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kwale"/>
-        </record>
-        <record id="area_level_1_muhoroni" model="area.level.1">
-            <field name="name">Muhoroni</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisumu"/>
-        </record>
-        <record id="area_level_1_mukurwe_ini" model="area.level.1">
-            <field name="name">Mukurwe-ini</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyeri"/>
-        </record>
-        <record id="area_level_1_mumias_east" model="area.level.1">
-            <field name="name">Mumias East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_mumias_west" model="area.level.1">
-            <field name="name">Mumias West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_mvita" model="area.level.1">
-            <field name="name">Mvita</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mombasa"/>
-        </record>
-        <record id="area_level_1_mwala" model="area.level.1">
-            <field name="name">Mwala</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_machakos"/>
-        </record>
-        <record id="area_level_1_mwatate" model="area.level.1">
-            <field name="name">Mwatate</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_taita_taveta"/>
-        </record>
-        <record id="area_level_1_mwea" model="area.level.1">
-            <field name="name">Mwea</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kirinyaga"/>
-        </record>
-        <record id="area_level_1_mwingi_central" model="area.level.1">
-            <field name="name">Mwingi Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kitui"/>
-        </record>
-        <record id="area_level_1_mwingi_north" model="area.level.1">
-            <field name="name">Mwingi North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kitui"/>
-        </record>
-        <record id="area_level_1_mwingi_west" model="area.level.1">
-            <field name="name">Mwingi West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kitui"/>
-        </record>
-        <record id="area_level_1_naivasha" model="area.level.1">
-            <field name="name">Naivasha</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_nakuru_town_east" model="area.level.1">
-            <field name="name">Nakuru Town East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_nakuru_town_west" model="area.level.1">
-            <field name="name">Nakuru Town West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_nambale" model="area.level.1">
-            <field name="name">Nambale</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_busia"/>
-        </record>
-        <record id="area_level_1_nandi_hills" model="area.level.1">
-            <field name="name">Nandi Hills</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nandi"/>
-        </record>
-        <record id="area_level_1_narok_east" model="area.level.1">
-            <field name="name">Narok East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_narok"/>
-        </record>
-        <record id="area_level_1_narok_north" model="area.level.1">
-            <field name="name">Narok North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_narok"/>
-        </record>
-        <record id="area_level_1_narok_south" model="area.level.1">
-            <field name="name">Narok South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_narok"/>
-        </record>
-        <record id="area_level_1_narok_west" model="area.level.1">
-            <field name="name">Narok West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_narok"/>
-        </record>
-        <record id="area_level_1_navakholo" model="area.level.1">
-            <field name="name">Navakholo</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_ndaragwa" model="area.level.1">
-            <field name="name">Ndaragwa</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyandarua"/>
-        </record>
-        <record id="area_level_1_ndhiwa" model="area.level.1">
-            <field name="name">Ndhiwa</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_homa_bay"/>
-        </record>
-        <record id="area_level_1_ndia" model="area.level.1">
-            <field name="name">Ndia</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kirinyaga"/>
-        </record>
-        <record id="area_level_1_njoro" model="area.level.1">
-            <field name="name">Njoro</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_north_horr" model="area.level.1">
-            <field name="name">North Horr</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_marsabit"/>
-        </record>
-        <record id="area_level_1_north_imenti" model="area.level.1">
-            <field name="name">North Imenti</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_north_mugirango" model="area.level.1">
-            <field name="name">North Mugirango</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_nyakach" model="area.level.1">
-            <field name="name">Nyakach</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisumu"/>
-        </record>
-        <record id="area_level_1_nyali" model="area.level.1">
-            <field name="name">Nyali</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_mombasa"/>
-        </record>
-        <record id="area_level_1_nyando" model="area.level.1">
-            <field name="name">Nyando</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisumu"/>
-        </record>
-        <record id="area_level_1_nyaribari_chache" model="area.level.1">
-            <field name="name">Nyaribari Chache</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_nyaribari_masaba" model="area.level.1">
-            <field name="name">Nyaribari Masaba</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_nyatike" model="area.level.1">
-            <field name="name">Nyatike</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_migori"/>
-        </record>
-        <record id="area_level_1_nyeri_town" model="area.level.1">
-            <field name="name">Nyeri Town</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyeri"/>
-        </record>
-        <record id="area_level_1_ol_jorok" model="area.level.1">
-            <field name="name">Ol Jorok</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyandarua"/>
-        </record>
-        <record id="area_level_1_ol_kalou" model="area.level.1">
-            <field name="name">Ol Kalou</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyandarua"/>
-        </record>
-        <record id="area_level_1_othaya" model="area.level.1">
-            <field name="name">Othaya</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyeri"/>
-        </record>
-        <record id="area_level_1_pokot_south" model="area.level.1">
-            <field name="name">Pokot South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_west_pokot"/>
-        </record>
-        <record id="area_level_1_rabai" model="area.level.1">
-            <field name="name">Rabai</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kilifi"/>
-        </record>
-        <record id="area_level_1_rangwe" model="area.level.1">
-            <field name="name">Rangwe</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_homa_bay"/>
-        </record>
-        <record id="area_level_1_rarieda" model="area.level.1">
-            <field name="name">Rarieda</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_siaya"/>
-        </record>
-        <record id="area_level_1_rongai" model="area.level.1">
-            <field name="name">Rongai</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_rongo" model="area.level.1">
-            <field name="name">Rongo</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_migori"/>
-        </record>
-        <record id="area_level_1_roysambu" model="area.level.1">
-            <field name="name">Roysambu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_ruaraka" model="area.level.1">
-            <field name="name">Ruaraka</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_ruiru" model="area.level.1">
-            <field name="name">Ruiru</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_runyenjes" model="area.level.1">
-            <field name="name">Runyenjes</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_embu"/>
-        </record>
-        <record id="area_level_1_sabatia" model="area.level.1">
-            <field name="name">Sabatia</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_vihiga"/>
-        </record>
-        <record id="area_level_1_saku" model="area.level.1">
-            <field name="name">Saku</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_marsabit"/>
-        </record>
-        <record id="area_level_1_samburu_east" model="area.level.1">
-            <field name="name">Samburu East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_samburu"/>
-        </record>
-        <record id="area_level_1_samburu_north" model="area.level.1">
-            <field name="name">Samburu North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_samburu"/>
-        </record>
-        <record id="area_level_1_samburu_west" model="area.level.1">
-            <field name="name">Samburu West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_samburu"/>
-        </record>
-        <record id="area_level_1_seme" model="area.level.1">
-            <field name="name">Seme</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisumu"/>
-        </record>
-        <record id="area_level_1_shinyalu" model="area.level.1">
-            <field name="name">Shinyalu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kakamega"/>
-        </record>
-        <record id="area_level_1_sigor" model="area.level.1">
-            <field name="name">Sigor</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_west_pokot"/>
-        </record>
-        <record id="area_level_1_sigowet_soin" model="area.level.1">
-            <field name="name">Sigowet-Soin</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kericho"/>
-        </record>
-        <record id="area_level_1_sirisia" model="area.level.1">
-            <field name="name">Sirisia</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_sotik" model="area.level.1">
-            <field name="name">Sotik</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bomet"/>
-        </record>
-        <record id="area_level_1_south_imenti" model="area.level.1">
-            <field name="name">South Imenti</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_south_mugirango" model="area.level.1">
-            <field name="name">South Mugirango</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kisii"/>
-        </record>
-        <record id="area_level_1_soy" model="area.level.1">
-            <field name="name">Soy</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_uasin_gishu"/>
-        </record>
-        <record id="area_level_1_starehe" model="area.level.1">
-            <field name="name">Starehe</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nairobi"/>
-        </record>
-        <record id="area_level_1_suba" model="area.level.1">
-            <field name="name">Suba</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_homa_bay"/>
-        </record>
-        <record id="area_level_1_subukia" model="area.level.1">
-            <field name="name">Subukia</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nakuru"/>
-        </record>
-        <record id="area_level_1_suna_east" model="area.level.1">
-            <field name="name">Suna East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_migori"/>
-        </record>
-        <record id="area_level_1_suna_west" model="area.level.1">
-            <field name="name">Suna West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_migori"/>
-        </record>
-        <record id="area_level_1_tarbaj" model="area.level.1">
-            <field name="name">Tarbaj</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_wajir"/>
-        </record>
-        <record id="area_level_1_taveta" model="area.level.1">
-            <field name="name">Taveta</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_taita_taveta"/>
-        </record>
-        <record id="area_level_1_teso_north" model="area.level.1">
-            <field name="name">Teso North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_busia"/>
-        </record>
-        <record id="area_level_1_teso_south" model="area.level.1">
-            <field name="name">Teso South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_busia"/>
-        </record>
-        <record id="area_level_1_tetu" model="area.level.1">
-            <field name="name">Tetu</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyeri"/>
-        </record>
-        <record id="area_level_1_tharaka" model="area.level.1">
-            <field name="name">Tharaka</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_tharaka_nithi"/>
-        </record>
-        <record id="area_level_1_thika_town" model="area.level.1">
-            <field name="name">Thika Town</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_kiambu"/>
-        </record>
-        <record id="area_level_1_tigania_east" model="area.level.1">
-            <field name="name">Tigania East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_tigania_west" model="area.level.1">
-            <field name="name">Tigania West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_meru"/>
-        </record>
-        <record id="area_level_1_tinderet" model="area.level.1">
-            <field name="name">Tinderet</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nandi"/>
-        </record>
-        <record id="area_level_1_tongaren" model="area.level.1">
-            <field name="name">Tongaren</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_turbo" model="area.level.1">
-            <field name="name">Turbo</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_uasin_gishu"/>
-        </record>
-        <record id="area_level_1_turkana_central" model="area.level.1">
-            <field name="name">Turkana Central</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_turkana"/>
-        </record>
-        <record id="area_level_1_turkana_east" model="area.level.1">
-            <field name="name">Turkana East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_turkana"/>
-        </record>
-        <record id="area_level_1_turkana_north" model="area.level.1">
-            <field name="name">Turkana North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_turkana"/>
-        </record>
-        <record id="area_level_1_turkana_south" model="area.level.1">
-            <field name="name">Turkana South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_turkana"/>
-        </record>
-        <record id="area_level_1_turkana_west" model="area.level.1">
-            <field name="name">Turkana West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_turkana"/>
-        </record>
-        <record id="area_level_1_ugenya" model="area.level.1">
-            <field name="name">Ugenya</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_siaya"/>
-        </record>
-        <record id="area_level_1_ugunja" model="area.level.1">
-            <field name="name">Ugunja</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_siaya"/>
-        </record>
-        <record id="area_level_1_uriri" model="area.level.1">
-            <field name="name">Uriri</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_migori"/>
-        </record>
-        <record id="area_level_1_vihiga" model="area.level.1">
-            <field name="name">Vihiga</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_vihiga"/>
-        </record>
-        <record id="area_level_1_voi" model="area.level.1">
-            <field name="name">Voi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_taita_taveta"/>
-        </record>
-        <record id="area_level_1_wajir_east" model="area.level.1">
-            <field name="name">Wajir East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_wajir"/>
-        </record>
-        <record id="area_level_1_wajir_north" model="area.level.1">
-            <field name="name">Wajir North</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_wajir"/>
-        </record>
-        <record id="area_level_1_wajir_south" model="area.level.1">
-            <field name="name">Wajir South</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_wajir"/>
-        </record>
-        <record id="area_level_1_wajir_west" model="area.level.1">
-            <field name="name">Wajir West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_wajir"/>
-        </record>
-        <record id="area_level_1_webuye_east" model="area.level.1">
-            <field name="name">Webuye East</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_webuye_west" model="area.level.1">
-            <field name="name">Webuye West</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_bungoma"/>
-        </record>
-        <record id="area_level_1_west_mugirango" model="area.level.1">
-            <field name="name">West Mugirango</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_nyamira"/>
-        </record>
-        <record id="area_level_1_wundanyi" model="area.level.1">
-            <field name="name">Wundanyi</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_taita_taveta"/>
-        </record>
-        <record id="area_level_1_yatta" model="area.level.1">
-            <field name="name">Yatta</field>
-            <field name="country_id" ref="base.ke"/>
-            <field name="parent_id" ref="area_level_2_machakos"/>
-        </record>
-    </data>
+<odoo noupdate="1">
+    <record id="country_location_level_sub_county" model="country.location.level">
+        <field name="name">Sub-County</field>
+        <field name="level">1</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="country_location_level_county" model="country.location.level">
+        <field name="name">County</field>
+        <field name="level">2</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_mombasa" model="area.level.2">
+        <field name="name">Mombasa</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kwale" model="area.level.2">
+        <field name="name">Kwale</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kilifi" model="area.level.2">
+        <field name="name">Kilifi</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_tana_river" model="area.level.2">
+        <field name="name">Tana River</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_lamu" model="area.level.2">
+        <field name="name">Lamu</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_taita_taveta" model="area.level.2">
+        <field name="name">Taita-Taveta</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_garissa" model="area.level.2">
+        <field name="name">Garissa</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_wajir" model="area.level.2">
+        <field name="name">Wajir</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_mandera" model="area.level.2">
+        <field name="name">Mandera</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_marsabit" model="area.level.2">
+        <field name="name">Marsabit</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_isiolo" model="area.level.2">
+        <field name="name">Isiolo</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_meru" model="area.level.2">
+        <field name="name">Meru</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_tharaka_nithi" model="area.level.2">
+        <field name="name">Tharaka-Nithi</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_embu" model="area.level.2">
+        <field name="name">Embu</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kitui" model="area.level.2">
+        <field name="name">Kitui</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_machakos" model="area.level.2">
+        <field name="name">Machakos</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_makueni" model="area.level.2">
+        <field name="name">Makueni</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_nyandarua" model="area.level.2">
+        <field name="name">Nyandarua</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_nyeri" model="area.level.2">
+        <field name="name">Nyeri</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kirinyaga" model="area.level.2">
+        <field name="name">Kirinyaga</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_murang'a" model="area.level.2">
+        <field name="name">Murang'a</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kiambu" model="area.level.2">
+        <field name="name">Kiambu</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_turkana" model="area.level.2">
+        <field name="name">Turkana</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_west_pokot" model="area.level.2">
+        <field name="name">West Pokot</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_samburu" model="area.level.2">
+        <field name="name">Samburu</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_trans_nzoia" model="area.level.2">
+        <field name="name">Trans Nzoia</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_uasin_gishu" model="area.level.2">
+        <field name="name">Uasin Gishu</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_elgeyo_marakwet" model="area.level.2">
+        <field name="name">Elgeyo-Marakwet</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_nandi" model="area.level.2">
+        <field name="name">Nandi</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_baringo" model="area.level.2">
+        <field name="name">Baringo</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_laikipia" model="area.level.2">
+        <field name="name">Laikipia</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_nakuru" model="area.level.2">
+        <field name="name">Nakuru</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_narok" model="area.level.2">
+        <field name="name">Narok</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kajiado" model="area.level.2">
+        <field name="name">Kajiado</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kericho" model="area.level.2">
+        <field name="name">Kericho</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_bomet" model="area.level.2">
+        <field name="name">Bomet</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kakamega" model="area.level.2">
+        <field name="name">Kakamega</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_vihiga" model="area.level.2">
+        <field name="name">Vihiga</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_bungoma" model="area.level.2">
+        <field name="name">Bungoma</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_busia" model="area.level.2">
+        <field name="name">Busia</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_siaya" model="area.level.2">
+        <field name="name">Siaya</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kisumu" model="area.level.2">
+        <field name="name">Kisumu</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_homa_bay" model="area.level.2">
+        <field name="name">Homa Bay</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_migori" model="area.level.2">
+        <field name="name">Migori</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_kisii" model="area.level.2">
+        <field name="name">Kisii</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_nyamira" model="area.level.2">
+        <field name="name">Nyamira</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_2_nairobi" model="area.level.2">
+        <field name="name">Nairobi</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="area_level_1_ainabkoi" model="area.level.1">
+        <field name="name">Ainabkoi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_uasin_gishu"/>
+    </record>
+    <record id="area_level_1_ainamoi" model="area.level.1">
+        <field name="name">Ainamoi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kericho"/>
+    </record>
+    <record id="area_level_1_aldai" model="area.level.1">
+        <field name="name">Aldai</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nandi"/>
+    </record>
+    <record id="area_level_1_alego_usonga" model="area.level.1">
+        <field name="name">Alego Usonga</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_siaya"/>
+    </record>
+    <record id="area_level_1_awendo" model="area.level.1">
+        <field name="name">Awendo</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_migori"/>
+    </record>
+    <record id="area_level_1_bahati" model="area.level.1">
+        <field name="name">Bahati</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_balambala" model="area.level.1">
+        <field name="name">Balambala</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_garissa"/>
+    </record>
+    <record id="area_level_1_banissa" model="area.level.1">
+        <field name="name">Banissa</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mandera"/>
+    </record>
+    <record id="area_level_1_baringo_central" model="area.level.1">
+        <field name="name">Baringo Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_baringo"/>
+    </record>
+    <record id="area_level_1_baringo_north" model="area.level.1">
+        <field name="name">Baringo North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_baringo"/>
+    </record>
+    <record id="area_level_1_baringo_south" model="area.level.1">
+        <field name="name">Baringo South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_baringo"/>
+    </record>
+    <record id="area_level_1_belgut" model="area.level.1">
+        <field name="name">Belgut</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kericho"/>
+    </record>
+    <record id="area_level_1_bobasi" model="area.level.1">
+        <field name="name">Bobasi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_bomachoge_borabu" model="area.level.1">
+        <field name="name">Bomachoge Borabu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_bomachoge_chache" model="area.level.1">
+        <field name="name">Bomachoge Chache</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_bomet_central" model="area.level.1">
+        <field name="name">Bomet Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bomet"/>
+    </record>
+    <record id="area_level_1_bomet_east" model="area.level.1">
+        <field name="name">Bomet East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bomet"/>
+    </record>
+    <record id="area_level_1_bonchari" model="area.level.1">
+        <field name="name">Bonchari</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_bondo" model="area.level.1">
+        <field name="name">Bondo</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_siaya"/>
+    </record>
+    <record id="area_level_1_borabu" model="area.level.1">
+        <field name="name">Borabu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyamira"/>
+    </record>
+    <record id="area_level_1_budalangi" model="area.level.1">
+        <field name="name">Budalangi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_busia"/>
+    </record>
+    <record id="area_level_1_bungoma_east" model="area.level.1">
+        <field name="name">Bungoma East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_bungoma_north" model="area.level.1">
+        <field name="name">Bungoma North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_bungoma_south" model="area.level.1">
+        <field name="name">Bungoma South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_bungoma_west" model="area.level.1">
+        <field name="name">Bungoma West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_bura" model="area.level.1">
+        <field name="name">Bura</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_tana_river"/>
+    </record>
+    <record id="area_level_1_bureti" model="area.level.1">
+        <field name="name">Bureti</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kericho"/>
+    </record>
+    <record id="area_level_1_butere" model="area.level.1">
+        <field name="name">Butere</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_butula" model="area.level.1">
+        <field name="name">Butula</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_busia"/>
+    </record>
+    <record id="area_level_1_buuri" model="area.level.1">
+        <field name="name">Buuri</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_central_imenti" model="area.level.1">
+        <field name="name">Central Imenti</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_changamwe" model="area.level.1">
+        <field name="name">Changamwe</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mombasa"/>
+    </record>
+    <record id="area_level_1_chepalungu" model="area.level.1">
+        <field name="name">Chepalungu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bomet"/>
+    </record>
+    <record id="area_level_1_cherangany" model="area.level.1">
+        <field name="name">Cherangany</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_trans_nzoia"/>
+    </record>
+    <record id="area_level_1_chesumei" model="area.level.1">
+        <field name="name">Chesumei</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nandi"/>
+    </record>
+    <record id="area_level_1_chetambe" model="area.level.1">
+        <field name="name">Chetambe</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_chuka" model="area.level.1">
+        <field name="name">Chuka</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_tharaka_nithi"/>
+    </record>
+    <record id="area_level_1_dadaab" model="area.level.1">
+        <field name="name">Dadaab</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_garissa"/>
+    </record>
+    <record id="area_level_1_dagoretti_north" model="area.level.1">
+        <field name="name">Dagoretti North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_dagoretti_south" model="area.level.1">
+        <field name="name">Dagoretti South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_eldama_ravine" model="area.level.1">
+        <field name="name">Eldama Ravine</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_baringo"/>
+    </record>
+    <record id="area_level_1_eldas" model="area.level.1">
+        <field name="name">Eldas</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_wajir"/>
+    </record>
+    <record id="area_level_1_embakasi_central" model="area.level.1">
+        <field name="name">Embakasi Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_embakasi_east" model="area.level.1">
+        <field name="name">Embakasi East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_embakasi_north" model="area.level.1">
+        <field name="name">Embakasi North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_embakasi_south" model="area.level.1">
+        <field name="name">Embakasi South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_embakasi_west" model="area.level.1">
+        <field name="name">Embakasi West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_emgwen" model="area.level.1">
+        <field name="name">Emgwen</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nandi"/>
+    </record>
+    <record id="area_level_1_emuhaya" model="area.level.1">
+        <field name="name">Emuhaya</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_vihiga"/>
+    </record>
+    <record id="area_level_1_emurua_dikirr" model="area.level.1">
+        <field name="name">Emurua Dikirr</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_narok"/>
+    </record>
+    <record id="area_level_1_endebess" model="area.level.1">
+        <field name="name">Endebess</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_trans_nzoia"/>
+    </record>
+    <record id="area_level_1_fafi" model="area.level.1">
+        <field name="name">Fafi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_garissa"/>
+    </record>
+    <record id="area_level_1_funyula" model="area.level.1">
+        <field name="name">Funyula</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_busia"/>
+    </record>
+    <record id="area_level_1_galole" model="area.level.1">
+        <field name="name">Galole</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_tana_river"/>
+    </record>
+    <record id="area_level_1_ganze" model="area.level.1">
+        <field name="name">Ganze</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kilifi"/>
+    </record>
+    <record id="area_level_1_garissa_township" model="area.level.1">
+        <field name="name">Garissa Township</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_garissa"/>
+    </record>
+    <record id="area_level_1_garsen" model="area.level.1">
+        <field name="name">Garsen</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_tana_river"/>
+    </record>
+    <record id="area_level_1_gatanga" model="area.level.1">
+        <field name="name">Gatanga</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_murang'a"/>
+    </record>
+    <record id="area_level_1_gatundu_north" model="area.level.1">
+        <field name="name">Gatundu North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_gatundu_south" model="area.level.1">
+        <field name="name">Gatundu South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_gem" model="area.level.1">
+        <field name="name">Gem</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_siaya"/>
+    </record>
+    <record id="area_level_1_gichugu" model="area.level.1">
+        <field name="name">Gichugu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kirinyaga"/>
+    </record>
+    <record id="area_level_1_gilgil" model="area.level.1">
+        <field name="name">Gilgil</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_githunguri" model="area.level.1">
+        <field name="name">Githunguri</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_hamisi" model="area.level.1">
+        <field name="name">Hamisi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_vihiga"/>
+    </record>
+    <record id="area_level_1_homa_bay_town" model="area.level.1">
+        <field name="name">Homa Bay Town</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_homa_bay"/>
+    </record>
+    <record id="area_level_1_igembe_central" model="area.level.1">
+        <field name="name">Igembe Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_igembe_north" model="area.level.1">
+        <field name="name">Igembe North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_igembe_south" model="area.level.1">
+        <field name="name">Igembe South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_ijara" model="area.level.1">
+        <field name="name">Ijara</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_garissa"/>
+    </record>
+    <record id="area_level_1_ikolomani" model="area.level.1">
+        <field name="name">Ikolomani</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_isiolo_north" model="area.level.1">
+        <field name="name">Isiolo North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_isiolo"/>
+    </record>
+    <record id="area_level_1_isiolo_south" model="area.level.1">
+        <field name="name">Isiolo South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_isiolo"/>
+    </record>
+    <record id="area_level_1_jomvu" model="area.level.1">
+        <field name="name">Jomvu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mombasa"/>
+    </record>
+    <record id="area_level_1_juja" model="area.level.1">
+        <field name="name">Juja</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_kabete" model="area.level.1">
+        <field name="name">Kabete</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_kabondo_kasipul" model="area.level.1">
+        <field name="name">Kabondo Kasipul</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_homa_bay"/>
+    </record>
+    <record id="area_level_1_kacheliba" model="area.level.1">
+        <field name="name">Kacheliba</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_west_pokot"/>
+    </record>
+    <record id="area_level_1_kaiti" model="area.level.1">
+        <field name="name">Kaiti</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_makueni"/>
+    </record>
+    <record id="area_level_1_kajiado_central" model="area.level.1">
+        <field name="name">Kajiado Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kajiado"/>
+    </record>
+    <record id="area_level_1_kajiado_east" model="area.level.1">
+        <field name="name">Kajiado East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kajiado"/>
+    </record>
+    <record id="area_level_1_kajiado_north" model="area.level.1">
+        <field name="name">Kajiado North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kajiado"/>
+    </record>
+    <record id="area_level_1_kajiado_south" model="area.level.1">
+        <field name="name">Kajiado South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kajiado"/>
+    </record>
+    <record id="area_level_1_kajiado_west" model="area.level.1">
+        <field name="name">Kajiado West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kajiado"/>
+    </record>
+    <record id="area_level_1_kaloleni" model="area.level.1">
+        <field name="name">Kaloleni</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kilifi"/>
+    </record>
+    <record id="area_level_1_kamukunji" model="area.level.1">
+        <field name="name">Kamukunji</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_kandara" model="area.level.1">
+        <field name="name">Kandara</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_murang'a"/>
+    </record>
+    <record id="area_level_1_kangema" model="area.level.1">
+        <field name="name">Kangema</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_murang'a"/>
+    </record>
+    <record id="area_level_1_kangundo" model="area.level.1">
+        <field name="name">Kangundo</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_machakos"/>
+    </record>
+    <record id="area_level_1_kapenguria" model="area.level.1">
+        <field name="name">Kapenguria</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_west_pokot"/>
+    </record>
+    <record id="area_level_1_kapseret" model="area.level.1">
+        <field name="name">Kapseret</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_uasin_gishu"/>
+    </record>
+    <record id="area_level_1_karachuonyo" model="area.level.1">
+        <field name="name">Karachuonyo</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_homa_bay"/>
+    </record>
+    <record id="area_level_1_kasarani" model="area.level.1">
+        <field name="name">Kasarani</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_kasipul" model="area.level.1">
+        <field name="name">Kasipul</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_homa_bay"/>
+    </record>
+    <record id="area_level_1_kathiani" model="area.level.1">
+        <field name="name">Kathiani</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_machakos"/>
+    </record>
+    <record id="area_level_1_keiyo_north" model="area.level.1">
+        <field name="name">Keiyo North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_elgeyo_marakwet"/>
+    </record>
+    <record id="area_level_1_keiyo_south" model="area.level.1">
+        <field name="name">Keiyo South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_elgeyo_marakwet"/>
+    </record>
+    <record id="area_level_1_kesses" model="area.level.1">
+        <field name="name">Kesses</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_uasin_gishu"/>
+    </record>
+    <record id="area_level_1_khwisero" model="area.level.1">
+        <field name="name">Khwisero</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_kiambaa" model="area.level.1">
+        <field name="name">Kiambaa</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_kiambu" model="area.level.1">
+        <field name="name">Kiambu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_kibra" model="area.level.1">
+        <field name="name">Kibra</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_kibwezi_east" model="area.level.1">
+        <field name="name">Kibwezi East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_makueni"/>
+    </record>
+    <record id="area_level_1_kibwezi_west" model="area.level.1">
+        <field name="name">Kibwezi West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_makueni"/>
+    </record>
+    <record id="area_level_1_kieni" model="area.level.1">
+        <field name="name">Kieni</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyeri"/>
+    </record>
+    <record id="area_level_1_kigumo" model="area.level.1">
+        <field name="name">Kigumo</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_murang'a"/>
+    </record>
+    <record id="area_level_1_kiharu" model="area.level.1">
+        <field name="name">Kiharu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_murang'a"/>
+    </record>
+    <record id="area_level_1_kilgoris" model="area.level.1">
+        <field name="name">Kilgoris</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_narok"/>
+    </record>
+    <record id="area_level_1_kilifi_north" model="area.level.1">
+        <field name="name">Kilifi North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kilifi"/>
+    </record>
+    <record id="area_level_1_kilifi_south" model="area.level.1">
+        <field name="name">Kilifi South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kilifi"/>
+    </record>
+    <record id="area_level_1_kilome" model="area.level.1">
+        <field name="name">Kilome</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_makueni"/>
+    </record>
+    <record id="area_level_1_kimilili" model="area.level.1">
+        <field name="name">Kimilili</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_kiminini" model="area.level.1">
+        <field name="name">Kiminini</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_trans_nzoia"/>
+    </record>
+    <record id="area_level_1_kinango" model="area.level.1">
+        <field name="name">Kinango</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kwale"/>
+    </record>
+    <record id="area_level_1_kinangop" model="area.level.1">
+        <field name="name">Kinangop</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyandarua"/>
+    </record>
+    <record id="area_level_1_kipipiri" model="area.level.1">
+        <field name="name">Kipipiri</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyandarua"/>
+    </record>
+    <record id="area_level_1_kipkelion_east" model="area.level.1">
+        <field name="name">Kipkelion East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kericho"/>
+    </record>
+    <record id="area_level_1_kipkelion_west" model="area.level.1">
+        <field name="name">Kipkelion West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kericho"/>
+    </record>
+    <record id="area_level_1_kirinyaga_central" model="area.level.1">
+        <field name="name">Kirinyaga Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kirinyaga"/>
+    </record>
+    <record id="area_level_1_kisauni" model="area.level.1">
+        <field name="name">Kisauni</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mombasa"/>
+    </record>
+    <record id="area_level_1_kisumu_central" model="area.level.1">
+        <field name="name">Kisumu Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisumu"/>
+    </record>
+    <record id="area_level_1_kisumu_east" model="area.level.1">
+        <field name="name">Kisumu East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisumu"/>
+    </record>
+    <record id="area_level_1_kisumu_west" model="area.level.1">
+        <field name="name">Kisumu West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisumu"/>
+    </record>
+    <record id="area_level_1_kitui_central" model="area.level.1">
+        <field name="name">Kitui Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kitui"/>
+    </record>
+    <record id="area_level_1_kitui_east" model="area.level.1">
+        <field name="name">Kitui East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kitui"/>
+    </record>
+    <record id="area_level_1_kitui_rural" model="area.level.1">
+        <field name="name">Kitui Rural</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kitui"/>
+    </record>
+    <record id="area_level_1_kitui_south" model="area.level.1">
+        <field name="name">Kitui South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kitui"/>
+    </record>
+    <record id="area_level_1_kitui_west" model="area.level.1">
+        <field name="name">Kitui West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kitui"/>
+    </record>
+    <record id="area_level_1_kitutu_chache" model="area.level.1">
+        <field name="name">Kitutu Chache</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_kitutu_masaba" model="area.level.1">
+        <field name="name">Kitutu Masaba</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_konoin" model="area.level.1">
+        <field name="name">Konoin</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bomet"/>
+    </record>
+    <record id="area_level_1_kuresoi_north" model="area.level.1">
+        <field name="name">Kuresoi North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_kuresoi_south" model="area.level.1">
+        <field name="name">Kuresoi South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_kuria_east" model="area.level.1">
+        <field name="name">Kuria East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_migori"/>
+    </record>
+    <record id="area_level_1_kuria_west" model="area.level.1">
+        <field name="name">Kuria West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_migori"/>
+    </record>
+    <record id="area_level_1_kwanza" model="area.level.1">
+        <field name="name">Kwanza</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_trans_nzoia"/>
+    </record>
+    <record id="area_level_1_lafey" model="area.level.1">
+        <field name="name">Lafey</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mandera"/>
+    </record>
+    <record id="area_level_1_lagdera" model="area.level.1">
+        <field name="name">Lagdera</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_garissa"/>
+    </record>
+    <record id="area_level_1_laikipia_east" model="area.level.1">
+        <field name="name">Laikipia East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_laikipia"/>
+    </record>
+    <record id="area_level_1_laikipia_north" model="area.level.1">
+        <field name="name">Laikipia North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_laikipia"/>
+    </record>
+    <record id="area_level_1_laikipia_west" model="area.level.1">
+        <field name="name">Laikipia West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_laikipia"/>
+    </record>
+    <record id="area_level_1_laisamis" model="area.level.1">
+        <field name="name">Laisamis</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_marsabit"/>
+    </record>
+    <record id="area_level_1_lamu_east" model="area.level.1">
+        <field name="name">Lamu East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_lamu"/>
+    </record>
+    <record id="area_level_1_lamu_west" model="area.level.1">
+        <field name="name">Lamu West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_lamu"/>
+    </record>
+    <record id="area_level_1_langata" model="area.level.1">
+        <field name="name">Langata</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_lari" model="area.level.1">
+        <field name="name">Lari</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_likoni" model="area.level.1">
+        <field name="name">Likoni</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mombasa"/>
+    </record>
+    <record id="area_level_1_likuyani" model="area.level.1">
+        <field name="name">Likuyani</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_limuru" model="area.level.1">
+        <field name="name">Limuru</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_loima" model="area.level.1">
+        <field name="name">Loima</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_turkana"/>
+    </record>
+    <record id="area_level_1_luanda" model="area.level.1">
+        <field name="name">Luanda</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_vihiga"/>
+    </record>
+    <record id="area_level_1_lugari" model="area.level.1">
+        <field name="name">Lugari</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_lunga_lunga" model="area.level.1">
+        <field name="name">Lunga Lunga</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kwale"/>
+    </record>
+    <record id="area_level_1_lurambi" model="area.level.1">
+        <field name="name">Lurambi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_maara" model="area.level.1">
+        <field name="name">Maara</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_tharaka_nithi"/>
+    </record>
+    <record id="area_level_1_machakos_town" model="area.level.1">
+        <field name="name">Machakos Town</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_machakos"/>
+    </record>
+    <record id="area_level_1_magarini" model="area.level.1">
+        <field name="name">Magarini</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kilifi"/>
+    </record>
+    <record id="area_level_1_makadara" model="area.level.1">
+        <field name="name">Makadara</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_makueni" model="area.level.1">
+        <field name="name">Makueni</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_makueni"/>
+    </record>
+    <record id="area_level_1_malava" model="area.level.1">
+        <field name="name">Malava</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_malindi" model="area.level.1">
+        <field name="name">Malindi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kilifi"/>
+    </record>
+    <record id="area_level_1_mandera_east" model="area.level.1">
+        <field name="name">Mandera East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mandera"/>
+    </record>
+    <record id="area_level_1_mandera_north" model="area.level.1">
+        <field name="name">Mandera North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mandera"/>
+    </record>
+    <record id="area_level_1_mandera_south" model="area.level.1">
+        <field name="name">Mandera South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mandera"/>
+    </record>
+    <record id="area_level_1_mandera_west" model="area.level.1">
+        <field name="name">Mandera West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mandera"/>
+    </record>
+    <record id="area_level_1_manga" model="area.level.1">
+        <field name="name">Manga</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyamira"/>
+    </record>
+    <record id="area_level_1_manyatta" model="area.level.1">
+        <field name="name">Manyatta</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_embu"/>
+    </record>
+    <record id="area_level_1_maragwa" model="area.level.1">
+        <field name="name">Maragwa</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_murang'a"/>
+    </record>
+    <record id="area_level_1_marakwet_east" model="area.level.1">
+        <field name="name">Marakwet East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_elgeyo_marakwet"/>
+    </record>
+    <record id="area_level_1_marakwet_west" model="area.level.1">
+        <field name="name">Marakwet West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_elgeyo_marakwet"/>
+    </record>
+    <record id="area_level_1_matayos" model="area.level.1">
+        <field name="name">Matayos</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_busia"/>
+    </record>
+    <record id="area_level_1_mathare" model="area.level.1">
+        <field name="name">Mathare</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_mathioya" model="area.level.1">
+        <field name="name">Mathioya</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_murang'a"/>
+    </record>
+    <record id="area_level_1_mathira" model="area.level.1">
+        <field name="name">Mathira</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyeri"/>
+    </record>
+    <record id="area_level_1_matuga" model="area.level.1">
+        <field name="name">Matuga</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kwale"/>
+    </record>
+    <record id="area_level_1_matungu" model="area.level.1">
+        <field name="name">Matungu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_matungulu" model="area.level.1">
+        <field name="name">Matungulu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_machakos"/>
+    </record>
+    <record id="area_level_1_mavoko" model="area.level.1">
+        <field name="name">Mavoko</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_machakos"/>
+    </record>
+    <record id="area_level_1_mbeere_north" model="area.level.1">
+        <field name="name">Mbeere North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_embu"/>
+    </record>
+    <record id="area_level_1_mbeere_south" model="area.level.1">
+        <field name="name">Mbeere South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_embu"/>
+    </record>
+    <record id="area_level_1_mbooni" model="area.level.1">
+        <field name="name">Mbooni</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_makueni"/>
+    </record>
+    <record id="area_level_1_mogotio" model="area.level.1">
+        <field name="name">Mogotio</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_baringo"/>
+    </record>
+    <record id="area_level_1_moiben" model="area.level.1">
+        <field name="name">Moiben</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_uasin_gishu"/>
+    </record>
+    <record id="area_level_1_mosop" model="area.level.1">
+        <field name="name">Mosop</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nandi"/>
+    </record>
+    <record id="area_level_1_moyale" model="area.level.1">
+        <field name="name">Moyale</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_marsabit"/>
+    </record>
+    <record id="area_level_1_msambweni" model="area.level.1">
+        <field name="name">Msambweni</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kwale"/>
+    </record>
+    <record id="area_level_1_muhoroni" model="area.level.1">
+        <field name="name">Muhoroni</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisumu"/>
+    </record>
+    <record id="area_level_1_mukurwe_ini" model="area.level.1">
+        <field name="name">Mukurwe-ini</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyeri"/>
+    </record>
+    <record id="area_level_1_mumias_east" model="area.level.1">
+        <field name="name">Mumias East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_mumias_west" model="area.level.1">
+        <field name="name">Mumias West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_mvita" model="area.level.1">
+        <field name="name">Mvita</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mombasa"/>
+    </record>
+    <record id="area_level_1_mwala" model="area.level.1">
+        <field name="name">Mwala</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_machakos"/>
+    </record>
+    <record id="area_level_1_mwatate" model="area.level.1">
+        <field name="name">Mwatate</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_taita_taveta"/>
+    </record>
+    <record id="area_level_1_mwea" model="area.level.1">
+        <field name="name">Mwea</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kirinyaga"/>
+    </record>
+    <record id="area_level_1_mwingi_central" model="area.level.1">
+        <field name="name">Mwingi Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kitui"/>
+    </record>
+    <record id="area_level_1_mwingi_north" model="area.level.1">
+        <field name="name">Mwingi North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kitui"/>
+    </record>
+    <record id="area_level_1_mwingi_west" model="area.level.1">
+        <field name="name">Mwingi West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kitui"/>
+    </record>
+    <record id="area_level_1_naivasha" model="area.level.1">
+        <field name="name">Naivasha</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_nakuru_town_east" model="area.level.1">
+        <field name="name">Nakuru Town East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_nakuru_town_west" model="area.level.1">
+        <field name="name">Nakuru Town West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_nambale" model="area.level.1">
+        <field name="name">Nambale</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_busia"/>
+    </record>
+    <record id="area_level_1_nandi_hills" model="area.level.1">
+        <field name="name">Nandi Hills</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nandi"/>
+    </record>
+    <record id="area_level_1_narok_east" model="area.level.1">
+        <field name="name">Narok East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_narok"/>
+    </record>
+    <record id="area_level_1_narok_north" model="area.level.1">
+        <field name="name">Narok North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_narok"/>
+    </record>
+    <record id="area_level_1_narok_south" model="area.level.1">
+        <field name="name">Narok South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_narok"/>
+    </record>
+    <record id="area_level_1_narok_west" model="area.level.1">
+        <field name="name">Narok West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_narok"/>
+    </record>
+    <record id="area_level_1_navakholo" model="area.level.1">
+        <field name="name">Navakholo</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_ndaragwa" model="area.level.1">
+        <field name="name">Ndaragwa</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyandarua"/>
+    </record>
+    <record id="area_level_1_ndhiwa" model="area.level.1">
+        <field name="name">Ndhiwa</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_homa_bay"/>
+    </record>
+    <record id="area_level_1_ndia" model="area.level.1">
+        <field name="name">Ndia</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kirinyaga"/>
+    </record>
+    <record id="area_level_1_njoro" model="area.level.1">
+        <field name="name">Njoro</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_north_horr" model="area.level.1">
+        <field name="name">North Horr</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_marsabit"/>
+    </record>
+    <record id="area_level_1_north_imenti" model="area.level.1">
+        <field name="name">North Imenti</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_north_mugirango" model="area.level.1">
+        <field name="name">North Mugirango</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_nyakach" model="area.level.1">
+        <field name="name">Nyakach</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisumu"/>
+    </record>
+    <record id="area_level_1_nyali" model="area.level.1">
+        <field name="name">Nyali</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_mombasa"/>
+    </record>
+    <record id="area_level_1_nyando" model="area.level.1">
+        <field name="name">Nyando</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisumu"/>
+    </record>
+    <record id="area_level_1_nyaribari_chache" model="area.level.1">
+        <field name="name">Nyaribari Chache</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_nyaribari_masaba" model="area.level.1">
+        <field name="name">Nyaribari Masaba</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_nyatike" model="area.level.1">
+        <field name="name">Nyatike</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_migori"/>
+    </record>
+    <record id="area_level_1_nyeri_town" model="area.level.1">
+        <field name="name">Nyeri Town</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyeri"/>
+    </record>
+    <record id="area_level_1_ol_jorok" model="area.level.1">
+        <field name="name">Ol Jorok</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyandarua"/>
+    </record>
+    <record id="area_level_1_ol_kalou" model="area.level.1">
+        <field name="name">Ol Kalou</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyandarua"/>
+    </record>
+    <record id="area_level_1_othaya" model="area.level.1">
+        <field name="name">Othaya</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyeri"/>
+    </record>
+    <record id="area_level_1_pokot_south" model="area.level.1">
+        <field name="name">Pokot South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_west_pokot"/>
+    </record>
+    <record id="area_level_1_rabai" model="area.level.1">
+        <field name="name">Rabai</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kilifi"/>
+    </record>
+    <record id="area_level_1_rangwe" model="area.level.1">
+        <field name="name">Rangwe</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_homa_bay"/>
+    </record>
+    <record id="area_level_1_rarieda" model="area.level.1">
+        <field name="name">Rarieda</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_siaya"/>
+    </record>
+    <record id="area_level_1_rongai" model="area.level.1">
+        <field name="name">Rongai</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_rongo" model="area.level.1">
+        <field name="name">Rongo</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_migori"/>
+    </record>
+    <record id="area_level_1_roysambu" model="area.level.1">
+        <field name="name">Roysambu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_ruaraka" model="area.level.1">
+        <field name="name">Ruaraka</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_ruiru" model="area.level.1">
+        <field name="name">Ruiru</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_runyenjes" model="area.level.1">
+        <field name="name">Runyenjes</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_embu"/>
+    </record>
+    <record id="area_level_1_sabatia" model="area.level.1">
+        <field name="name">Sabatia</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_vihiga"/>
+    </record>
+    <record id="area_level_1_saku" model="area.level.1">
+        <field name="name">Saku</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_marsabit"/>
+    </record>
+    <record id="area_level_1_samburu_east" model="area.level.1">
+        <field name="name">Samburu East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_samburu"/>
+    </record>
+    <record id="area_level_1_samburu_north" model="area.level.1">
+        <field name="name">Samburu North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_samburu"/>
+    </record>
+    <record id="area_level_1_samburu_west" model="area.level.1">
+        <field name="name">Samburu West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_samburu"/>
+    </record>
+    <record id="area_level_1_seme" model="area.level.1">
+        <field name="name">Seme</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisumu"/>
+    </record>
+    <record id="area_level_1_shinyalu" model="area.level.1">
+        <field name="name">Shinyalu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kakamega"/>
+    </record>
+    <record id="area_level_1_sigor" model="area.level.1">
+        <field name="name">Sigor</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_west_pokot"/>
+    </record>
+    <record id="area_level_1_sigowet_soin" model="area.level.1">
+        <field name="name">Sigowet-Soin</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kericho"/>
+    </record>
+    <record id="area_level_1_sirisia" model="area.level.1">
+        <field name="name">Sirisia</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_sotik" model="area.level.1">
+        <field name="name">Sotik</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bomet"/>
+    </record>
+    <record id="area_level_1_south_imenti" model="area.level.1">
+        <field name="name">South Imenti</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_south_mugirango" model="area.level.1">
+        <field name="name">South Mugirango</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kisii"/>
+    </record>
+    <record id="area_level_1_soy" model="area.level.1">
+        <field name="name">Soy</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_uasin_gishu"/>
+    </record>
+    <record id="area_level_1_starehe" model="area.level.1">
+        <field name="name">Starehe</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nairobi"/>
+    </record>
+    <record id="area_level_1_suba" model="area.level.1">
+        <field name="name">Suba</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_homa_bay"/>
+    </record>
+    <record id="area_level_1_subukia" model="area.level.1">
+        <field name="name">Subukia</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nakuru"/>
+    </record>
+    <record id="area_level_1_suna_east" model="area.level.1">
+        <field name="name">Suna East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_migori"/>
+    </record>
+    <record id="area_level_1_suna_west" model="area.level.1">
+        <field name="name">Suna West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_migori"/>
+    </record>
+    <record id="area_level_1_tarbaj" model="area.level.1">
+        <field name="name">Tarbaj</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_wajir"/>
+    </record>
+    <record id="area_level_1_taveta" model="area.level.1">
+        <field name="name">Taveta</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_taita_taveta"/>
+    </record>
+    <record id="area_level_1_teso_north" model="area.level.1">
+        <field name="name">Teso North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_busia"/>
+    </record>
+    <record id="area_level_1_teso_south" model="area.level.1">
+        <field name="name">Teso South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_busia"/>
+    </record>
+    <record id="area_level_1_tetu" model="area.level.1">
+        <field name="name">Tetu</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyeri"/>
+    </record>
+    <record id="area_level_1_tharaka" model="area.level.1">
+        <field name="name">Tharaka</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_tharaka_nithi"/>
+    </record>
+    <record id="area_level_1_thika_town" model="area.level.1">
+        <field name="name">Thika Town</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_kiambu"/>
+    </record>
+    <record id="area_level_1_tigania_east" model="area.level.1">
+        <field name="name">Tigania East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_tigania_west" model="area.level.1">
+        <field name="name">Tigania West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_meru"/>
+    </record>
+    <record id="area_level_1_tinderet" model="area.level.1">
+        <field name="name">Tinderet</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nandi"/>
+    </record>
+    <record id="area_level_1_tongaren" model="area.level.1">
+        <field name="name">Tongaren</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_turbo" model="area.level.1">
+        <field name="name">Turbo</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_uasin_gishu"/>
+    </record>
+    <record id="area_level_1_turkana_central" model="area.level.1">
+        <field name="name">Turkana Central</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_turkana"/>
+    </record>
+    <record id="area_level_1_turkana_east" model="area.level.1">
+        <field name="name">Turkana East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_turkana"/>
+    </record>
+    <record id="area_level_1_turkana_north" model="area.level.1">
+        <field name="name">Turkana North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_turkana"/>
+    </record>
+    <record id="area_level_1_turkana_south" model="area.level.1">
+        <field name="name">Turkana South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_turkana"/>
+    </record>
+    <record id="area_level_1_turkana_west" model="area.level.1">
+        <field name="name">Turkana West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_turkana"/>
+    </record>
+    <record id="area_level_1_ugenya" model="area.level.1">
+        <field name="name">Ugenya</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_siaya"/>
+    </record>
+    <record id="area_level_1_ugunja" model="area.level.1">
+        <field name="name">Ugunja</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_siaya"/>
+    </record>
+    <record id="area_level_1_uriri" model="area.level.1">
+        <field name="name">Uriri</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_migori"/>
+    </record>
+    <record id="area_level_1_vihiga" model="area.level.1">
+        <field name="name">Vihiga</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_vihiga"/>
+    </record>
+    <record id="area_level_1_voi" model="area.level.1">
+        <field name="name">Voi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_taita_taveta"/>
+    </record>
+    <record id="area_level_1_wajir_east" model="area.level.1">
+        <field name="name">Wajir East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_wajir"/>
+    </record>
+    <record id="area_level_1_wajir_north" model="area.level.1">
+        <field name="name">Wajir North</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_wajir"/>
+    </record>
+    <record id="area_level_1_wajir_south" model="area.level.1">
+        <field name="name">Wajir South</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_wajir"/>
+    </record>
+    <record id="area_level_1_wajir_west" model="area.level.1">
+        <field name="name">Wajir West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_wajir"/>
+    </record>
+    <record id="area_level_1_webuye_east" model="area.level.1">
+        <field name="name">Webuye East</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_webuye_west" model="area.level.1">
+        <field name="name">Webuye West</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_bungoma"/>
+    </record>
+    <record id="area_level_1_west_mugirango" model="area.level.1">
+        <field name="name">West Mugirango</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_nyamira"/>
+    </record>
+    <record id="area_level_1_wundanyi" model="area.level.1">
+        <field name="name">Wundanyi</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_taita_taveta"/>
+    </record>
+    <record id="area_level_1_yatta" model="area.level.1">
+        <field name="name">Yatta</field>
+        <field name="country_id" ref="base.ke"/>
+        <field name="parent_id" ref="area_level_2_machakos"/>
+    </record>
 </odoo>

@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
-from odoo import models, fields
+from odoo import fields, models
 
 
 class IdType(models.Model):
-    _name = 'res.id.type'
-    _description = 'ID Type'
+    _name = "res.id.type"
+    _description = "ID Type"
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(required=True)

@@ -2,7 +2,7 @@
 <odoo>
 
 	<!-- Farmer Certificates -->
-	
+
 	<record id="farmer_certification_search" model="ir.ui.view">
         <field name="name">farmer.certification.search</field>
         <field name="model">farmer.certification</field>
@@ -24,7 +24,7 @@
             </search>
         </field>
     </record>
-	
+
 	<record id="view_certified_farmer_tree" model="ir.ui.view">
 		<field name="name">view.farmer.certification.tree</field>
 		<field name="model">farmer.certification</field>
@@ -41,7 +41,7 @@
 			</list>
 		</field>
 	</record>
-	
+
 	<record id="view_certified_farmer_form" model="ir.ui.view">
 		<field name="name">view.farmer.certification.form</field>
 		<field name="model">farmer.certification</field>
@@ -49,17 +49,17 @@
 			<form>
 				<field name="active" invisible="1"/>
 				<field name="valid_farmer_certification_count" invisible="1"/>
-				
+
 				<header>
 					<button name="btn_validate" string="Validate" class="oe_highlight" type="object" data-hotkey="v" invisible="state != 'draft' or valid_farmer_certification_count == 0" confirm="There is another valid certification for this contact. If you validate this one, that certification will be set to expired. Are you sure you want to continue?" groups="agrios.group_agrios_user"/>
 					<button name="btn_validate" string="Validate" class="oe_highlight" type="object" data-hotkey="v" invisible="state != 'draft' or valid_farmer_certification_count &gt; 0" groups="agrios.group_agrios_user"/>
 					<button name="btn_set_draft" string="Set To Draft" type="object" data-hotkey="b" invisible="state == 'draft' or origin != 'manual'" groups="agrios.group_agrios_user"/>
 					<field name="state" widget="statusbar"/>
-				</header> 
+				</header>
 				<sheet>
 					<div name="button_box" class="oe_button_box"></div>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active == True"/>
-					
+
 					<group>
 						<group>
 							<field name="farmer_id"  options="{'no_create': True}" readonly="state != 'draft'"/>
@@ -85,7 +85,7 @@
 			</form>
 		</field>
 	</record>
-	
+
 	<record id="action_farmer_certificates" model="ir.actions.act_window">
 		<field name="name">Farmer Certifications</field>
 		<field name="res_model">farmer.certification</field>
@@ -102,9 +102,9 @@
 		</field>
 	</record>
 
-	
+
 	<!-- Certification Types -->
-	
+
 	<record id="view_certification_tree" model="ir.ui.view">
 		<field name="name">view.certification.tree</field>
 		<field name="model">certification.type</field>
@@ -118,7 +118,7 @@
 			</list>
 		</field>
 	</record>
-	
+
 	<record id="certification_type_form_view" model="ir.ui.view">
 		<field name="name">certification.type.form.view</field>
 		<field name="model">certification.type</field>
@@ -134,7 +134,7 @@
 			</form>
 		</field>
 	</record>
-	
+
 	<record id="action_certification_types" model="ir.actions.act_window">
 		<field name="name">Certification Types</field>
 		<field name="res_model">certification.type</field>
@@ -147,10 +147,10 @@
 			</p>
 		</field>
 	</record>
-	
-	
+
+
 	<!-- Corrective Actions -->
-	
+
 	<record id="corrective_action_tree" model="ir.ui.view">
 		<field name="name">corrective.action.tree</field>
 		<field name="model">corrective.action</field>
@@ -161,7 +161,7 @@
 			</list>
 		</field>
 	</record>
-	
+
 	<record id="corrective_action_action" model="ir.actions.act_window">
 		<field name="name">Corrective Actions</field>
 		<field name="res_model">corrective.action</field>
@@ -172,5 +172,5 @@
 			</p>
 		</field>
 	</record>
-	
+
 </odoo>

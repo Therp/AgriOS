@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-	
+
     <record id="view_order_form" model="ir.ui.view">
         <field name="name">sale.order.inherited.oms.form</field>
         <field name="model">sale.order</field>
@@ -16,7 +16,7 @@
             </xpath>
         </field>
     </record>
-	
+
 	<record id="agrios_input_orders_action" model="ir.actions.act_window">
         <field name="name">Input Orders</field>
         <field name="res_model">sale.order</field>
@@ -61,5 +61,5 @@
         <field name="view_id" ref="sale.view_sale_order_graph"/>
         <field name="act_window_id" ref="agrios_input_orders_action"/>
     </record>
-	
+
 </odoo>

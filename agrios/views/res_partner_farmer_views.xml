@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!--	Hide farmers in contact view-->
+    <!-- Hide farmers in contact view. -->
     <record id="contacts.action_contacts" model="ir.actions.act_window">
         <field name="domain">[('is_farmer', '=', False)]</field>
     </record>
@@ -10,6 +10,7 @@
         <field name="name">res.partner.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority" eval="128"/>
         <field name="arch" type="xml">
             <xpath expr="//page" position="inside">
                 <field name="is_farmer" invisible="1"/>
@@ -60,16 +61,24 @@
                         <group>
                             <label for="own_acreage" string="Own Plot Acreage"/>
                             <div class="o_row mw-50">
-                                <field name="own_acreage" readonly="plot_ids" class="oe_inline o_hr_narrow_field"
-                                       nolabel="1"/>
+                                <field
+                                    name="own_acreage"
+                                    readonly="plot_ids"
+                                    class="oe_inline o_hr_narrow_field"
+                                    nolabel="1"
+                                />
                                 <div class="mb-3">
                                     <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
                                 </div>
                             </div>
                             <label for="leased_acreage" string="Leased Plot Acreage"/>
                             <div class="o_row mw-50">
-                                <field name="leased_acreage" readonly="plot_ids" class="oe_inline o_hr_narrow_field"
-                                       nolabel="1"/>
+                                <field
+                                    name="leased_acreage"
+                                    readonly="plot_ids"
+                                    class="oe_inline o_hr_narrow_field"
+                                    nolabel="1"
+                                />
                                 <div class="mb-3">
                                     <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
                                 </div>

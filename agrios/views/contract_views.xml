@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-	
+
 	<record id="view_farmer_contract_search" model="ir.ui.view">
 		<field name="name">view.farmer.contract.search</field>
 		<field name="model">farmer.contract</field>
@@ -24,7 +24,7 @@
 			</search>
 		</field>
 	</record>
-	
+
 	<record id="view_farmer_contract_tree" model="ir.ui.view">
 		<field name="name">view.farmer.contract.tree</field>
 		<field name="model">farmer.contract</field>
@@ -43,7 +43,7 @@
 			</list>
 		</field>
 	</record>
-	
+
 	<record id="view_farmer_contract_no_create_edit_tree" model="ir.ui.view">
 		<field name="name">view.farmer.contract.no.create.tree</field>
 		<field name="model">farmer.contract</field>
@@ -57,7 +57,7 @@
 			</xpath>
 		</field>
 	</record>
-	
+
 	<record id="view_farmer_contract_form" model="ir.ui.view">
 		<field name="name">view.farmer.contract.form</field>
 		<field name="model">farmer.contract</field>
@@ -73,32 +73,32 @@
 				<field name="can_register_offtakes" invisible="1"/>
 				<field name="farmer_crop_product_ids" invisible="1"/>
 				<field name="available_seed_ids" invisible="1" groups="agrios.group_seed_varieties"/>
-				
+
 				<header>
 					<button name="confirm_farmer_contract" string="Confirm" type="object" class="oe_highlight" confirm="Are you sure you want to confirm this contract? The value set on the 'Contracted Acreage' is lower than 'Non-Contracted Acreage' value. Please, make sure this should be in fact the case before proceeding, this action can't be reversed. Furthermore, for the same reason, also ensure that all the farms of the farmer have been mapped." invisible="contract_stage != 'draft' or same_unutilized_contracted == True" groups="agrios.group_agrios_user"/>
-					<button name="confirm_farmer_contract" string="Confirm" type="object" class="oe_highlight" confirm="Are you sure you want to confirm this contract? Please ensure that all the farms of the farmer have been mapped and that the 'Contracted Acreage' value is correct before proceeding because this action can't be reversed." invisible="contract_stage != 'draft' or same_unutilized_contracted == False" groups="agrios.group_agrios_user"/> 
-					
+					<button name="confirm_farmer_contract" string="Confirm" type="object" class="oe_highlight" confirm="Are you sure you want to confirm this contract? Please ensure that all the farms of the farmer have been mapped and that the 'Contracted Acreage' value is correct before proceeding because this action can't be reversed." invisible="contract_stage != 'draft' or same_unutilized_contracted == False" groups="agrios.group_agrios_user"/>
+
 					<button name="btn_set_contracted_mapped_qty" string="Set to Mapped Quantities" type="object" invisible="contract_stage != 'draft' or same_unutilized_contracted == True" groups="agrios.group_agrios_user"/>
-					
+
 					<button name="action_create_agrios_oa_sale_orders" string="Order Inputs" type="object" class="oe_highlight" invisible="not can_order_inputs or ready_for_harvest" groups="sales_team.group_sale_salesman"/>
 					<button name="action_create_agrios_oa_sale_orders" string="Order Inputs" type="object" invisible="not can_order_inputs or not ready_for_harvest" confirm="The contract is at the harverst stage, confirm that you still would like to order inputs from it?" groups="sales_team.group_sale_salesman"/>
-					
+
 					<button name="action_create_agrios_oa_purchase_order" string="Off-take" type="object" class="oe_highlight" invisible="not can_register_offtakes or not ready_for_harvest" groups="purchase.group_purchase_user"/>
 					<button name="action_create_agrios_oa_purchase_order" string="Off-take" type="object" invisible="not can_register_offtakes or ready_for_harvest" confirm="The contract is still at the input stage, confirm that you still would like to register an off-take from it?" groups="purchase.group_purchase_user"/>
-					
+
 					<button name="set_ready_for_harvest" string="Mark Ready For Harvest" type="object" confirm="Are you sure you want to start buying off-take? You won't be able to order more inputs after!" invisible="contract_stage != 'open' or ready_for_harvest != False" groups="agrios.group_agrios_user"/>
-					
+
 					<button name="close_farmer_contract" string="Close" type="object" confirm="Are you sure you want to close this contract which hasn't expired yet?" invisible="contract_stage != 'open' or expired_contract" groups="agrios.group_agrios_user"/>
 					<button name="close_farmer_contract" string="Close" type="object" class="oe_highlight" invisible="contract_stage != 'open' or not expired_contract" groups="agrios.group_agrios_user"/>
-					
+
 					<button name="btn_cancel_contract" string="Cancel" type="object" confirm="Are you sure you want to cancel this Contract?" invisible="contract_stage in ('closed', 'cancelled')" groups="agrios.group_agrios_user"/>
-					
-					<field name="contract_stage" clickable="false" widget="statusbar" statusbar_visible="draft,open,closed"/> 
+
+					<field name="contract_stage" clickable="false" widget="statusbar" statusbar_visible="draft,open,closed"/>
 				</header>
 				<sheet>
                     <widget name="web_ribbon" title="Active" invisible="not active_contract"/>
 					<widget name="web_ribbon" title="Expired" bg_color="text-bg-warning" invisible="not expired_contract"/>
-					
+
 					<div class="oe_button_box" name="button_box">
 						<button class="oe_stat_button" name="action_agrios_oa_sale_orders" type="object" icon="fa-shopping-cart" groups="sales_team.group_sale_salesman">
 							<field name="count_oa_input_sales" string="Input Orders" widget="statinfo"/>
@@ -219,7 +219,7 @@
 			</form>
 		</field>
 	</record>
-	
+
 	<record id="action_farmer_contracts" model="ir.actions.act_window">
 		<field name="name">Contracts</field>
 		<field name="res_model">farmer.contract</field>
@@ -235,7 +235,7 @@
 			</p>
 		</field>
 	</record>
-	
+
 	<record id="multiple_confirm_draft_contracts_action" model="ir.actions.act_window">
 		<field name="name">Confirm Draft Contracts</field>
 		<field name="res_model">multiple.confirm.draft.contracts.wizard</field>
@@ -244,7 +244,7 @@
 		<field name="binding_model_id" ref="model_farmer_contract"/>
 		<field name="binding_view_types">list</field>
 	</record>
-	
+
 	<record id="multiple_set_contracted_mapped_qty_action" model="ir.actions.act_window">
 		<field name="name">Set to Mapped Quantities</field>
 		<field name="res_model">multiple.set.contracted.mapped.qty.wizard</field>
@@ -253,5 +253,5 @@
 		<field name="binding_model_id" ref="model_farmer_contract"/>
 		<field name="binding_view_types">list</field>
 	</record>
-	
+
 </odoo>

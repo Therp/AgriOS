@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from . import season
 from . import administration
+from . import country_location_level
+from . import farmer_group
 from . import partner
 from . import contract
 from . import certification

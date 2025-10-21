@@ -1,1006 +1,1004 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-  <data noupdate="1">
+<odoo noupdate="1">
     <record id="demo_interaction_noc_1" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_5"/>
-    <field name="name">Call to discuss Farmer Group</field>
-    <field name="interaction_date">2025-03-07</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">The group has changed members. 2 new and 1 quit.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_5"/>
+        <field name="name">Call to discuss Farmer Group</field>
+        <field name="interaction_date">2025-03-07</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">The group has changed members. 2 new and 1 quit.</field>
+    </record>
     <record id="demo_interaction_noc_2" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_15"/>
-    <field name="name">Visit Farm</field>
-    <field name="interaction_date">2025-03-09</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">To check farm workers conditions.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_15"/>
+        <field name="name">Visit Farm</field>
+        <field name="interaction_date">2025-03-09</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">To check farm workers conditions.</field>
+    </record>
     <record id="demo_interaction_noc_3" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_25"/>
-    <field name="name">Follow-up on Seed Delivery</field>
-    <field name="interaction_date">2025-01-15</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Farmer confirmed receipt of seeds.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_25"/>
+        <field name="name">Follow-up on Seed Delivery</field>
+        <field name="interaction_date">2025-01-15</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Farmer confirmed receipt of seeds.</field>
+    </record>
     <record id="demo_interaction_noc_4" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_35"/>
-    <field name="name">Farm Inspection</field>
-    <field name="interaction_date">2025-02-10</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected crop growth and soil conditions.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_35"/>
+        <field name="name">Farm Inspection</field>
+        <field name="interaction_date">2025-02-10</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected crop growth and soil conditions.</field>
+    </record>
     <record id="demo_interaction_noc_5" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_45"/>
-    <field name="name">Payment Discussion</field>
-    <field name="interaction_date">2025-01-20</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed pending payment issues.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_45"/>
+        <field name="name">Payment Discussion</field>
+        <field name="interaction_date">2025-01-20</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed pending payment issues.</field>
+    </record>
     <record id="demo_interaction_noc_6" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_50"/>
-    <field name="name">Training Session Follow-up</field>
-    <field name="interaction_date">2025-03-12</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Reviewed training impact on farming practices.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_50"/>
+        <field name="name">Training Session Follow-up</field>
+        <field name="interaction_date">2025-03-12</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Reviewed training impact on farming practices.</field>
+    </record>
     <record id="demo_interaction_noc_7" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_51"/>
-    <field name="name">Equipment Delivery</field>
-    <field name="interaction_date">2025-02-05</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed delivery of new farming tools.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_51"/>
+        <field name="name">Equipment Delivery</field>
+        <field name="interaction_date">2025-02-05</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed delivery of new farming tools.</field>
+    </record>
     <record id="demo_interaction_noc_8" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_52"/>
-    <field name="name">Harvest Planning</field>
-    <field name="interaction_date">2025-01-25</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Planned harvest schedule and logistics.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_52"/>
+        <field name="name">Harvest Planning</field>
+        <field name="interaction_date">2025-01-25</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Planned harvest schedule and logistics.</field>
+    </record>
     <record id="demo_interaction_noc_9" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_53"/>
-    <field name="name">Fertilizer Application</field>
-    <field name="interaction_date">2025-03-18</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed proper fertilizer usage.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_53"/>
+        <field name="name">Fertilizer Application</field>
+        <field name="interaction_date">2025-03-18</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed proper fertilizer usage.</field>
+    </record>
     <record id="demo_interaction_noc_10" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_54"/>
-    <field name="name">Pest Control Consultation</field>
-    <field name="interaction_date">2025-02-22</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Assessed pest damage and recommended solutions.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_54"/>
+        <field name="name">Pest Control Consultation</field>
+        <field name="interaction_date">2025-02-22</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Assessed pest damage and recommended solutions.</field>
+    </record>
     <record id="demo_interaction_noc_11" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_55"/>
-    <field name="name">Loan Repayment Discussion</field>
-    <field name="interaction_date">2025-01-30</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed loan repayment schedule.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_55"/>
+        <field name="name">Loan Repayment Discussion</field>
+        <field name="interaction_date">2025-01-30</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed loan repayment schedule.</field>
+    </record>
     <record id="demo_interaction_noc_12" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_56"/>
-    <field name="name">Irrigation System Check</field>
-    <field name="interaction_date">2025-03-25</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected irrigation system functionality.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_56"/>
+        <field name="name">Irrigation System Check</field>
+        <field name="interaction_date">2025-03-25</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected irrigation system functionality.</field>
+    </record>
     <record id="demo_interaction_noc_13" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_57"/>
-    <field name="name">Market Access Support</field>
-    <field name="interaction_date">2025-02-15</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Provided information on market access programs.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_57"/>
+        <field name="name">Market Access Support</field>
+        <field name="interaction_date">2025-02-15</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Provided information on market access programs.</field>
+    </record>
     <record id="demo_interaction_noc_14" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_58"/>
-    <field name="name">Soil Testing Results</field>
-    <field name="interaction_date">2025-01-10</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Shared soil test results and recommendations.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_58"/>
+        <field name="name">Soil Testing Results</field>
+        <field name="interaction_date">2025-01-10</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Shared soil test results and recommendations.</field>
+    </record>
     <record id="demo_interaction_noc_15" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_59"/>
-    <field name="name">Crop Rotation Planning</field>
-    <field name="interaction_date">2025-03-30</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed crop rotation strategies.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_59"/>
+        <field name="name">Crop Rotation Planning</field>
+        <field name="interaction_date">2025-03-30</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed crop rotation strategies.</field>
+    </record>
     <record id="demo_interaction_noc_16" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_65"/>
-    <field name="name">Weather Impact Assessment</field>
-    <field name="interaction_date">2025-02-28</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Assessed weather impact on crops.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_65"/>
+        <field name="name">Weather Impact Assessment</field>
+        <field name="interaction_date">2025-02-28</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Assessed weather impact on crops.</field>
+    </record>
     <record id="demo_interaction_noc_17" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_75"/>
-    <field name="name">Insurance Enrollment</field>
-    <field name="interaction_date">2025-01-05</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Assisted with crop insurance enrollment.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_75"/>
+        <field name="name">Insurance Enrollment</field>
+        <field name="interaction_date">2025-01-05</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Assisted with crop insurance enrollment.</field>
+    </record>
     <record id="demo_interaction_noc_18" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_85"/>
-    <field name="name">Storage Facility Inspection</field>
-    <field name="interaction_date">2025-03-22</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected storage conditions for harvested crops.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_85"/>
+        <field name="name">Storage Facility Inspection</field>
+        <field name="interaction_date">2025-03-22</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected storage conditions for harvested crops.</field>
+    </record>
     <record id="demo_interaction_noc_19" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_95"/>
-    <field name="name">Seed Quality Feedback</field>
-    <field name="interaction_date">2025-02-18</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Collected feedback on seed quality.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_95"/>
+        <field name="name">Seed Quality Feedback</field>
+        <field name="interaction_date">2025-02-18</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Collected feedback on seed quality.</field>
+    </record>
     <record id="demo_interaction_noc_20" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_105"/>
-    <field name="name">Composting Workshop</field>
-    <field name="interaction_date">2025-01-12</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Conducted composting demonstration.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_105"/>
+        <field name="name">Composting Workshop</field>
+        <field name="interaction_date">2025-01-12</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Conducted composting demonstration.</field>
+    </record>
     <record id="demo_interaction_noc_21" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_115"/>
-    <field name="name">Loan Application Assistance</field>
-    <field name="interaction_date">2025-03-14</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Helped with loan application process.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_115"/>
+        <field name="name">Loan Application Assistance</field>
+        <field name="interaction_date">2025-03-14</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Helped with loan application process.</field>
+    </record>
     <record id="demo_interaction_noc_22" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_125"/>
-    <field name="name">Crop Disease Management</field>
-    <field name="interaction_date">2025-02-08</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Identified and treated crop diseases.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_125"/>
+        <field name="name">Crop Disease Management</field>
+        <field name="interaction_date">2025-02-08</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Identified and treated crop diseases.</field>
+    </record>
     <record id="demo_interaction_noc_23" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_135"/>
-    <field name="name">Harvest Yield Review</field>
-    <field name="interaction_date">2025-01-22</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed expected harvest yields.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_135"/>
+        <field name="name">Harvest Yield Review</field>
+        <field name="interaction_date">2025-01-22</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed expected harvest yields.</field>
+    </record>
     <record id="demo_interaction_noc_24" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_145"/>
-    <field name="name">Market Price Update</field>
-    <field name="interaction_date">2025-02-25</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Provided current market price information.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_145"/>
+        <field name="name">Market Price Update</field>
+        <field name="interaction_date">2025-02-25</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Provided current market price information.</field>
+    </record>
     <record id="demo_interaction_noc_25" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_150"/>
-    <field name="name">Organic Farming Discussion</field>
-    <field name="interaction_date">2025-01-18</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed transition to organic farming.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_150"/>
+        <field name="name">Organic Farming Discussion</field>
+        <field name="interaction_date">2025-01-18</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed transition to organic farming.</field>
+    </record>
     <record id="demo_interaction_noc_26" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_151"/>
-    <field name="name">Post-Harvest Storage</field>
-    <field name="interaction_date">2025-03-20</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Advised on post-harvest storage techniques.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_151"/>
+        <field name="name">Post-Harvest Storage</field>
+        <field name="interaction_date">2025-03-20</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Advised on post-harvest storage techniques.</field>
+    </record>
     <record id="demo_interaction_noc_27" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_152"/>
-    <field name="name">Livestock Integration</field>
-    <field name="interaction_date">2025-02-12</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Explored livestock integration with crops.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_152"/>
+        <field name="name">Livestock Integration</field>
+        <field name="interaction_date">2025-02-12</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Explored livestock integration with crops.</field>
+    </record>
     <record id="demo_interaction_noc_28" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_153"/>
-    <field name="name">Financial Planning</field>
-    <field name="interaction_date">2025-01-08</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Assisted with financial planning for the season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_153"/>
+        <field name="name">Financial Planning</field>
+        <field name="interaction_date">2025-01-08</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Assisted with financial planning for the season.</field>
+    </record>
     <record id="demo_interaction_noc_29" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_154"/>
-    <field name="name">Crop Diversification</field>
-    <field name="interaction_date">2025-03-10</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed benefits of crop diversification.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_154"/>
+        <field name="name">Crop Diversification</field>
+        <field name="interaction_date">2025-03-10</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed benefits of crop diversification.</field>
+    </record>
     <record id="demo_interaction_noc_30" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_155"/>
-    <field name="name">Loan Repayment Reminder</field>
-    <field name="interaction_date">2025-02-20</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reminded about upcoming loan repayment.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_155"/>
+        <field name="name">Loan Repayment Reminder</field>
+        <field name="interaction_date">2025-02-20</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reminded about upcoming loan repayment.</field>
+    </record>
     <record id="demo_interaction_noc_31" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_156"/>
-    <field name="name">Farm Expansion Consultation</field>
-    <field name="interaction_date">2025-01-28</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Consulted on farm expansion plans.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_156"/>
+        <field name="name">Farm Expansion Consultation</field>
+        <field name="interaction_date">2025-01-28</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Consulted on farm expansion plans.</field>
+    </record>
     <record id="demo_interaction_noc_32" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_157"/>
-    <field name="name">Seed Variety Selection</field>
-    <field name="interaction_date">2025-03-05</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed seed variety options for next season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_157"/>
+        <field name="name">Seed Variety Selection</field>
+        <field name="interaction_date">2025-03-05</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed seed variety options for next season.</field>
+    </record>
     <record id="demo_interaction_noc_33" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_158"/>
-    <field name="name">Irrigation Maintenance</field>
-    <field name="interaction_date">2025-02-14</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected and maintained irrigation systems.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_158"/>
+        <field name="name">Irrigation Maintenance</field>
+        <field name="interaction_date">2025-02-14</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected and maintained irrigation systems.</field>
+    </record>
     <record id="demo_interaction_noc_34" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_159"/>
-    <field name="name">Harvest Equipment Check</field>
-    <field name="interaction_date">2025-01-14</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed readiness of harvest equipment.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_159"/>
+        <field name="name">Harvest Equipment Check</field>
+        <field name="interaction_date">2025-01-14</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed readiness of harvest equipment.</field>
+    </record>
     <record id="demo_interaction_noc_35" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_165"/>
-    <field name="name">Soil Health Workshop</field>
-    <field name="interaction_date">2025-03-15</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Conducted workshop on soil health improvement.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_165"/>
+        <field name="name">Soil Health Workshop</field>
+        <field name="interaction_date">2025-03-15</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Conducted workshop on soil health improvement.</field>
+    </record>
     <record id="demo_interaction_noc_36" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_175"/>
-    <field name="name">Market Linkage Support</field>
-    <field name="interaction_date">2025-02-07</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Provided support for market linkages.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_175"/>
+        <field name="name">Market Linkage Support</field>
+        <field name="interaction_date">2025-02-07</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Provided support for market linkages.</field>
+    </record>
     <record id="demo_interaction_noc_37" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_185"/>
-    <field name="name">Loan Disbursement Follow-up</field>
-    <field name="interaction_date">2025-03-24</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Followed up on loan disbursement status.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_185"/>
+        <field name="name">Loan Disbursement Follow-up</field>
+        <field name="interaction_date">2025-03-24</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Followed up on loan disbursement status.</field>
+    </record>
     <record id="demo_interaction_noc_38" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_195"/>
-    <field name="name">Crop Insurance Review</field>
-    <field name="interaction_date">2025-02-27</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Reviewed crop insurance coverage.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_195"/>
+        <field name="name">Crop Insurance Review</field>
+        <field name="interaction_date">2025-02-27</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Reviewed crop insurance coverage.</field>
+    </record>
     <record id="demo_interaction_noc_39" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_205"/>
-    <field name="name">Seed Distribution</field>
-    <field name="interaction_date">2025-01-03</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Coordinated seed distribution for the season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_205"/>
+        <field name="name">Seed Distribution</field>
+        <field name="interaction_date">2025-01-03</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Coordinated seed distribution for the season.</field>
+    </record>
     <record id="demo_interaction_noc_40" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_215"/>
-    <field name="name">Farm Record Keeping</field>
-    <field name="interaction_date">2025-03-19</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Assisted with farm record-keeping practices.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_215"/>
+        <field name="name">Farm Record Keeping</field>
+        <field name="interaction_date">2025-03-19</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Assisted with farm record-keeping practices.</field>
+    </record>
     <record id="demo_interaction_noc_41" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_225"/>
-    <field name="name">Weather Forecast Update</field>
-    <field name="interaction_date">2025-02-17</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Shared weather forecast for planning.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_225"/>
+        <field name="name">Weather Forecast Update</field>
+        <field name="interaction_date">2025-02-17</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Shared weather forecast for planning.</field>
+    </record>
     <record id="demo_interaction_noc_42" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_235"/>
-    <field name="name">Compost Application</field>
-    <field name="interaction_date">2025-01-11</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Demonstrated compost application techniques.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_235"/>
+        <field name="name">Compost Application</field>
+        <field name="interaction_date">2025-01-11</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Demonstrated compost application techniques.</field>
+    </record>
     <record id="demo_interaction_noc_43" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_245"/>
-    <field name="name">Loan Repayment Plan</field>
-    <field name="interaction_date">2025-03-29</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed flexible repayment options.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_245"/>
+        <field name="name">Loan Repayment Plan</field>
+        <field name="interaction_date">2025-03-29</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed flexible repayment options.</field>
+    </record>
     <record id="demo_interaction_noc_44" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_250"/>
-    <field name="name">Crop Monitoring</field>
-    <field name="interaction_date">2025-02-09</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Monitored crop growth and health.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_250"/>
+        <field name="name">Crop Monitoring</field>
+        <field name="interaction_date">2025-02-09</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Monitored crop growth and health.</field>
+    </record>
     <record id="demo_interaction_noc_45" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_251"/>
-    <field name="name">Irrigation Efficiency</field>
-    <field name="interaction_date">2025-03-26</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Improved irrigation system efficiency.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_251"/>
+        <field name="name">Irrigation Efficiency</field>
+        <field name="interaction_date">2025-03-26</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Improved irrigation system efficiency.</field>
+    </record>
     <record id="demo_interaction_noc_46" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_252"/>
-    <field name="name">Harvest Preparation</field>
-    <field name="interaction_date">2025-02-23</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Prepared for upcoming harvest season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_252"/>
+        <field name="name">Harvest Preparation</field>
+        <field name="interaction_date">2025-02-23</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Prepared for upcoming harvest season.</field>
+    </record>
     <record id="demo_interaction_noc_47" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_253"/>
-    <field name="name">Soil Amendment</field>
-    <field name="interaction_date">2025-01-06</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Applied soil amendments for better yield.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_253"/>
+        <field name="name">Soil Amendment</field>
+        <field name="interaction_date">2025-01-06</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Applied soil amendments for better yield.</field>
+    </record>
     <record id="demo_interaction_noc_48" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_254"/>
-    <field name="name">Loan Application Review</field>
-    <field name="interaction_date">2025-03-13</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed loan application details.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_254"/>
+        <field name="name">Loan Application Review</field>
+        <field name="interaction_date">2025-03-13</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed loan application details.</field>
+    </record>
     <record id="demo_interaction_noc_49" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_255"/>
-    <field name="name">Crop Protection</field>
-    <field name="interaction_date">2025-02-19</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Implemented crop protection measures.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_255"/>
+        <field name="name">Crop Protection</field>
+        <field name="interaction_date">2025-02-19</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Implemented crop protection measures.</field>
+    </record>
     <record id="demo_interaction_noc_50" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_256"/>
-    <field name="name">Harvest Logistics</field>
-    <field name="interaction_date">2025-03-27</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Planned logistics for harvest transportation.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_256"/>
+        <field name="name">Harvest Logistics</field>
+        <field name="interaction_date">2025-03-27</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Planned logistics for harvest transportation.</field>
+    </record>
     <record id="demo_interaction_noc_51" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_257"/>
-    <field name="name">Seed Treatment</field>
-    <field name="interaction_date">2025-02-11</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed seed treatment options.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_257"/>
+        <field name="name">Seed Treatment</field>
+        <field name="interaction_date">2025-02-11</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed seed treatment options.</field>
+    </record>
     <record id="demo_interaction_noc_52" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_258"/>
-    <field name="name">Farm Sustainability</field>
-    <field name="interaction_date">2025-01-09</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed sustainable farming practices.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_258"/>
+        <field name="name">Farm Sustainability</field>
+        <field name="interaction_date">2025-01-09</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed sustainable farming practices.</field>
+    </record>
     <record id="demo_interaction_noc_53" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_259"/>
-    <field name="name">Loan Disbursement</field>
-    <field name="interaction_date">2025-03-21</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed loan disbursement details.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_259"/>
+        <field name="name">Loan Disbursement</field>
+        <field name="interaction_date">2025-03-21</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed loan disbursement details.</field>
+    </record>
     <record id="demo_interaction_noc_54" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_265"/>
-    <field name="name">Crop Rotation Benefits</field>
-    <field name="interaction_date">2025-02-26</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Explained benefits of crop rotation.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_265"/>
+        <field name="name">Crop Rotation Benefits</field>
+        <field name="interaction_date">2025-02-26</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Explained benefits of crop rotation.</field>
+    </record>
     <record id="demo_interaction_noc_55" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_275"/>
-    <field name="name">Market Trends</field>
-    <field name="interaction_date">2025-01-13</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Shared current market trends.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_275"/>
+        <field name="name">Market Trends</field>
+        <field name="interaction_date">2025-01-13</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Shared current market trends.</field>
+    </record>
     <record id="demo_interaction_noc_56" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_285"/>
-    <field name="name">Harvest Quality</field>
-    <field name="interaction_date">2025-02-16</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed maintaining harvest quality.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_285"/>
+        <field name="name">Harvest Quality</field>
+        <field name="interaction_date">2025-02-16</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed maintaining harvest quality.</field>
+    </record>
     <record id="demo_interaction_noc_57" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_295"/>
-    <field name="name">Soil Testing</field>
-    <field name="interaction_date">2025-01-07</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Conducted soil testing for nutrient levels.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_295"/>
+        <field name="name">Soil Testing</field>
+        <field name="interaction_date">2025-01-07</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Conducted soil testing for nutrient levels.</field>
+    </record>
     <record id="demo_interaction_noc_58" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_305"/>
-    <field name="name">Loan Repayment Schedule</field>
-    <field name="interaction_date">2025-03-23</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed repayment schedule with farmer.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_305"/>
+        <field name="name">Loan Repayment Schedule</field>
+        <field name="interaction_date">2025-03-23</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed repayment schedule with farmer.</field>
+    </record>
     <record id="demo_interaction_noc_59" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_315"/>
-    <field name="name">Crop Disease Prevention</field>
-    <field name="interaction_date">2025-02-21</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Implemented disease prevention measures.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_315"/>
+        <field name="name">Crop Disease Prevention</field>
+        <field name="interaction_date">2025-02-21</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Implemented disease prevention measures.</field>
+    </record>
     <record id="demo_interaction_noc_60" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_325"/>
-    <field name="name">Financial Assistance</field>
-    <field name="interaction_date">2025-01-04</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Provided information on financial assistance programs.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_325"/>
+        <field name="name">Financial Assistance</field>
+        <field name="interaction_date">2025-01-04</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Provided information on financial assistance programs.</field>
+    </record>
     <record id="demo_interaction_noc_61" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_335"/>
-    <field name="name">Harvest Storage</field>
-    <field name="interaction_date">2025-03-17</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected storage facilities for harvest.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_335"/>
+        <field name="name">Harvest Storage</field>
+        <field name="interaction_date">2025-03-17</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected storage facilities for harvest.</field>
+    </record>
     <record id="demo_interaction_noc_62" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_345"/>
-    <field name="name">Seed Quality Check</field>
-    <field name="interaction_date">2025-02-13</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Checked seed quality for next planting season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_345"/>
+        <field name="name">Seed Quality Check</field>
+        <field name="interaction_date">2025-02-13</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Checked seed quality for next planting season.</field>
+    </record>
     <record id="demo_interaction_noc_63" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_350"/>
-    <field name="name">Farm Expansion</field>
-    <field name="interaction_date">2025-01-21</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed plans for farm expansion.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_350"/>
+        <field name="name">Farm Expansion</field>
+        <field name="interaction_date">2025-01-21</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed plans for farm expansion.</field>
+    </record>
     <record id="demo_interaction_noc_64" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_351"/>
-    <field name="name">Loan Eligibility</field>
-    <field name="interaction_date">2025-03-31</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Verified loan eligibility criteria.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_351"/>
+        <field name="name">Loan Eligibility</field>
+        <field name="interaction_date">2025-03-31</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Verified loan eligibility criteria.</field>
+    </record>
     <record id="demo_interaction_noc_65" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_352"/>
-    <field name="name">Crop Monitoring</field>
-    <field name="interaction_date">2025-02-24</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Monitored crop health and growth.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_352"/>
+        <field name="name">Crop Monitoring</field>
+        <field name="interaction_date">2025-02-24</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Monitored crop health and growth.</field>
+    </record>
     <record id="demo_interaction_noc_66" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_353"/>
-    <field name="name">Market Access</field>
-    <field name="interaction_date">2025-01-02</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Provided guidance on accessing new markets.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_353"/>
+        <field name="name">Market Access</field>
+        <field name="interaction_date">2025-01-02</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Provided guidance on accessing new markets.</field>
+    </record>
     <record id="demo_interaction_noc_67" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_354"/>
-    <field name="name">Irrigation System Upgrade</field>
-    <field name="interaction_date">2025-03-08</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Upgraded irrigation system for better efficiency.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_354"/>
+        <field name="name">Irrigation System Upgrade</field>
+        <field name="interaction_date">2025-03-08</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Upgraded irrigation system for better efficiency.</field>
+    </record>
     <record id="demo_interaction_noc_68" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_355"/>
-    <field name="name">Harvest Planning</field>
-    <field name="interaction_date">2025-02-06</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Planned harvest schedule and logistics.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_355"/>
+        <field name="name">Harvest Planning</field>
+        <field name="interaction_date">2025-02-06</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Planned harvest schedule and logistics.</field>
+    </record>
     <record id="demo_interaction_noc_69" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_356"/>
-    <field name="name">Soil Health</field>
-    <field name="interaction_date">2025-01-23</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed soil health improvement techniques.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_356"/>
+        <field name="name">Soil Health</field>
+        <field name="interaction_date">2025-01-23</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed soil health improvement techniques.</field>
+    </record>
     <record id="demo_interaction_noc_70" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_357"/>
-    <field name="name">Loan Repayment</field>
-    <field name="interaction_date">2025-03-11</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed loan repayment options.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_357"/>
+        <field name="name">Loan Repayment</field>
+        <field name="interaction_date">2025-03-11</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed loan repayment options.</field>
+    </record>
     <record id="demo_interaction_noc_71" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_358"/>
-    <field name="name">Crop Protection</field>
-    <field name="interaction_date">2025-02-04</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Implemented crop protection strategies.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_358"/>
+        <field name="name">Crop Protection</field>
+        <field name="interaction_date">2025-02-04</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Implemented crop protection strategies.</field>
+    </record>
     <record id="demo_interaction_noc_72" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_359"/>
-    <field name="name">Financial Planning</field>
-    <field name="interaction_date">2025-01-26</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Assisted with financial planning for the season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_359"/>
+        <field name="name">Financial Planning</field>
+        <field name="interaction_date">2025-01-26</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Assisted with financial planning for the season.</field>
+    </record>
     <record id="demo_interaction_noc_73" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_365"/>
-    <field name="name">Harvest Preparation</field>
-    <field name="interaction_date">2025-03-02</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Prepared for the upcoming harvest season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_365"/>
+        <field name="name">Harvest Preparation</field>
+        <field name="interaction_date">2025-03-02</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Prepared for the upcoming harvest season.</field>
+    </record>
     <record id="demo_interaction_noc_74" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_375"/>
-    <field name="name">Seed Distribution</field>
-    <field name="interaction_date">2025-02-01</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Coordinated seed distribution for planting.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_375"/>
+        <field name="name">Seed Distribution</field>
+        <field name="interaction_date">2025-02-01</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Coordinated seed distribution for planting.</field>
+    </record>
     <record id="demo_interaction_noc_75" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_385"/>
-    <field name="name">Farm Sustainability</field>
-    <field name="interaction_date">2025-01-29</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed sustainable farming practices.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_385"/>
+        <field name="name">Farm Sustainability</field>
+        <field name="interaction_date">2025-01-29</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed sustainable farming practices.</field>
+    </record>
     <record id="demo_interaction_noc_76" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_395"/>
-    <field name="name">Loan Disbursement</field>
-    <field name="interaction_date">2025-03-04</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed loan disbursement details.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_395"/>
+        <field name="name">Loan Disbursement</field>
+        <field name="interaction_date">2025-03-04</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed loan disbursement details.</field>
+    </record>
     <record id="demo_interaction_noc_77" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_405"/>
-    <field name="name">Crop Rotation</field>
-    <field name="interaction_date">2025-02-03</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Explained benefits of crop rotation.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_405"/>
+        <field name="name">Crop Rotation</field>
+        <field name="interaction_date">2025-02-03</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Explained benefits of crop rotation.</field>
+    </record>
     <record id="demo_interaction_noc_78" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_415"/>
-    <field name="name">Market Trends</field>
-    <field name="interaction_date">2025-01-31</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Shared current market trends with farmer.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_415"/>
+        <field name="name">Market Trends</field>
+        <field name="interaction_date">2025-01-31</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Shared current market trends with farmer.</field>
+    </record>
     <record id="demo_interaction_noc_79" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_425"/>
-    <field name="name">Call to discuss Farmer Group</field>
-    <field name="interaction_date">2025-03-07</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">The group has changed members. 2 new and 1 quit.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_425"/>
+        <field name="name">Call to discuss Farmer Group</field>
+        <field name="interaction_date">2025-03-07</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">The group has changed members. 2 new and 1 quit.</field>
+    </record>
     <record id="demo_interaction_noc_80" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_435"/>
-    <field name="name">Visit Farm</field>
-    <field name="interaction_date">2025-03-09</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">To check farm workers conditions.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_435"/>
+        <field name="name">Visit Farm</field>
+        <field name="interaction_date">2025-03-09</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">To check farm workers conditions.</field>
+    </record>
     <record id="demo_interaction_noc_81" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_445"/>
-    <field name="name">Follow-up on Seed Delivery</field>
-    <field name="interaction_date">2025-01-15</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Farmer confirmed receipt of seeds.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_445"/>
+        <field name="name">Follow-up on Seed Delivery</field>
+        <field name="interaction_date">2025-01-15</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Farmer confirmed receipt of seeds.</field>
+    </record>
     <record id="demo_interaction_noc_82" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_450"/>
-    <field name="name">Farm Inspection</field>
-    <field name="interaction_date">2025-02-10</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected crop growth and soil conditions.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_450"/>
+        <field name="name">Farm Inspection</field>
+        <field name="interaction_date">2025-02-10</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected crop growth and soil conditions.</field>
+    </record>
     <record id="demo_interaction_noc_83" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_5"/>
-    <field name="name">Payment Discussion</field>
-    <field name="interaction_date">2025-01-20</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed pending payment issues.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_5"/>
+        <field name="name">Payment Discussion</field>
+        <field name="interaction_date">2025-01-20</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed pending payment issues.</field>
+    </record>
     <record id="demo_interaction_noc_84" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_15"/>
-    <field name="name">Training Session Follow-up</field>
-    <field name="interaction_date">2025-03-12</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Reviewed training impact on farming practices.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_15"/>
+        <field name="name">Training Session Follow-up</field>
+        <field name="interaction_date">2025-03-12</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Reviewed training impact on farming practices.</field>
+    </record>
     <record id="demo_interaction_noc_85" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_25"/>
-    <field name="name">Equipment Delivery</field>
-    <field name="interaction_date">2025-02-05</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed delivery of new farming tools.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_25"/>
+        <field name="name">Equipment Delivery</field>
+        <field name="interaction_date">2025-02-05</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed delivery of new farming tools.</field>
+    </record>
     <record id="demo_interaction_noc_86" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_35"/>
-    <field name="name">Harvest Planning</field>
-    <field name="interaction_date">2025-01-25</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Planned harvest schedule and logistics.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_35"/>
+        <field name="name">Harvest Planning</field>
+        <field name="interaction_date">2025-01-25</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Planned harvest schedule and logistics.</field>
+    </record>
     <record id="demo_interaction_noc_87" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_45"/>
-    <field name="name">Fertilizer Application</field>
-    <field name="interaction_date">2025-03-18</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed proper fertilizer usage.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_45"/>
+        <field name="name">Fertilizer Application</field>
+        <field name="interaction_date">2025-03-18</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed proper fertilizer usage.</field>
+    </record>
     <record id="demo_interaction_noc_88" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_52"/>
-    <field name="name">Pest Control Consultation</field>
-    <field name="interaction_date">2025-02-22</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Assessed pest damage and recommended solutions.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_52"/>
+        <field name="name">Pest Control Consultation</field>
+        <field name="interaction_date">2025-02-22</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Assessed pest damage and recommended solutions.</field>
+    </record>
     <record id="demo_interaction_noc_89" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_53"/>
-    <field name="name">Loan Application Review</field>
-    <field name="interaction_date">2025-03-13</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed loan application details.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_53"/>
+        <field name="name">Loan Application Review</field>
+        <field name="interaction_date">2025-03-13</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed loan application details.</field>
+    </record>
     <record id="demo_interaction_noc_90" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_54"/>
-    <field name="name">Crop Protection</field>
-    <field name="interaction_date">2025-02-19</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Implemented crop protection measures.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_54"/>
+        <field name="name">Crop Protection</field>
+        <field name="interaction_date">2025-02-19</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Implemented crop protection measures.</field>
+    </record>
     <record id="demo_interaction_noc_91" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_55"/>
-    <field name="name">Harvest Logistics</field>
-    <field name="interaction_date">2025-03-27</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Planned logistics for harvest transportation.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_55"/>
+        <field name="name">Harvest Logistics</field>
+        <field name="interaction_date">2025-03-27</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Planned logistics for harvest transportation.</field>
+    </record>
     <record id="demo_interaction_noc_92" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_56"/>
-    <field name="name">Seed Treatment</field>
-    <field name="interaction_date">2025-02-11</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed seed treatment options.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_56"/>
+        <field name="name">Seed Treatment</field>
+        <field name="interaction_date">2025-02-11</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed seed treatment options.</field>
+    </record>
     <record id="demo_interaction_noc_93" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_57"/>
-    <field name="name">Farm Sustainability</field>
-    <field name="interaction_date">2025-01-09</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed sustainable farming practices.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_57"/>
+        <field name="name">Farm Sustainability</field>
+        <field name="interaction_date">2025-01-09</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed sustainable farming practices.</field>
+    </record>
     <record id="demo_interaction_noc_94" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_58"/>
-    <field name="name">Loan Disbursement</field>
-    <field name="interaction_date">2025-03-21</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed loan disbursement details.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_58"/>
+        <field name="name">Loan Disbursement</field>
+        <field name="interaction_date">2025-03-21</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed loan disbursement details.</field>
+    </record>
     <record id="demo_interaction_noc_95" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_59"/>
-    <field name="name">Crop Rotation Benefits</field>
-    <field name="interaction_date">2025-02-26</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Explained benefits of crop rotation.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_59"/>
+        <field name="name">Crop Rotation Benefits</field>
+        <field name="interaction_date">2025-02-26</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Explained benefits of crop rotation.</field>
+    </record>
     <record id="demo_interaction_noc_96" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_65"/>
-    <field name="name">Market Trends</field>
-    <field name="interaction_date">2025-01-13</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Shared current market trends.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_65"/>
+        <field name="name">Market Trends</field>
+        <field name="interaction_date">2025-01-13</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Shared current market trends.</field>
+    </record>
     <record id="demo_interaction_noc_97" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_75"/>
-    <field name="name">Harvest Quality</field>
-    <field name="interaction_date">2025-02-16</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed maintaining harvest quality.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_75"/>
+        <field name="name">Harvest Quality</field>
+        <field name="interaction_date">2025-02-16</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed maintaining harvest quality.</field>
+    </record>
     <record id="demo_interaction_noc_98" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_85"/>
-    <field name="name">Soil Testing</field>
-    <field name="interaction_date">2025-01-07</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Conducted soil testing for nutrient levels.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_85"/>
+        <field name="name">Soil Testing</field>
+        <field name="interaction_date">2025-01-07</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Conducted soil testing for nutrient levels.</field>
+    </record>
     <record id="demo_interaction_noc_99" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_95"/>
-    <field name="name">Loan Repayment Schedule</field>
-    <field name="interaction_date">2025-03-23</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed repayment schedule with farmer.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_95"/>
+        <field name="name">Loan Repayment Schedule</field>
+        <field name="interaction_date">2025-03-23</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed repayment schedule with farmer.</field>
+    </record>
     <record id="demo_interaction_noc_100" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_135"/>
-    <field name="name">Crop Disease Prevention</field>
-    <field name="interaction_date">2025-02-21</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Implemented disease prevention measures.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_135"/>
+        <field name="name">Crop Disease Prevention</field>
+        <field name="interaction_date">2025-02-21</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Implemented disease prevention measures.</field>
+    </record>
     <record id="demo_interaction_noc_101" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_145"/>
-    <field name="name">Financial Assistance</field>
-    <field name="interaction_date">2025-01-04</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Provided information on financial assistance programs.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_145"/>
+        <field name="name">Financial Assistance</field>
+        <field name="interaction_date">2025-01-04</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Provided information on financial assistance programs.</field>
+    </record>
     <record id="demo_interaction_noc_102" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_150"/>
-    <field name="name">Harvest Storage</field>
-    <field name="interaction_date">2025-03-17</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected storage facilities for harvest.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_150"/>
+        <field name="name">Harvest Storage</field>
+        <field name="interaction_date">2025-03-17</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected storage facilities for harvest.</field>
+    </record>
     <record id="demo_interaction_noc_103" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_151"/>
-    <field name="name">Seed Quality Check</field>
-    <field name="interaction_date">2025-02-13</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Checked seed quality for next planting season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_151"/>
+        <field name="name">Seed Quality Check</field>
+        <field name="interaction_date">2025-02-13</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Checked seed quality for next planting season.</field>
+    </record>
     <record id="demo_interaction_noc_104" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_155"/>
-    <field name="name">Farm Expansion</field>
-    <field name="interaction_date">2025-01-21</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed plans for farm expansion.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_155"/>
+        <field name="name">Farm Expansion</field>
+        <field name="interaction_date">2025-01-21</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed plans for farm expansion.</field>
+    </record>
     <record id="demo_interaction_noc_105" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_156"/>
-    <field name="name">Loan Eligibility</field>
-    <field name="interaction_date">2025-03-31</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Verified loan eligibility criteria.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_156"/>
+        <field name="name">Loan Eligibility</field>
+        <field name="interaction_date">2025-03-31</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Verified loan eligibility criteria.</field>
+    </record>
     <record id="demo_interaction_noc_106" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_158"/>
-    <field name="name">Crop Monitoring</field>
-    <field name="interaction_date">2025-02-24</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Monitored crop health and growth.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_158"/>
+        <field name="name">Crop Monitoring</field>
+        <field name="interaction_date">2025-02-24</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Monitored crop health and growth.</field>
+    </record>
     <record id="demo_interaction_noc_107" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_159"/>
-    <field name="name">Market Access</field>
-    <field name="interaction_date">2025-01-02</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Provided guidance on accessing new markets.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_159"/>
+        <field name="name">Market Access</field>
+        <field name="interaction_date">2025-01-02</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Provided guidance on accessing new markets.</field>
+    </record>
     <record id="demo_interaction_noc_108" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_165"/>
-    <field name="name">Irrigation System Upgrade</field>
-    <field name="interaction_date">2025-03-08</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Upgraded irrigation system for better efficiency.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_165"/>
+        <field name="name">Irrigation System Upgrade</field>
+        <field name="interaction_date">2025-03-08</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Upgraded irrigation system for better efficiency.</field>
+    </record>
     <record id="demo_interaction_noc_109" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_175"/>
-    <field name="name">Harvest Planning</field>
-    <field name="interaction_date">2025-02-06</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Planned harvest schedule and logistics.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_175"/>
+        <field name="name">Harvest Planning</field>
+        <field name="interaction_date">2025-02-06</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Planned harvest schedule and logistics.</field>
+    </record>
     <record id="demo_interaction_noc_110" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_185"/>
-    <field name="name">Soil Health</field>
-    <field name="interaction_date">2025-01-23</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed soil health improvement techniques.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_185"/>
+        <field name="name">Soil Health</field>
+        <field name="interaction_date">2025-01-23</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed soil health improvement techniques.</field>
+    </record>
     <record id="demo_interaction_noc_111" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_195"/>
-    <field name="name">Loan Repayment</field>
-    <field name="interaction_date">2025-03-11</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed loan repayment options.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_195"/>
+        <field name="name">Loan Repayment</field>
+        <field name="interaction_date">2025-03-11</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed loan repayment options.</field>
+    </record>
     <record id="demo_interaction_noc_112" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_205"/>
-    <field name="name">Crop Protection</field>
-    <field name="interaction_date">2025-02-04</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Implemented crop protection strategies.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_205"/>
+        <field name="name">Crop Protection</field>
+        <field name="interaction_date">2025-02-04</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Implemented crop protection strategies.</field>
+    </record>
     <record id="demo_interaction_noc_113" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_215"/>
-    <field name="name">Financial Planning</field>
-    <field name="interaction_date">2025-01-26</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Assisted with financial planning for the season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_215"/>
+        <field name="name">Financial Planning</field>
+        <field name="interaction_date">2025-01-26</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Assisted with financial planning for the season.</field>
+    </record>
     <record id="demo_interaction_noc_114" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_235"/>
-    <field name="name">Harvest Preparation</field>
-    <field name="interaction_date">2025-03-02</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Prepared for the upcoming harvest season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_235"/>
+        <field name="name">Harvest Preparation</field>
+        <field name="interaction_date">2025-03-02</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Prepared for the upcoming harvest season.</field>
+    </record>
     <record id="demo_interaction_noc_115" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_245"/>
-    <field name="name">Seed Distribution</field>
-    <field name="interaction_date">2025-02-01</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Coordinated seed distribution for planting.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_245"/>
+        <field name="name">Seed Distribution</field>
+        <field name="interaction_date">2025-02-01</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Coordinated seed distribution for planting.</field>
+    </record>
     <record id="demo_interaction_noc_116" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_252"/>
-    <field name="name">Farm Sustainability</field>
-    <field name="interaction_date">2025-01-29</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed sustainable farming practices.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_252"/>
+        <field name="name">Farm Sustainability</field>
+        <field name="interaction_date">2025-01-29</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed sustainable farming practices.</field>
+    </record>
     <record id="demo_interaction_noc_117" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_255"/>
-    <field name="name">Loan Disbursement</field>
-    <field name="interaction_date">2025-03-04</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed loan disbursement details.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_255"/>
+        <field name="name">Loan Disbursement</field>
+        <field name="interaction_date">2025-03-04</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed loan disbursement details.</field>
+    </record>
     <record id="demo_interaction_noc_118" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_256"/>
-    <field name="name">Insurance Enrollment</field>
-    <field name="interaction_date">2025-01-05</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Assisted with crop insurance enrollment.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_256"/>
+        <field name="name">Insurance Enrollment</field>
+        <field name="interaction_date">2025-01-05</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Assisted with crop insurance enrollment.</field>
+    </record>
     <record id="demo_interaction_noc_119" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_257"/>
-    <field name="name">Storage Facility Inspection</field>
-    <field name="interaction_date">2025-03-22</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected storage conditions for harvested crops.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_257"/>
+        <field name="name">Storage Facility Inspection</field>
+        <field name="interaction_date">2025-03-22</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected storage conditions for harvested crops.</field>
+    </record>
     <record id="demo_interaction_noc_120" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_259"/>
-    <field name="name">Seed Quality Feedback</field>
-    <field name="interaction_date">2025-02-18</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Collected feedback on seed quality.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_259"/>
+        <field name="name">Seed Quality Feedback</field>
+        <field name="interaction_date">2025-02-18</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Collected feedback on seed quality.</field>
+    </record>
     <record id="demo_interaction_noc_121" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_265"/>
-    <field name="name">Composting Workshop</field>
-    <field name="interaction_date">2025-01-12</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Conducted composting demonstration.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_265"/>
+        <field name="name">Composting Workshop</field>
+        <field name="interaction_date">2025-01-12</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Conducted composting demonstration.</field>
+    </record>
     <record id="demo_interaction_noc_122" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_295"/>
-    <field name="name">Loan Application Assistance</field>
-    <field name="interaction_date">2025-03-14</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Helped with loan application process.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_295"/>
+        <field name="name">Loan Application Assistance</field>
+        <field name="interaction_date">2025-03-14</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Helped with loan application process.</field>
+    </record>
     <record id="demo_interaction_noc_123" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_325"/>
-    <field name="name">Crop Disease Management</field>
-    <field name="interaction_date">2025-02-08</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Identified and treated crop diseases.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_325"/>
+        <field name="name">Crop Disease Management</field>
+        <field name="interaction_date">2025-02-08</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Identified and treated crop diseases.</field>
+    </record>
     <record id="demo_interaction_noc_124" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_335"/>
-    <field name="name">Harvest Yield Review</field>
-    <field name="interaction_date">2025-01-22</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed expected harvest yields.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_335"/>
+        <field name="name">Harvest Yield Review</field>
+        <field name="interaction_date">2025-01-22</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed expected harvest yields.</field>
+    </record>
     <record id="demo_interaction_noc_125" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_345"/>
-    <field name="name">Market Price Update</field>
-    <field name="interaction_date">2025-02-25</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Provided current market price information.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_345"/>
+        <field name="name">Market Price Update</field>
+        <field name="interaction_date">2025-02-25</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Provided current market price information.</field>
+    </record>
     <record id="demo_interaction_noc_126" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_351"/>
-    <field name="name">Organic Farming Discussion</field>
-    <field name="interaction_date">2025-01-18</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed transition to organic farming.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_351"/>
+        <field name="name">Organic Farming Discussion</field>
+        <field name="interaction_date">2025-01-18</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed transition to organic farming.</field>
+    </record>
     <record id="demo_interaction_noc_127" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_352"/>
-    <field name="name">Post-Harvest Storage</field>
-    <field name="interaction_date">2025-03-20</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Advised on post-harvest storage techniques.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_352"/>
+        <field name="name">Post-Harvest Storage</field>
+        <field name="interaction_date">2025-03-20</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Advised on post-harvest storage techniques.</field>
+    </record>
     <record id="demo_interaction_noc_128" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_353"/>
-    <field name="name">Livestock Integration</field>
-    <field name="interaction_date">2025-02-12</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Explored livestock integration with crops.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_353"/>
+        <field name="name">Livestock Integration</field>
+        <field name="interaction_date">2025-02-12</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Explored livestock integration with crops.</field>
+    </record>
     <record id="demo_interaction_noc_129" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_354"/>
-    <field name="name">Financial Planning</field>
-    <field name="interaction_date">2025-01-08</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Assisted with financial planning for the season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_354"/>
+        <field name="name">Financial Planning</field>
+        <field name="interaction_date">2025-01-08</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Assisted with financial planning for the season.</field>
+    </record>
     <record id="demo_interaction_noc_130" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_355"/>
-    <field name="name">Crop Diversification</field>
-    <field name="interaction_date">2025-03-10</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Discussed benefits of crop diversification.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_355"/>
+        <field name="name">Crop Diversification</field>
+        <field name="interaction_date">2025-03-10</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Discussed benefits of crop diversification.</field>
+    </record>
     <record id="demo_interaction_noc_131" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_356"/>
-    <field name="name">Loan Repayment Reminder</field>
-    <field name="interaction_date">2025-02-20</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reminded about upcoming loan repayment.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_356"/>
+        <field name="name">Loan Repayment Reminder</field>
+        <field name="interaction_date">2025-02-20</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reminded about upcoming loan repayment.</field>
+    </record>
     <record id="demo_interaction_noc_132" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_357"/>
-    <field name="name">Farm Expansion Consultation</field>
-    <field name="interaction_date">2025-01-28</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Consulted on farm expansion plans.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_357"/>
+        <field name="name">Farm Expansion Consultation</field>
+        <field name="interaction_date">2025-01-28</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Consulted on farm expansion plans.</field>
+    </record>
     <record id="demo_interaction_noc_133" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_358"/>
-    <field name="name">Seed Variety Selection</field>
-    <field name="interaction_date">2025-03-05</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed seed variety options for next season.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_358"/>
+        <field name="name">Seed Variety Selection</field>
+        <field name="interaction_date">2025-03-05</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed seed variety options for next season.</field>
+    </record>
     <record id="demo_interaction_noc_134" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_359"/>
-    <field name="name">Irrigation Maintenance</field>
-    <field name="interaction_date">2025-02-14</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Inspected and maintained irrigation systems.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_359"/>
+        <field name="name">Irrigation Maintenance</field>
+        <field name="interaction_date">2025-02-14</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Inspected and maintained irrigation systems.</field>
+    </record>
     <record id="demo_interaction_noc_135" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_365"/>
-    <field name="name">Harvest Equipment Check</field>
-    <field name="interaction_date">2025-01-14</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed readiness of harvest equipment.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_365"/>
+        <field name="name">Harvest Equipment Check</field>
+        <field name="interaction_date">2025-01-14</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed readiness of harvest equipment.</field>
+    </record>
     <record id="demo_interaction_noc_136" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_385"/>
-    <field name="name">Soil Health Workshop</field>
-    <field name="interaction_date">2025-03-15</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Conducted workshop on soil health improvement.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_385"/>
+        <field name="name">Soil Health Workshop</field>
+        <field name="interaction_date">2025-03-15</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Conducted workshop on soil health improvement.</field>
+    </record>
     <record id="demo_interaction_noc_137" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_395"/>
-    <field name="name">Payment Discussion</field>
-    <field name="interaction_date">2025-01-20</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed pending payment issues.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_395"/>
+        <field name="name">Payment Discussion</field>
+        <field name="interaction_date">2025-01-20</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed pending payment issues.</field>
+    </record>
     <record id="demo_interaction_noc_138" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_405"/>
-    <field name="name">Training Session Follow-up</field>
-    <field name="interaction_date">2025-03-12</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Reviewed training impact on farming practices.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_405"/>
+        <field name="name">Training Session Follow-up</field>
+        <field name="interaction_date">2025-03-12</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Reviewed training impact on farming practices.</field>
+    </record>
     <record id="demo_interaction_noc_139" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_415"/>
-    <field name="name">Equipment Delivery</field>
-    <field name="interaction_date">2025-02-05</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Confirmed delivery of new farming tools.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_415"/>
+        <field name="name">Equipment Delivery</field>
+        <field name="interaction_date">2025-02-05</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Confirmed delivery of new farming tools.</field>
+    </record>
     <record id="demo_interaction_noc_140" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_425"/>
-    <field name="name">Harvest Planning</field>
-    <field name="interaction_date">2025-01-25</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Planned harvest schedule and logistics.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_425"/>
+        <field name="name">Harvest Planning</field>
+        <field name="interaction_date">2025-01-25</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Planned harvest schedule and logistics.</field>
+    </record>
     <record id="demo_interaction_noc_141" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_435"/>
-    <field name="name">Fertilizer Application</field>
-    <field name="interaction_date">2025-03-18</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Discussed proper fertilizer usage.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_435"/>
+        <field name="name">Fertilizer Application</field>
+        <field name="interaction_date">2025-03-18</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Discussed proper fertilizer usage.</field>
+    </record>
     <record id="demo_interaction_noc_142" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_445"/>
-    <field name="name">Pest Control Consultation</field>
-    <field name="interaction_date">2025-02-22</field>
-    <field name="interaction_type">visit</field>
-    <field name="notes">Assessed pest damage and recommended solutions.</field>
-</record>
+        <field name="farmer_id" ref="partner_demo_farmer_445"/>
+        <field name="name">Pest Control Consultation</field>
+        <field name="interaction_date">2025-02-22</field>
+        <field name="interaction_type">visit</field>
+        <field name="notes">Assessed pest damage and recommended solutions.</field>
+    </record>
     <record id="demo_interaction_noc_143" model="farmer.interaction">
-    <field name="farmer_id" ref="partner_demo_farmer_450"/>
-    <field name="name">Loan Repayment Discussion</field>
-    <field name="interaction_date">2025-01-30</field>
-    <field name="interaction_type">call</field>
-    <field name="notes">Reviewed loan repayment schedule.</field>
-</record>
-  </data>
+        <field name="farmer_id" ref="partner_demo_farmer_450"/>
+        <field name="name">Loan Repayment Discussion</field>
+        <field name="interaction_date">2025-01-30</field>
+        <field name="interaction_type">call</field>
+        <field name="notes">Reviewed loan repayment schedule.</field>
+    </record>
 </odoo>

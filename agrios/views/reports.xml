@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-	
+
 	<!-- Input Orders Analysis -->
-	
+
 	<record id="sale_order_line_input_report_search" model="ir.ui.view">
         <field name="name">sale.order.line.input.report.search</field>
         <field name="model">sale.order.line</field>
@@ -35,7 +35,7 @@
             </search>
         </field>
     </record>
-	
+
 	<record id="sale_order_line_input_report_tree" model="ir.ui.view">
 		<field name="name">sale.order.line.input.report.tree</field>
 		<field name="model">sale.order.line</field>
@@ -63,7 +63,7 @@
 			</list>
 		</field>
 	</record>
-	
+
 	<record id="sale_order_line_input_report_action" model="ir.actions.act_window">
 		<field name="name">Input Order Analysis</field>
 		<field name="res_model">sale.order.line</field>
@@ -78,10 +78,10 @@
 		<field name="view_id" ref="sale_order_line_input_report_tree"/>
 		<field name="act_window_id" ref="sale_order_line_input_report_action"/>
 	</record>
-	
-	
+
+
 	<!-- Offtake Analysis -->
-	
+
 	<record id="purchase_order_line_offtake_report_search" model="ir.ui.view">
         <field name="name">purchase.order.line.offtake.report.search</field>
         <field name="model">purchase.order.line</field>
@@ -114,7 +114,7 @@
             </search>
         </field>
     </record>
-	
+
 	<record id="purchase_order_line_offtake_report_tree" model="ir.ui.view">
 		<field name="name">purchase.order.line.offtake.report.tree</field>
 		<field name="model">purchase.order.line</field>
@@ -142,7 +142,7 @@
 			</list>
 		</field>
 	</record>
-	
+
 	<record id="purchase_order_line_offtake_report_action" model="ir.actions.act_window">
 		<field name="name">Offtake Analysis</field>
 		<field name="res_model">purchase.order.line</field>
@@ -157,5 +157,5 @@
 		<field name="view_id" ref="purchase_order_line_offtake_report_tree"/>
 		<field name="act_window_id" ref="purchase_order_line_offtake_report_action"/>
 	</record>
-	
+
 </odoo>

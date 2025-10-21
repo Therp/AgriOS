@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
-	
+
 	<record id="farmer_seq" model="ir.sequence">
         <field name="name">Farmer</field>
         <field name="code">farmer</field>
@@ -8,7 +8,7 @@
         <field name="padding">5</field>
         <field name="company_id" eval="False"/>
     </record>
-	
+
     <record id="farmer_contract_seq" model="ir.sequence">
         <field name="name">Farmer Contract</field>
         <field name="code">farmer.contract</field>
@@ -16,5 +16,5 @@
         <field name="padding">5</field>
         <field name="company_id" eval="False"/>
     </record>
-	
+
 </odoo>

@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
-from odoo import models, fields
+from odoo import fields, models
 
 
 class HighestEducation(models.Model):
-    _name = 'res.highest.education'
-    _description = 'Highest Education'
+    _name = "res.highest.education"
+    _description = "Highest Education"
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(required=True)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	
+
 	<record id="kobo_input_farmers_form" model="ir.ui.view">
 		<field name="name">kobo.input.farmers.form</field>
 		<field name="model">kobo.input.farmers</field>
@@ -12,5 +12,5 @@
 			</form>
 		</field>
 	</record>
-	
+
 </odoo>

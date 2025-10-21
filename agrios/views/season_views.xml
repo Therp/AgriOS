@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-	
+
     <record id="view_season_tree" model="ir.ui.view">
         <field name="name">view.season.tree</field>
         <field name="model">season</field>
@@ -14,7 +14,7 @@
             </list>
         </field>
     </record>
-	
+
     <record id="view_season_form" model="ir.ui.view">
         <field name="name">view.season.form</field>
         <field name="model">season</field>
@@ -22,7 +22,7 @@
             <form>
             	<field name="expired" invisible="True"/>
             	<field name="active" invisible="True"/>
-            	
+
                 <header>
                     <button name="start_registration" string="Start Registration" type="object" class="oe_highlight" confirm="Are you sure you want to Start Registration for this Season?" invisible="status != 'draft'"/>
                     <button name="lock_registration" string="Lock Registration" type="object" class="oe_highlight" confirm="Are you sure you want to Lock Registration?" invisible="status != 'open'"/>
@@ -33,7 +33,7 @@
                 <sheet>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
                     <widget name="web_ribbon" title="Expired" bg_color="bg-warning" invisible="not expired"/>
-                    
+
                     <div class="oe_title">
                         <h1>
                             <field name="season" placeholder="Season Name"/>
@@ -52,7 +52,7 @@
             </form>
         </field>
     </record>
-	
+
     <record id="action_seasons" model="ir.actions.act_window">
         <field name="name">Seasons</field>
         <field name="res_model">season</field>
@@ -68,5 +68,5 @@
             </p>
         </field>
     </record>
-	
+
 </odoo>

@@ -2,8 +2,8 @@
     text-decoration: none;
     font-weight: normal;
 
-    &::after{
+    &::after {
         content: "\f059"; //fa-question-circle
-        font-family: 'FontAwesome';
+        font-family: "FontAwesome";
     }
 }

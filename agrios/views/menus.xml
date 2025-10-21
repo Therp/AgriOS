@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-	
+
 	<!-- Identation bellow represents the menus hierarchy -->
-	
+
     <menuitem name="Farmers" id="agrios_menu_root" web_icon="agrios,static/description/icon.png" groups="agrios.group_agrios_readonly"  sequence="150"/>
       <menuitem name="Farmers" id="agrios_farmer_farmers" parent="agrios_menu_root" action="action_verified_farmers" sequence="10"/>
         <menuitem name="Farmers" id="agrios_farmer_farmers_main" parent="agrios_farmer_farmers" action="action_verified_farmers" sequence="10"/>

@@ -1,667 +1,665 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
-        <record id="demo_warehouse_loc_1" model="stock.location">
-            <field name="name">MW-NA/Stock</field>
-            <field name="usage">internal</field>
-        </record>
-        <record id="demo_warehouse_loc_2" model="stock.location">
-            <field name="name">SW-NA/Stock</field>
-            <field name="usage">internal</field>
-        </record>
-        <record id="demo_warehouse_loc_3" model="stock.location">
-            <field name="name">SW-KI/Stock</field>
-            <field name="usage">internal</field>
-        </record>
-        <record id="demo_warehouse_loc_4" model="stock.location">
-            <field name="name">SW-KA/Stock</field>
-            <field name="usage">internal</field>
-        </record>
-        <record id="demo_warehouse_loc_5" model="stock.location">
-            <field name="name">SW-MA/Stock</field>
-            <field name="usage">internal</field>
-        </record>
-        <record id="demo_warehouse_loc_6" model="stock.location">
-            <field name="name">CC-MA/Stock</field>
-            <field name="usage">internal</field>
-        </record>
-        <record id="demo_warehouse_loc_7" model="stock.location">
-            <field name="name">CC-NA/Stock</field>
-            <field name="usage">internal</field>
-        </record>
-        <record id="demo_warehouse_loc_8" model="stock.location">
-            <field name="name">CC-KI/Stock</field>
-            <field name="usage">internal</field>
-        </record>
-        <record id="demo_warehouse_loc_9" model="stock.location">
-            <field name="name">CC-KA/Stock</field>
-            <field name="usage">internal</field>
-        </record>
+<odoo noupdate="1">
+    <record id="demo_warehouse_loc_1" model="stock.location">
+        <field name="name">MW-NA/Stock</field>
+        <field name="usage">internal</field>
+    </record>
+    <record id="demo_warehouse_loc_2" model="stock.location">
+        <field name="name">SW-NA/Stock</field>
+        <field name="usage">internal</field>
+    </record>
+    <record id="demo_warehouse_loc_3" model="stock.location">
+        <field name="name">SW-KI/Stock</field>
+        <field name="usage">internal</field>
+    </record>
+    <record id="demo_warehouse_loc_4" model="stock.location">
+        <field name="name">SW-KA/Stock</field>
+        <field name="usage">internal</field>
+    </record>
+    <record id="demo_warehouse_loc_5" model="stock.location">
+        <field name="name">SW-MA/Stock</field>
+        <field name="usage">internal</field>
+    </record>
+    <record id="demo_warehouse_loc_6" model="stock.location">
+        <field name="name">CC-MA/Stock</field>
+        <field name="usage">internal</field>
+    </record>
+    <record id="demo_warehouse_loc_7" model="stock.location">
+        <field name="name">CC-NA/Stock</field>
+        <field name="usage">internal</field>
+    </record>
+    <record id="demo_warehouse_loc_8" model="stock.location">
+        <field name="name">CC-KI/Stock</field>
+        <field name="usage">internal</field>
+    </record>
+    <record id="demo_warehouse_loc_9" model="stock.location">
+        <field name="name">CC-KA/Stock</field>
+        <field name="usage">internal</field>
+    </record>
 
-        <record id="demo_warehouse_1" model="stock.warehouse">
-            <field name="name">Main Warehouse - Nairobi</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_1"/>
-            <field name="code">MW-NA</field>
-            <field name="sequence">1</field>
-        </record>
-        <record id="demo_warehouse_2" model="stock.warehouse">
-            <field name="name">Secondary Warehouse - Nairobi</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_2"/>
-            <field name="code">SW-NA</field>
-            <field name="sequence">2</field>
-        </record>
-        <record id="demo_warehouse_3" model="stock.warehouse">
-            <field name="name">Secondary Warehouse - Kiambu</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_3"/>
-            <field name="code">SW-KI</field>
-            <field name="sequence">3</field>
-        </record>
-        <record id="demo_warehouse_4" model="stock.warehouse">
-            <field name="name">Secondary Warehouse - Kajiado</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_4"/>
-            <field name="code">SW-KA</field>
-            <field name="sequence">4</field>
-        </record>
-        <record id="demo_warehouse_5" model="stock.warehouse">
-            <field name="name">Secondary Warehouse - Machakos</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_5"/>
-            <field name="code">SW-MA</field>
-            <field name="sequence">5</field>
-        </record>
-        <record id="demo_warehouse_6" model="stock.warehouse">
-            <field name="name">Collection Center - Machakos</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_6"/>
-            <field name="code">CC-MA</field>
-            <field name="sequence">6</field>
-        </record>
-        <record id="demo_warehouse_7" model="stock.warehouse">
-            <field name="name">Collection Center - Nairobi</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_7"/>
-            <field name="code">CC-NA</field>
-            <field name="sequence">7</field>
-        </record>
-        <record id="demo_warehouse_8" model="stock.warehouse">
-            <field name="name">Collection Center - Kiambu</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_8"/>
-            <field name="code">CC-KI</field>
-            <field name="sequence">8</field>
-        </record>
-        <record id="demo_warehouse_9" model="stock.warehouse">
-            <field name="name">Collection Center - Kajiado</field>
-            <field name="lot_stock_id" ref="demo_warehouse_loc_9"/>
-            <field name="code">CC-KA</field>
-            <field name="sequence">9</field>
-        </record>
+    <record id="demo_warehouse_1" model="stock.warehouse">
+        <field name="name">Main Warehouse - Nairobi</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_1"/>
+        <field name="code">MW-NA</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="demo_warehouse_2" model="stock.warehouse">
+        <field name="name">Secondary Warehouse - Nairobi</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_2"/>
+        <field name="code">SW-NA</field>
+        <field name="sequence">2</field>
+    </record>
+    <record id="demo_warehouse_3" model="stock.warehouse">
+        <field name="name">Secondary Warehouse - Kiambu</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_3"/>
+        <field name="code">SW-KI</field>
+        <field name="sequence">3</field>
+    </record>
+    <record id="demo_warehouse_4" model="stock.warehouse">
+        <field name="name">Secondary Warehouse - Kajiado</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_4"/>
+        <field name="code">SW-KA</field>
+        <field name="sequence">4</field>
+    </record>
+    <record id="demo_warehouse_5" model="stock.warehouse">
+        <field name="name">Secondary Warehouse - Machakos</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_5"/>
+        <field name="code">SW-MA</field>
+        <field name="sequence">5</field>
+    </record>
+    <record id="demo_warehouse_6" model="stock.warehouse">
+        <field name="name">Collection Center - Machakos</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_6"/>
+        <field name="code">CC-MA</field>
+        <field name="sequence">6</field>
+    </record>
+    <record id="demo_warehouse_7" model="stock.warehouse">
+        <field name="name">Collection Center - Nairobi</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_7"/>
+        <field name="code">CC-NA</field>
+        <field name="sequence">7</field>
+    </record>
+    <record id="demo_warehouse_8" model="stock.warehouse">
+        <field name="name">Collection Center - Kiambu</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_8"/>
+        <field name="code">CC-KI</field>
+        <field name="sequence">8</field>
+    </record>
+    <record id="demo_warehouse_9" model="stock.warehouse">
+        <field name="name">Collection Center - Kajiado</field>
+        <field name="lot_stock_id" ref="demo_warehouse_loc_9"/>
+        <field name="code">CC-KA</field>
+        <field name="sequence">9</field>
+    </record>
 
-        <record id="demo_stock_quant_1" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_14"/>
-            <field name="quantity">53.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_2" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_15"/>
-            <field name="quantity">400.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_3" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_16"/>
-            <field name="quantity">83.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_4" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_17"/>
-            <field name="quantity">111.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_5" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_18"/>
-            <field name="quantity">151.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_6" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_19"/>
-            <field name="quantity">195.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_7" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_20"/>
-            <field name="quantity">70.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_8" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_21"/>
-            <field name="quantity">147.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_9" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_22"/>
-            <field name="quantity">77.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_10" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_23"/>
-            <field name="quantity">229.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_11" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_24"/>
-            <field name="quantity">97.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_12" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_25"/>
-            <field name="quantity">237.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_13" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_26"/>
-            <field name="quantity">175.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_14" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_27"/>
-            <field name="quantity">54.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_15" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_28"/>
-            <field name="quantity">50.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_16" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_29"/>
-            <field name="quantity">157.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_17" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_30"/>
-            <field name="quantity">101.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_18" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_31"/>
-            <field name="quantity">68.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_19" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_1"/>
-            <field name="product_id" ref="product_demo_32"/>
-            <field name="quantity">216.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_20" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_14"/>
-            <field name="quantity">27.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_21" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_15"/>
-            <field name="quantity">200.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_22" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_16"/>
-            <field name="quantity">42.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_23" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_17"/>
-            <field name="quantity">56.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_24" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_18"/>
-            <field name="quantity">76.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_25" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_19"/>
-            <field name="quantity">98.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_26" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_20"/>
-            <field name="quantity">35.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_27" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_21"/>
-            <field name="quantity">74.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_28" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_22"/>
-            <field name="quantity">39.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_29" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_23"/>
-            <field name="quantity">115.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_30" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_24"/>
-            <field name="quantity">49.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_31" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_25"/>
-            <field name="quantity">119.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_32" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_26"/>
-            <field name="quantity">88.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_33" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_27"/>
-            <field name="quantity">27.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_34" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_28"/>
-            <field name="quantity">25.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_35" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_29"/>
-            <field name="quantity">79.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_36" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_30"/>
-            <field name="quantity">51.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_37" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_31"/>
-            <field name="quantity">34.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_38" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_2"/>
-            <field name="product_id" ref="product_demo_32"/>
-            <field name="quantity">108.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_39" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_14"/>
-            <field name="quantity">21.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_40" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_15"/>
-            <field name="quantity">160.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_41" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_16"/>
-            <field name="quantity">33.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_42" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_17"/>
-            <field name="quantity">44.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_43" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_18"/>
-            <field name="quantity">60.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_44" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_19"/>
-            <field name="quantity">78.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_45" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_20"/>
-            <field name="quantity">28.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_46" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_21"/>
-            <field name="quantity">59.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_47" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_22"/>
-            <field name="quantity">31.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_48" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_23"/>
-            <field name="quantity">92.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_49" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_24"/>
-            <field name="quantity">39.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_50" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_25"/>
-            <field name="quantity">95.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_51" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_26"/>
-            <field name="quantity">70.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_52" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_27"/>
-            <field name="quantity">22.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_53" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_28"/>
-            <field name="quantity">20.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_54" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_29"/>
-            <field name="quantity">63.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_55" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_30"/>
-            <field name="quantity">40.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_56" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_31"/>
-            <field name="quantity">27.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_57" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_3"/>
-            <field name="product_id" ref="product_demo_32"/>
-            <field name="quantity">86.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_58" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_14"/>
-            <field name="quantity">31.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_59" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_15"/>
-            <field name="quantity">235.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_60" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_16"/>
-            <field name="quantity">49.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_61" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_17"/>
-            <field name="quantity">65.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_62" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_18"/>
-            <field name="quantity">89.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_63" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_19"/>
-            <field name="quantity">115.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_64" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_20"/>
-            <field name="quantity">41.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_65" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_21"/>
-            <field name="quantity">86.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_66" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_22"/>
-            <field name="quantity">45.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_67" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_23"/>
-            <field name="quantity">135.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_68" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_24"/>
-            <field name="quantity">57.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_69" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_25"/>
-            <field name="quantity">139.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_70" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_26"/>
-            <field name="quantity">103.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_71" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_27"/>
-            <field name="quantity">32.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_72" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_28"/>
-            <field name="quantity">29.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_73" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_29"/>
-            <field name="quantity">92.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_74" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_30"/>
-            <field name="quantity">59.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_75" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_31"/>
-            <field name="quantity">40.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_76" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_4"/>
-            <field name="product_id" ref="product_demo_32"/>
-            <field name="quantity">127.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_77" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_14"/>
-            <field name="quantity">12.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_78" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_15"/>
-            <field name="quantity">87.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_79" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_16"/>
-            <field name="quantity">18.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_80" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_17"/>
-            <field name="quantity">24.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_81" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_18"/>
-            <field name="quantity">33.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_82" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_19"/>
-            <field name="quantity">43.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_83" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_20"/>
-            <field name="quantity">15.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_84" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_21"/>
-            <field name="quantity">32.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_85" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_22"/>
-            <field name="quantity">17.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_86" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_23"/>
-            <field name="quantity">50.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_87" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_24"/>
-            <field name="quantity">21.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_88" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_25"/>
-            <field name="quantity">52.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_89" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_26"/>
-            <field name="quantity">38.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_90" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_27"/>
-            <field name="quantity">12.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_91" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_28"/>
-            <field name="quantity">11.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_92" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_29"/>
-            <field name="quantity">34.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_93" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_30"/>
-            <field name="quantity">22.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_94" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_31"/>
-            <field name="quantity">15.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-        <record id="demo_stock_quant_95" model="stock.quant">
-            <field name="location_id" ref="demo_warehouse_loc_5"/>
-            <field name="product_id" ref="product_demo_32"/>
-            <field name="quantity">47.0</field>
-            <field name="in_date">2025-07-08</field>
-        </record>
-    </data>
+    <record id="demo_stock_quant_1" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_14"/>
+        <field name="quantity">53.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_2" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_15"/>
+        <field name="quantity">400.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_3" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_16"/>
+        <field name="quantity">83.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_4" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_17"/>
+        <field name="quantity">111.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_5" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_18"/>
+        <field name="quantity">151.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_6" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_19"/>
+        <field name="quantity">195.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_7" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_20"/>
+        <field name="quantity">70.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_8" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_21"/>
+        <field name="quantity">147.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_9" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_22"/>
+        <field name="quantity">77.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_10" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_23"/>
+        <field name="quantity">229.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_11" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_24"/>
+        <field name="quantity">97.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_12" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_25"/>
+        <field name="quantity">237.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_13" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_26"/>
+        <field name="quantity">175.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_14" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_27"/>
+        <field name="quantity">54.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_15" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_28"/>
+        <field name="quantity">50.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_16" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_29"/>
+        <field name="quantity">157.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_17" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_30"/>
+        <field name="quantity">101.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_18" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_31"/>
+        <field name="quantity">68.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_19" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_1"/>
+        <field name="product_id" ref="product_demo_32"/>
+        <field name="quantity">216.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_20" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_14"/>
+        <field name="quantity">27.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_21" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_15"/>
+        <field name="quantity">200.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_22" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_16"/>
+        <field name="quantity">42.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_23" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_17"/>
+        <field name="quantity">56.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_24" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_18"/>
+        <field name="quantity">76.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_25" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_19"/>
+        <field name="quantity">98.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_26" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_20"/>
+        <field name="quantity">35.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_27" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_21"/>
+        <field name="quantity">74.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_28" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_22"/>
+        <field name="quantity">39.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_29" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_23"/>
+        <field name="quantity">115.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_30" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_24"/>
+        <field name="quantity">49.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_31" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_25"/>
+        <field name="quantity">119.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_32" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_26"/>
+        <field name="quantity">88.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_33" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_27"/>
+        <field name="quantity">27.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_34" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_28"/>
+        <field name="quantity">25.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_35" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_29"/>
+        <field name="quantity">79.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_36" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_30"/>
+        <field name="quantity">51.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_37" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_31"/>
+        <field name="quantity">34.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_38" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_2"/>
+        <field name="product_id" ref="product_demo_32"/>
+        <field name="quantity">108.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_39" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_14"/>
+        <field name="quantity">21.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_40" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_15"/>
+        <field name="quantity">160.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_41" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_16"/>
+        <field name="quantity">33.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_42" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_17"/>
+        <field name="quantity">44.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_43" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_18"/>
+        <field name="quantity">60.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_44" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_19"/>
+        <field name="quantity">78.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_45" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_20"/>
+        <field name="quantity">28.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_46" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_21"/>
+        <field name="quantity">59.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_47" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_22"/>
+        <field name="quantity">31.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_48" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_23"/>
+        <field name="quantity">92.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_49" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_24"/>
+        <field name="quantity">39.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_50" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_25"/>
+        <field name="quantity">95.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_51" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_26"/>
+        <field name="quantity">70.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_52" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_27"/>
+        <field name="quantity">22.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_53" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_28"/>
+        <field name="quantity">20.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_54" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_29"/>
+        <field name="quantity">63.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_55" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_30"/>
+        <field name="quantity">40.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_56" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_31"/>
+        <field name="quantity">27.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_57" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_3"/>
+        <field name="product_id" ref="product_demo_32"/>
+        <field name="quantity">86.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_58" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_14"/>
+        <field name="quantity">31.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_59" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_15"/>
+        <field name="quantity">235.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_60" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_16"/>
+        <field name="quantity">49.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_61" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_17"/>
+        <field name="quantity">65.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_62" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_18"/>
+        <field name="quantity">89.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_63" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_19"/>
+        <field name="quantity">115.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_64" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_20"/>
+        <field name="quantity">41.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_65" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_21"/>
+        <field name="quantity">86.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_66" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_22"/>
+        <field name="quantity">45.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_67" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_23"/>
+        <field name="quantity">135.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_68" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_24"/>
+        <field name="quantity">57.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_69" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_25"/>
+        <field name="quantity">139.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_70" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_26"/>
+        <field name="quantity">103.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_71" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_27"/>
+        <field name="quantity">32.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_72" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_28"/>
+        <field name="quantity">29.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_73" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_29"/>
+        <field name="quantity">92.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_74" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_30"/>
+        <field name="quantity">59.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_75" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_31"/>
+        <field name="quantity">40.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_76" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_4"/>
+        <field name="product_id" ref="product_demo_32"/>
+        <field name="quantity">127.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_77" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_14"/>
+        <field name="quantity">12.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_78" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_15"/>
+        <field name="quantity">87.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_79" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_16"/>
+        <field name="quantity">18.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_80" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_17"/>
+        <field name="quantity">24.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_81" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_18"/>
+        <field name="quantity">33.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_82" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_19"/>
+        <field name="quantity">43.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_83" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_20"/>
+        <field name="quantity">15.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_84" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_21"/>
+        <field name="quantity">32.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_85" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_22"/>
+        <field name="quantity">17.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_86" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_23"/>
+        <field name="quantity">50.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_87" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_24"/>
+        <field name="quantity">21.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_88" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_25"/>
+        <field name="quantity">52.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_89" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_26"/>
+        <field name="quantity">38.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_90" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_27"/>
+        <field name="quantity">12.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_91" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_28"/>
+        <field name="quantity">11.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_92" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_29"/>
+        <field name="quantity">34.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_93" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_30"/>
+        <field name="quantity">22.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_94" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_31"/>
+        <field name="quantity">15.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
+    <record id="demo_stock_quant_95" model="stock.quant">
+        <field name="location_id" ref="demo_warehouse_loc_5"/>
+        <field name="product_id" ref="product_demo_32"/>
+        <field name="quantity">47.0</field>
+        <field name="in_date">2025-07-08</field>
+    </record>
 </odoo>

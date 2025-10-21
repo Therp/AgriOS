@@ -1,50 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-		
+
     <record id="purchase_order_form" model="ir.ui.view">
         <field name="name">purchase.order.inherited.oms.form</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="arch" type="xml">
-        	<xpath expr="/form" position="inside">
-        		<field name="verified_partner_farmer" invisible="1"/>
-        		<field name="farmer_requires_contract" invisible="1"/>
-        	</xpath>
+            <xpath expr="/form" position="inside">
+                <field name="verified_partner_farmer" invisible="1"/>
+                <field name="farmer_requires_contract" invisible="1"/>
+            </xpath>
             <xpath expr="//field[@name = 'partner_id']" position="after">
-                <field name="farmer_contract_id" invisible="not verified_partner_farmer" required="verified_partner_farmer and farmer_requires_contract" options="{'no_create': True}" context="{'verify_agrios_purchase': company_id}" groups="agrios.group_farmer_contract"/>
+                <field
+                    name="farmer_contract_id"
+                    invisible="not verified_partner_farmer"
+                    required="verified_partner_farmer and farmer_requires_contract"
+                    options="{'no_create': True}"
+                    context="{'verify_agrios_purchase': company_id}"
+                    groups="agrios.group_farmer_contract"
+                />
             </xpath>
         </field>
     </record>
-	
-	<record id="agrios_offtake_orders_action" model="ir.actions.act_window">
-	    <field name="name">Offtake Orders</field>
-	    <field name="res_model">purchase.order</field>
-	    <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
-	    <field name="view_ids" eval="[(5, 0, 0),
-	        (0, 0, {'view_mode': 'list', 'view_id': ref('purchase.purchase_order_view_tree')}),
-	        (0, 0, {'view_mode': 'kanban', 'view_id': ref('purchase.purchase_order_view_kanban_without_dashboard')}),
-	    ]"/>
-	    <field name="domain">[('partner_id.is_farmer','=',True)]</field>
-	    <field name="search_view_id" ref="purchase.purchase_order_view_search"/>
-	    <field name="context">{}</field>
-	</record>
 
-	<record id="res_partner_view_purchase_buttons_override" model="ir.ui.view">
-		<field name="name">res.partner.purchase.stock.form.override</field>
-		<field name="model">res.partner</field>
-		<field name="inherit_id" ref="purchase_stock.res_partner_view_purchase_buttons_inherit"/>
-		<field name="arch" type="xml">
-		  	<xpath expr="//button[@name='%(purchase_stock.action_purchase_vendor_delay_report)d']" position="replace"/>
-		</field>
-  	</record>
+    <record id="agrios_offtake_orders_action" model="ir.actions.act_window">
+        <field name="name">Offtake Orders</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('purchase.purchase_order_view_tree')}),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('purchase.purchase_order_view_kanban_without_dashboard')}),
+        ]"/>
+        <field name="domain">[('partner_id.is_farmer','=',True)]</field>
+        <field name="search_view_id" ref="purchase.purchase_order_view_search"/>
+        <field name="context">{}</field>
+    </record>
 
-	<record id="res_partner_view_purchase_buttons_override_purchases" model="ir.ui.view">
-		<field name="name">res.partner.view.purchase.buttons.override</field>
-		<field name="model">res.partner</field>
-		<field name="inherit_id" ref="purchase.res_partner_view_purchase_buttons"/>
-		<field name="arch" type="xml">
-		  	<xpath expr="//button[@name='%(purchase.act_res_partner_2_purchase_order)d']" position="replace"/>
-		</field>
-  	</record>
-	
+    <record id="res_partner_view_purchase_buttons_override" model="ir.ui.view">
+        <field name="name">res.partner.purchase.stock.form.override</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="purchase_stock.res_partner_view_purchase_buttons_inherit"/>
+        <field name="priority" eval="128" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='%(purchase_stock.action_purchase_vendor_delay_report)d']"
+                position="replace"
+            />
+        </field>
+    </record>
+
+    <record id="res_partner_view_purchase_buttons_override_purchases" model="ir.ui.view">
+        <field name="name">res.partner.view.purchase.buttons.override</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="purchase.res_partner_view_purchase_buttons"/>
+        <field name="priority" eval="128" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='%(purchase.act_res_partner_2_purchase_order)d']"
+                position="replace"
+            />
+        </field>
+    </record>
+
 </odoo>

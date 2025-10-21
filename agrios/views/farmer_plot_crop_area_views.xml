@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    
+
     <record id="farmer_plot_crop_area_search" model="ir.ui.view">
         <field name="name">farmer.plot.crop.area.search</field>
         <field name="model">farmer.plot.crop.area</field>
@@ -18,7 +18,7 @@
             </search>
         </field>
     </record>
-    
+
     <record id="farmer_plot_crop_area_tree" model="ir.ui.view">
         <field name="name">farmer.plot.crop.area.tree</field>
         <field name="model">farmer.plot.crop.area</field>
@@ -36,7 +36,7 @@
             </list>
         </field>
     </record>
-    
+
     <record id="farmer_plot_crop_area_form" model="ir.ui.view">
         <field name="name">farmer.plot.crop.area.form</field>
         <field name="model">farmer.plot.crop.area</field>
@@ -73,12 +73,12 @@
             </pivot>
         </field>
     </record>
-    
+
     <record id="farmer_plot_crop_area_action" model="ir.actions.act_window">
         <field name="name">Plot Crop Areas</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">farmer.plot.crop.area</field>
         <field name="view_mode">list,form,pivot</field>
     </record>
-    
+
 </odoo>
