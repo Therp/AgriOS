@@ -5,17 +5,20 @@
     "summary": """Efficiently manage an farmer network""",
     "author": "Advance Insight",
     "website": "https://github.com/OCA/web",
-    "category": "Advance Insight Product",
+    "category": "Agrios",
     "version": "18.0.1.3.6",
     "license": "LGPL-3",
     "depends": [
-        "contacts",
+        # Odoo Modules
         "account",
         "sale_management",
         "purchase",
         "stock",
         "hr",
+        # OCA Modules
         "account_usability",
+        # Agrios Modules
+        "agrios_contacts",
     ],
     "data": [
         "security/security_groups.xml",

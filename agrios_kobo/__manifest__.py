@@ -5,7 +5,7 @@
     "summary": """Kobo Toolbox Extention For Agrios Application""",
     "author": "Advance Insight",
     "website": "https://github.com/OCA/web",
-    "category": "Services/AIODKIntegration",
+    "category": "Agrios",
     "version": "18.0.1.0.5",
     "license": "LGPL-3",
     "depends": [
