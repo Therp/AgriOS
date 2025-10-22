@@ -124,25 +124,6 @@ class SaleOrderLine(models.Model):
     date_order = fields.Datetime(
         related="order_id.date_order", string="Order Date/Time", store=True, index=True
     )
-    loc_area_1_id = fields.Many2one(
-        related="order_partner_id.loc_area_1_id", store=True
-    )
-    loc_area_2_id = fields.Many2one(
-        related="order_partner_id.loc_area_2_id", store=True
-    )
-    loc_area_3_id = fields.Many2one(
-        related="order_partner_id.loc_area_3_id", store=True
-    )
-    loc_area_4_id = fields.Many2one(
-        related="order_partner_id.loc_area_4_id", store=True
-    )
-    loc_area_5_id = fields.Many2one(
-        related="order_partner_id.loc_area_5_id", store=True
-    )
-    loc_area_6_id = fields.Many2one(
-        related="order_partner_id.loc_area_6_id", store=True
-    )
-    country_id = fields.Many2one(related="loc_area_1_id.country_id", store=True)
     farmer_group_id = fields.Many2one(
         related="order_partner_id.farmer_group_id", store=True
     )

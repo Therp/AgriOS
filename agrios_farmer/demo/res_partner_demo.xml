@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+    <record id="partner_demo_farmer_1" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Esther Njeri</field>
+        <field name="phone">2549999234567</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1976-10-10</field>
+        <field name="highest_education_id" ref="partner_education_primary"/>
+        <field name="family_size">2</field>
+        <field name="next_of_kin">James Kariuki</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000000</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_10"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_galole"/>
+    </record>
+    <record id="partner_demo_farmer_2" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Ruth Wanjiku</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1989-11-30</field>
+        <field name="highest_education_id" ref="partner_education_primary"/>
+        <field name="family_size">7</field>
+        <field name="next_of_kin">Teresa Nyokabi</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000011</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_20"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_galole"/>
+    </record>
+    <record id="partner_demo_farmer_3" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Beatrice Awino</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1975-09-21</field>
+        <field name="highest_education_id" ref="partner_education_primary"/>
+        <field name="family_size">6</field>
+        <field name="next_of_kin">Esther Chepngetich</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000022</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_30"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_kaloleni"/>
+    </record>
+    <record id="partner_demo_farmer_4" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Veronica Anyango</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1991-03-11</field>
+        <field name="highest_education_id" ref="partner_education_secondary"/>
+        <field name="family_size">2</field>
+        <field name="next_of_kin">Owen Kiprono</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000033</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_10"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_kaloleni"/>
+    </record>
+    <record id="partner_demo_farmer_5" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Jackline Jelimo</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1979-04-11</field>
+        <field name="highest_education_id" ref="partner_education_none"/>
+        <field name="family_size">3</field>
+        <field name="next_of_kin">Yusuf Kipkemoi</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000044</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_20"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_kilifi_north"/>
+    </record>
+    <record id="partner_demo_farmer_6" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Sheila Jerotich</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1995-01-21</field>
+        <field name="highest_education_id" ref="partner_education_none"/>
+        <field name="family_size">3</field>
+        <field name="next_of_kin">Isaac Kipkemoi</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000055</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_30"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_kilifi_north"/>
+    </record>
+    <record id="partner_demo_farmer_7" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Nancy Jepkosgei</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1975-11-01</field>
+        <field name="highest_education_id" ref="partner_education_primary"/>
+        <field name="family_size">2</field>
+        <field name="next_of_kin">Samuel Kipruto</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000066</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_10"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_galole"/>
+    </record>
+    <record id="partner_demo_farmer_8" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Esther Chepngetich</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="highest_education_id" ref="partner_education_primary"/>
+        <field name="family_size">5</field>
+        <field name="next_of_kin">Cynthia Kiprono</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000077</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_20"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_galole"/>
+    </record>
+    <record id="partner_demo_farmer_9" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Eunice Jepkorir</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1991-07-21</field>
+        <field name="highest_education_id" ref="partner_education_primary"/>
+        <field name="family_size">1</field>
+        <field name="next_of_kin">James Kariuki</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000000</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_30"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_garsen"/>
+    </record>
+    <record id="partner_demo_farmer_10" model="res.partner">
+        <field name="is_farmer">true</field>
+        <field name="name">Lilian Chepkoech</field>
+        <field name="phone">2549999234578</field>
+        <field name="gender">female</field>
+        <field name="birthdate_date">1993-05-03</field>
+        <field name="highest_education_id" ref="partner_education_primary"/>
+        <field name="family_size">0</field>
+        <field name="next_of_kin">Teresa Nyokabi</field>
+        <field name="nok_id">9876543</field>
+        <field name="nok_phone">2549999000011</field>
+        <field name="farmer_group_id" ref="farmer_group_demo_10"/>
+        <field name="country_id" ref="base.ke"/>
+        <field name="agrios_area_id" ref="area_kenia_level_2_garsen"/>
+    </record>
+</odoo>

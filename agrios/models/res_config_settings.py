@@ -22,8 +22,8 @@ class ResConfigSettings(models.TransientModel):
     group_farmers_training = fields.Boolean(
         "Farmer Trainings", implied_group="agrios.group_farmers_training"
     )
-    group_farmers_interactions = fields.Boolean(
-        "Farmer Interactions", implied_group="agrios.group_farmers_interactions"
+    group_farmer_interactions = fields.Boolean(
+        "Farmer Interactions", implied_group="agrios.group_farmer_interactions"
     )
     group_farmers_certifications = fields.Boolean(
         "Farmer Certifications", implied_group="agrios.group_farmers_certifications"

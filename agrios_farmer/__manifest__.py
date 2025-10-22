@@ -1,0 +1,46 @@
+# Copyright 2025 Advance Insight
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+{
+    "name": "AgriOS Farmer",
+    "summary": """Efficiently manage farmers, farmergroups and locations""",
+    "author": "Advance Insight",
+    "website": "https://agrios.org",
+    "category": "AgriOS",
+    "version": "18.0.1.0.0",
+    "license": "AGPL-3",
+    "depends": [
+        # Odoo Modules
+        "contacts",
+        # OCA Modules
+        "partner_contact_birthdate",
+        "partner_contact_gender",
+        "partner_identification",
+    ],
+    "data": [
+        "security/res_groups.xml",
+        "security/ir.model.access.csv",
+        "data/country_location_level_data.xml",
+        "data/ir_sequence_data.xml",
+        "data/res_partner_id_category_data.xml",
+        "views/country_location_level_views.xml",
+        "views/agrios_area_views.xml",
+        "views/farmer_group_views.xml",
+        "views/farmer_interaction_views.xml",
+        "views/res_partner_views.xml",
+        "views/partner_education_views.xml",
+        "views/ir_actions_act_window.xml",
+        "views/ir_ui_menu.xml",
+    ],
+    "demo": [
+        "demo/res_users_demo.xml",
+        "demo/partner_education_demo.xml",
+        "demo/agrios_area_demo.xml",
+        "demo/farmer_group_demo.xml",
+        "demo/res_partner_demo.xml",
+        "demo/res_partner_id_number_demo.xml",
+        "demo/farmer_interaction_demo.xml",
+    ],
+    "application": True,
+    "installable": True,
+    "auto_install": False,
+}

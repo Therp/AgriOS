@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="partner_education_none" model="partner.education">
+        <field name="name">None</field>
+    </record>
+    <record id="partner_education_primary" model="partner.education">
+        <field name="name">Primary</field>
+    </record>
+    <record id="partner_education_secondary" model="partner.education">
+        <field name="name">Secondary</field>
+    </record>
+    <record id="partner_education_diploma" model="partner.education">
+        <field name="name">Diploma</field>
+    </record>
+    <record id="partner_education_undergraduate" model="partner.education">
+        <field name="name">Undergraduate</field>
+    </record>
+    <record id="partner_education_postgraduate" model="partner.education">
+        <field name="name">Postgraduate</field>
+    </record>
+</odoo>

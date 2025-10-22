@@ -4,8 +4,8 @@
     "name": "Kobo Toolbox Integration - Agrios",
     "summary": """Kobo Toolbox Extention For Agrios Application""",
     "author": "Advance Insight",
-    "website": "https://github.com/OCA/web",
-    "category": "Agrios",
+    "website": "https://agrios.org",
+    "category": "AgriOS",
     "version": "18.0.1.0.5",
     "license": "AGPL-3",
     "depends": [

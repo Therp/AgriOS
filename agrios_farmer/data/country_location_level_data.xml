@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+     <!-- Rpo 2025-10-22
+         In precursors of AgriOS levels had the most detailed level (village)
+         as level 1, in AgriOS the most general level will be 1.
+    -->
+
+    <!-- Kenia -->
+
+    <record id="country_location_level_kenia_1" model="country.location.level">
+        <field name="name">County</field>
+        <field name="level">1</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+    <record id="country_location_level_kenia_2" model="country.location.level">
+        <field name="name">Sub-County</field>
+        <field name="level">2</field>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+
+    <!-- Uganda -->
+
+    <record id="country_location_level_uganda_1" model="country.location.level">
+        <field name="country_id" ref="base.ug"/>
+        <field name="level" eval="1"/>
+        <field name="name">Region</field>
+    </record>
+	<record id="country_location_level_uganda_2" model="country.location.level">
+        <field name="country_id" ref="base.ug"/>
+        <field name="level" eval="2"/>
+        <field name="name">District</field>
+    </record>
+    <record id="country_location_level_uganda_3" model="country.location.level">
+        <field name="country_id" ref="base.ug"/>
+        <field name="level" eval="3"/>
+        <field name="name">Sub-County</field>
+    </record>
+    <record id="country_location_level_uganda_4" model="country.location.level">
+        <field name="country_id" ref="base.ug"/>
+        <field name="level" eval="4"/>
+        <field name="name">Parish</field>
+    </record>
+    <record id="country_location_level_uganda_5" model="country.location.level">
+        <field name="country_id" ref="base.ug"/>
+        <field name="level" eval="5"/>
+        <field name="name">Village</field>
+    </record>
+
+    <!-- Zambia -->
+
+    <record id="country_location_level_zambia_1" model="country.location.level">
+        <field name="country_id" ref="base.zm"/>
+        <field name="level" eval="1"/>
+        <field name="name">Province</field>
+    </record>
+    <record id="country_location_level_zambia_2" model="country.location.level">
+        <field name="country_id" ref="base.zm"/>
+        <field name="level" eval="2"/>
+        <field name="name">District</field>
+    </record>
+    <record id="country_location_level_zambia_3" model="country.location.level">
+        <field name="country_id" ref="base.zm"/>
+        <field name="level" eval="3"/>
+        <field name="name">Village</field>
+    </record>
+
+</odoo>

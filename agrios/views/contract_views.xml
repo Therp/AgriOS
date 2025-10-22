@@ -190,7 +190,7 @@
 								</list>
 							</field>
 						</page>
-						<page name="interaction" string="Interactions" groups="agrios.group_farmers_interactions">
+						<page name="interaction" string="Interactions" groups="agrios.group_farmer_interactions">
 							<field name="interaction_ids" readonly="contract_stage != 'open'" context="{'default_farmer_id': farmer_id}">
 								<list delete="false">
 									<field name="interaction_date"/>

@@ -56,11 +56,11 @@
                                 </div>
                             </div>
                         </setting>
-                        <setting id="farmers_interactions"
+                        <setting id="farmer_interactions"
                                  help="Allows the management of interactions made with farmers (calls, visits, etc...).">
-                            <field name="group_farmers_interactions"/>
+                            <field name="group_farmer_interactions"/>
                             <div class="content-group">
-                                <div invisible="not group_farmers_interactions">
+                                <div invisible="not group_farmer_interactions">
                                     <button name="%(agrios.action_farmer_interaction)d" icon="oi-arrow-right"
                                             type="action" string="Farmer Interactions" class="btn-link"/>
                                 </div>

@@ -48,13 +48,13 @@ repos:
       # update the NOT INSTALLABLE ADDONS section above
       - id: oca-update-pre-commit-excluded-addons
       - id: oca-fix-manifest-website
-        args: ["https://github.com/OCA/web"]
+        args: ["https://agrios.org"]
       - id: oca-gen-addon-readme
         args:
           - --addons-dir=.
           - --branch=18.0
-          - --org-name=OCA
-          - --repo-name=web
+          - --org-name=advanceinsight
+          - --repo-name=agrios
           - --if-source-changed
           - --keep-source-digest
           - --convert-fragments-to-markdown

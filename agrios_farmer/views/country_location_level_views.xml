@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Areas Designation -->
+
+    <record id="country_location_level_tree" model="ir.ui.view">
+        <field name="name">country.location.level.tree</field>
+        <field name="model">country.location.level</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="country_id" options="{'no_create': True}"/>
+                <field name="name"/>
+                <field name="level"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="country_location_level_action" model="ir.actions.act_window">
+        <field name="name">Areas Designation</field>
+        <field name="res_model">country.location.level</field>
+        <field name="view_mode">list</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_agrios_area_search" model="ir.ui.view">
+        <field name="name">agrios.area.search</field>
+        <field name="model">agrios.area</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="country_id" />
+                <group expand="0" string="Group By">
+                    <filter name="groupby_country_id" context="{'group_by': 'country_id'}" />
+                    <filter name="groupby_parent_id" context="{'group_by': 'parent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="agrios_area_tree" model="ir.ui.view">
+        <field name="name">agrios.area.tree</field>
+        <field name="model">agrios.area</field>
+        <field name="arch" type="xml">
+            <list>
+                <field
+                    name="country_id"
+                    optional="show"
+                />
+                <field name="display_name"/>
+                <field
+                    name="country_location_level_id"
+                    optional="show"
+                />
+                <field name="manager_id" options="{'no_create': True}" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="agrios_area_form" model="ir.ui.view">
+        <field name="name">agrios.area.form</field>
+        <field name="model">agrios.area</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="display_name"/>
+                    </h1>
+                    <group>
+                        <field name="country_id"/>
+                        <field
+                            name="parent_id"
+                            string="Parent Area"
+                            options="{'no_create': true}"
+                        />
+                        <field
+                            name="country_location_level_id"
+                            options="{'no_create': True}"
+                        />
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

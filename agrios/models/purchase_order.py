@@ -83,13 +83,6 @@ class PurchaseOrderLine(models.Model):
         "farmer.contract", related="order_id.farmer_contract_id"
     )
     date_order = fields.Datetime(store=True, index=True)
-    loc_area_1_id = fields.Many2one(related="partner_id.loc_area_1_id", store=True)
-    loc_area_2_id = fields.Many2one(related="partner_id.loc_area_2_id", store=True)
-    loc_area_3_id = fields.Many2one(related="partner_id.loc_area_3_id", store=True)
-    loc_area_4_id = fields.Many2one(related="partner_id.loc_area_4_id", store=True)
-    loc_area_5_id = fields.Many2one(related="partner_id.loc_area_5_id", store=True)
-    loc_area_6_id = fields.Many2one(related="partner_id.loc_area_6_id", store=True)
-    country_id = fields.Many2one(related="loc_area_1_id.country_id", store=True)
 
     farmer_group_id = fields.Many2one(related="partner_id.farmer_group_id", store=True)
 

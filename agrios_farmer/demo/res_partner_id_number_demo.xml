@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+    <record id="identification_demo_farmer_1" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_1"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234567</field>
+        <field name="date_issued">2024-10-10</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_2" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_2"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-11-30</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_3" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_3"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-09-21</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_4" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_4"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-03-11</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_5" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_5"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-04-11</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_6" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_6"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-01-21</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_7" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_7"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-11-01</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_8" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_8"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-09-11</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_9" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_9"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-07-21</field>
+        <field name="status">open</field>
+    </record>
+    <record id="identification_demo_farmer_10" model="res.partner.id_number">
+        <field name="partner_id" ref="partner_demo_farmer_10"/>
+        <field name="category_id" ref="partner_id_category_national_id"/>
+        <field name="name">1234578</field>
+        <field name="date_issued">2024-05-03</field>
+        <field name="status">open</field>
+    </record>
+</odoo>

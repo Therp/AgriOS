@@ -14,53 +14,11 @@ class BulkContractAbstractWizard(models.AbstractModel):
         ondelete="cascade",
         default=lambda self: self.env.company,
     )
+    farmer_group_ids = fields.Many2many("farmer.group", string="Farmer Groups")
     contract_ids = fields.Many2many("farmer.contract", string="Contracts")
     show_expired_filter = fields.Boolean(default=True)
     view_contracts = fields.Boolean()
-
     country_id = fields.Many2one("res.country", string="Country")
-    loc_area_6_ids = fields.Many2many(
-        "area.level.6", domain="[('country_id','=', country_id)]", string="Area Level 6"
-    )
-    loc_area_5_ids = fields.Many2many(
-        "area.level.5", domain="[('country_id','=', country_id)]", string="Area Level 5"
-    )
-    loc_area_4_ids = fields.Many2many(
-        "area.level.4", domain="[('country_id','=', country_id)]", string="Area Level 4"
-    )
-    loc_area_3_ids = fields.Many2many(
-        "area.level.3", domain="[('country_id','=', country_id)]", string="Area Level 3"
-    )
-    loc_area_2_ids = fields.Many2many(
-        "area.level.2", domain="[('country_id','=', country_id)]", string="Area Level 2"
-    )
-    loc_area_1_ids = fields.Many2many(
-        "area.level.1", domain="[('country_id','=', country_id)]", string="Area Level 1"
-    )
-    farmer_group_ids = fields.Many2many("farmer.group", string="Farmer Groups")
-
-    loc_area_1_label = fields.Char(
-        "Area Level 1 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_2_label = fields.Char(
-        "Area Level 2 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_3_label = fields.Char(
-        "Area Level 3 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_4_label = fields.Char(
-        "Area Level 4 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_5_label = fields.Char(
-        "Area Level 5 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_6_label = fields.Char(
-        "Area Level 6 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_max_level = fields.Integer(
-        "Max Area Level", compute="_compute_loc_area_details"
-    )
-
     season_id = fields.Many2one(
         "season", "Season", domain=[("status", "in", ("open", "lock"))]
     )
@@ -72,48 +30,9 @@ class BulkContractAbstractWizard(models.AbstractModel):
         "Expired Contracts",
     )
 
-    @api.onchange("country_id")
-    def _onchange_country_id(self):
-        if self.country_id:
-            self.loc_area_6_ids = self.loc_area_6_ids.filtered(
-                lambda rec: rec.country_id.id == self.country_id.id
-            )
-
-    @api.onchange("loc_area_3_ids")
-    def _onchange_loc_area_3_ids(self):
-        self.loc_area_2_ids = self.loc_area_2_ids.filtered(
-            lambda loc_area_2: loc_area_2.parent_id.id in self.loc_area_3_ids.ids
-        )
-
-    @api.onchange("loc_area_2_ids")
-    def _onchange_loc_area_2_ids(self):
-        if self.loc_area_2_ids:
-            self.loc_area_3_ids |= self.loc_area_2_ids.mapped("parent_id")
-        self.loc_area_1_ids = self.loc_area_1_ids.filtered(
-            lambda loc_area_1: loc_area_1.parent_id.id in self.loc_area_2_ids.ids
-        )
-
-    @api.onchange("loc_area_1_ids")
-    def _onchange_loc_area_1_ids(self):
-        if self.loc_area_1_ids:
-            self.loc_area_2_ids |= self.loc_area_1_ids.mapped("parent_id")
-
-            if self.farmer_group_ids:
-                self.farmer_group_ids = self.farmer_group_ids.filtered(
-                    lambda fg: fg.loc_area_1_id.id in self.loc_area_1_ids.ids
-                )
-
-    @api.onchange("farmer_group_ids")
-    def _onchange_farmer_group_ids(self):
-        if self.farmer_group_ids:
-            self.loc_area_1_ids = self.farmer_group_ids.mapped("loc_area_1_id")
-
     @api.onchange(
         "view_contracts",
         "company_id",
-        "loc_area_3_ids",
-        "loc_area_2_ids",
-        "loc_area_1_ids",
         "farmer_group_ids",
         "season_id",
         "crop_product_id",
@@ -127,22 +46,8 @@ class BulkContractAbstractWizard(models.AbstractModel):
         else:
             self.contract_ids = False
 
-    @api.onchange("country_id")
-    def _compute_loc_area_details(self):
-        cll_env = self.env["country.location.level"]
-        for action in self:
-            loc_details, max_level = cll_env._get_country_details(action.country_id.id)
-            action.loc_area_1_label = loc_details[1]
-            action.loc_area_2_label = loc_details[2]
-            action.loc_area_3_label = loc_details[3]
-            action.loc_area_4_label = loc_details[4]
-            action.loc_area_5_label = loc_details[5]
-            action.loc_area_6_label = loc_details[6]
-            action.loc_area_max_level = max_level
-
     def btn_confirm(self):
         self.ensure_one()
-
         if not self.view_contracts:
             raise ValidationError(
                 _(
@@ -150,7 +55,6 @@ class BulkContractAbstractWizard(models.AbstractModel):
                     " that will be affected by the bulk operation!"
                 )
             )
-
         if not self.contract_ids:
             raise ValidationError(_("No contracts selected for the bulk operation!"))
 
@@ -175,12 +79,6 @@ class BulkContractAbstractWizard(models.AbstractModel):
             domain.append(
                 ("farmer_id.farmer_group_id", "in", self.farmer_group_ids.ids)
             )
-        elif self.loc_area_1_ids:
-            domain.append(("farmer_id.loc_area_1_id", "in", self.loc_area_1_ids.ids))
-        elif self.loc_area_2_ids:
-            domain.append(("farmer_id.loc_area_2_id", "in", self.loc_area_2_ids.ids))
-        elif self.loc_area_3_ids:
-            domain.append(("farmer_id.loc_area_3_id", "in", self.loc_area_3_ids.ids))
 
         return domain
 

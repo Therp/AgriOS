@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="partner_id_category_national_id" model="res.partner.id_category">
+        <field name="code">national_id</field>
+        <field name="name">National ID</field>
+    </record>
+    <record id="partner_id_category_driving_license" model="res.partner.id_category">
+        <field name="code">driving_license</field>
+        <field name="name">Driving License</field>
+    </record>
+    <record id="partner_id_category_voter_id" model="res.partner.id_category">
+        <field name="code">voter_id</field>
+        <field name="name">Voter ID</field>
+    </record>
+
+</odoo>

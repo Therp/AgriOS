@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_partner_education_list" model="ir.ui.view">
+        <field name="name">partner.education.list</field>
+        <field name="model">partner.education</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_partner_education" model="ir.actions.act_window">
+        <field name="name">Partner Education</field>
+        <field name="res_model">partner.education</field>
+        <field name="view_mode">list</field>
+    </record>
+
+</odoo>

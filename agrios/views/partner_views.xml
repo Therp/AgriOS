@@ -1,231 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-	<record id="view_farmer_search_filter" model="ir.ui.view">
-		<field name="name">view.farmer.search.filter</field>
-		<field name="model">res.partner</field>
-		<field name="arch" type="xml">
-			<search>
-				<field name="name" string="Name/Phone/Reference/ID" filter_domain="['|','|','|',('complete_name','ilike',self),('phone','ilike',self),('farmer_ref','ilike',self),('farmer_id_number','ilike',self)]"/>
-				<separator/>
-				<filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
-				<filter string="Female" name="female" domain="[('gender', '=', 'female')]"/>
-				<separator/>
-				<filter string="No ID Number" name="filter_no_identification" domain="[('farmer_id_number', '=', False)]"/>
-				<filter string="No Phone" name="filter_no_phone" domain="[('phone', '=', False)]"/>
-				<filter string="Duplicate ID Number" name="filter_duplicate_identification" domain="[]" context="{'filter_duplicate_identification': True}"/>
-				<filter string="Duplicate Phone" name="filter_duplicate_phone" domain="[]" context="{'filter_duplicate_phone': True}"/>
-				<separator groups="agrios.group_farmers_certifications"/>
-				<filter string="Certified" name="filter_certified" domain="[('certified','=',True)]" groups="agrios.group_farmers_certifications"/>
-				<filter string="Uncertified" name="filter_not_certified" domain="[('certified','=',False)]" groups="agrios.group_farmers_certifications"/>
-				<separator/>
-				<filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
-				<group expand="1" string="Group By">
-					<filter name="groupby_loc_area_6_id" context="{'group_by': 'loc_area_6_id'}"/>
-					<filter name="groupby_loc_area_5_id" context="{'group_by': 'loc_area_5_id'}"/>
-					<filter name="groupby_loc_area_4_id" context="{'group_by': 'loc_area_4_id'}"/>
-					<filter name="groupby_loc_area_3_id" context="{'group_by': 'loc_area_3_id'}"/>
-					<filter name="groupby_loc_area_2_id" context="{'group_by': 'loc_area_2_id'}"/>
-					<filter name="groupby_loc_area_1_id" context="{'group_by': 'loc_area_1_id'}"/>
-					<filter name="groupby_farmer_group_id" context="{'group_by': 'farmer_group_id'}"/>
-					<filter name="groupby_gender" context="{'group_by': 'gender'}"/>
-				</group>
-			</search>
-		</field>
-	</record>
+    <record id="action_certified_farmers_form" model="ir.actions.act_window.view">
+            <field name="view_id" ref="view_farmer_partner_form"/>
+            <field name="act_window_id" ref="action_certified_farmers"/>
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">form</field>
+    </record>
 
-	<record id="view_farmer_tree" model="ir.ui.view">
-		<field name="name">view.farmer.tree</field>
-		<field name="model">res.partner</field>
-		<field name="priority" eval="10"/>
-		<field name="arch" type="xml">
-			<list sample="1">
-				<field name="farmer_ref" optional="show"/>
-				<field name="name"/>
-				<field name="phone" optional="show"/>
-				<field name="farmer_id_number" optional="show"/>
-				<field name="gender" optional="show"/>
-				<field name="farmer_group_id" optional="show"/>
-				<field name="loc_area_1_id" optional="show"/>
-				<field name="loc_area_2_id" optional="show"/>
-				<field name="loc_area_3_id" optional="show"/>
-				<field name="loc_area_4_id" optional="show"/>
-				<field name="loc_area_5_id" optional="show"/>
-				<field name="loc_area_6_id" optional="show"/>
-				<field name="count_certifications" optional="show" groups="agrios.group_farmers_certifications"/>
-				<field name="farmer_requires_contract" groups="agrios.group_farmer_contract" optional="hide"/>
-				<field name="user_id" optional="show"/>
-			</list>
-		</field>
-	</record>
+    <record id="action_active_season_farmers" model="ir.actions.act_window">
+            <field name="name">Active Farmers</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">list</field>
+            <field name="search_view_id" ref="view_farmer_search_filter"/>
+            <field name="context">{'create': False, 'edit': False}</field>
+            <field name="domain">[('is_farmer','=',True),('farmer_stage','=','verified')]</field>
+            <field name="help" type="html">
+                    <p class="o_view_nocontent_smiling_face">
+                            There are no Active Farmers
+                    </p>
+            </field>
+    </record>
+    <record id="action_active_farmers_tree" model="ir.actions.act_window.view">
+            <field name="view_id" ref="view_farmer_tree"/>
+            <field name="act_window_id" ref="action_active_season_farmers"/>
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">list</field>
+    </record>
 
-	<record id="view_farmer_leads_tree" model="ir.ui.view">
-		<field name="name">view.farmer.leads.tree</field>
-		<field name="model">res.partner</field>
-		<field name="priority" eval="20"/>
-		<field name="arch" type="xml">
-			<list sample="1">
-				<field name="name"/>
-				<field name="phone" optional="show"/>
-				<field name="farmer_id_number" optional="show"/>
-				<field name="gender" optional="show"/>
-				<field name="farmer_group_id" optional="show"/>
-				<field name="loc_area_1_id" optional="show"/>
-				<field name="loc_area_2_id" optional="show"/>
-				<field name="count_certifications" optional="hide" groups="agrios.group_farmers_certifications"/>
-				<field name="user_id" optional="show"/>
-			</list>
-		</field>
-	</record>
+    <record id="action_verify_farmer" model="ir.actions.server">
+            <field name="name">Verify Farmer</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="groups_id" eval="[(6, 0, [ref('agrios.group_agrios_manager')])]"/>
+            <field name="state">code</field>
+            <field name="code">records.verify_farmer()</field>
+    </record>
 
-	<record id="action_verified_farmers" model="ir.actions.act_window">
-		<field name="name">Farmers</field>
-		<field name="res_model">res.partner</field>
-		<field name="view_mode">kanban,list,form</field>
-		<field name="search_view_id" ref="view_farmer_search_filter"/>
-		<field name="context">{'default_is_farmer': True}</field>
-		<field name="domain">[('is_farmer','=',True),('farmer_stage','=','verified')]</field>
-		<field name="help" type="html">
-			<p class="o_view_nocontent_smiling_face">
-				Create the first Farmer
-			</p>
-			<p>
-				Odoo helps you easily track all activities related to a Farmer
-			</p>
-		</field>
-	</record>
-	<record id="action_farmers_tree" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_tree"/>
-		<field name="act_window_id" ref="action_verified_farmers"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">list</field>
-	</record>
-	<record id="action_farmers_form" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_partner_form"/>
-		<field name="act_window_id" ref="action_verified_farmers"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">form</field>
-	</record>
-
-	<record id="action_farmer_leads" model="ir.actions.act_window">
-		<field name="name">Farmer Leads</field>
-		<field name="res_model">res.partner</field>
-		<field name="view_mode">kanban,list,form</field>
-		<field name="search_view_id" ref="view_farmer_search_filter"/>
-		<field name="context">{'default_is_farmer': True}</field>
-		<field name="domain">[('is_farmer','=',True),('farmer_stage','=','draft')]</field>
-		<field name="help" type="html">
-			<p class="o_view_nocontent_smiling_face">
-				Create the first Farmer
-			</p>
-			<p>
-				Odoo helps you easily track all activities related to a Farmer
-			</p>
-		</field>
-	</record>
-	<record id="action_farmer_leads_tree" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_leads_tree"/>
-		<field name="act_window_id" ref="action_farmer_leads"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">list</field>
-	</record>
-	<record id="action_farmer_leads_form" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_partner_form"/>
-		<field name="act_window_id" ref="action_farmer_leads"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">form</field>
-	</record>
-
-	<record id="action_farmer_pending_verification" model="ir.actions.act_window">
-		<field name="name">Farmers Pending Verification</field>
-		<field name="res_model">res.partner</field>
-		<field name="view_mode">kanban,list,form</field>
-		<field name="search_view_id" ref="view_farmer_search_filter"/>
-		<field name="context">{'default_is_farmer': True}</field>
-		<field name="domain">[('is_farmer','=',True),('farmer_stage','=','pending')]</field>
-		<field name="help" type="html">
-			<p class="o_view_nocontent_smiling_face">
-				Create the first Farmer
-			</p>
-			<p>
-				Odoo helps you easily track all activities related to a Farmer
-			</p>
-		</field>
-	</record>
-
-	<record id="action_farmers_pending_tree" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_tree"/>
-		<field name="act_window_id" ref="action_farmer_pending_verification"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">list</field>
-	</record>
-
-	<record id="action_farmers_pending_form" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_partner_form"/>
-		<field name="act_window_id" ref="action_farmer_pending_verification"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">form</field>
-	</record>
-
-	<record id="action_certified_farmers" model="ir.actions.act_window">
-		<field name="name">Certified Farmers</field>
-		<field name="res_model">res.partner</field>
-		<field name="view_mode">list,form</field>
-		<field name="search_view_id" ref="view_farmer_search_filter"/>
-		<field name="context">{'create': False, 'edit': False}</field>
-		<field name="domain">['&amp;','&amp;','&amp;',('is_farmer','=',True),('farmer_stage','=','verified'),('certified','=',True)]</field>
-		<field name="help" type="html">
-			<p class="o_view_nocontent_smiling_face">
-				There are no Certified Farmers yet
-			</p>
-		</field>
-	</record>
-
-	<record id="action_certified_farmers_tree" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_tree"/>
-		<field name="act_window_id" ref="action_certified_farmers"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">list</field>
-	</record>
-
-	<record id="action_certified_farmers_form" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_partner_form"/>
-		<field name="act_window_id" ref="action_certified_farmers"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">form</field>
-	</record>
-
-	<record id="action_active_season_farmers" model="ir.actions.act_window">
-		<field name="name">Active Farmers</field>
-		<field name="res_model">res.partner</field>
-		<field name="view_mode">list</field>
-		<field name="search_view_id" ref="view_farmer_search_filter"/>
-		<field name="context">{'create': False, 'edit': False}</field>
-		<field name="domain">[('is_farmer','=',True),('farmer_stage','=','verified')]</field>
-		<field name="help" type="html">
-			<p class="o_view_nocontent_smiling_face">
-				There are no Active Farmers
-			</p>
-		</field>
-	</record>
-	<record id="action_active_farmers_tree" model="ir.actions.act_window.view">
-		<field name="view_id" ref="view_farmer_tree"/>
-		<field name="act_window_id" ref="action_active_season_farmers"/>
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">list</field>
-	</record>
-
-	<record id="action_verify_farmer" model="ir.actions.server">
-		<field name="name">Verify Farmer</field>
-		<field name="type">ir.actions.server</field>
-		<field name="model_id" ref="model_res_partner"/>
-		<field name="binding_model_id" ref="model_res_partner"/>
-		<field name="groups_id" eval="[(6, 0, [ref('agrios.group_agrios_manager')])]"/>
-		<field name="state">code</field>
-		<field name="code">records.verify_farmer()</field>
-	</record>
-
-	<record id="action_trainers" model="ir.actions.act_window">
+    <record id="action_trainers" model="ir.actions.act_window">
         <field name="name">Trainers</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">kanban,list,form</field>

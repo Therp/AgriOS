@@ -1449,7 +1449,7 @@ class KoboAssetAction(models.BaseModel):
                         {
                             "is_outgrower": True,
                             "name": farmer_name,
-                            "birthday": date_of_birth,
+                            "birthdate_date": date_of_birth,
                             "gender": gender,
                             "phone": phone_number,
                             "outgrower_identification": id_number,

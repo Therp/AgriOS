@@ -11,14 +11,14 @@
 		<field name="name">Technical Coordinator Sales Orders Rule</field>
 		<field name="model_id" ref="sale.model_sale_order"/>
 		<field name="domain_force">[('partner_id','in',user.responsible_farmer_ids.ids)]</field>
-		<field name="groups" eval="[(4, ref('agrios.group_sale_salesman_tc'))]"/>
+		<field name="groups" eval="[(4, ref('agrios.group_agrios_tc'))]"/>
 	</record>
 
 	<record id="tc_sale_order_line_rule" model="ir.rule">
 		<field name="name">Technical Coordinator Order Lines</field>
 		<field name="model_id" ref="sale.model_sale_order_line"/>
 		<field name="domain_force">[('order_id.partner_id','in',user.responsible_farmer_ids.ids)]</field>
-		<field name="groups" eval="[(4, ref('agrios.group_sale_salesman_tc'))]"/>
+		<field name="groups" eval="[(4, ref('agrios.group_agrios_tc'))]"/>
 	</record>
 
 	<record id="tc_purchase_order_rule" model="ir.rule">

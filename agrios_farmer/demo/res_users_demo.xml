@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="user_1" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Joseph Njeri</field>
+        <field name="login">joseph.njeri@agri.org</field>
+        <field name="email">joseph.njeri@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_2" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Jane Mwangi</field>
+        <field name="login">jane.mwangi@agri.org</field>
+        <field name="email">jane.mwangi@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_3" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Grace Chebet</field>
+        <field name="login">grace.omondi@agri.org</field>
+        <field name="email">grace.omondi@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_4" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Jake Kimani</field>
+        <field name="login">joseph.kimani@agri.org</field>
+        <field name="email">joseph.kimani@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_5" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Martha Kariuki</field>
+        <field name="login">peter.omondi@agri.org</field>
+        <field name="email">peter.omondi@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_6" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Grace Mutua</field>
+        <field name="login">grace.mutua@agri.org</field>
+        <field name="email">grace.mutua@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_7" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Serah Omondi</field>
+        <field name="login">mary.omondi@agri.org</field>
+        <field name="email">mary.omondi@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_8" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Daniel Otieno</field>
+        <field name="login">daniel.otieno@agri.org</field>
+        <field name="email">daniel.otieno@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_9" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Elizabeth Njeri</field>
+        <field name="login">elizabeth.otieno@agri.org</field>
+        <field name="email">elizabeth.otieno@agri.org</field>
+        <field name="active">True</field>
+    </record>
+    <record id="user_10" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Mary Onyango</field>
+        <field name="login">mary.otieno@agri.org</field>
+        <field name="email">mary.otieno@agri.org</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

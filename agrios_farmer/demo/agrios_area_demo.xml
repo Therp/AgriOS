@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+
+    <!-- Some Kenia counties -->
+
+    <record id="area_kenia_level_1_mombasa" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_1"/>
+        <field name="name">Mombasa</field>
+    </record>
+    <record id="area_kenia_level_1_kwale" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_1"/>
+        <field name="name">Kwale</field>
+    </record>
+    <record id="area_kenia_level_1_kilifi" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_1"/>
+        <field name="name">Kilifi</field>
+    </record>
+    <record id="area_kenia_level_1_tana_river" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_1"/>
+        <field name="name">Tana River</field>
+    </record>
+
+    <!-- Some Kenia sub counties -->
+
+    <record id="area_kenia_level_2_galole" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_tana_river"/>
+        <field name="name">Galole</field>
+    </record>
+    <record id="area_kenia_level_2_garsen" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_tana_river"/>
+        <field name="name">Garsen</field>
+    </record>
+    <record id="area_kenia_level_2_kinango" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_kwale"/>
+        <field name="name">Kinango</field>
+    </record>
+    <record id="area_kenia_level_2_lunga_lunga" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_kwale"/>
+        <field name="name">Lunga Lunga</field>
+    </record>
+    <record id="area_kenia_level_2_matuga" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_kwale"/>
+        <field name="name">Matuga</field>
+    </record>
+    <record id="area_kenia_level_2_ganze" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_kilifi"/>
+        <field name="name">Ganze</field>
+    </record>
+    <record id="area_kenia_level_2_kaloleni" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_kilifi"/>
+        <field name="name">Kaloleni</field>
+    </record>
+    <record id="area_kenia_level_2_kilifi_north" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_kilifi"/>
+        <field name="name">Kilifi North</field>
+    </record>
+    <record id="area_kenia_level_2_kilifi_south" model="agrios.area">
+        <field name="country_location_level_id" ref="country_location_level_kenia_2"/>
+        <field name="parent_id" ref="area_kenia_level_1_kilifi"/>
+        <field name="name">Kilifi South</field>
+    </record>
+
+</odoo>

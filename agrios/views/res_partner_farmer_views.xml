@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- Hide farmers in contact view. -->
-    <record id="contacts.action_contacts" model="ir.actions.act_window">
-        <field name="domain">[('is_farmer', '=', False)]</field>
-    </record>
-
     <record id="view_farmer_partner_form" model="ir.ui.view">
         <field name="name">res.partner.form</field>
         <field name="model">res.partner</field>
@@ -25,7 +20,6 @@
                 <field name="can_register_offtakes_confirm" invisible="1"/>
                 <field name="has_expired_contract" invisible="1" groups="agrios.group_farmer_contract"/>
                 <field name="plot_ids" invisible="1"/>
-                <field name="loc_area_max_level" invisible="1"/>
             </xpath>
             <!-- Hide main details if is_farmer-->
             <xpath expr="//form[1]/sheet[1]/group[1]/group[1]" position="attributes">
@@ -119,9 +113,6 @@
                             <list create="false">
                                 <field name="name"/>
                                 <field name="is_owner" optional="show"/>
-                                <field name="loc_area_1_id" optional="hide"/>
-                                <field name="loc_area_2_id" optional="hide"/>
-                                <field name="loc_area_3_id" optional="hide"/>
                                 <field name="plot_size" sum="Total" optional="show"/>
                                 <field name="plot_condition" optional="show"/>
                                 <field name="plot_description" optional="hide"/>
@@ -228,8 +219,8 @@
                 <group invisible="not is_farmer">
                     <group string="Main Details">
                         <field name="gender"/>
-                        <field name="birthday"/>
-                        <field name="age" invisible="not birthday"/>
+                        <field name="birthdate_date"/>
+                        <field name="age" invisible="not birthdate_date"/>
                         <field name="phone" widget="phone"/>
                         <field name="id_type_id"/>
                         <field name="farmer_id_number"/>
@@ -240,53 +231,7 @@
                         <field name="zip"/>
                         <field name="country_id" options="{'no_open': True,'no_create': True}"/>
                     </group>
-                    <group string="Location Hierarchy">
-                        <field name="farmer_group_id" options="{'no_open': True,'no_create': True}"/>
-
-                        <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 1">
-                            <field name="loc_area_1_label"/>
-                        </td>
-                        <field name="loc_area_1_id" nolabel="1" invisible="loc_area_max_level &lt; 1"
-                               options="{'no_open': True,'no_create': True}"
-                               domain="[('country_id','=',country_id),('parent_id','=?',loc_area_2_id)]"/>
-
-                        <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 2">
-                            <field name="loc_area_2_label"/>
-                        </td>
-                        <field name="loc_area_2_id" nolabel="1" invisible="loc_area_max_level &lt; 2"
-                               options="{'no_open': True,'no_create': True}"
-                               domain="[('country_id','=',country_id),('parent_id','=?',loc_area_3_id)]"/>
-
-                        <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 3">
-                            <field name="loc_area_3_label"/>
-                        </td>
-                        <field name="loc_area_3_id" nolabel="1" invisible="loc_area_max_level &lt; 3"
-                               options="{'no_open': True,'no_create': True}"
-                               domain="[('country_id','=',country_id),('parent_id','=?',loc_area_4_id)]"/>
-
-                        <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 4">
-                            <field name="loc_area_4_label"/>
-                        </td>
-                        <field name="loc_area_4_id" nolabel="1" invisible="loc_area_max_level &lt; 4"
-                               options="{'no_open': True,'no_create': True}"
-                               domain="[('country_id','=',country_id),('parent_id','=?',loc_area_5_id)]"/>
-
-                        <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 5">
-                            <field name="loc_area_5_label"/>
-                        </td>
-                        <field name="loc_area_5_id" nolabel="1" invisible="loc_area_max_level &lt; 5"
-                               options="{'no_open': True,'no_create': True}"
-                               domain="[('country_id','=',country_id),('parent_id','=?',loc_area_6_id)]"/>
-
-                        <td class="o_td_label" style="font-weight: 500;" invisible="loc_area_max_level &lt; 6">
-                            <field name="loc_area_6_label"/>
-                        </td>
-                        <field name="loc_area_6_id" nolabel="1" invisible="loc_area_max_level &lt; 6"
-                               options="{'no_open': True,'no_create': True}"
-                               domain="[('country_id','=',country_id)]"/>
-                    </group>
-                    <group string="Other Details">
-                        <field name="manager_id" invisible="1"/>
+                    <group string="Manager">
                         <field name="user_id" options="{'no_open': True,'no_create': True}"/>
                     </group>
                 </group>
@@ -315,7 +260,7 @@
                 </span>
                 <button name="action_view_interactions" type="object" icon="fa-list-alt" string="Interactions"
                         invisible="farmer_stage != 'verified' or not is_farmer" class="oe_stat_button"
-                        groups="agrios.group_farmers_interactions">
+                        groups="agrios.group_farmer_interactions">
                     <field name="interactions_count" widget="statinfo"/>
                 </button>
                 <button class="oe_stat_button" name="action_view_farmer_contracts" type="object" icon="fa-file-text"
@@ -335,12 +280,6 @@
 
             </xpath>
             <xpath expr="//button[@name='action_view_sale_order']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//button[@name='action_view_partner_invoices']" position="attributes">
-                <attribute name="invisible">farmer_stage != "verified"</attribute>
-            </xpath>
-            <xpath expr="//button[@name='action_view_stock_lots']" position="attributes">
                 <attribute name="invisible">is_farmer == True</attribute>
             </xpath>
         </field>

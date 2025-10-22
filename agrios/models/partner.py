@@ -1,19 +1,8 @@
-from datetime import datetime
-
 from odoo import _, api, fields, models
 
 
 class Farmer(models.Model):
     _inherit = "res.partner"
-    _rec_names_search = [
-        "complete_name",
-        "email",
-        "ref",
-        "vat",
-        "company_registry",
-        "phone",
-        "farmer_ref",
-    ]
 
     @api.model
     def _get_land_area_uom_domain(self):
@@ -34,7 +23,6 @@ class Farmer(models.Model):
             land_area_uom = self.env.ref("agrios.area_1", raise_if_not_found=False)
         return land_area_uom
 
-    is_farmer = fields.Boolean("Farmer", default=False)
     is_farmer_trainer = fields.Boolean("Farmer Trainer", default=False)
     farmer_requires_contract = fields.Boolean(
         "Requires Contract",
@@ -44,69 +32,6 @@ class Farmer(models.Model):
         " offtake agreement contract to sell inputs or to buy off-takes."
         " If unselected, no valid contract is needed for sales or purchases.",
     )
-
-    farmer_ref = fields.Char("Farmer Reference", default="/", readonly=True, copy=False)
-
-    farmer_group_id = fields.Many2one(
-        "farmer.group",
-        "Farmer Group",
-        domain="[('loc_area_1_id', '=?', loc_area_1_id)]",
-        tracking=True,
-    )
-    loc_area_1_id = fields.Many2one(
-        "area.level.1", "Area Level 1", ondelete="restrict", tracking=True
-    )
-    loc_area_2_id = fields.Many2one(
-        "area.level.2", "Area Level 2", ondelete="restrict", tracking=True
-    )
-    loc_area_3_id = fields.Many2one(
-        "area.level.3", "Area Level 3", ondelete="restrict", tracking=True
-    )
-    loc_area_4_id = fields.Many2one(
-        "area.level.4", "Area Level 4", ondelete="restrict", tracking=True
-    )
-    loc_area_5_id = fields.Many2one(
-        "area.level.5", "Area Level 5", ondelete="restrict", tracking=True
-    )
-    loc_area_6_id = fields.Many2one(
-        "area.level.6", "Area Level 6", ondelete="restrict", tracking=True
-    )
-
-    loc_area_1_label = fields.Char(
-        "Area Level 1 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_2_label = fields.Char(
-        "Area Level 2 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_3_label = fields.Char(
-        "Area Level 3 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_4_label = fields.Char(
-        "Area Level 4 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_5_label = fields.Char(
-        "Area Level 5 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_6_label = fields.Char(
-        "Area Level 6 Label", compute="_compute_loc_area_details"
-    )
-    loc_area_max_level = fields.Integer(
-        "Max Area Level", compute="_compute_loc_area_details"
-    )
-
-    manager_id = fields.Many2one(related="loc_area_1_id.manager_id")
-
-    # Basic farmer details
-    gender = fields.Selection([("female", "Female"), ("male", "Male")])
-    farmer_id_number = fields.Char(string="ID Number", tracking=True)
-    birthday = fields.Date(string="Date of Birth")
-    age = fields.Integer(compute="_compute_age")
-    farmer_stage = fields.Selection(
-        [("draft", "Draft"), ("verified", "Verified")],
-        default="draft",
-        copy=False,
-    )
-
     # farm details
     own_acreage = fields.Float(
         "Own Plot Acreage",
@@ -127,15 +52,12 @@ class Farmer(models.Model):
     )
     total_contracted_acreage = fields.Float(compute="_compute_total_contracted_acreage")
     non_contracted_acreage = fields.Float(compute="_compute_non_contracted_acreage")
-
     plot_ids = fields.One2many(
         "farmer.plot", "farmer_id", "Responsible Area", copy=False
     )
-
     # Linked Offtake Agreements
     count_farmer_contracts = fields.Integer(compute="_compute_count_farmer_contracts")
     farmer_contract_ids = fields.One2many("farmer.contract", "farmer_id", "Contracts")
-
     open_contract_ids = fields.One2many(
         "farmer.contract", string="Open Contracts", compute="_compute_open_contracts"
     )
@@ -149,17 +71,13 @@ class Farmer(models.Model):
         string="Open Contracts [Harvest State]",
         compute="_compute_open_contracts",
     )
-
     count_input_sales = fields.Integer(compute="_compute_count_input_sales")
     count_harvest_offtakes = fields.Integer(compute="_compute_count_harvest_offtakes")
     count_trainings = fields.Integer(compute="_compute_count_trainings")
-
     certification_ids = fields.One2many("farmer.certification", "farmer_id")
-
     training_ids = fields.Many2many(
         "farmer.training", domain=[("training_state", "=", "done")]
     )
-
     crop_product_ids = fields.Many2many(
         "product.product",
         "res_partner_product_harvest_crops_rel",
@@ -168,7 +86,6 @@ class Farmer(models.Model):
         domain=[("crop_product", "=", True)],
         string="Crop Products",
     )
-
     land_area_uom = fields.Many2one(
         "uom.uom",
         "Land Area Unit of Measure",
@@ -176,20 +93,9 @@ class Farmer(models.Model):
         default=lambda self: self._default_land_area_uom(),
         tracking=True,
     )
-
-    # extra farmer info
-    family_size = fields.Integer()
-    next_of_kin = fields.Char()
-    nok_id = fields.Char(string="NOK ID")
-    nok_phone = fields.Char(string="NOK Phone")
-
     highest_education_id = fields.Many2one(
         "res.highest.education", "Highest Education", ondelete="restrict", tracking=True
     )
-    id_type_id = fields.Many2one(
-        "res.id.type", "ID Type", ondelete="restrict", tracking=True
-    )
-
     count_certifications = fields.Integer(
         "Valid Certifications",
         compute="_compute_certifications",
@@ -200,16 +106,13 @@ class Farmer(models.Model):
         compute="_compute_certifications",
         search="_search_certified",
     )
-
     has_expired_contract = fields.Boolean(compute="_compute_has_expired_contract")
-
     can_order_inputs = fields.Boolean(
         "Can Order Inputs [Without Confirmation]", compute="_compute_can_order_inputs"
     )
     can_order_inputs_confirm = fields.Boolean(
         "Can Order Inputs [With Confirmation]", compute="_compute_can_order_inputs"
     )
-
     can_register_offtakes = fields.Boolean(
         "Can Register Offtakes [Without Confirmation]",
         compute="_compute_can_register_offtakes",
@@ -218,14 +121,6 @@ class Farmer(models.Model):
         "Can Register Offtakes [With Confirmation]",
         compute="_compute_can_register_offtakes",
     )
-
-    country_id = fields.Many2one(
-        required=True, default=lambda self: self.env.company.country_id
-    )
-    interactions_count = fields.Integer(
-        compute="_compute_interactions_count", string="Interactions"
-    )
-
     unreconciled_aml_ids = fields.One2many(
         "account.move.line",
         compute="_compute_agrios_unreconciled_aml_ids",
@@ -247,19 +142,6 @@ class Farmer(models.Model):
                     ("company_id", "child_of", self.env.company.id),
                 ]
             )
-
-    @api.depends("country_id")
-    def _compute_loc_area_details(self):
-        cll_env = self.env["country.location.level"]
-        for farmer in self:
-            loc_details, max_level = cll_env._get_country_details(farmer.country_id.id)
-            farmer.loc_area_1_label = loc_details[1]
-            farmer.loc_area_2_label = loc_details[2]
-            farmer.loc_area_3_label = loc_details[3]
-            farmer.loc_area_4_label = loc_details[4]
-            farmer.loc_area_5_label = loc_details[5]
-            farmer.loc_area_6_label = loc_details[6]
-            farmer.loc_area_max_level = max_level
 
     @api.depends("plot_ids", "plot_ids.plot_size")
     def _compute_land_acreage(self):
@@ -412,37 +294,6 @@ class Farmer(models.Model):
                 rec.total_acreage - rec.total_contracted_acreage
             )
 
-    @api.depends("birthday")
-    def _compute_age(self):
-        for record in self:
-            if record.birthday:
-                today = datetime.today()
-                # Check if the date has passed this year
-                if today.strftime("%m%d") >= record.birthday.strftime("%m%d"):
-                    record["age"] = today.year - record.birthday.year
-                else:
-                    record["age"] = today.year - record.birthday.year - 1
-            else:
-                record["age"] = 0
-
-    @api.depends("farmer_ref")
-    def _compute_display_name(self):
-        ret = super()._compute_display_name()
-
-        for partner in self:
-            if partner.farmer_ref and partner.farmer_ref != "/":
-                partner.display_name = (
-                    f"[{partner.farmer_ref}] {partner.display_name or ''}"
-                )
-
-        return ret
-
-    def _compute_interactions_count(self):
-        for partner in self:
-            partner.interactions_count = self.env["farmer.interaction"].search_count(
-                [("farmer_id", "=", partner.id)]
-            )
-
     def _search_certified(self, operator, value):
         if (operator == "=" and not value) or (operator == "!=" and value):
             domain_operator = "not in"
@@ -463,80 +314,6 @@ class Farmer(models.Model):
     def _onchange_farmer_group(self):
         if self.farmer_group_id.loc_area_1_id:
             self.loc_area_1_id = self.farmer_group_id.loc_area_1_id
-
-    @api.onchange("loc_area_1_id")
-    def _onchange_loc_area_1_id(self):
-        if self.loc_area_1_id:
-            self.loc_area_2_id = self.loc_area_1_id.parent_id
-
-            if (
-                self.farmer_group_id
-                and self.loc_area_1_id != self.farmer_group_id.loc_area_1_id
-            ):
-                self.farmer_group_id = False
-
-    @api.onchange("loc_area_2_id")
-    def _onchange_loc_area_2_id(self):
-        if self.loc_area_2_id:
-            self.loc_area_3_id = self.loc_area_2_id.parent_id
-
-            if (
-                self.loc_area_1_id
-                and self.loc_area_1_id.parent_id != self.loc_area_2_id
-            ):
-                self.loc_area_1_id = False
-
-    @api.onchange("loc_area_3_id")
-    def _onchange_region_id(self):
-        if self.loc_area_3_id:
-            self.loc_area_4_id = self.loc_area_3_id.parent_id
-
-            if (
-                self.loc_area_2_id
-                and self.loc_area_2_id.parent_id != self.loc_area_3_id
-            ):
-                self.loc_area_2_id = False
-                self.loc_area_1_id = False
-
-    @api.onchange("loc_area_4_id")
-    def _onchange_loc_area_4_id(self):
-        if self.loc_area_4_id:
-            self.loc_area_5_id = self.loc_area_4_id.parent_id
-
-            if (
-                self.loc_area_3_id
-                and self.loc_area_3_id.parent_id != self.loc_area_4_id
-            ):
-                self.loc_area_3_id = False
-                self.loc_area_2_id = False
-                self.loc_area_1_id = False
-
-    @api.onchange("loc_area_5_id")
-    def _onchange_loc_area_5_id(self):
-        if self.loc_area_5_id:
-            self.loc_area_6_id = self.loc_area_5_id.parent_id
-
-            if (
-                self.loc_area_4_id
-                and self.loc_area_4_id.parent_id != self.loc_area_5_id
-            ):
-                self.loc_area_4_id = False
-                self.loc_area_3_id = False
-                self.loc_area_2_id = False
-                self.loc_area_1_id = False
-
-    @api.onchange("loc_area_6_id")
-    def _onchange_loc_area_6_id(self):
-        if self.loc_area_6_id:
-            if (
-                self.loc_area_5_id
-                and self.loc_area_5_id.parent_id != self.loc_area_6_id
-            ):
-                self.loc_area_5_id = False
-                self.loc_area_4_id = False
-                self.loc_area_3_id = False
-                self.loc_area_2_id = False
-                self.loc_area_1_id = False
 
     @api.model
     def web_search_read(
@@ -579,120 +356,11 @@ class Farmer(models.Model):
             count_limit=count_limit,
         )
 
-    @api.model
-    def _get_view(self, view_id=None, view_type="form", **options):
-        arch, view = super()._get_view(view_id=view_id, view_type=view_type, **options)
-
-        if view_type == "search" and view == self.env.ref(
-            "agrios.view_farmer_search_filter", raise_if_not_found=False
-        ):
-            company_country_id = self.env.company.country_id.id
-            loc_details, max_level = self.env[
-                "country.location.level"
-            ]._get_country_details(company_country_id)
-
-            lev6 = arch.xpath("//filter[@name='groupby_loc_area_6_id']")[0]
-            if max_level >= 6:
-                lev6.set("string", loc_details[6])
-            else:
-                lev6.getparent().remove(lev6)
-
-            lev5 = arch.xpath("//filter[@name='groupby_loc_area_5_id']")[0]
-            if max_level >= 5:
-                lev5.set("string", loc_details[5])
-            else:
-                lev5.getparent().remove(lev5)
-
-            lev4 = arch.xpath("//filter[@name='groupby_loc_area_4_id']")[0]
-            if max_level >= 4:
-                lev4.set("string", loc_details[4])
-            else:
-                lev4.getparent().remove(lev4)
-
-            lev3 = arch.xpath("//filter[@name='groupby_loc_area_3_id']")[0]
-            if max_level >= 3:
-                lev3.set("string", loc_details[3])
-            else:
-                lev3.getparent().remove(lev3)
-
-            lev2 = arch.xpath("//filter[@name='groupby_loc_area_2_id']")[0]
-            if max_level >= 2:
-                lev2.set("string", loc_details[2])
-            else:
-                lev2.getparent().remove(lev2)
-
-            arch.xpath("//filter[@name='groupby_loc_area_1_id']")[0].set(
-                "string", loc_details[1]
-            )
-
-        elif view_type == "list" and view == self.env.ref(
-            "agrios.view_farmer_tree", raise_if_not_found=False
-        ):
-            company_country_id = self.env.company.country_id.id
-            loc_details, max_level = self.env[
-                "country.location.level"
-            ]._get_country_details(company_country_id)
-
-            lev6 = arch.xpath("//field[@name='loc_area_6_id']")[0]
-            if max_level >= 6:
-                lev6.set("string", loc_details[6])
-            else:
-                lev6.getparent().remove(lev6)
-
-            lev5 = arch.xpath("//field[@name='loc_area_5_id']")[0]
-            if max_level >= 5:
-                lev5.set("string", loc_details[5])
-            else:
-                lev5.getparent().remove(lev5)
-
-            lev4 = arch.xpath("//field[@name='loc_area_4_id']")[0]
-            if max_level >= 4:
-                lev4.set("string", loc_details[4])
-            else:
-                lev4.getparent().remove(lev4)
-
-            lev3 = arch.xpath("//field[@name='loc_area_3_id']")[0]
-            if max_level >= 3:
-                lev3.set("string", loc_details[3])
-            else:
-                lev3.getparent().remove(lev3)
-
-            lev2 = arch.xpath("//field[@name='loc_area_2_id']")[0]
-            if max_level >= 2:
-                lev2.set("string", loc_details[2])
-            else:
-                lev2.getparent().remove(lev2)
-
-            arch.xpath("//field[@name='loc_area_1_id']")[0].set(
-                "string", loc_details[1]
-            )
-
-        return arch, view
-
-    def verify_farmer(self):
-        for farmer in self:
-            vals = {
-                "farmer_stage": "verified",
-                "farmer_requires_contract": (
-                    farmer.company_id or self.env.company
-                ).a_default_contract_required,
-            }
-
-            if not farmer.farmer_ref or farmer.farmer_ref == "/":
-                vals["farmer_ref"] = self.env["ir.sequence"].next_by_code("farmer")
-
-            farmer.with_context(mail_notrack=True).write(vals)
-
-    def action_view_interactions(self):
-        self.ensure_one()
-        return {
-            "type": "ir.actions.act_window",
-            "name": "Interactions",
-            "res_model": "farmer.interaction",
-            "view_mode": "list,form",
-            "domain": [("farmer_id", "=", self.id)],
-            "context": {"default_farmer_id": self.id},
-        }
+    def _prepare_verify_farmer_vals(self):
+        vals = super()._prepare_verify_farmer_vals()
+        company = self.company_id or self.env.company
+        vals["farmer_requires_contract"] = company.a_default_contract_required
+        return vals
 
     def action_view_farmer_contracts(self):
         self.ensure_one()
@@ -745,7 +413,6 @@ class Farmer(models.Model):
 
     def action_create_agrios_so(self):
         self.ensure_one()
-
         action = {
             "type": "ir.actions.act_window",
             "name": self.display_name + " - " + _("Order Inputs"),
@@ -755,7 +422,6 @@ class Farmer(models.Model):
                 "default_partner_id": self.id,
             },
         }
-
         if not self.farmer_requires_contract and self.crop_product_ids:
             allow_operations_out_of_phase = (
                 self.company_id or self.env.company
@@ -789,12 +455,10 @@ class Farmer(models.Model):
                         )
 
                     action["context"]["default_order_line"] = order_line_vals
-
         return action
 
     def action_create_agrios_po(self):
         self.ensure_one()
-
         return {
             "type": "ir.actions.act_window",
             "name": self.display_name + " - " + _("Off-Take"),
@@ -808,7 +472,6 @@ class Farmer(models.Model):
 
     def action_create_farm(self):
         self.ensure_one()
-
         return {
             "type": "ir.actions.act_window",
             "name": _("New Plot Of %s") % self.display_name,
@@ -830,19 +493,16 @@ class Farmer(models.Model):
         """Get the total estimate per acre"""
         self.ensure_one()
         estimated_yield = crop_product.estimated_yield
-
         if crop_product.harvest_product_type == "tree_crop":
             domain = [
                 ("plot_id", "in", self.plot_ids.ids),
                 ("product_id", "=", crop_product.id),
             ]
             subplots = self.env["farmer.plot.crop.area"].search(domain)
-
             if subplots:
                 total_yield = sum(subplots.mapped("annual_estimated_yield"))
                 total_acreage = sum(subplots.mapped("acreage"))
 
                 if total_acreage > 0:
                     estimated_yield = total_yield / total_acreage
-
         return estimated_yield

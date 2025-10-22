@@ -101,31 +101,4 @@
         <field name="end_date">2026-12-31</field>
         <field name="status">draft</field>
     </record>
-    <record id="res_highest_education_none" model="res.highest.education">
-        <field name="name">None</field>
-    </record>
-    <record id="res_highest_education_primary" model="res.highest.education">
-        <field name="name">Primary</field>
-    </record>
-    <record id="res_highest_education_secondary" model="res.highest.education">
-        <field name="name">Secondary</field>
-    </record>
-    <record id="res_highest_education_diploma" model="res.highest.education">
-        <field name="name">Diploma</field>
-    </record>
-    <record id="res_highest_education_undergraduate" model="res.highest.education">
-        <field name="name">Undergraduate</field>
-    </record>
-    <record id="res_highest_education_postgraduate" model="res.highest.education">
-        <field name="name">Postgraduate</field>
-    </record>
-    <record id="res_id_type_national_id" model="res.id.type">
-        <field name="name">National ID</field>
-    </record>
-    <record id="res_id_type_driving_license" model="res.id.type">
-        <field name="name">Driving License</field>
-    </record>
-    <record id="res_id_type_voter_id" model="res.id.type">
-        <field name="name">Voter ID</field>
-    </record>
 </odoo>

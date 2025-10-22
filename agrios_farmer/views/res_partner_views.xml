@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Hide farmers in contact view. -->
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="domain">[('is_farmer', '=', False)]</field>
+    </record>
+
+    <record id="view_farmer_search_filter" model="ir.ui.view">
+        <field name="name">view.farmer.search.filter</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search>
+                <field
+                    name="name"
+                    string="Name/Phone/Reference/ID"
+                    filter_domain="['|','|','|',('complete_name','ilike',self),
+                    ('phone','ilike',self),('farmer_ref','ilike',self)]"
+                />
+                <separator/>
+                <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
+                <filter string="Female" name="female" domain="[('gender', '=', 'female')]"/>
+                <separator/>
+                <filter string="No Phone" name="filter_no_phone" domain="[('phone', '=', False)]"/>
+                <filter
+                    string="Duplicate Phone"
+                    name="filter_duplicate_phone"
+                    domain="[]"
+                    context="{'filter_duplicate_phone': True}"
+                />
+                <separator/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+                <group expand="1" string="Group By">
+                    <filter name="groupby_farmer_group_id" context="{'group_by': 'farmer_group_id'}"/>
+                    <filter name="groupby_gender" context="{'group_by': 'gender'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_farmer_tree" model="ir.ui.view">
+        <field name="name">view.farmer.tree</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <list sample="1">
+                <field name="farmer_ref" optional="show"/>
+                <field name="name"/>
+                <field name="phone" optional="show"/>
+                <field name="gender" optional="show"/>
+                <field name="farmer_group_id" optional="show"/>
+                <field name="user_id" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_farmer_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority" eval="128"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page" position="inside">
+                <field name="is_farmer" invisible="1"/>
+                <field name="active" invisible="1"/>
+            </xpath>
+            <!-- Hide main details if is_farmer-->
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[1]" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[2]" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//page[@name='contact_addresses']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <!-- Add Pages-->
+            <xpath expr="//page[@name='internal_notes']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page>
+                    <group string="Extra Notes">
+                        <field name="comment" nolabel="1" colspan="2"
+                               placeholder="Extra internal information about the farmer..."/>
+                    </group>
+                </page>
+            </xpath>
+            <!--Header-->
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button
+                        string="Verify"
+                        name="action_verify_farmer"
+                        type="object"
+                        class="oe_highlight"
+                        confirm="Are you sure you want to Verify this Farmer?"
+                        invisible="farmer_stage != 'draft' or active == False or not is_farmer"
+                        groups="agrios_farmer.group_agrios_manager"
+                    />
+                    <field
+                        name="farmer_stage"
+                        invisible="not is_farmer"
+                        clickable="False"
+                        widget="statusbar"
+                    />
+                </header>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <widget
+                    name="web_ribbon"
+                    title="Archived"
+                    bg_color="bg-danger"
+                    invisible="active == True"
+                />
+            </xpath>
+            <!--Body-->
+            <xpath expr="//div[hasclass('oe_title')]/h1" position="after">
+                <group invisible="not is_farmer">
+                    <group string="Main Details">
+                        <field name="phone" widget="phone"/>
+                    </group>
+                    <group string="Address Details">
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="zip"/>
+                        <field name="country_id" options="{'no_open': True,'no_create': True}"/>
+                    </group>
+                    <group string="Manager">
+                        <field name="user_id" options="{'no_open': True,'no_create': True}"/>
+                    </group>
+                </group>
+            </xpath>
+            <!--REPLACE partner name-->
+            <xpath expr="//div[hasclass('oe_title')]/h1" position="replace">
+                <h1 invisible="is_farmer">
+                    <field
+                        id="company"
+                        options="{'line_breaks': False}"
+                        widget="text"
+                        class="text-break"
+                        name="name"
+                        default_focus="1"
+                        placeholder="e.g. Lumber Inc"
+                        invisible="not is_company"
+                        required="type == 'contact'"
+                    />
+                    <field
+                        id="individual"
+                        options="{'line_breaks': False}"
+                        widget="text"
+                        class="text-break"
+                        name="name"
+                        default_focus="1"
+                        placeholder="e.g. Brandon Freeman"
+                        invisible="is_company"
+                        required="type == 'contact'"
+                    />
+                </h1>
+                <h1 invisible="not is_farmer">
+                    <span invisible="farmer_ref == '/'">
+                        [<field name="farmer_ref" class="oe_inline" help="Farmer reference"/>]
+                    </span>
+                    <field name="name" placeholder="Farmer Name" required="1" class="oe_inline"/>
+                </h1>
+
+            </xpath>
+            <!--Button Box-->
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button
+                    name="action_view_interactions"
+                    type="object"
+                    icon="fa-list-alt"
+                    string="Interactions"
+                    invisible="farmer_stage != 'verified' or not is_farmer"
+                    class="oe_stat_button"
+                    groups="agrios_farmer.group_farmer_interactions"
+                 >
+                    <field name="interactions_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_farmer_leads_tree" model="ir.ui.view">
+        <field name="name">view.farmer.leads.tree</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <list sample="1">
+                <field name="name"/>
+                <field name="phone" optional="show"/>
+                <field name="gender" optional="show"/>
+                <field name="farmer_group_id" optional="show"/>
+                <field name="user_id" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>
