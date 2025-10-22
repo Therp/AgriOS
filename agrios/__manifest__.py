@@ -1,5 +1,5 @@
 # Copyright 2025 Advance Insight
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "AgriOS",
     "summary": """Efficiently manage an farmer network""",
@@ -7,7 +7,7 @@
     "website": "https://github.com/OCA/web",
     "category": "Agrios",
     "version": "18.0.1.3.6",
-    "license": "LGPL-3",
+    "license": "AGPL-3",
     "depends": [
         # Odoo Modules
         "account",
