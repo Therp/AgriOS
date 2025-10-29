@@ -1,3 +1,6 @@
+# Copyright 2025 Advance Insight
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -25,6 +28,15 @@ class FarmerPlot(models.Model):
         )
 
     name = fields.Char(required=True, tracking=True)
+    country_id = fields.Many2one(
+        "res.country",
+        required=True,
+        default=lambda self: self.env.company.country_id,
+    )
+    agrios_area_id = fields.Many2one(
+        comodel_name="agrios.area",
+        domain="[('country_id', '=', country_id)]",
+    )
     plot_shape_type = fields.Selection(
         selection=[
             ("circle", "Circle"),
@@ -69,16 +81,9 @@ class FarmerPlot(models.Model):
     )
     intercropping = fields.Boolean()
     subplot_ids = fields.One2many("farmer.plot.crop.area", "plot_id", string="Subplots")
-    country_id = fields.Many2one(
-        "res.country",
-        required=True,
-        default=lambda self: self.env.company.country_id,
-    )
-
     main_road = fields.Char()
     main_road_distance = fields.Float("Main Road Distance (km)")
     gps_location = fields.Char(tracking=True)
-
     plot_polygon = fields.Json()
     country_code = fields.Char(
         compute="_compute_country_code",

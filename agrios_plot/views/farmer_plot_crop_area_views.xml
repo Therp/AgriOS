@@ -74,11 +74,4 @@
         </field>
     </record>
 
-    <record id="farmer_plot_crop_area_action" model="ir.actions.act_window">
-        <field name="name">Plot Crop Areas</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">farmer.plot.crop.area</field>
-        <field name="view_mode">list,form,pivot</field>
-    </record>
-
 </odoo>

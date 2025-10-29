@@ -6,6 +6,6 @@ patch(ResConfigDevTool.prototype, {
      * Server‐side handler for the “Load New Data” button.
      */
     onClickLoadAgriosData() {
-        this.action.doAction("agrios.agrios_force_install_action");
+        this.action.doAction("agrios_demo.agrios_force_install_action");
     },
 });

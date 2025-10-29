@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Plot menu's -->
+
+    <menuitem
+        id="menu_partner_area"
+        name="Plots"
+        parent="agrios_farmer.agrios_menu_root"
+        action="farmer_plot_action"
+        sequence="25"
+        groups="agrios_plot.group_plot_management"
+    />
+    <menuitem
+        id="menu_partner_area_main"
+        name="Farmer Plots"
+        parent="menu_partner_area"
+        action="farmer_plot_action"
+        sequence="10"
+        groups="agrios_plot.group_plot_management"
+    />
+    <menuitem
+        id="menu_partner_subplots"
+        name="Plot Crop Areas"
+        parent="menu_partner_area"
+        action="farmer_plot_crop_area_action"
+        sequence="10"
+        groups="agrios_plot.group_plot_management"
+    />
+
+    <!-- Product menu's -->
+
+    <menuitem
+        id="menu_product"
+        name="Products"
+        parent="agrios_farmer.agrios_menu_root"
+        sequence="50"
+        groups="agrios_farmer.group_agrios_manager"
+    />
+    <menuitem
+        id="sub_menu_product"
+        name="Products"
+        parent="menu_product"
+        action="agrios_product_template_action"
+        sequence="10"
+    />
+
+</odoo>

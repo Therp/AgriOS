@@ -60,6 +60,13 @@
         groups="group_agrios_admin"
     />
     <menuitem
+        name="Settings"
+        id="agrios_configuration_settings"
+        parent="agrios_configuration"
+        action="action_agrios_configuration_settings"
+        sequence="10"
+    />
+    <menuitem
         name="Activity Types"
         id="agrios_configuration_activity"
         parent="agrios_configuration"

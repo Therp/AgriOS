@@ -26,10 +26,11 @@
         "views/agrios_area_views.xml",
         "views/farmer_group_views.xml",
         "views/farmer_interaction_views.xml",
-        "views/res_partner_views.xml",
         "views/partner_education_views.xml",
+        "views/res_partner_views.xml",
         "views/ir_actions_act_window.xml",
         "views/ir_ui_menu.xml",
+        "views/res_config_settings_views.xml",
     ],
     "demo": [
         "demo/res_users_demo.xml",

@@ -42,27 +42,12 @@
                                 </div>
                             </div>
                         </setting>
-
-                        <setting id="seed_varieties"
-                                 help="Allows the management of seeds varieties to product a harvestable product.">
-                            <field name="group_seed_varieties"/>
-                        </setting>
                         <setting id="farmers_training" help="Allows the management of farmers training.">
                             <field name="group_farmers_training"/>
                             <div class="content-group">
                                 <div invisible="not group_farmers_training">
                                     <button name="%(agrios.action_farmer_trainings)d" icon="oi-arrow-right"
                                             type="action" string="Farmer Trainings" class="btn-link"/>
-                                </div>
-                            </div>
-                        </setting>
-                        <setting id="farmer_interactions"
-                                 help="Allows the management of interactions made with farmers (calls, visits, etc...).">
-                            <field name="group_farmer_interactions"/>
-                            <div class="content-group">
-                                <div invisible="not group_farmer_interactions">
-                                    <button name="%(agrios.action_farmer_interaction)d" icon="oi-arrow-right"
-                                            type="action" string="Farmer Interactions" class="btn-link"/>
                                 </div>
                             </div>
                         </setting>
@@ -90,48 +75,9 @@
                             </div>
                         </setting>
                     </block>
-
-                    <block title="Farm">
-                        <setting id="land_area_uom" string="Land Size UoM"
-                                 help="Set the unit of measure that the area of farms are measured.">
-                            <div class="content-group">
-                                <field name="land_area_uom" options="{'no_create': True}"
-                                       readonly="land_area_uom == True" class="o_light_label"/>
-                            </div>
-                        </setting>
-                        <setting id="max_plot_size" string="Max Plot Size"
-                                 help="Leave the value as 0.0 to allow any farm size to be set.">
-                            <div class="content-group">
-                                <field name="max_plot_size" class="o_light_label"/>
-                            </div>
-                        </setting>
-                        <setting id="plots_management" string="Complex Plot Management"
-                                 help="Allows the creation of plot records (which determine the total acreage of the Farmer), the registration of trees planted, and the use several crops per plot of land">
-                            <field name="group_plot_management"/>
-                            <div class="content-group">
-                                <div class="mt16" invisible="not group_plot_management">
-                                    <div>
-                                        <field name="group_plot_maps" class="w-auto"/>
-                                        <label for="group_plot_maps"/>
-                                        <span class="o_doc_link" style="cursor: help; margin-left: -7px;"
-                                              title="Allows farmer plots to be recorded on a map."/>
-                                    </div>
-                                </div>
-                            </div>
-                        </setting>
-                    </block>
                 </app>
             </xpath>
         </field>
-    </record>
-
-    <record id="action_agrios_configuration_settings" model="ir.actions.act_window">
-        <field name="name">Settings</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">res.config.settings</field>
-        <field name="view_mode">form</field>
-        <field name="target">inline</field>
-        <field name="context">{'module': 'agrios', 'bin_size': False}</field>
     </record>
 
 </odoo>

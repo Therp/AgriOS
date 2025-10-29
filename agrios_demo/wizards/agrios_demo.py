@@ -79,7 +79,7 @@ class AgriosDemo(models.TransientModel):
 
     def _load_image_base64(self, *path_parts):
         """Convert an image file into a base64-encoded string."""
-        file_path = get_module_resource("agrios", *path_parts)
+        file_path = get_module_resource("agrios_demo", *path_parts)
         with open(file_path, "rb") as f:
             data = f.read()
         return base64.b64encode(data)

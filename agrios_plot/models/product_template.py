@@ -1,3 +1,6 @@
+# Copyright 2025 Advance Insight
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 from odoo import api, fields, models
 
 
@@ -27,7 +30,6 @@ class ProductTemplate(models.Model):
     tree_yield_ids = fields.One2many(
         "plant.age.yield", "crop_product_id", string="Tree Yields"
     )
-
     maturity_days = fields.Integer()
     estimated_yield = fields.Float("Estimated Yield (kgs)")
     qty_per_acreage = fields.Float("Default Qty")
@@ -35,14 +37,11 @@ class ProductTemplate(models.Model):
         "product.product",
         domain="[('crop_product','=',True),('id','not in',product_variant_ids)]",
     )
-
     land_area_uom = fields.Char(compute="_compute_farm_measure")
-
     related_inputs_ids = fields.Many2many(
         "product.product",
         domain="[('product_tmpl_id','!=',id),('input_product','=',True)]",
     )
-
     seed_ids = fields.Many2many(
         "product.product",
         string="Seed Varieties",
@@ -79,15 +78,3 @@ class ProductTemplate(models.Model):
     def _onchange_harvest_product(self):
         if self.crop_product:
             self.purchase_ok = True
-
-
-class ProductProduct(models.Model):
-    _inherit = "product.product"
-
-    seed_ids = fields.One2many(
-        "product.product",
-        "crop_product_id",
-        "Seed Varieties",
-        domain=[("seed_product", "=", True)],
-        readonly=True,
-    )

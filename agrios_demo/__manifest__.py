@@ -11,11 +11,18 @@
     "depends": [
         # Agrios Modules
         "agrios",
+        "agrios_theme",
     ],
     "data": [
         "security/ir.model.access.csv",
         "wizards/agrios_demo.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "agrios_demo/static/src/components/demo_data_widget/*",
+        ],
+    },
+    "post_init_hook": "post_init_hook",
     "application": False,
     "installable": True,
     "auto_install": False,
