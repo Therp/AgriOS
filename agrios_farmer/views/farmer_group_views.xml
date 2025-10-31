@@ -41,8 +41,24 @@
                             <field name="group_treasurer_id" options="{'no_create': True}"/>
                         </group>
                         <group>
-                            <field name="country_id"
-                                   options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
+                            <td
+                                class="o_td_label"
+                                style="font-weight: 500;"
+                                invisible="not agrios_area_allowed"
+                            >
+                                <field name="agrios_area_label"/>
+                            </td>
+                            <field
+                                name="agrios_area_id"
+                                nolabel="1"
+                                options="{'no_open': True,'no_create': True}"
+                                domain="[('country_id','=',country_id)]"
+                                invisible="not agrios_area_allowed"
+                            />
+                            <field
+                                name="country_id"
+                                options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                            />
                             <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                     </group>

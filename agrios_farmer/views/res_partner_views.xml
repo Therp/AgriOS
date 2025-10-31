@@ -61,6 +61,7 @@
         <field name="priority" eval="128"/>
         <field name="arch" type="xml">
             <xpath expr="//page" position="inside">
+                <field name="agrios_area_allowed" invisible="1"/>
                 <field name="is_farmer" invisible="1"/>
                 <field name="active" invisible="1"/>
             </xpath>
@@ -134,6 +135,26 @@
                         <field name="city"/>
                         <field name="zip"/>
                         <field name="country_id" options="{'no_open': True,'no_create': True}"/>
+                    </group>
+                    <group string="Location Hierarchy">
+                        <field
+                            name="farmer_group_id"
+                            options="{'no_open': True,'no_create': True}"
+                        />
+                        <td
+                            class="o_td_label"
+                            style="font-weight: 500;"
+                            invisible="not agrios_area_allowed"
+                        >
+                            <field name="agrios_area_label"/>
+                        </td>
+                        <field
+                            name="agrios_area_id"
+                            nolabel="1"
+                            options="{'no_open': True,'no_create': True}"
+                            domain="[('country_id','=',country_id)]"
+                            invisible="not agrios_area_allowed"
+                        />
                     </group>
                     <group string="Manager">
                         <field name="user_id" options="{'no_open': True,'no_create': True}"/>

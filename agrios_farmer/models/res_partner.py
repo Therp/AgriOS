@@ -5,7 +5,8 @@ from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
-    _inherit = "res.partner"
+    _name = "res.partner"
+    _inherit = ["res.partner", "agrios.area.mixin"]
     _rec_names_search = [
         "complete_name",
         "email",
@@ -30,10 +31,6 @@ class ResPartner(models.Model):
         ondelete="restrict",
         tracking=True,
     )
-    agrios_area_id = fields.Many2one(
-        comodel_name="agrios.area",
-        domain="[('country_id', '=', country_id)]",
-    )
     highest_education_id = fields.Many2one(
         comodel_name="partner.education",
         ondelete="restrict",
@@ -46,10 +43,6 @@ class ResPartner(models.Model):
         comodel_name="res.partner",
         string="Farmers Responsible",
         compute="_compute_responsible_farmer_ids",
-    )
-    # Override attributes of standard fields
-    country_id = fields.Many2one(
-        required=True, default=lambda self: self.env.company.country_id
     )
     # extra farmer info
     family_size = fields.Integer()

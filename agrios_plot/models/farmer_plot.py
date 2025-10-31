@@ -7,7 +7,7 @@ from odoo.exceptions import ValidationError
 
 class FarmerPlot(models.Model):
     _name = "farmer.plot"
-    _inherit = ["mail.thread"]
+    _inherit = ["mail.thread", "agrios.area.mixin"]
     _description = "Farmer Plot"
     _order = "farmer_id"
 
@@ -28,15 +28,6 @@ class FarmerPlot(models.Model):
         )
 
     name = fields.Char(required=True, tracking=True)
-    country_id = fields.Many2one(
-        "res.country",
-        required=True,
-        default=lambda self: self.env.company.country_id,
-    )
-    agrios_area_id = fields.Many2one(
-        comodel_name="agrios.area",
-        domain="[('country_id', '=', country_id)]",
-    )
     plot_shape_type = fields.Selection(
         selection=[
             ("circle", "Circle"),
@@ -85,15 +76,6 @@ class FarmerPlot(models.Model):
     main_road_distance = fields.Float("Main Road Distance (km)")
     gps_location = fields.Char(tracking=True)
     plot_polygon = fields.Json()
-    country_code = fields.Char(
-        compute="_compute_country_code",
-        default=lambda self: self.env.company.country_id.code or False,
-    )
-
-    def _compute_country_code(self):
-        country_code = self.env.company.country_id.code or False
-        for rpa in self:
-            rpa.country_code = country_code
 
     @api.constrains("year_established")
     def _check_year_of_farm_establishment(self):

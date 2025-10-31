@@ -14,20 +14,10 @@ class FarmerGroup(models.Model):
     _name = "farmer.group"
     _description = "Farmer Group"
     _order = "name, agrios_area_id"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _inherit = ["mail.thread", "mail.activity.mixin", "agrios.area.mixin"]
 
     name = fields.Char(required=True)
     active = fields.Boolean(default=True)
-    country_id = fields.Many2one(
-        "res.country",
-        "Country",
-        required=True,
-        default=lambda self: self.env.company.country_id,
-    )
-    agrios_area_id = fields.Many2one(
-        comodel_name="agrios.area",
-        domain="[('country_id', '=', country_id)]",
-    )
     company_id = fields.Many2one(
         "res.company",
         string="Company",
