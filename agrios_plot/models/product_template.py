@@ -13,6 +13,7 @@ class ProductTemplate(models.Model):
         " E.g. seeds, fertilizer, cultivation material, etc",
     )
     crop_product = fields.Boolean(
+        string="Product is a crop",
         help="Products produced and harvested by a farmer."
         " E.g. pumpkins, chilli peppers, cocoa, etc",
     )
@@ -34,7 +35,7 @@ class ProductTemplate(models.Model):
     estimated_yield = fields.Float("Estimated Yield (kgs)")
     qty_per_acreage = fields.Float("Default Qty")
     crop_product_id = fields.Many2one(
-        "product.product",
+        comodel_name="product.product",
         domain="[('crop_product','=',True),('id','not in',product_variant_ids)]",
     )
     land_area_uom = fields.Char(compute="_compute_farm_measure")
@@ -75,6 +76,6 @@ class ProductTemplate(models.Model):
             self.sale_ok = True
 
     @api.onchange("crop_product")
-    def _onchange_harvest_product(self):
+    def _onchange_crop_product(self):
         if self.crop_product:
             self.purchase_ok = True

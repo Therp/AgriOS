@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Accounts -->
+    <record id="account_income" model="account.account">
+        <field name="name">444000 Product Sales</field>
+        <field name="code">444000</field>
+        <field name="internal_group">income</field>
+    </record>
+
+    <record id="account_expense" model="account.account">
+        <field name="name">644000 Expenses</field>
+        <field name="code">644000</field>
+        <field name="internal_group">expense</field>
+    </record>
+
+    <record id="account_valuation" model="account.account">
+        <field name="name">444100 Stock Valuation</field>
+        <field name="code">444100</field>
+        <field name="internal_group">asset</field>
+    </record>
+
+    <record id="account_input" model="account.account">
+        <field name="name">444200 Stock Interim (Received)</field>
+        <field name="code">444200</field>
+        <field name="internal_group">asset</field>
+    </record>
+
+    <record id="account_output" model="account.account">
+        <field name="name">444300 Stock Interim (Delivered)</field>
+        <field name="code">444300</field>
+        <field name="internal_group">asset</field>
+    </record>
+
+</odoo>

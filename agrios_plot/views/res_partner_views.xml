@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form - agrios_plot</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="agrios_farmer.view_partner_form"/>
+        <field name="priority" eval="128"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page name="farm_detail" invisible="not is_farmer" string="Farm Details">
+                    <field name="plot_ids" invisible="1"/>
+                    <group>
+                        <group>
+                            <label for="own_acreage" string="Own Plot Acreage"/>
+                            <div class="o_row mw-50">
+                                <field
+                                    name="own_acreage"
+                                    readonly="plot_ids"
+                                    class="oe_inline o_hr_narrow_field"
+                                    nolabel="1"
+                                />
+                                <div class="mb-3">
+                                    <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
+                                </div>
+                            </div>
+                            <label for="leased_acreage" string="Leased Plot Acreage"/>
+                            <div class="o_row mw-50">
+                                <field
+                                    name="leased_acreage"
+                                    readonly="plot_ids"
+                                    class="oe_inline o_hr_narrow_field"
+                                    nolabel="1"
+                                />
+                                <div class="mb-3">
+                                    <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
+                                </div>
+                            </div>
+                            <label for="total_acreage"/>
+                            <div class="o_row mw-50">
+                                <field name="total_acreage" readonly="1" force_save="1"
+                                       class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                                <div class="mb-3">
+                                    <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
+                                </div>
+                            </div>
+                            <field name="crop_product_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="partner_latitude" string="Farm Latitude"
+                                   groups="!agrios_plot.group_plot_management"/>
+                            <field name="partner_longitude" string="Farm Longitude"
+                                   groups="!agrios_plot.group_plot_management"/>
+                        </group>
+                    </group>
+                    <group string="Farmer Land Plots" groups="agrios_plot.group_plot_management">
+                        <field name="plot_ids" context="{'plot_partner_invisible': True}" nolabel="1" colspan="2">
+                            <list create="false">
+                                <field name="name"/>
+                                <field name="is_owner" optional="show"/>
+                                <field name="plot_size" sum="Total" optional="show"/>
+                                <field name="plot_condition" optional="show"/>
+                                <field name="plot_description" optional="hide"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+            <!--Header-->
+            <xpath expr="//header" position="inside">
+                <button
+                    string="Create Plot"
+                    name="action_create_farm"
+                    type="object"
+                    invisible="not is_farmer"
+                    class="oe_highlight"
+                    groups="agrios_plot.group_plot_management"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

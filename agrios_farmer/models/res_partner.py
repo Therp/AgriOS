@@ -18,6 +18,7 @@ class ResPartner(models.Model):
     ]
 
     # Basic farmer details
+    farmer_id_number = fields.Char(string="ID Number", tracking=True)
     farmer_stage = fields.Selection(
         [("draft", "Draft"), ("verified", "Verified")],
         default="draft",
@@ -38,6 +39,13 @@ class ResPartner(models.Model):
     )
     interactions_count = fields.Integer(
         compute="_compute_interactions_count", string="Interactions"
+    )
+    managed_area_ids = fields.One2many(
+        comodel_name="agrios.area",
+        inverse_name="manager_id",
+        string="Managed Areas",
+        readonly=True,
+        copy=False,
     )
     responsible_farmer_ids = fields.Many2many(
         comodel_name="res.partner",
@@ -65,6 +73,12 @@ class ResPartner(models.Model):
             partner.interactions_count = self.env["farmer.interaction"].search_count(
                 [("farmer_id", "=", partner.id)]
             )
+
+    def _compute_responsible_farmer_ids(self):
+        """Partner is responsible for the members of the farmer groups in her area."""
+        for this in self:
+            farmer_groups = this.managed_area_ids.farmer_group_ids
+            this.responsible_farmer_ids = farmer_groups.member_ids
 
     def action_verify_farmer(self):
         for farmer in self:

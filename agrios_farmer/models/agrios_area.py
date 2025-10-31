@@ -4,7 +4,7 @@
 from odoo import api, fields, models
 
 
-class AdministrationLocations(models.Model):
+class AgriosArea(models.Model):
     _name = "agrios.area"
     _description = "Area"
     _order = "country_id, name"
@@ -31,6 +31,13 @@ class AdministrationLocations(models.Model):
     )
     parent_path = fields.Char(index=True)
     manager_id = fields.Many2one("res.partner", "Area Manager")
+    farmer_group_ids = fields.One2many(
+        comodel_name="farmer.group",
+        inverse_name="agrios_area_id",
+        string="Farmer Groups",
+        readonly=True,
+        copy=False,
+    )
     active = fields.Boolean(default=True)
 
     _sql_constraints = [

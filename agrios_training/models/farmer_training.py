@@ -7,7 +7,7 @@ from odoo import _, api, fields, models
 class FarmerTraining(models.Model):
     _name = "farmer.training"
     _description = "Farmer Training"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _inherit = ["mail.thread", "mail.activity.mixin", "agrios.area.mixin"]
     _order = "training_date desc"
 
     name = fields.Char("Training No.", compute="_compute_name")

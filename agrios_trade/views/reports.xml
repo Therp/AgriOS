@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Input Orders Analysis -->
+
+    <record id="sale_order_line_input_report_search" model="ir.ui.view">
+        <field name="name">sale.order.line.input.report.search</field>
+        <field name="model">sale.order.line</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="order_partner_id" string="Farmer" domain="[('is_farmer','=',True)]"/>
+                <field name="product_id"/>
+                <field name="farmer_group_id"/>
+                <field name="order_id"/>
+                <separator/>
+                <filter name="filter_date_order" date="date_order"/>
+                <separator/>
+                <filter string="Approved Orders" name="filter_state_sale" domain="[('state','=','sale')]"/>
+                <filter string="Draft Orders" name="filter_state_draft" domain="[('state','in',('draft', 'sent'))]"/>
+                <filter string="Cancelled Orders" name="filter_state_cancel" domain="[('state','=','cancel')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Order Date/Time" name="groupby_date_order" context="{'group_by':'date_order'}"/>
+                    <filter string="Farmer" name="groupby_order_partner_id" context="{'group_by':'order_partner_id'}"/>
+                    <filter string="Product" name="groupby_product_id" context="{'group_by':'product_id'}"/>
+                    <separator/>
+                    <filter string="Farmer Group" name="groupby_farmer_group_id" context="{'group_by':'farmer_group_id'}"/>
+                    <separator/>
+                    <filter string="Order" name="groupby_order_id" context="{'group_by':'order_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="sale_order_line_input_report_tree" model="ir.ui.view">
+        <field name="name">sale.order.line.input.report.tree</field>
+        <field name="model">sale.order.line</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <list default_order="date_order desc">
+                <field name="order_partner_id" string="Farmer"/>
+                <field name="order_id" optional="hide"/>
+                <field name="farmer_group_id" optional="hide"/>
+                <field name="date_order"/>
+                <field name="product_id"/>
+                <field name="product_uom_qty" sum="Quantity Total"/>
+                <field name="product_uom"/>
+                <field name="price_unit"/>
+                <field name="tax_id" widget="many2many_tags" optional="hide"/>
+                <field name="price_tax" sum="Tax Amount Total" optional="hide"/>
+                <field name="price_subtotal" string="Total Price [Net]" sum="Net Price Total"/>
+                <field name="price_total" string="Total Price [Gross]" sum="Gross Price Total" optional="hide"/>
+                <field name="qty_delivered" sum="Quantity Delivered Total" optional="hide"/>
+                <field name="qty_invoiced" sum="Quantity Invoiced Total" optional="hide"/>
+                <field name="currency_id" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="sale_order_line_input_report_action" model="ir.actions.act_window">
+        <field name="name">Input Order Analysis</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_filter_state_sale': 1, 'search_default_groupby_date_order': 1, 'search_default_groupby_product_id': 1}</field>
+        <field name="domain">[('order_partner_id.is_farmer','=',True),('display_type','=',False)]</field>
+        <field name="search_view_id" ref="sale_order_line_input_report_search"/>
+    </record>
+    <record id="sale_order_line_input_report_action_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="sale_order_line_input_report_tree"/>
+        <field name="act_window_id" ref="sale_order_line_input_report_action"/>
+    </record>
+
+	<!-- Offtake Analysis -->
+
+    <record id="purchase_order_line_offtake_report_search" model="ir.ui.view">
+        <field name="name">purchase.order.line.offtake.report.search</field>
+        <field name="model">purchase.order.line</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id" string="Farmer" domain="[('is_farmer','=',True)]"/>
+                <field name="product_id"/>
+                <field name="farmer_group_id"/>
+                <field name="order_id"/>
+                <separator/>
+                <filter name="filter_date_order" date="date_order"/>
+                <separator/>
+                <filter string="Approved Orders" name="filter_state_approved" domain="[('state','in',('purchase','done'))]"/>
+                <filter string="Draft Orders" name="filter_state_draft" domain="[('state','in',('draft','sent','to approve'))]"/>
+                <filter string="Cancelled Orders" name="filter_state_cancel" domain="[('state','=','cancel')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Order Date/Time" name="groupby_date_order" context="{'group_by':'date_order'}"/>
+                    <filter string="Farmer" name="groupby_partner_id" context="{'group_by':'partner_id'}"/>
+                    <filter string="Product" name="groupby_product_id" context="{'group_by':'product_id'}"/>
+                    <separator/>
+                    <filter string="Farmer Group" name="groupby_farmer_group_id" context="{'group_by':'farmer_group_id'}"/>
+                    <separator/>
+                    <filter string="Order" name="groupby_order_id" context="{'group_by':'order_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="purchase_order_line_offtake_report_tree" model="ir.ui.view">
+        <field name="name">purchase.order.line.offtake.report.tree</field>
+        <field name="model">purchase.order.line</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <list default_order="date_order desc">
+                <field name="partner_id" string="Farmer"/>
+                <field name="order_id" optional="hide"/>
+                <field name="farmer_group_id" optional="hide"/>
+                <field name="date_order"/>
+                <field name="product_id"/>
+                <field name="product_qty" sum="Quantity Total"/>
+                <field name="product_uom"/>
+                <field name="price_unit"/>
+                <field name="taxes_id" widget="many2many_tags" optional="hide"/>
+                <field name="price_tax" sum="Tax Amount Total" optional="hide"/>
+                <field name="price_subtotal" string="Total Price [Net]" sum="Net Price Total"/>
+                <field name="price_total" string="Total Price [Gross]" sum="Gross Price Total" optional="hide"/>
+                <field name="qty_received" sum="Quantity Received Total" optional="hide"/>
+                <field name="qty_invoiced" sum="Quantity Invoiced Total" optional="hide"/>
+                <field name="currency_id" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="purchase_order_line_offtake_report_action" model="ir.actions.act_window">
+        <field name="name">Offtake Analysis</field>
+        <field name="res_model">purchase.order.line</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_filter_state_approved': 1, 'search_default_groupby_date_order': 1, 'search_default_groupby_product_id': 1}</field>
+        <field name="domain">[('partner_id.is_farmer','=',True),('display_type','=',False)]</field>
+        <field name="search_view_id" ref="purchase_order_line_offtake_report_search"/>
+    </record>
+    <record id="purchase_order_line_offtake_report_action_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="purchase_order_line_offtake_report_tree"/>
+        <field name="act_window_id" ref="purchase_order_line_offtake_report_action"/>
+    </record>
+
+</odoo>

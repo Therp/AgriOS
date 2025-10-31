@@ -9,8 +9,8 @@ class TrainingTopic(models.Model):
     _description = "Training Topic"
     _order = "name"
 
-    name = fields.Char(required=True, tracking=True)
-    active = fields.Boolean(default=True, tracking=True)
+    name = fields.Char(required=True)
+    active = fields.Boolean(default=True)
 
     _sql_constraints = [
         ("unique_name", "UNIQUE(name)", "Training Topic already Exists"),

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- abstract wizard form view -->
+
+    <record id="bulk_contract_abstract_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.contract.abstract.wizard.form</field>
+        <field name="model">bulk.contract.abstract.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="company_id" invisible="True"/>
+                <field name="show_expired_filter" invisible="True"/>
+                <field
+                    name="farmer_group_ids"
+                    widget="many2many_tags"
+                    options="{'no_create': True, 'no_open': True}"
+                    placeholder="Select farmer groups..."
+                />
+                <group groups="base.group_multi_company">
+                    <field name="company_id" options="{'no_open': True}"/>
+                </group>
+                <p
+                    id="action_description"
+                    style="background-color: #dde5e675; padding: 20px; font-weight: 500; font-size: medium;"
+                />
+                <group string="Contracts Filtering" style="margin-top: -24px !important;" name="filters_group">
+                    <group string="Filter Per Season" style="margin-top: -14px !important;">
+                        <field name="season_id" options="{'no_create': True, 'no_open': True}" placeholder="Select season..."/>
+                        <separator string="Filter Per Harvestable Product" colspan="2" style="margin-top: 10px !important;"/>
+                        <field
+                            name="crop_product_id"
+                            options="{'no_create': True, 'no_open': True}"
+                            placeholder="Select harvestable product..."
+                        />
+                        <separator
+                            string="Filter Expired/Not Expired Contracts"
+                            colspan="2"
+                            style="margin-top: 10px !important;"
+                            invisible="not show_expired_filter"
+                        />
+                        <field name="expired_filter" placeholder="Expired or Not Expired" invisible="not show_expired_filter"/>
+                    </group>
+                </group>
+                <h2><group style="margin-top: 10px;">
+                    <field name="view_contracts"/>
+                </group></h2>
+                <group string="Contracts That Will Be Affected" invisible="not view_contracts">
+                    <field
+                        name="contract_ids"
+                        nolabel="1"
+                        colspan="2"
+                        context="{'list_view_ref': 'agrios_trade.view_farmer_contract_no_create_edit_tree'}"
+                    />
+                </group>
+                <footer>
+                    <button
+                        string="Confirm Bulk Operation"
+                        name="btn_confirm"
+                        type="object"
+                        class="oe_highlight"
+                        data-hotkey="q"
+                        invisible="not view_contracts or not contract_ids"
+                        confirm="Confirm bulk operation?"
+                    />
+                    <button
+                        string="Confirm Bulk Operation"
+                        name="btn_confirm"
+                        type="object"
+                        invisible="view_contracts and contract_ids"
+                    />
+                    <button
+                        string="Cancel"
+                        class="btn btn-secondary"
+                        special="cancel"
+                        data-hotkey="z"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Bulk Contract Approval -->
+
+    <record id="bulk_contract_approval_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.contract.approval.wizard.form</field>
+        <field name="model">bulk.contract.approval.wizard</field>
+        <field
+            name="inherit_id"
+            ref="bulk_contract_abstract_wizard_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//p[@id='action_description']" position="inside">
+                <b>Bulk action to confirm draft contracts.</b>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="bulk_contract_approval_wizard_action" model="ir.actions.act_window">
+        <field name="name">Confirm Draft Contracts</field>
+        <field name="res_model">bulk.contract.approval.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'hide_expired_contract': True, 'hide_contract_reference': True}</field>
+    </record>
+
+    <!-- Bulk Contract Close -->
+
+    <record id="bulk_contract_close_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.contract.close.wizard.form</field>
+        <field name="model">bulk.contract.close.wizard</field>
+        <field name="inherit_id" ref="bulk_contract_abstract_wizard_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//p[@id='action_description']" position="inside">
+                <b>Bulk action to close open contracts.</b>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="bulk_contract_close_wizard_action" model="ir.actions.act_window">
+        <field name="name">Close Open Contracts</field>
+        <field name="res_model">bulk.contract.close.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Bulk Contract Cancel -->
+
+    <record id="bulk_contract_cancel_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.contract.cancel.wizard.form</field>
+        <field name="model">bulk.contract.cancel.wizard</field>
+        <field name="inherit_id" ref="bulk_contract_abstract_wizard_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//p[@id='action_description']" position="inside">
+                <b>Bulk action to cancel draft/open contracts.</b>
+            </xpath>
+            <xpath expr="//field[@name='farmer_group_ids']" position="after">
+                <separator string="Filter Draft/Open Contracts" colspan="2" style="margin-top: 10px !important;"/>
+                <field name="state_filter" placeholder="Draft or Open" invisible="not show_expired_filter"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="bulk_contract_cancel_wizard_action" model="ir.actions.act_window">
+            <field name="name">Cancel Open/Draft Contracts</field>
+            <field name="res_model">bulk.contract.cancel.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+    </record>
+
+    <!-- Bulk Contract Renewal -->
+
+    <record id="bulk_contract_renew_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.contract.renew.wizard.form</field>
+        <field name="model">bulk.contract.renew.wizard</field>
+        <field name="inherit_id" ref="bulk_contract_abstract_wizard_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//p[@id='action_description']" position="inside">
+                <b>Create draft new contracts from closed contracts.</b>
+            </xpath>
+            <xpath expr="//group[@name='filters_group']" position="after">
+                <group style="margin-top: 10px;">
+                    <field name="new_season_id" placeholder="Select the new renewal sesson..."/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="bulk_contract_renew_wizard_action" model="ir.actions.act_window">
+            <field name="name">Contracts Renewal</field>
+            <field name="res_model">bulk.contract.renew.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+    </record>
+
+    <!-- Bulk Contract Offtake -->
+
+    <record id="bulk_contract_offtake_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.contract.offtake.wizard.form</field>
+        <field name="model">bulk.contract.offtake.wizard</field>
+        <field name="inherit_id" ref="bulk_contract_abstract_wizard_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//p[@id='action_description']" position="inside">
+                <b>Create off-take draft orders for contracts set ready for
+                    harvest and without any draft orders created.
+                </b>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="bulk_contract_offtake_wizard_action" model="ir.actions.act_window">
+            <field name="name">Contracts Offtake</field>
+            <field name="res_model">bulk.contract.offtake.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+    </record>
+
+    <!-- Bulk Contract Harvest Ready -->
+
+    <record id="bulk_contract_harvest_ready_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.contract.harvest.ready.wizard.form</field>
+        <field name="model">bulk.contract.harvest.ready.wizard</field>
+        <field name="inherit_id" ref="bulk_contract_abstract_wizard_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//p[@id='action_description']" position="inside">
+                <b>Update contracts on the input stage as ready for harvest to report off takes.</b>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="bulk_contract_harvest_ready_wizard_action" model="ir.actions.act_window">
+        <field name="name">Contracts Harvest Ready</field>
+        <field name="res_model">bulk.contract.harvest.ready.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

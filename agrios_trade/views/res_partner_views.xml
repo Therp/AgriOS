@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_farmer_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="agrios_plot.view_partner_form"/>
+        <field name="priority" eval="128"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page" position="inside">
+                <field name="active" invisible="1"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="farmer_requires_contract" invisible="1"/>
+                <field name="can_order_inputs" invisible="1"/>
+                <field name="can_order_inputs_confirm" invisible="1"/>
+                <field name="can_register_offtakes" invisible="1"/>
+                <field name="can_register_offtakes_confirm" invisible="1"/>
+                <field name="has_expired_contract" invisible="1"/>
+            </xpath>
+            <!-- Hide main details if is_farmer-->
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <xpath expr="//page[@name='accounting']" position="attributes">
+                <attribute name="invisible">['|',('is_farmer', '=', True),('&amp;',('is_company', '=',
+                    False),('parent_id', '!=', False))]
+                </attribute>
+            </xpath>
+            <!-- Add Pages-->
+            <page name="farm_detail" position="inside">
+                <group>
+                    <group>
+                        <label
+                            for="total_contracted_acreage"
+                            groups="agrios_trade.group_farmer_contract"
+                        />
+                        <div class="o_row mw-50" groups="agrios_trade.group_farmer_contract">
+                            <field name="total_contracted_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                            <div class="mb-3">
+                                <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
+                            </div>
+                        </div>
+                        <label for="non_contracted_acreage" groups="agrios_trade.group_farmer_contract"/>
+                        <div class="o_row mw-50" groups="agrios_trade.group_farmer_contract">
+                            <field name="non_contracted_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                            <div class="mb-3">
+                                <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
+                            </div>
+                        </div>
+                        <field name="crop_product_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="partner_latitude" string="Farm Latitude"
+                               groups="!agrios_plot.group_plot_management"/>
+                        <field name="partner_longitude" string="Farm Longitude"
+                               groups="!agrios_plot.group_plot_management"/>
+                    </group>
+                </group>
+            </page>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="contract"
+                    string="Contracts"
+                    invisible="farmer_stage != 'verified' or not is_farmer"
+                    groups="agrios_trade.group_farmer_contract"
+                >
+                    <group>
+                        <field name="farmer_requires_contract" groups="agrios_farmer.group_agrios_manager"/>
+                    </group>
+                    <field name="farmer_contract_ids" readonly="True">
+                        <list decoration-muted="contract_stage=='closed'"
+                              decoration-danger="contract_stage=='cancelled' or expired_contract">
+                            <field name="name"/>
+                            <field name="season_id"/>
+                            <field name="contracted_crop_id"/>
+                            <field name="contract_acreage" sum="Total Contracted Acreage" optional="show"/>
+                            <field name="total_inputs_cost" sum="Total Inputs Cost" optional="show"/>
+                            <field name="contract_stage" optional="show"/>
+                            <field name="harvest_state" optional="show"/>
+                            <field name="expired_contract" invisible="contract_stage != 'open'" optional="show"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+            <!--Header-->
+            <xpath expr="//header" position="inside">
+                <button
+                    string="Order Inputs"
+                    name="action_create_agrios_so"
+                    type="object" class="oe_highlight"
+                    invisible="not can_order_inputs or not is_farmer"
+                    groups="sales_team.group_sale_salesman"
+                />
+                <button
+                    string="Order Inputs"
+                    name="action_create_agrios_so"
+                    type="object"
+                    invisible="not can_order_inputs_confirm or not is_farmer"
+                    groups="sales_team.group_sale_salesman"
+                    confirm="All active farmer contracts are not at the input stage,
+                    confirm that you still would like to order inputs?"
+                />
+                <button
+                    string="Offtake"
+                    name="action_create_agrios_po"
+                    type="object"
+                    class="oe_highlight"
+                    invisible="not can_register_offtakes or not is_farmer"
+                    groups="purchase.group_purchase_user"
+                />
+                <button
+                    string="Offtake"
+                    name="action_create_agrios_po"
+                    type="object"
+                    invisible="not can_register_offtakes_confirm or not is_farmer"
+                    groups="purchase.group_purchase_user"
+                    confirm="All active farmer contracts are not at the harvest stage,
+                    confirm that you still would like to register an off-take?"
+                />
+                <button
+                    string="Create Plot"
+                    name="action_create_farm"
+                    type="object"
+                    invisible="not is_farmer"
+                    class="oe_highlight"
+                    groups="agrios_plot.group_plot_management"
+                />
+            </xpath>
+            <!--Button Box-->
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button
+                    class="oe_stat_button"
+                    name="action_view_farmer_contracts"
+                    type="object"
+                    icon="fa-file-text"
+                    invisible="farmer_stage != 'verified' or not is_farmer"
+                    groups="agrios_trade.group_farmer_contract"
+                >
+                    <field name="count_farmer_contracts" string="Contracts" widget="statinfo"/>
+                </button>
+                <button
+                    class="oe_stat_button"
+                    name="action_view_agrios_sale_orders"
+                    type="object"
+                    icon="fa-shopping-cart"
+                    invisible="farmer_stage != 'verified'  or not is_farmer"
+                    groups="sales_team.group_sale_salesman"
+                >
+                    <field name="count_input_sales" string="Input Orders" widget="statinfo"/>
+                </button>
+                <button
+                    class="oe_stat_button"
+                    name="action_view_agrios_purchase_orders"
+                    type="object"
+                    icon="fa-credit-card"
+                    invisible="farmer_stage != 'verified'  or not is_farmer"
+                    groups="purchase.group_purchase_user"
+                >
+                    <field string="Off-takes" name="count_harvest_offtakes" widget="statinfo"/>
+                </button>
+            </xpath>
+            <xpath expr="//button[@name='action_view_sale_order']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

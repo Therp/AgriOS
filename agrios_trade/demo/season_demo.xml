@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+
+    <record id="season_2025" model="season">
+        <field name="season">2025</field>
+        <field name="start_date">2025-01-01</field>
+        <field name="end_date">2025-12-31</field>
+        <field name="status">open</field>
+    </record>
+    <record id="season_2026" model="season">
+        <field name="season">2026</field>
+        <field name="start_date">2026-01-01</field>
+        <field name="end_date">2026-12-31</field>
+        <field name="status">draft</field>
+    </record>
+
+</odoo>

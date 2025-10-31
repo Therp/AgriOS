@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Sales VAT (16%) -->
+    <record id="tax_sale_vat_16" model="account.tax">
+        <field name="name">Sales VAT (16%)</field>
+        <field name="amount">16</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_vat"/>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+
+    <!-- Purchase VAT (16%) -->
+    <record id="tax_purchase_vat_16" model="account.tax">
+        <field name="name">Purchase VAT (16%)</field>
+        <field name="amount">16</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_vat"/>
+        <field name="country_id" ref="base.ke"/>
+    </record>
+
+</odoo>

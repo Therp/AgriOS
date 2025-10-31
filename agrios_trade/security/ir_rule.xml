@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="farmer_group_comp_rule" model="ir.rule">
+        <field name="name">Farmer Group Company Rule</field>
+        <field name="model_id" ref="model_farmer_group"/>
+        <field name="domain_force">[('company_id','in',company_ids)]</field>
+    </record>
+
+    <record id="tc_sale_order_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Sales Orders Rule</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="domain_force">[('partner_id','in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_tc'))]"/>
+    </record>
+
+    <record id="tc_sale_order_line_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Order Lines</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="domain_force">[('order_id.partner_id','in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_tc'))]"/>
+    </record>
+
+    <record id="tc_purchase_order_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Purchase Orders Rule</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="domain_force">[('partner_id','in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('purchase.group_purchase_manager'))]"/>
+    </record>
+
+    <record id="manager_purchase_order_rule" model="ir.rule">
+        <field name="name">Manager Purchase Orders Rule</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('purchase.group_purchase_manager'))]"/>
+    </record>
+
+    <record id="tc_stock_picking_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Stock Picking Rule</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="domain_force">[('partner_id','in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+    </record>
+    <record id="manager_stock_picking_rule" model="ir.rule">
+        <field name="name">Manager Stock Picking Rule</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('stock.group_stock_manager'))]"/>
+    </record>
+
+    <record id="tc_res_partner_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Contact Rule</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="domain_force">[('id','in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_tc'))]"/>
+    </record>
+    <record id="manager_res_partner_rule" model="ir.rule">
+        <field name="name">Manager Contact Rule</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="domain_force">[('id','not in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_manager'))]"/>
+    </record>
+
+    <record id="agrios_iu_res_partner_rule" model="ir.rule">
+        <field name="name">Internal User AgriOS Partner Edit Rule</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="domain_force">[('is_farmer','=',False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+    <record id="agrios_user_res_partner_rule" model="ir.rule">
+        <field name="name">AgriOS User Partner Edit Rule</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="domain_force">[('is_farmer','=',True), ('farmer_stage','=','draft')]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_user'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+    <record id="agrios_manager_res_partner_rule" model="ir.rule">
+        <field name="name">AgriOS Manager Partner Edit Rule</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="domain_force">[('is_farmer','=',True), ('farmer_stage','=','verified')]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_manager'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="tc_certified_farmer_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Farmer Certification Rule</field>
+        <field name="model_id" ref="agrios_training.model_farmer_certification"/>
+        <field name="domain_force">[('farmer_id','in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_tc'))]"/>
+    </record>
+    <record id="manager_certified_farmer_rule" model="ir.rule">
+        <field name="name">Manager Farmer Certification Rule</field>
+        <field name="model_id" ref="agrios_training.model_farmer_certification"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_manager'))]"/>
+    </record>
+
+    <record id="tc_farmer_contract_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Offtake Agreement Rule</field>
+        <field name="model_id" ref="model_farmer_contract"/>
+        <field name="domain_force">[('farmer_id','in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_tc'))]"/>
+    </record>
+    <record id="manager_farmer_contract_rule" model="ir.rule">
+        <field name="name">Manager Offtake Agreement Rule</field>
+        <field name="model_id" ref="model_farmer_contract"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_manager'))]"/>
+    </record>
+
+    <record id="tc_farmer_group_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Farmer Group Rule</field>
+        <field name="model_id" ref="agrios_farmer.model_farmer_group"/>
+        <field name="domain_force">[('agrios_area_id.manager_id','=',user.partner_id.id)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_tc'))]"/>
+    </record>
+    <record id="manager_farmer_group_rule" model="ir.rule">
+        <field name="name">Manager Farmer Group Rule</field>
+        <field name="model_id" ref="agrios_farmer.model_farmer_group"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_manager'))]"/>
+    </record>
+
+    <record id="tc_farmer_training_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Farmer Training Rule</field>
+        <field name="model_id" ref="agrios_training.model_farmer_training"/>
+        <field name="domain_force">[('agrios_area_id','in',user.partner_id.managed_area_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_tc'))]"/>
+    </record>
+    <record id="manager_farmer_training_rule" model="ir.rule">
+        <field name="name">Manager Farmer Training Rule</field>
+        <field name="model_id" ref="agrios_training.model_farmer_training"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_manager'))]"/>
+    </record>
+
+    <record id="tc_farmer_interaction_rule" model="ir.rule">
+        <field name="name">Technical Coordinator Farmer Interaction Rule</field>
+        <field name="model_id" ref="agrios_farmer.model_farmer_interaction"/>
+        <field name="domain_force">[('farmer_id','in',user.partner_id.responsible_farmer_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_tc'))]"/>
+    </record>
+    <record id="manager_farmer_interaction_rule" model="ir.rule">
+        <field name="name">Manager Farmer Interaction Rule</field>
+        <field name="model_id" ref="agrios_farmer.model_farmer_interaction"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('agrios_farmer.group_agrios_manager'))]"/>
+    </record>
+
+    <record id="farmer_contract_comp_rule" model="ir.rule">
+        <field name="name">Offtake Agreement multi-company</field>
+        <field name="model_id" ref="model_farmer_contract"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_farmer_contracts" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">farmer.contract</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{"search_default_filter_open": 1}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                    Create the first Offtake Agreement
+            </p>
+            <p>
+                    Odoo helps you easily track all activities related to an Offtake Agreement
+            </p>
+        </field>
+    </record>
+
+    <record id="multiple_confirm_draft_contracts_action" model="ir.actions.act_window">
+        <field name="name">Confirm Draft Contracts</field>
+        <field name="res_model">multiple.confirm.draft.contracts.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_farmer_contract"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <record id="multiple_set_contracted_mapped_qty_action" model="ir.actions.act_window">
+        <field name="name">Set to Mapped Quantities</field>
+        <field name="res_model">multiple.set.contracted.mapped.qty.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_farmer_contract"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Ensure only KES is active -->
+    <record id="base.KES" model="res.currency">
+        <field name="active">True</field>
+    </record>
+
+    <!-- Deactivate USD -->
+    <record id="base.USD" model="res.currency">
+        <field name="active">False</field>
+    </record>
+
+</odoo>

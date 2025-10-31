@@ -9,14 +9,20 @@
     "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "depends": [
+        # Odoo Modules
+        "hr",
         # Agrios Modules
-        "agrios_plot",
+        "agrios_trade",
         "agrios_training",
         "agrios_theme",
     ],
     "data": [
         "security/ir.model.access.csv",
         "wizards/agrios_demo.xml",
+    ],
+    "demo": [
+        "demo/hr_department_demo.xml",
+        "demo/hr_employee_demo.xml",
     ],
     "assets": {
         "web.assets_backend": [

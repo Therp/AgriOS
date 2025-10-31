@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="department_admin_finance" model="hr.department">
+        <field name="name">Admin &amp; Finance</field>
+    </record>
+    <record id="department_field_operations" model="hr.department">
+        <field name="name">Field Operations</field>
+    </record>
+    <record id="department_hr_communication" model="hr.department">
+        <field name="name">HR &amp; Communication</field>
+    </record>
+    <record id="department_it" model="hr.department">
+        <field name="name">IT</field>
+    </record>
+    <record id="department_monitoring_evaluation" model="hr.department">
+        <field name="name">Monitoring &amp; Evaluation</field>
+    </record>
+    <record id="department_training" model="hr.department">
+        <field name="name">Training</field>
+    </record>
+
+</odoo>
