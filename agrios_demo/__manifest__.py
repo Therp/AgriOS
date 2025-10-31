@@ -10,7 +10,8 @@
     "license": "AGPL-3",
     "depends": [
         # Agrios Modules
-        "agrios",
+        "agrios_plot",
+        "agrios_training",
         "agrios_theme",
     ],
     "data": [

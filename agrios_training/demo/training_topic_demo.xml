@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+
+    <record id="training_topic_management" model="training.topic">
+        <field name="name">Management</field>
+    </record>
+    <record id="training_topic_traceability" model="training.topic">
+        <field name="name">Traceability</field>
+    </record>
+    <record id="training_topic_farming" model="training.topic">
+        <field name="name">Farming</field>
+    </record>
+    <record id="training_topic_regenerative_agriculture" model="training.topic">
+        <field name="name">Regenerative Agriculture</field>
+    </record>
+    <record id="training_topic_resilience_design" model="training.topic">
+        <field name="name">Resilience Design</field>
+    </record>
+    <record id="training_topic_social" model="training.topic">
+        <field name="name">Social</field>
+    </record>
+    <record id="training_topic_environment" model="training.topic">
+        <field name="name">Environment</field>
+    </record>
+    <record id="training_topic_income_and_shared_responsibility" model="training.topic">
+        <field name="name">Income &amp; Shared Responsibility</field>
+    </record>
+
+</odoo>

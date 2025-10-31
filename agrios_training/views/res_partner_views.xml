@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_farmer_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="agrios_farmer.view_partner_form"/>
+        <field name="priority" eval="128"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page" position="inside">
+                <field name="count_certifications" invisible="1"/>
+                <field name="certified" invisible="1"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="certification"
+                    string="Certifications"
+                    invisible="farmer_stage != 'verified' or not is_farmer"
+                    groups="agrios_training.group_farmer_certification"
+                >
+                    <field name="certification_ids">
+                        <list
+                            create="false"
+                            decoration-info="style=='info'"
+                            decoration-muted="style=='muted'"
+                            decoration-success="style=='success'"
+                            decoration-warning="style=='warning'"
+                            decoration-danger="style=='danger'"
+                        >
+                            <field name="certification_type_id"/>
+                            <field name="cert_serial_num" optional="show"/>
+                            <field name="cert_start_date"/>
+                            <field name="cert_end_date"/>
+                            <field name="origin" optional="show"/>
+                            <field name="final_score" avg="Average Score" optional="show"/>
+                            <field name="state"/>
+                            <field name="style" column_invisible="1"/>
+                        </list>
+                    </field>
+                </page>
+                <page
+                    name="training"
+                    string="Trainings Attended/Scheduled"
+                    invisible="farmer_stage != 'verified' or not is_farmer"
+                    groups="agrios_training.group_farmer_training"
+                >
+                    <field name="training_ids" readonly="True"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

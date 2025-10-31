@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="agrios_training"
+        name="Trainings"
+        sequence="151"
+        action="action_farmer_trainings"
+        groups="agrios_training.group_farmer_training"
+        />
+    <menuitem
+        id="agrios_training_training"
+        name="Trainings"
+        parent="agrios_training"
+        sequence="1"
+        action="action_farmer_trainings"
+        groups="agrios_training.group_farmer_training"
+        />
+    <menuitem
+        id="agrios_training_configuration"
+        name="Configuration"
+        parent="agrios_training"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_agrios_training_topic"
+        name="Training Topics"
+        parent="agrios_training_configuration"
+        action="action_farmer_training_topics"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_agrios_trainers"
+        name="Trainers"
+        parent="agrios_training_configuration"
+        action="action_trainers"
+        sequence="30"
+    />
+    <menuitem
+        id="agrios_certification_configuration"
+        name="Certification Configuration"
+        parent="agrios_training"
+        sequence="20"
+        groups="agrios_training.group_farmer_certification"
+        />
+    <menuitem
+        id="agrios_certification_type"
+        name="Certification Types"
+        parent="agrios_certification_configuration"
+        action="action_certification_types"
+        sequence="10"
+        groups="agrios_farmer.group_agrios_manager"
+        />
+    <menuitem
+        id="corrective_action_menu"
+        name="Corrective Actions"
+        parent="agrios_certification_configuration"
+        action="corrective_action_action"
+        sequence="20"
+    />
+
+</odoo>

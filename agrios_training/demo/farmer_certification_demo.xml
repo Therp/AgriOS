@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_certification_1" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_1"/>
+        <field name="cert_start_date">2025-03-07</field>
+        <field name="cert_end_date">2025-03-07</field>
+        <field name="final_score">100</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A001</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_2" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_1"/>
+        <field name="cert_start_date">2025-03-07</field>
+        <field name="cert_end_date">2025-03-07</field>
+        <field name="final_score">100</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A002</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_3" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_2"/>
+        <field name="cert_start_date">2025-03-07</field>
+        <field name="cert_end_date">2025-03-07</field>
+        <field name="final_score">100</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A003</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_4" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_2"/>
+        <field name="cert_start_date">2025-03-07</field>
+        <field name="cert_end_date">2025-03-07</field>
+        <field name="final_score">100</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A004</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_5" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_3"/>
+        <field name="cert_start_date">2025-03-07</field>
+        <field name="cert_end_date">2025-03-07</field>
+        <field name="final_score">100</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A005</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_6" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_3"/>
+        <field name="cert_start_date">2025-03-07</field>
+        <field name="cert_end_date">2025-03-07</field>
+        <field name="final_score">100</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A006</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_7" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_4" />
+        <field name="cert_start_date">2025-03-07</field>
+        <field name="cert_end_date">2025-03-07</field>
+        <field name="final_score">100</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A007</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_8" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_4"/>
+        <field name="cert_start_date">2025-03-07</field>
+        <field name="cert_end_date">2025-03-07</field>
+        <field name="final_score">99</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A008</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_9" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_5"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">98</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A009</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_10" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_5"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">97</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A010</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_11" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_6"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">96</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A011</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_12" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_6"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">95</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A012</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_13" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_7"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">95</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A013</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_14" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_7"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">93</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A014</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_15" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_8"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">92</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A015</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_16" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_8"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">92</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A016</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_17" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_9"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">92</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A017</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_18" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_9"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">90</field>
+        <field name="certification_type_id" ref="certification_type_certified"/>
+        <field name="cert_serial_num">A018</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_19" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_10"/>
+        <field name="cert_start_date">2025-03-08</field>
+        <field name="cert_end_date">2025-03-08</field>
+        <field name="final_score">89</field>
+        <field name="certification_type_id" ref="certification_type_certified_with_warning"/>
+        <field name="cert_serial_num">A019</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+    <record id="demo_certification_20" model="farmer.certification">
+        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_10"/>
+        <field name="cert_start_date">2025-03-09</field>
+        <field name="cert_end_date">2025-03-09</field>
+        <field name="final_score">89</field>
+        <field name="certification_type_id" ref="certification_type_certified_with_warning"/>
+        <field name="cert_serial_num">A020</field>
+        <field name="origin">manual</field>
+        <field name="state">valid</field>
+    </record>
+</odoo>

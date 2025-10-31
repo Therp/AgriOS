@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- Hide farmers in contact view. -->
-    <record id="contacts.action_contacts" model="ir.actions.act_window">
-        <field name="domain">[('is_farmer', '=', False)]</field>
-    </record>
-
     <record id="view_farmer_search_filter" model="ir.ui.view">
-        <field name="name">view.farmer.search.filter</field>
+        <field name="name">view.farmer.search.filter - agrios_farmer</field>
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <search>
@@ -39,7 +34,7 @@
     </record>
 
     <record id="view_farmer_tree" model="ir.ui.view">
-        <field name="name">view.farmer.tree</field>
+        <field name="name">view.farmer.tree - agrios_farmer</field>
         <field name="model">res.partner</field>
         <field name="priority" eval="10"/>
         <field name="arch" type="xml">
@@ -54,8 +49,8 @@
         </field>
     </record>
 
-    <record id="view_farmer_partner_form" model="ir.ui.view">
-        <field name="name">res.partner.form</field>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form - agrios_farmer</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="priority" eval="128"/>
@@ -213,7 +208,7 @@
     </record>
 
     <record id="view_farmer_leads_tree" model="ir.ui.view">
-        <field name="name">view.farmer.leads.tree</field>
+        <field name="name">view.farmer.leads.tree - agrios_farmer</field>
         <field name="model">res.partner</field>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">

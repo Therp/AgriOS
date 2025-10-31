@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_read_farmer_training,access read farmer.training,model_farmer_training,agrios_farmer.group_agrios_readonly,1,0,0,0
+access_crud_farmer_training,access crud farmer.training,model_farmer_training,agrios_farmer.group_agrios_user,1,1,1,0
+access_read_farmer_certification,access read farmer.certification,model_farmer_certification,agrios_farmer.group_agrios_readonly,1,0,0,0
+access_crud_farmer_certification,access crud farmer.certification,model_farmer_certification,agrios_farmer.group_agrios_user,1,1,1,0
+access_read_certification_type,access read certification.type,model_certification_type,agrios_farmer.group_agrios_readonly,1,0,0,0
+access_crud_certification_type,access crud certification.type,model_certification_type,agrios_farmer.group_agrios_user,1,1,1,0
+access_read_training_topic,access read training.topic,model_training_topic,agrios_farmer.group_agrios_readonly,1,0,0,0
+access_crud_training_topic,access crud training.topic,model_training_topic,agrios_farmer.group_agrios_admin,1,1,1,1
+access_read_corrective_action,access read corrective.action,model_corrective_action,agrios_farmer.group_agrios_readonly,1,0,0,0
+access_crud_corrective_action,access crud corrective.action,model_corrective_action,agrios_farmer.group_agrios_manager,1,1,1,1

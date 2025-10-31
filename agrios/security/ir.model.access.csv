@@ -1,34 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-
-access_agrios_readonly_farmer_training,ams_readonly access.farmer.training,model_farmer_training,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_user_farmer_training,ams_user access.farmer.training,model_farmer_training,agrios.group_agrios_user,1,1,1,0
-
-
-access_agrios_readonly_certified_farmer,ams_readonly access.farmer.certification,model_farmer_certification,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_user_certified_farmer,ams_user access.farmer.certification,model_farmer_certification,agrios.group_agrios_user,1,1,1,0
-
-access_agrios_readonly_certification_type,ams_readonly access.certification.type,model_certification_type,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_user_certification_type,ams_user access.certification.type,model_certification_type,agrios.group_agrios_user,1,1,1,0
-
 access_agrios_readonly_farmer_contract,ams_readonly access.farmer.contract,model_farmer_contract,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_user_farmer_contract,ams_user access.farmer.contract,model_farmer_contract,agrios.group_agrios_user,1,1,1,1
-
-access_agrios_readonly_training_topic,ams_readonly access.training.topic,model_training_topic,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_admin_training_topic,ams_admin access.training.topic,model_training_topic,agrios.group_agrios_admin,1,1,1,1
-
-user_access_corrective_action,user.access.corrective.action,model_corrective_action,agrios.group_agrios_readonly,1,0,0,0
-manager_access_corrective_action,manager.access.corrective.action,model_corrective_action,agrios.group_agrios_manager,1,1,1,1
-
 access_multiple_confirm_draft_contracts_wizard,multiple.confirm.draft.contracts.wizard,model_multiple_confirm_draft_contracts_wizard,agrios.group_agrios_user,1,1,1,1
-
 access_multiple_set_contracted_mapped_qty_wizard,multiple.set.contracted.mapped.qty.wizard,model_multiple_set_contracted_mapped_qty_wizard,agrios.group_agrios_user,1,1,1,1
-
 access_agrios_readonly_season,ams_readonly access.season,model_season,agrios.group_agrios_readonly,1,0,0,0
-access_agrios_admin_season,ams_admin access.season,model_season,agrios.group_agrios_admin,1,1,1,1
-
 access_agrios_readonly_account_move_line,ams_user access.account.move.line,account.model_account_move_line,agrios.group_agrios_readonly,1,0,0,0
 access_agrios_manager_stock_move,ams_user access.stock.move,stock.model_stock_move,agrios.group_agrios_manager,1,0,0,0
-
 access_bulk_contract_approval_wizard,bulk.contract.approval.wizard,model_bulk_contract_approval_wizard,agrios.group_farmer_contract,1,1,1,1
 access_bulk_contract_close_wizard,bulk.contract.close.wizard,model_bulk_contract_close_wizard,agrios.group_farmer_contract,1,1,1,1
 access_bulk_contract_cancel_wizard,bulk.contract.cancel.wizard,model_bulk_contract_cancel_wizard,agrios.group_farmer_contract,1,1,1,1

@@ -24,9 +24,9 @@
         "views/farmer_plot_views.xml",
         "views/product_template_views.xml",
         "views/product_product_views.xml",
-        "views/res_config_settings_views.xml",
         "views/ir_actions_act_window.xml",
         "views/ir_ui_menu.xml",
+        "views/res_config_settings_views.xml",
     ],
     "demo": [
         "demo/farmer_plot_demo.xml",

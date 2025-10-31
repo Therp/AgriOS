@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+
+    <record id="certification_type_certified" model="certification.type">
+        <field name="name">Certified</field>
+        <field name="validity_period">12</field>
+        <field name="style">success</field>
+    </record>
+    <record id="certification_type_certified_with_warning" model="certification.type">
+        <field name="name">Certified with Warning</field>
+        <field name="validity_period">12</field>
+        <field name="style">success</field>
+    </record>
+    <record id="certification_type_disqualified" model="certification.type">
+        <field name="name">Disqualified</field>
+        <field name="validity_period">12</field>
+        <field name="style">danger</field>
+    </record>
+    <record id="certification_type_suspended" model="certification.type">
+        <field name="name">Suspended</field>
+        <field name="validity_period">12</field>
+        <field name="style">warning</field>
+    </record>
+
+</odoo>

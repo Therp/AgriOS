@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">view.res.config.settings.form - agrios_plot</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="agrios_farmer.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='agrios']" position="after">
+                <block title="Training">
+                    <setting
+                        id="farmers_training"
+                        help="Allows the management of farmers training."
+                    >
+                        <field name="group_farmer_training"/>
+                        <div class="content-group">
+                            <div invisible="not group_farmer_training">
+                                <button
+                                    name="%(agrios_training.action_farmer_trainings)d"
+                                    icon="oi-arrow-right"
+                                    type="action"
+                                    string="Farmer Trainings"
+                                    class="btn-link"
+                                />
+                            </div>
+                        </div>
+                    </setting>
+                    <setting
+                        id="farmers_certifications"
+                        help="Allows the management of farmer certifications."
+                    >
+                        <field name="group_farmer_certification"/>
+                        <div class="content-group">
+                            <div invisible="not group_farmer_certification">
+                                <button
+                                    name="%(agrios_training.action_farmer_certificates)d"
+                                    icon="oi-arrow-right"
+                                    type="action"
+                                    string="Farmer Certifications"
+                                    class="btn-link"
+                                />
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

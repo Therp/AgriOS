@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_training_topic_tree" model="ir.ui.view">
+        <field name="name">view.training.topics.tree</field>
+        <field name="model">training.topic</field>
+        <field name="arch" type="xml">
+            <list sample="1" editable="top">
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+	<record id="view_training_topic_form" model="ir.ui.view">
+        <field name="name">view.training.topic.form</field>
+        <field name="model">training.topic</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_farmer_training_topics" model="ir.actions.act_window">
+        <field name="name">Training Topics</field>
+        <field name="res_model">training.topic</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Training Topic
+            </p>
+            <p>
+                Odoo helps you easily track all Training Topics
+            </p>
+        </field>
+    </record>
+
+</odoo>

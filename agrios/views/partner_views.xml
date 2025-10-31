@@ -38,20 +38,4 @@
             <field name="code">records.verify_farmer()</field>
     </record>
 
-    <record id="action_trainers" model="ir.actions.act_window">
-        <field name="name">Trainers</field>
-        <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,list,form</field>
-        <field name="context" eval="{'default_category_id': [(6, 0, [ref('agrios.internal_trainer')])], 'default_is_farmer_trainer': True}" />
-        <field name="domain">[('is_farmer_trainer','=',True)]</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create the first Trainer
-            </p>
-            <p>
-                Odoo helps you easily track all Trainers
-            </p>
-        </field>
-    </record>
-
 </odoo>

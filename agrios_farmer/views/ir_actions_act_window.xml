@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+    <!-- Hide farmers in contact view. -->
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="domain">[('is_farmer', '=', False)]</field>
+    </record>
+
     <record id="action_agrios_area" model="ir.actions.act_window">
         <field name="name">Areas</field>
         <field name="res_model">agrios.area</field>

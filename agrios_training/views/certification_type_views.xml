@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_certification_tree" model="ir.ui.view">
+        <field name="name">view.certification.tree</field>
+        <field name="model">certification.type</field>
+        <field name="arch" type="xml">
+            <list
+                sample="1"
+                editable="top"
+                decoration-info="style=='info'"
+                decoration-muted="style=='muted'"
+                decoration-success="style=='success'"
+                decoration-warning="style=='warning'"
+                decoration-danger="style=='danger'"
+            >
+                    <field name="name"/>
+                    <field
+                        name="certifying_organisation_id"
+                        options="{'no_create': True}"
+                    />
+                    <field name="validity_period"/>
+                    <field name="style" optional="show" placeholder="Black"/>
+                    <field name="farmer_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="certification_type_form_view" model="ir.ui.view">
+        <field name="name">certification.type.form.view</field>
+        <field name="model">certification.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="certifying_organisation_id"/>
+                        <field name="validity_period"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

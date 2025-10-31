@@ -1,13 +1,13 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_agrios_readonly_farmer_interaction,ams_readonly access.farmer.interaction,model_farmer_interaction,group_agrios_readonly,1,0,0,0
-access_agrios_user_farmer_interaction,ams_user access.farmer.interaction,model_farmer_interaction,group_agrios_user,1,1,1,0
-access_agrios_admin_farmer_interaction,ams_admin access.farmer.interaction,model_farmer_interaction,group_agrios_manager,1,1,1,1
-access_agrios_readonly_farmer_group,ams_readonly access.farmer.group,model_farmer_group,group_agrios_readonly,1,0,0,0
-access_agrios_user_farmer_group,ams_user access.farmer.group,model_farmer_group,group_agrios_user,1,1,1,0
-access_agrios_user_res_partner,ams_user access.res.partner,base.model_res_partner,group_agrios_user,1,1,1,0
-user_access_country_location_level,user.access.country.location.level,model_country_location_level,group_agrios_readonly,1,0,0,0
-manager_access_country_location_level,manager.access.country.location.level,model_country_location_level,group_agrios_manager,1,1,1,1
-access_agrios_readonly_agrios_area,ams_readonly access.agrios_area,model_agrios_area,group_agrios_readonly,1,0,0,0
-access_agrios_agrios_area,ams_admin access.agrios_area,model_agrios_area,group_agrios_admin,1,1,1,1
+access_readonly_farmer_interaction,read access.farmer.interaction,model_farmer_interaction,group_agrios_readonly,1,0,0,0
+access_user_farmer_interaction,crud access.farmer.interaction,model_farmer_interaction,group_agrios_user,1,1,1,0
+access_admin_farmer_interaction,admin access.farmer.interaction,model_farmer_interaction,group_agrios_manager,1,1,1,1
+access_readonly_farmer_group,read access.farmer.group,model_farmer_group,group_agrios_readonly,1,0,0,0
+access_user_farmer_group,crud access.farmer.group,model_farmer_group,group_agrios_user,1,1,1,0
+access_user_res_partner,crud access.res.partner,base.model_res_partner,group_agrios_user,1,1,1,0
+access_user_access_country_location_level,user.access.country.location.level,model_country_location_level,group_agrios_readonly,1,0,0,0
+access_manager_country_location_level,manager.access.country.location.level,model_country_location_level,group_agrios_manager,1,1,1,1
+access_readonly_agrios_area,read access.agrios_area,model_agrios_area,group_agrios_readonly,1,0,0,0
+access_agrios_area,admin access.agrios_area,model_agrios_area,group_agrios_admin,1,1,1,1
 access_partner_education_user,res.highest.education.user,model_partner_education,base.group_user,1,0,1,0
 access_partner_education_manager,res.highest.education.manager,model_partner_education,group_agrios_manager,1,1,1,1

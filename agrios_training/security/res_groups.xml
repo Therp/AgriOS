@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="0">
+
+    <record id="group_farmer_training" model="res.groups">
+        <field name="name">AgriOS - Manage Farmers Training</field>
+        <field name="category_id" ref="base.module_category_agrios"/>
+    </record>
+
+    <record id="group_farmer_certification" model="res.groups">
+        <field name="name">AgriOS - Manage Farmers Certifications</field>
+        <field name="category_id" ref="base.module_category_agrios"/>
+    </record>
+
+</odoo>

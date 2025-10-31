@@ -7,12 +7,6 @@ class ResConfigSettings(models.TransientModel):
     group_farmer_contract = fields.Boolean(
         "Farmer Contracts", implied_group="agrios.group_farmer_contract"
     )
-    group_farmers_training = fields.Boolean(
-        "Farmer Trainings", implied_group="agrios.group_farmers_training"
-    )
-    group_farmers_certifications = fields.Boolean(
-        "Farmer Certifications", implied_group="agrios.group_farmers_certifications"
-    )
     group_payments_in_kind = fields.Boolean(
         "Payments In Kind", implied_group="agrios.group_payments_in_kind"
     )

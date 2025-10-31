@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_certification_types" model="ir.actions.act_window">
+        <field name="name">Certification Types</field>
+        <field name="res_model">certification.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Certification Type
+            </p>
+        </field>
+    </record>
+
+    <record id="action_farmer_certificates" model="ir.actions.act_window">
+        <field name="name">Farmer Certifications</field>
+        <field name="res_model">farmer.certification</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Farmer Certification Record
+            </p>
+            <p>
+                Odoo helps you track all certification records
+            </p>
+        </field>
+    </record>
+
+    <record id="action_farmer_trainings" model="ir.actions.act_window">
+        <field name="name">Farmer Trainings</field>
+        <field name="res_model">farmer.training</field>
+        <field name="view_mode">list,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Training Invite
+            </p>
+            <p>
+                Odoo helps you easily track all Training activities
+            </p>
+        </field>
+    </record>
+
+    <record id="action_trainers" model="ir.actions.act_window">
+        <field name="name">Trainers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field
+            name="context"
+            eval="{'default_category_id':
+            [(6, 0, [ref('agrios_training.res_partner_category_internal_trainer')])],
+            'default_is_farmer_trainer': True}"
+        />
+        <field name="domain">[('is_farmer_trainer','=',True)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Trainer
+            </p>
+            <p>
+                Odoo helps you easily track all Trainers
+            </p>
+        </field>
+    </record>
+
+</odoo>
