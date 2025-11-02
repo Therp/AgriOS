@@ -15,6 +15,7 @@
     "data": [
         "security/res_groups.xml",
         "security/ir.model.access.csv",
+        "security/ir_rule.xml",
         "data/res_partner_category_data.xml",
         "data/certification_type_data.xml",
         "views/certification_type_views.xml",

@@ -11,7 +11,7 @@ class ResConfigSettings(models.TransientModel):
         "Farmer Contracts", implied_group="agrios_trade.group_farmer_contract"
     )
     group_payments_in_kind = fields.Boolean(
-        "Payments In Kind", implied_group="agrios.group_payments_in_kind"
+        "Payments In Kind", implied_group="agrios_trade.group_payments_in_kind"
     )
 
     a_default_contract_required = fields.Boolean(

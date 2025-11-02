@@ -19,6 +19,7 @@
     "data": [
         "security/res_groups.xml",
         "security/ir.model.access.csv",
+        "security/ir_rule.xml",
         "data/country_location_level_data.xml",
         "data/ir_sequence_data.xml",
         "data/res_partner_id_category_data.xml",
