@@ -18,7 +18,6 @@ class ResPartner(models.Model):
     ]
 
     # Basic farmer details
-    farmer_id_number = fields.Char(string="ID Number", tracking=True)
     farmer_stage = fields.Selection(
         [("draft", "Draft"), ("verified", "Verified")],
         default="draft",

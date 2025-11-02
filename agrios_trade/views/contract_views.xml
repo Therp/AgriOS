@@ -129,7 +129,6 @@
                         <group string="Contract Details">
                             <group>
                                 <field name="farmer_id" options="{'limit': 1, 'no_create': True, 'no_create_edit': True}" readonly="contract_stage != 'draft'" />
-                                <field name="farmer_id_number"/>
                                 <field name="non_contracted_acreage"/>
                                 <field name="harvest_state" invisible="contract_stage != 'open'"/>
                             </group>

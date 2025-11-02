@@ -18,7 +18,6 @@ class FarmerContract(models.Model):
         required=True,
         tracking=True,
     )
-    farmer_id_number = fields.Char("ID Number", related="farmer_id.farmer_id_number")
     season_id = fields.Many2one("season", required=True, tracking=True)
     season_start_date = fields.Date("Start Date", related="season_id.start_date")
     season_end_date = fields.Date("End date", related="season_id.end_date")

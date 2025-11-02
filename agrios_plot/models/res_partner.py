@@ -99,20 +99,6 @@ class ResPartner(models.Model):
     def web_search_read(
         self, domain, specification, offset=0, limit=None, order=None, count_limit=None
     ):
-        if self._context.get("filter_duplicate_identification"):
-            self._cr.execute("""
-                SELECT DISTINCT ptn1.id
-                FROM res_partner ptn1
-                INNER JOIN res_partner ptn2 ON ptn1.id != ptn2.id
-                AND ptn1.farmer_id_number = ptn2.farmer_id_number
-                WHERE ptn1.farmer_id_number IS NOT NULL
-            """)
-            ident_duplicate_ids = [ptn[0] for ptn in self._cr.fetchall()]
-            if domain:
-                domain = ["&", ("id", "in", ident_duplicate_ids)] + domain
-            else:
-                domain = [("id", "in", ident_duplicate_ids)]
-
         if self._context.get("filter_duplicate_phone"):
             self._cr.execute("""
                 SELECT DISTINCT ptn1.id
@@ -126,7 +112,6 @@ class ResPartner(models.Model):
                 domain = ["&", ("id", "in", phone_duplicate_ids)] + domain
             else:
                 domain = [("id", "in", phone_duplicate_ids)]
-
         return super().web_search_read(
             domain,
             specification,
