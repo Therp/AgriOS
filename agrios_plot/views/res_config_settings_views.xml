@@ -14,7 +14,7 @@
                     <field name="group_seed_varieties"/>
                 </setting>
             </xpath>
-            <xpath expr="//app[@name='agrios']" position="after">
+            <xpath expr="//app[@name='agrios']" position="inside">
                 <block title="Farm">
                     <setting
                         id="land_area_uom"
