@@ -13,6 +13,7 @@
         "product",
         # OCA Modules
         "web_leaflet_lib",
+        "web_leaflet_draw_lib",
         # Agrios Modules
         "agrios_farmer",
     ],
@@ -37,8 +38,6 @@
     ],
     "assets": {
         "web.assets_backend": [
-            "agrios_plot/static/lib/leaflet.draw/leaflet.draw.css",
-            "agrios_plot/static/lib/leaflet.draw/leaflet.draw.js",
             "agrios_plot/static/src/components/map_widget/*",
         ],
     },
