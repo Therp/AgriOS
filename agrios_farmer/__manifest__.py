@@ -12,6 +12,7 @@
         # Odoo Modules
         "contacts",
         # OCA Modules
+        "base_location",
         "partner_contact_birthdate",
         "partner_contact_gender",
         "partner_identification",

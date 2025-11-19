@@ -52,45 +52,9 @@
     <record id="view_partner_form" model="ir.ui.view">
         <field name="name">res.partner.form - agrios_farmer</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="inherit_id" ref="base_location.view_partner_form"/>
         <field name="priority" eval="128"/>
         <field name="arch" type="xml">
-            <xpath expr="//page" position="inside">
-                <field name="agrios_area_allowed" invisible="1"/>
-                <field name="is_farmer" invisible="1"/>
-                <field name="active" invisible="1"/>
-            </xpath>
-            <!-- Hide main details if is_farmer-->
-            <xpath expr="//form[1]/sheet[1]/group[1]/group[1]" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//field[@name='company_type']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//field[@name='parent_id']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//form[1]/sheet[1]/group[1]/group[2]" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//page[@name='contact_addresses']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//page[@name='sales_purchases']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <!-- Add Pages-->
-            <xpath expr="//page[@name='internal_notes']" position="attributes">
-                <attribute name="invisible">is_farmer == True</attribute>
-            </xpath>
-            <xpath expr="//page[@name='internal_notes']" position="after">
-                <page>
-                    <group string="Extra Notes">
-                        <field name="comment" nolabel="1" colspan="2"
-                               placeholder="Extra internal information about the farmer..."/>
-                    </group>
-                </page>
-            </xpath>
             <!--Header-->
             <xpath expr="//sheet" position="before">
                 <header>
@@ -119,77 +83,6 @@
                     invisible="active == True"
                 />
             </xpath>
-            <!--Body-->
-            <xpath expr="//div[hasclass('oe_title')]/h1" position="after">
-                <group invisible="not is_farmer">
-                    <group string="Main Details">
-                        <field name="phone" widget="phone"/>
-                    </group>
-                    <group string="Address Details">
-                        <field name="street"/>
-                        <field name="city"/>
-                        <field name="zip"/>
-                        <field name="country_id" options="{'no_open': True,'no_create': True}"/>
-                    </group>
-                    <group string="Location Hierarchy">
-                        <field
-                            name="farmer_group_id"
-                            options="{'no_open': True,'no_create': True}"
-                        />
-                        <td
-                            class="o_td_label"
-                            style="font-weight: 500;"
-                            invisible="not agrios_area_allowed"
-                        >
-                            <field name="agrios_area_label"/>
-                        </td>
-                        <field
-                            name="agrios_area_id"
-                            nolabel="1"
-                            options="{'no_open': True,'no_create': True}"
-                            domain="[('country_id','=',country_id)]"
-                            invisible="not agrios_area_allowed"
-                        />
-                    </group>
-                    <group string="Manager">
-                        <field name="user_id" options="{'no_open': True,'no_create': True}"/>
-                    </group>
-                </group>
-            </xpath>
-            <!--REPLACE partner name-->
-            <xpath expr="//div[hasclass('oe_title')]/h1" position="replace">
-                <h1 invisible="is_farmer">
-                    <field
-                        id="company"
-                        options="{'line_breaks': False}"
-                        widget="text"
-                        class="text-break"
-                        name="name"
-                        default_focus="1"
-                        placeholder="e.g. Lumber Inc"
-                        invisible="not is_company"
-                        required="type == 'contact'"
-                    />
-                    <field
-                        id="individual"
-                        options="{'line_breaks': False}"
-                        widget="text"
-                        class="text-break"
-                        name="name"
-                        default_focus="1"
-                        placeholder="e.g. Brandon Freeman"
-                        invisible="is_company"
-                        required="type == 'contact'"
-                    />
-                </h1>
-                <h1 invisible="not is_farmer">
-                    <span invisible="farmer_ref == '/'">
-                        [<field name="farmer_ref" class="oe_inline" help="Farmer reference"/>]
-                    </span>
-                    <field name="name" placeholder="Farmer Name" required="1" class="oe_inline"/>
-                </h1>
-
-            </xpath>
             <!--Button Box-->
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
                 <button
@@ -203,6 +96,113 @@
                  >
                     <field name="interactions_count" widget="statinfo"/>
                 </button>
+            </xpath>
+            <!-- Hide fields not relevant for farmers (some might be debatable). -->
+            <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="invisible">is_farmer</attribute>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">is_farmer</attribute>
+            </xpath>
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">is_company or is_farmer</attribute>
+            </xpath>
+            <xpath expr="//field[@name='title']" position="attributes">
+                <attribute name="invisible">is_company or is_farmer</attribute>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">is_farmer == True</attribute>
+            </xpath>
+            <!--Add farmer ref and replace placeholder Brandon Freeman. -->
+            <xpath expr="//field[@id='individual']" position="before">
+                <span invisible="farmer_ref == '/'">
+                    [<field name="farmer_ref" class="oe_inline" help="Farmer reference"/>]
+                </span>
+            </xpath>
+            <xpath expr="//field[@id='individual']" position="attributes">
+                <attribute name="placeholder">Person Name</attribute>
+                <attribute name="class">oe_inline</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/group[1]" position="attributes">
+                <attribute name="colspan">6</attribute>
+                <attribute name="col">4</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[1]" position="attributes">
+                <attribute name="string">Address Details</attribute>
+                <attribute name="name">group_address_details</attribute>
+                <attribute name="colspan">2</attribute>
+                <attribute name="col">2</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[2]" position="attributes">
+                <attribute name="string">Main Details</attribute>
+                <attribute name="name">group_main_details</attribute>
+                <attribute name="colspan">2</attribute>
+                <attribute name="col">2</attribute>
+            </xpath>
+            <!-- Hide contact type field, it should always be contact. -->
+            <xpath expr="//span[@name='address_name']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <!--Body-->
+            <xpath expr="//group[@name='group_main_details']" position="after">
+                <group
+                    string="Location Hierarchy"
+                    name="group_location_hierarchy"
+                    colspan="2" col="2"
+                    invisible="not is_farmer"
+                >
+                    <field
+                        name="farmer_group_id"
+                        options="{'no_open': True,'no_create': True}"
+                    />
+                    <td
+                        class="o_td_label"
+                        style="font-weight: 500;"
+                        invisible="not agrios_area_allowed"
+                    >
+                        <field name="agrios_area_label"/>
+                    </td>
+                    <field
+                        name="agrios_area_id"
+                        nolabel="1"
+                        options="{'no_open': True,'no_create': True}"
+                        domain="[('country_id','=',country_id)]"
+                        invisible="not agrios_area_allowed"
+                    />
+                </group>
+                <group string="Manager" colspan="2" col="2" name="group_manager">
+                </group>
+            </xpath>
+            <!-- Use user_id as manager and put in its own group. -->
+            <group name="group_manager" position="inside">
+                <field name="user_id" position="move"/>
+            </group>
+            <field name="user_id" position="attributes">
+                <attribute name="options">{'no_open': True,'no_create': True}</attribute>
+                <attribute name="string">Manager</attribute>
+            </field>
+            <!-- Hide pages if is_farmer-->
+            <xpath expr="//page[@name='contact_addresses']" position="attributes">
+                <attribute name="invisible">is_farmer</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="invisible">is_farmer</attribute>
+            </xpath>
+            <!-- Add Pages-->
+            <xpath expr="//page[@name='internal_notes']" position="attributes">
+                <attribute name="invisible">is_farmer</attribute>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page>
+                    <group string="Extra Notes">
+                        <field
+                            name="comment"
+                            nolabel="1"
+                            colspan="2"
+                            placeholder="Extra internal information about the farmer..."
+                        />
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>
