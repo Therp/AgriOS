@@ -13,6 +13,7 @@
         "contacts",
         # OCA Modules
         "base_location",
+        "geospatial_plot",
         "partner_contact_birthdate",
         "partner_contact_gender",
         "partner_identification",

@@ -102,17 +102,17 @@
                             <field name="harvest_product_type" invisible="not crop_product"/>
                             <field name="maturity_days" invisible="not crop_product"/>
                             <label
-                                groups="agrios_plot.group_plot_management"
+                                groups="geospatial_plot.group_plot_manager"
                                 for="estimated_yield"
                                 invisible="not crop_product or harvest_product_type == 'tree_crop'"
                             />
-                            <div groups="agrios_plot.group_plot_management"
+                            <div groups="geospatial_plot.group_plot_manager"
                                  invisible="not crop_product or harvest_product_type == 'tree_crop'">
                                 <field name="estimated_yield" class="oe_inline" nolabel="1"/>
                                 <field name="land_area_uom" class="oe_inline"/>
                             </div>
-                            <label for="estimated_yield" groups="!agrios_plot.group_plot_management"/>
-                            <div groups="!agrios_plot.group_plot_management">
+                            <label for="estimated_yield" groups="!geospatial_plot.group_plot_manager"/>
+                            <div groups="!geospatial_plot.group_plot_manager">
                                 <field
                                     name="estimated_yield"
                                     class="oe_inline"
@@ -126,14 +126,14 @@
                             <separator
                                 string="Anual Tree Yield"
                                 invisible="not crop_product or harvest_product_type != 'tree_crop'"
-                                groups="agrios_plot.group_plot_management"
+                                groups="geospatial_plot.group_plot_manager"
                             />
                             <field
                                 name="tree_yield_ids"
                                 nolabel="1"
                                 colspan="2"
                                 invisible="not crop_product or harvest_product_type != 'tree_crop'"
-                                groups="agrios_plot.group_plot_management"
+                                groups="geospatial_plot.group_plot_manager"
                             >
                                 <list editable="bottom">
                                     <control>

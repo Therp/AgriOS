@@ -11,7 +11,7 @@
     <record id="farmer_plot_action" model="ir.actions.act_window">
         <field name="name">Farmer Plots</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">farmer.plot</field>
+        <field name="res_model">geospatial.plot</field>
         <field name="view_mode">list,form</field>
     </record>
 

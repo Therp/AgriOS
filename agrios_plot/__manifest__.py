@@ -12,18 +12,16 @@
         # Odoo Modules
         "product",
         # OCA Modules
-        "web_leaflet_lib",
-        "web_leaflet_draw_lib",
+        "geospatial_plot",
         # Agrios Modules
         "agrios_farmer",
     ],
     "data": [
         "security/res_groups.xml",
         "security/ir.model.access.csv",
-        "data/uom_uom_data.xml",
         "data/product_category_data.xml",
         "views/farmer_plot_crop_area_views.xml",
-        "views/farmer_plot_views.xml",
+        "views/geospatial_plot_views.xml",
         "views/product_template_views.xml",
         "views/product_product_views.xml",
         "views/res_partner_views.xml",
@@ -32,15 +30,10 @@
         "views/res_config_settings_views.xml",
     ],
     "demo": [
-        "demo/farmer_plot_demo.xml",
+        "demo/geospatial_plot_demo.xml",
         "demo/product_product_demo.xml",
         "demo/res_partner_demo.xml",
     ],
-    "assets": {
-        "web.assets_backend": [
-            "agrios_plot/static/src/components/map_widget/*",
-        ],
-    },
     "application": True,
     "installable": True,
     "auto_install": False,

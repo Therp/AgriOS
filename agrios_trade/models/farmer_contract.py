@@ -38,7 +38,7 @@ class FarmerContract(models.Model):
         related="contracted_crop_id.seed_ids", readonly=True
     )
     seed_variety_id = fields.Many2one("product.product", "Seed Variety")
-    land_area_uom = fields.Many2one(related="farmer_id.land_area_uom")
+    plot_uom_id = fields.Many2one(related="farmer_id.plot_uom_id")
     contract_acreage = fields.Float("Contracted Acreage", tracking=True)
     total_acreage = fields.Float(
         "Total Plot Acreage", related="farmer_id.total_acreage"

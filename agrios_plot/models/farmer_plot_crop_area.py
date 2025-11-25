@@ -10,7 +10,9 @@ class FarmerPlotCropArea(models.Model):
     _name = "farmer.plot.crop.area"
     _description = "Plot Crop Area"
 
-    plot_id = fields.Many2one("farmer.plot", "Plot", required=True, ondelete="cascade")
+    plot_id = fields.Many2one(
+        "geospatial.plot", "Plot", required=True, ondelete="cascade"
+    )
     crop_product_id = fields.Many2one(
         "product.product",
         string="Crop Product",
@@ -18,8 +20,8 @@ class FarmerPlotCropArea(models.Model):
         inverse="_inverse_farmer_harvest_products",
         required=True,
     )
-    acreage = fields.Float(required=True)
-    farmer_id = fields.Many2one(related="plot_id.farmer_id", string="Farmer")
+    acreage = fields.Float(required=True)  # Assumed to use the same uom as plot_size.
+    farmer_id = fields.Many2one(related="plot_id.partner_id", string="Farmer")
     plot_size = fields.Float(related="plot_id.plot_size", store=True)
     product_type = fields.Selection(
         related="crop_product_id.harvest_product_type", store=True
@@ -52,7 +54,6 @@ class FarmerPlotCropArea(models.Model):
                 order="age desc",
                 limit=1,
             )
-
             if tree_yield:
                 annual_estimated_yield = tree_yield.annual_yield * self.number_of_trees
         elif self.product_type == "perennial":

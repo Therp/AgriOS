@@ -16,4 +16,4 @@ def post_init_hook(env):
         ).execute()
 
     # Verify farmer records so they get the id
-    env["res.partner"].search([("is_farmer", "=", True)]).verify_farmer()
+    env["res.partner"].search([("is_farmer", "=", True)]).action_verify_farmer()

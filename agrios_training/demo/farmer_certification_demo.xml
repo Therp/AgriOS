@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
     <record id="demo_certification_1" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_1"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_1"/>
         <field name="cert_start_date">2025-03-07</field>
         <field name="cert_end_date">2025-03-07</field>
         <field name="final_score">100</field>
@@ -11,7 +11,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_2" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_1"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_1"/>
         <field name="cert_start_date">2025-03-07</field>
         <field name="cert_end_date">2025-03-07</field>
         <field name="final_score">100</field>
@@ -21,7 +21,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_3" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_2"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_2"/>
         <field name="cert_start_date">2025-03-07</field>
         <field name="cert_end_date">2025-03-07</field>
         <field name="final_score">100</field>
@@ -31,7 +31,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_4" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_2"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_2"/>
         <field name="cert_start_date">2025-03-07</field>
         <field name="cert_end_date">2025-03-07</field>
         <field name="final_score">100</field>
@@ -41,7 +41,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_5" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_3"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_3"/>
         <field name="cert_start_date">2025-03-07</field>
         <field name="cert_end_date">2025-03-07</field>
         <field name="final_score">100</field>
@@ -51,7 +51,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_6" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_3"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_3"/>
         <field name="cert_start_date">2025-03-07</field>
         <field name="cert_end_date">2025-03-07</field>
         <field name="final_score">100</field>
@@ -61,7 +61,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_7" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_4" />
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_4" />
         <field name="cert_start_date">2025-03-07</field>
         <field name="cert_end_date">2025-03-07</field>
         <field name="final_score">100</field>
@@ -71,7 +71,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_8" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_4"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_4"/>
         <field name="cert_start_date">2025-03-07</field>
         <field name="cert_end_date">2025-03-07</field>
         <field name="final_score">99</field>
@@ -81,7 +81,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_9" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_5"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_5"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">98</field>
@@ -91,7 +91,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_10" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_5"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_5"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">97</field>
@@ -101,7 +101,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_11" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_6"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_6"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">96</field>
@@ -111,7 +111,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_12" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_6"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_6"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">95</field>
@@ -121,7 +121,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_13" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_7"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_7"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">95</field>
@@ -131,7 +131,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_14" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_7"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_7"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">93</field>
@@ -141,7 +141,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_15" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_8"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_8"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">92</field>
@@ -151,7 +151,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_16" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_8"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_8"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">92</field>
@@ -161,7 +161,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_17" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_9"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_9"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">92</field>
@@ -171,7 +171,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_18" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_9"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_9"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">90</field>
@@ -181,7 +181,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_19" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_10"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_10"/>
         <field name="cert_start_date">2025-03-08</field>
         <field name="cert_end_date">2025-03-08</field>
         <field name="final_score">89</field>
@@ -191,7 +191,7 @@
         <field name="state">valid</field>
     </record>
     <record id="demo_certification_20" model="farmer.certification">
-        <field name="farmer_id" ref="agrios_farmer.partner_demo_farmer_10"/>
+        <field name="farmer_id" ref="geospatial_plot.partner_demo_geospatial_10"/>
         <field name="cert_start_date">2025-03-09</field>
         <field name="cert_end_date">2025-03-09</field>
         <field name="final_score">89</field>

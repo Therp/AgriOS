@@ -144,28 +144,28 @@
                                     <field name="contracted_crop_id" options="{'no_create': True, 'no_create_edit': True}" readonly="contract_stage != 'draft'"/>
                                     <label for="contract_acreage"/>
                                     <div class="o_row mw-50">
-                                            <field name="contract_acreage" class="oe_inline o_hr_narrow_field" nolabel="1" readonly="contract_stage != 'draft'" />
-                                            <div class="mb-3">
-                                                    <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
-                                            </div>
+                                        <field name="contract_acreage" class="oe_inline o_hr_narrow_field" nolabel="1" readonly="contract_stage != 'draft'" />
+                                        <div class="mb-3">
+                                                <field name="plot_uom_id" readonly="1" options="{'no_open': True}"/>
+                                        </div>
                                     </div>
                                     <label for="contracted_offtake_qty"/>
                                     <div class="o_row mw-50">
-                                            <field name="contracted_offtake_qty" class="oe_inline o_hr_narrow_field" nolabel="1" readonly="contract_stage != 'draft'"/>
-                                            <div class="mb-3"> KGs</div>
+                                        <field name="contracted_offtake_qty" class="oe_inline o_hr_narrow_field" nolabel="1" readonly="contract_stage != 'draft'"/>
+                                        <div class="mb-3"> KGs</div>
                                     </div>
                                     <label for="received_offtake_qty"/>
                                     <div class="o_row mw-50">
-                                            <field name="received_offtake_qty" class="oe_inline o_hr_narrow_field" nolabel="1"/>
-                                            <div class="mb-3"> KGs</div>
+                                        <field name="received_offtake_qty" class="oe_inline o_hr_narrow_field" nolabel="1"/>
+                                        <div class="mb-3"> KGs</div>
                                     </div>
                                     <field name="currency_id" invisible="1"/>
                                     <field name="contracted_unit_price" force_save="1" readonly="contract_stage != 'draft'"/>
                                     <field name="total_contract_cost"/>
                                 </group>
                                 <group string="Input Details">
-                                        <field name="seed_variety_id" options="{'no_create': True, 'no_create_edit': True}" domain="[('id','in',available_seed_ids)]" readonly="contract_stage != 'draft'" required="contract_stage == 'draft' and available_seed_ids" groups="agrios_plot.group_seed_varieties"/>
-                                        <field name="total_inputs_cost"/>
+                                    <field name="seed_variety_id" options="{'no_create': True, 'no_create_edit': True}" domain="[('id','in',available_seed_ids)]" readonly="contract_stage != 'draft'" required="contract_stage == 'draft' and available_seed_ids" groups="agrios_plot.group_seed_varieties"/>
+                                    <field name="total_inputs_cost"/>
                                 </group>
                         </group>
                         <notebook>

@@ -1,63 +1,63 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo noupdate="1">
-    <record id="agrios_farmer.partner_demo_farmer_1" model="res.partner">
-        <field name="own_acreage">2.8</field>
-        <field name="leased_acreage">1.3</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_2')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_1" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_2')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_2" model="res.partner">
-        <field name="own_acreage">2.7</field>
-        <field name="leased_acreage">1.5</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_2')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_2" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_2')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_3" model="res.partner">
-        <field name="own_acreage">1.9</field>
-        <field name="leased_acreage">1.1</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_2'),ref('product_demo_5')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_3" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_2'),ref('product_demo_5')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_4" model="res.partner">
-        <field name="own_acreage">1.5</field>
-        <field name="leased_acreage">0.7</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_4')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_4" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_4')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_5" model="res.partner">
-        <field name="own_acreage">2.1</field>
-        <field name="leased_acreage">1.3</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_8'),ref('product_demo_5')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_5" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_8'),ref('product_demo_5')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_6" model="res.partner">
-        <field name="own_acreage">2.8</field>
-        <field name="leased_acreage">1.6</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_2')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_6" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_2')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_7" model="res.partner">
-        <field name="own_acreage">1.8</field>
-        <field name="leased_acreage">1.0</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_2'),ref('product_demo_5')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_7" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_2'),ref('product_demo_5')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_8" model="res.partner">
-        <field name="own_acreage">1.4</field>
-        <field name="leased_acreage">0.6</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_4')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_8" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_4')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_9" model="res.partner">
-        <field name="own_acreage">2.0</field>
-        <field name="leased_acreage">1.2</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_8'),ref('product_demo_5')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_9" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_8'),ref('product_demo_5')])]"
+        />
     </record>
-    <record id="agrios_farmer.partner_demo_farmer_10" model="res.partner">
-        <field name="own_acreage">2.9</field>
-        <field name="leased_acreage">1.7</field>
-        <field name="crop_product_ids"
-               eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_2')])]"/>
+    <record id="geospatial_plot.partner_demo_geospatial_10" model="res.partner">
+        <field
+            name="crop_product_ids"
+            eval="[(6, 0, [ref('product_demo_1'),ref('product_demo_2')])]"
+        />
     </record>
 </odoo>

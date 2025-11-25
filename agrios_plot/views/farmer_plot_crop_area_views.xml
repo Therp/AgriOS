@@ -11,9 +11,21 @@
                 <field name="year_of_plantation"/>
                 <separator/>
                 <group expand="0" name="group_by" string="Group By">
-                    <filter string="Plot" name="groupby_plot_id" context="{'group_by': 'plot_id'}"/>
-                    <filter string="Product" name="groupby_product_id" context="{'group_by': 'crop_product_id'}"/>
-                    <filter string="Year of Plantation" name="groupby_year_of_plantation" context="{'group_by': 'year_of_plantation'}"/>
+                    <filter
+                        string="Plot"
+                        name="groupby_plot_id"
+                        context="{'group_by': 'plot_id'}"
+                    />
+                    <filter
+                        string="Product"
+                        name="groupby_product_id"
+                        context="{'group_by': 'crop_product_id'}"
+                    />
+                    <filter
+                        string="Year of Plantation"
+                        name="groupby_year_of_plantation"
+                        context="{'group_by': 'year_of_plantation'}"
+                    />
                 </group>
             </search>
         </field>
@@ -26,7 +38,11 @@
             <list string="Subplots">
                 <field name="farmer_id"/>
                 <field name="plot_id" string="Farm/Main Plot"/>
-                <field name="crop_product_id" string="Crop"  options="{'no_open': True,'no_quick_create': True,'no_create': True}"/>
+                <field
+                    name="crop_product_id"
+                    string="Crop"
+                    options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                />
                 <field name="acreage"/>
                 <field name="plot_size" optional="hide"/>
                 <field name="number_of_trees" optional="hide"/>

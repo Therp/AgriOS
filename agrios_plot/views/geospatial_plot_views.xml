@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="farmer_plot_form" model="ir.ui.view">
+        <field name="name">geospatial.plot.form - agrios_plot</field>
+        <field name="model">geospatial.plot</field>
+        <field name="inherit_id" ref="geospatial_plot.geospatial_plot_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_agricultural_plot"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="page_agricultural"
+                    string="Agricultural attributes"
+                    invisible="not is_agricultural_plot"
+                >
+                    <group>
+                        <group>
+                            <field name="plot_condition"/>
+                            <field name="intercropping"/>
+                        </group>
+                        <group>
+                            <field name="year_established"/>
+                            <field name="main_road"/>
+                            <field name="main_road_distance"/>
+                        </group>
+                    </group>
+                </page>
+                <page
+                    name="page_subplots"
+                    string="Sub Plots"
+                    invisible="not is_agricultural_plot"
+                >
+                    <field name="subplot_ids">
+                        <list>
+                            <field name="crop_product_id" options="{'no_create': True}"/>
+                            <field name="acreage"/>
+                            <field name="annual_estimated_yield"/>
+                        </list>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field
+                                            name="crop_product_id"
+                                            options="{'no_open': True,'no_quick_create': True,'no_create': True}"
+                                        />
+                                        <field name="product_type"/>
+                                        <field name="acreage"/>
+                                    </group>
+                                    <group>
+                                        <field name="year_of_plantation"/>
+                                        <field name="age"/>
+                                        <field
+                                            name="number_of_trees"
+                                            invisible="product_type != 'tree_crop'"
+                                        />
+                                        <field name="annual_estimated_yield"/>
+                                    </group>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

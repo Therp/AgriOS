@@ -56,19 +56,10 @@ class ProductTemplate(models.Model):
 
     @api.depends("input_product", "crop_product")
     def _compute_farm_measure(self):
-        land_area_uom_id = int(
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("farmer_management.land_area_uom")
-            or 0
-        )
-        if land_area_uom_id:
-            land_area_uom = self.env["uom.uom"].browse(land_area_uom_id)
-        else:
-            land_area_uom = self.env.ref("agrios.area_1")
-
+        ICP = self.env["ir.config_parameter"].sudo()
+        plot_uom_id = ICP.get_param("geospatial_plot.plot_uom_id")
         for product in self:
-            product.land_area_uom = f"/{land_area_uom.name}"
+            product.land_area_uom = f"/{plot_uom_id.name}"
 
     @api.onchange("input_product")
     def _onchange_input_product(self):

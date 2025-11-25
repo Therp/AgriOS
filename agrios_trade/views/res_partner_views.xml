@@ -37,21 +37,17 @@
                         <div class="o_row mw-50" groups="agrios_trade.group_farmer_contract">
                             <field name="total_contracted_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
                             <div class="mb-3">
-                                <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
+                                <field name="plot_uom_id" readonly="1" options="{'no_open': True}"/>
                             </div>
                         </div>
                         <label for="non_contracted_acreage" groups="agrios_trade.group_farmer_contract"/>
                         <div class="o_row mw-50" groups="agrios_trade.group_farmer_contract">
                             <field name="non_contracted_acreage" class="oe_inline o_hr_narrow_field" nolabel="1"/>
                             <div class="mb-3">
-                                <field name="land_area_uom" readonly="1" options="{'no_open': True}"/>
+                                <field name="plot_uom_id" readonly="1" options="{'no_open': True}"/>
                             </div>
                         </div>
                         <field name="crop_product_ids" widget="many2many_tags" options="{'no_create': True}"/>
-                        <field name="partner_latitude" string="Farm Latitude"
-                               groups="!agrios_plot.group_plot_management"/>
-                        <field name="partner_longitude" string="Farm Longitude"
-                               groups="!agrios_plot.group_plot_management"/>
                     </group>
                 </group>
             </page>
@@ -66,16 +62,30 @@
                         <field name="farmer_requires_contract" groups="agrios_farmer.group_agrios_manager"/>
                     </group>
                     <field name="farmer_contract_ids" readonly="True">
-                        <list decoration-muted="contract_stage=='closed'"
-                              decoration-danger="contract_stage=='cancelled' or expired_contract">
+                        <list
+                            decoration-muted="contract_stage=='closed'"
+                            decoration-danger="contract_stage=='cancelled' or expired_contract"
+                        >
                             <field name="name"/>
                             <field name="season_id"/>
                             <field name="contracted_crop_id"/>
-                            <field name="contract_acreage" sum="Total Contracted Acreage" optional="show"/>
-                            <field name="total_inputs_cost" sum="Total Inputs Cost" optional="show"/>
+                            <field
+                                name="contract_acreage"
+                                sum="Total Contracted Acreage"
+                                optional="show"
+                            />
+                            <field
+                                name="total_inputs_cost"
+                                sum="Total Inputs Cost"
+                                optional="show"
+                            />
                             <field name="contract_stage" optional="show"/>
                             <field name="harvest_state" optional="show"/>
-                            <field name="expired_contract" invisible="contract_stage != 'open'" optional="show"/>
+                            <field
+                                name="expired_contract"
+                                invisible="contract_stage != 'open'"
+                                optional="show"
+                            />
                             <field name="currency_id" column_invisible="1"/>
                         </list>
                     </field>
@@ -115,14 +125,6 @@
                     groups="purchase.group_purchase_user"
                     confirm="All active farmer contracts are not at the harvest stage,
                     confirm that you still would like to register an off-take?"
-                />
-                <button
-                    string="Create Plot"
-                    name="action_create_farm"
-                    type="object"
-                    invisible="not is_farmer"
-                    class="oe_highlight"
-                    groups="agrios_plot.group_plot_management"
                 />
             </xpath>
             <!--Button Box-->

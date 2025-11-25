@@ -13,7 +13,7 @@
         <field name="training_ids" eval="[(6, 0, [training_topic_environment,training_topic_farming])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_1])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_21,partner_demo_farmer_24,partner_demo_farmer_27,partner_demo_farmer_30,partner_demo_farmer_146,partner_demo_farmer_167,partner_demo_farmer_199,partner_demo_farmer_201,partner_demo_farmer_226,partner_demo_farmer_258,partner_demo_farmer_287,partner_demo_farmer_325,partner_demo_farmer_352,partner_demo_farmer_365,partner_demo_farmer_449])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_21,partner_demo_farmer_24,partner_demo_farmer_27,partner_demo_farmer_30,partner_demo_farmer_146,partner_demo_farmer_167,partner_demo_farmer_199,partner_demo_farmer_201,partner_demo_farmer_226,partner_demo_farmer_258,partner_demo_farmer_287,partner_demo_farmer_325,partner_demo_farmer_352,partner_demo_farmer_365,partner_demo_farmer_449])]"/>
     </record>
     <record id="demo_training_2" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -28,7 +28,7 @@
         <field name="training_ids" eval="[(6, 0, [training_topic_environment,training_topic_farming])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_2])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_73,partner_demo_farmer_75,partner_demo_farmer_78,partner_demo_farmer_81,partner_demo_farmer_83,partner_demo_farmer_89,partner_demo_farmer_96,partner_demo_farmer_114,partner_demo_farmer_124,partner_demo_farmer_142,partner_demo_farmer_196,partner_demo_farmer_265,partner_demo_farmer_277,partner_demo_farmer_360,partner_demo_farmer_415])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_73,partner_demo_farmer_75,partner_demo_farmer_78,partner_demo_farmer_81,partner_demo_farmer_83,partner_demo_farmer_89,partner_demo_farmer_96,partner_demo_farmer_114,partner_demo_farmer_124,partner_demo_farmer_142,partner_demo_farmer_196,partner_demo_farmer_265,partner_demo_farmer_277,partner_demo_farmer_360,partner_demo_farmer_415])]"/>
     </record>
     <record id="demo_training_3" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -43,7 +43,7 @@
         <field name="training_ids" eval="[(6, 0, [training_topic_environment,training_topic_farming])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_3])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_37,partner_demo_farmer_45,partner_demo_farmer_103,partner_demo_farmer_117,partner_demo_farmer_126,partner_demo_farmer_131,partner_demo_farmer_133,partner_demo_farmer_136,partner_demo_farmer_139,partner_demo_farmer_140,partner_demo_farmer_220,partner_demo_farmer_266,partner_demo_farmer_349,partner_demo_farmer_369,partner_demo_farmer_374])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_37,partner_demo_farmer_45,partner_demo_farmer_103,partner_demo_farmer_117,partner_demo_farmer_126,partner_demo_farmer_131,partner_demo_farmer_133,partner_demo_farmer_136,partner_demo_farmer_139,partner_demo_farmer_140,partner_demo_farmer_220,partner_demo_farmer_266,partner_demo_farmer_349,partner_demo_farmer_369,partner_demo_farmer_374])]"/>
     </record>
     <record id="demo_training_4" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -58,7 +58,7 @@
         <field name="training_ids" eval="[(6, 0, [training_topic_income_and_shared_responsibility])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_4])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_42,partner_demo_farmer_157,partner_demo_farmer_183,partner_demo_farmer_186,partner_demo_farmer_189,partner_demo_farmer_192,partner_demo_farmer_213,partner_demo_farmer_237,partner_demo_farmer_286,partner_demo_farmer_362,partner_demo_farmer_417,partner_demo_farmer_427,partner_demo_farmer_428,partner_demo_farmer_433,partner_demo_farmer_441])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_42,partner_demo_farmer_157,partner_demo_farmer_183,partner_demo_farmer_186,partner_demo_farmer_189,partner_demo_farmer_192,partner_demo_farmer_213,partner_demo_farmer_237,partner_demo_farmer_286,partner_demo_farmer_362,partner_demo_farmer_417,partner_demo_farmer_427,partner_demo_farmer_428,partner_demo_farmer_433,partner_demo_farmer_441])]"/>
     </record>
     <record id="demo_training_5" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -73,7 +73,7 @@
         <field name="training_ids" eval="[(6, 0, [training_topic_environment,training_topic_farming])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_5])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_70,partner_demo_farmer_82,partner_demo_farmer_100,partner_demo_farmer_175,partner_demo_farmer_238,partner_demo_farmer_241,partner_demo_farmer_244,partner_demo_farmer_247,partner_demo_farmer_274,partner_demo_farmer_304,partner_demo_farmer_306,partner_demo_farmer_331,partner_demo_farmer_375,partner_demo_farmer_388,partner_demo_farmer_401])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_70,partner_demo_farmer_82,partner_demo_farmer_100,partner_demo_farmer_175,partner_demo_farmer_238,partner_demo_farmer_241,partner_demo_farmer_244,partner_demo_farmer_247,partner_demo_farmer_274,partner_demo_farmer_304,partner_demo_farmer_306,partner_demo_farmer_331,partner_demo_farmer_375,partner_demo_farmer_388,partner_demo_farmer_401])]"/>
     </record>
     <record id="demo_training_6" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -88,7 +88,7 @@
         <field name="training_ids" eval="[(6, 0, [training_topic_income_and_shared_responsibility])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_6])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_55,partner_demo_farmer_97,partner_demo_farmer_172,partner_demo_farmer_235,partner_demo_farmer_281,partner_demo_farmer_294,partner_demo_farmer_297,partner_demo_farmer_300,partner_demo_farmer_303,partner_demo_farmer_310,partner_demo_farmer_315,partner_demo_farmer_319,partner_demo_farmer_330,partner_demo_farmer_381,partner_demo_farmer_437])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_55,partner_demo_farmer_97,partner_demo_farmer_172,partner_demo_farmer_235,partner_demo_farmer_281,partner_demo_farmer_294,partner_demo_farmer_297,partner_demo_farmer_300,partner_demo_farmer_303,partner_demo_farmer_310,partner_demo_farmer_315,partner_demo_farmer_319,partner_demo_farmer_330,partner_demo_farmer_381,partner_demo_farmer_437])]"/>
     </record>
     <record id="demo_training_7" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -103,7 +103,7 @@
         <field name="training_ids" eval="[(6, 0, [training_topic_income_and_shared_responsibility])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_7])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_106,partner_demo_farmer_115,partner_demo_farmer_158,partner_demo_farmer_197,partner_demo_farmer_200,partner_demo_farmer_218,partner_demo_farmer_288,partner_demo_farmer_323,partner_demo_farmer_334,partner_demo_farmer_338,partner_demo_farmer_341,partner_demo_farmer_344,partner_demo_farmer_347,partner_demo_farmer_357,partner_demo_farmer_446])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_106,partner_demo_farmer_115,partner_demo_farmer_158,partner_demo_farmer_197,partner_demo_farmer_200,partner_demo_farmer_218,partner_demo_farmer_288,partner_demo_farmer_323,partner_demo_farmer_334,partner_demo_farmer_338,partner_demo_farmer_341,partner_demo_farmer_344,partner_demo_farmer_347,partner_demo_farmer_357,partner_demo_farmer_446])]"/>
     </record>
     <record id="demo_training_8" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -118,7 +118,7 @@
         <field name="training_ids" eval="[(6, 0, [training_topic_income_and_shared_responsibility])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_8])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_12,partner_demo_farmer_65,partner_demo_farmer_123,partner_demo_farmer_166,partner_demo_farmer_207,partner_demo_farmer_222,partner_demo_farmer_229,partner_demo_farmer_252,partner_demo_farmer_336,partner_demo_farmer_366,partner_demo_farmer_391,partner_demo_farmer_394,partner_demo_farmer_397,partner_demo_farmer_400,partner_demo_farmer_444])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_12,partner_demo_farmer_65,partner_demo_farmer_123,partner_demo_farmer_166,partner_demo_farmer_207,partner_demo_farmer_222,partner_demo_farmer_229,partner_demo_farmer_252,partner_demo_farmer_336,partner_demo_farmer_366,partner_demo_farmer_391,partner_demo_farmer_394,partner_demo_farmer_397,partner_demo_farmer_400,partner_demo_farmer_444])]"/>
     </record>
     <record id="demo_training_9" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -134,7 +134,7 @@
                eval="[(6, 0, [training_topic_regenerative_agriculture,training_topic_resilience_design])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_10])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_1,partner_demo_farmer_4,partner_demo_farmer_7,partner_demo_farmer_10,partner_demo_farmer_19,partner_demo_farmer_47,partner_demo_farmer_69,partner_demo_farmer_86,partner_demo_farmer_94,partner_demo_farmer_159,partner_demo_farmer_161,partner_demo_farmer_223,partner_demo_farmer_324,partner_demo_farmer_353,partner_demo_farmer_418])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_1,partner_demo_farmer_4,partner_demo_farmer_7,partner_demo_farmer_10,partner_demo_farmer_19,partner_demo_farmer_47,partner_demo_farmer_69,partner_demo_farmer_86,partner_demo_farmer_94,partner_demo_farmer_159,partner_demo_farmer_161,partner_demo_farmer_223,partner_demo_farmer_324,partner_demo_farmer_353,partner_demo_farmer_418])]"/>
     </record>
     <record id="demo_training_10" model="farmer.training">
         <field name="country_id" ref="base.ke"/>
@@ -150,6 +150,6 @@
                eval="[(6, 0, [training_topic_regenerative_agriculture,training_topic_resilience_design])]"/>
         <field name="farmer_group_ids" eval="[(6, 0, [farmer_group_demo_19,farmer_group_demo_20])]"/>
         <field name="training_participants_ids"
-               eval="[(6, 0, [partner_demo_farmer_2,partner_demo_farmer_5,partner_demo_farmer_8,partner_demo_farmer_41,partner_demo_farmer_59,partner_demo_farmer_60,partner_demo_farmer_61,partner_demo_farmer_62,partner_demo_farmer_90,partner_demo_farmer_92,partner_demo_farmer_108,partner_demo_farmer_118,partner_demo_farmer_147,partner_demo_farmer_148,partner_demo_farmer_152,partner_demo_farmer_168,partner_demo_farmer_181,partner_demo_farmer_257,partner_demo_farmer_273,partner_demo_farmer_289,partner_demo_farmer_307,partner_demo_farmer_317,partner_demo_farmer_321,partner_demo_farmer_364,partner_demo_farmer_367,partner_demo_farmer_406,partner_demo_farmer_409,partner_demo_farmer_412,partner_demo_farmer_416,partner_demo_farmer_422])]"/>
+               eval="[(6, 0, [geospatial_plot.partner_demo_geospatial_2,partner_demo_farmer_5,partner_demo_farmer_8,partner_demo_farmer_41,partner_demo_farmer_59,partner_demo_farmer_60,partner_demo_farmer_61,partner_demo_farmer_62,partner_demo_farmer_90,partner_demo_farmer_92,partner_demo_farmer_108,partner_demo_farmer_118,partner_demo_farmer_147,partner_demo_farmer_148,partner_demo_farmer_152,partner_demo_farmer_168,partner_demo_farmer_181,partner_demo_farmer_257,partner_demo_farmer_273,partner_demo_farmer_289,partner_demo_farmer_307,partner_demo_farmer_317,partner_demo_farmer_321,partner_demo_farmer_364,partner_demo_farmer_367,partner_demo_farmer_406,partner_demo_farmer_409,partner_demo_farmer_412,partner_demo_farmer_416,partner_demo_farmer_422])]"/>
     </record>
 </odoo>
