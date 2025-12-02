@@ -6,7 +6,7 @@
     <menuitem
         id="agrios_menu_root"
         name="Farmers"
-        web_icon="agrios_farmer,static/description/icon.png"
+        web_icon="agrios_farmer,static/description/agrios_farmer.png"
         groups="group_agrios_readonly"
         sequence="150"
     />
