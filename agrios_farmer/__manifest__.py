@@ -4,9 +4,9 @@
     "name": "AgriOS Farmer",
     "summary": """Efficiently manage farmers, farmergroups and locations""",
     "author": "Advance Insight",
-    "website": "https://agrios.org",
+    "website": "https://www.agrios.org",
     "category": "AgriOS",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "license": "AGPL-3",
     "depends": [
         # Odoo Modules
