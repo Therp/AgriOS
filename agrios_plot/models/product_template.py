@@ -57,9 +57,17 @@ class ProductTemplate(models.Model):
     @api.depends("input_product", "crop_product")
     def _compute_farm_measure(self):
         ICP = self.env["ir.config_parameter"].sudo()
-        plot_uom_id = ICP.get_param("geospatial_plot.plot_uom_id")
+        plot_uom_id_str = ICP.get_param("geospatial_plot.plot_uom_id")  # string or False
+    
+        plot_uom = False
+        if plot_uom_id_str:
+            try:
+                plot_uom = self.env["uom.uom"].browse(int(plot_uom_id_str))
+            except (ValueError, TypeError):
+                plot_uom = False
+    
         for product in self:
-            product.land_area_uom = f"/{plot_uom_id.name}"
+            product.land_area_uom = f"/{plot_uom.name}" if plot_uom and plot_uom.exists() else ""
 
     @api.onchange("input_product")
     def _onchange_input_product(self):
