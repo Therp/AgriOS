@@ -3,7 +3,8 @@
 
     <menuitem
         id="agrios_training"
-        name="Trainings"
+        name="Training"
+        web_icon="agrios_training,static/description/agrios_training.png"
         sequence="151"
         action="action_farmer_trainings"
         groups="agrios_training.group_farmer_training"
