@@ -26,14 +26,11 @@ class AccountPaymentRegister(models.TransientModel):
         related="company_id.payment_in_kind_optional"
     )
 
-    @api.depends("currency_id")
+    @api.depends("currency_id", "line_ids", "partner_id", "payment_type", "payment_date")
     def _compute_payment_in_kind(self):
         for wizard in self:
-            if (
-                wizard.currency_id
-                and wizard.partner_id
-                and wizard.payment_type == "outbound"
-            ):
+            if (wizard.currency_id and wizard.partner_id and wizard.payment_type == "outbound"):
+                payment_date = wizard.payment_date or fields.Date.context_today(wizard)
                 wizard.payment_in_kind_full_amount = 0.0
                 wizard.payment_in_kind_invoice_ids = self.env["account.move"].search(
                     [
@@ -49,24 +46,35 @@ class AccountPaymentRegister(models.TransientModel):
                     amount = payment_in_kind_invoice.amount_residual
                     if payment_in_kind_invoice.currency_id != wizard.currency_id:
                         amount = payment_in_kind_invoice.currency_id._convert(
-                            amount, wizard.currency_id, company=wizard.company_id
+                            amount, wizard.currency_id, wizard.company_id, payment_date
                         )
                     wizard.payment_in_kind_full_amount += amount
 
                 if wizard.payment_in_kind_full_amount:
-                    batch_result = wizard._get_batches()[0]
-                    total_amount_residual_in_wizard_currency = (
-                        wizard._get_total_amount_in_wizard_currency_to_full_reconcile(
-                            batch_result, early_payment_discount=False
-                        )[0]
-                    )
+                    total_amount_residual_in_wizard_currency = 0.0
+
+                    for wline in wizard.line_ids:
+                        aml = getattr(wline, "line_id", False) or getattr(wline, "move_line_id", False) or False
+
+                        if aml:
+                            amount = abs(aml.amount_residual)
+                            from_currency = aml.currency_id or aml.company_currency_id
+                        else:
+                            amount = abs(getattr(wline, "amount_residual", 0.0))
+                            from_currency = getattr(wline, "currency_id", False) or wizard.company_id.currency_id
+
+                        if from_currency and from_currency != wizard.currency_id:
+                            amount = from_currency._convert(amount, wizard.currency_id, wizard.company_id, payment_date)
+                            
+                        total_amount_residual_in_wizard_currency += amount
+                    
                     wizard.payment_in_kind_amount = min(
                         wizard.payment_in_kind_full_amount,
                         total_amount_residual_in_wizard_currency,
                     )
                 else:
                     wizard.payment_in_kind_amount = 0.0
-
+                    
             else:
                 wizard.payment_in_kind_invoice_ids = (
                     wizard.payment_in_kind_full_amount
