@@ -1,0 +1,31 @@
+<odoo>
+	
+	<record id="view_setup_wizard_form" model="ir.ui.view">
+		<field name="name">cloudpepper.setup.wizard.form</field>
+		<field name="model">cloudpepper.setup.wizard</field>
+		<field name="arch" type="xml">
+			<form string="Setup Cloudpepper Instance">
+				<group>
+					<field name="server_id"/>
+					<field name="instance_url"/>
+					<field name="client_name"/>
+					<field name="instance_name"/>
+					<field name="repo_url_ids"/>
+				</group>
+				<footer>
+					<button string="Cancel" class="btn-secondary" special="cancel"/>
+					<button string="Run" type="object" name="action_run" class="btn-primary"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+	
+	<record id="action_cloudpepper_setup_wizard" model="ir.actions.act_window">
+		<field name="name">Setup Cloudpepper Instance</field>
+		<field name="res_model">cloudpepper.setup.wizard</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_setup_wizard_form"/>
+		<field name="target">new</field>
+	</record>
+	
+</odoo>

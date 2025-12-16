@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record id="view_cloudpepper_server_list" model="ir.ui.view">
+		<field name="name">cloudpepper.server.list</field>
+		<field name="model">cloudpepper.server</field>
+		<field name="arch" type="xml">
+			<list>
+				<field name="name"/>
+				<field name="server_id"/>
+				<field name="region"/>
+				<field name="plan"/>
+				<field name="status"/>
+				<field name="created_at"/>
+			</list>
+		</field>
+	</record>
+	
+	<record id="view_cloudpepper_server_form" model="ir.ui.view">
+		<field name="name">cloudpepper.server.form</field>
+		<field name="model">cloudpepper.server</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<field name="status" widget="statusbar"/>
+					<button name="action_update_stats" type="object" string="Update Stats" class="btn-primary"/>
+				</header>
+				<sheet>
+					<group>
+						<group>
+							<field name="name"/>
+							<field name="server_id"/>
+						</group>
+						<group>
+							<field name="status"/>
+						</group>
+					</group>
+					<group string="Stats">
+						<field name="cpu_usage"/>
+						<field name="memory_usage"/>
+						<field name="disk_usage"/>
+						<field name="last_stats_update"/>
+					</group>
+					<notebook>
+						<page string="Instances">
+							<field name="instance_ids">
+								<list>
+									<field name="name"/>
+									<field name="instance_id"/>
+									<field name="status"/>
+								</list>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record id="action_cloudpepper_servers" model="ir.actions.act_window">
+		<field name="name">Cloudpepper Servers</field>
+		<field name="res_model">cloudpepper.server</field>
+		<field name="view_mode">list,form</field>
+		<field name="view_id" ref="view_cloudpepper_server_list"/>
+		<field name="target">current</field>
+	</record>
+	
+</odoo>

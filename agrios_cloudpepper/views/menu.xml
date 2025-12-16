@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<menuitem name="Cloudpepper" id="menu_cloudpepper_root" sequence="80" groups="base.group_system"/>
+	  <menuitem name="Default Modules" id="cloudpepper_default_module_menu" parent="menu_cloudpepper_root" action="cloudpepper_default_module_action" sequence="10"/>
+	  <menuitem name="Servers" id="menu_cloudpepper_servers" parent="menu_cloudpepper_root" action="action_cloudpepper_servers" sequence="20"/>
+	  <menuitem name="Instances" id="menu_cloudpepper_instances" parent="menu_cloudpepper_root" action="action_cloudpepper_instances" sequence="30"/>
+	  <menuitem name="Setup Instance" id="menu_cloudpepper_setup" parent="menu_cloudpepper_root" action="action_cloudpepper_setup_wizard" sequence="40"/>
+	
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+	
+	<record id="ir_cron_cloudpepper_fetch_servers" model="ir.cron">
+		<field name="name">Fetch Cloudpepper Servers</field>
+		<field name="model_id" ref="model_cloudpepper_server"/>
+		<field name="state">code</field>
+		<field name="code">model.action_fetch_servers()</field>
+		<field name="interval_number">1</field>
+		<field name="interval_type">hours</field>
+		<field name="active">True</field>
+	</record>
+	
+	<record id="ir_cron_cloudpepper_fetch_instances" model="ir.cron">
+		<field name="name">Fetch Cloudpepper Instances</field>
+		<field name="model_id" ref="model_cloudpepper_instance"/>
+		<field name="state">code</field>
+		<field name="code">model.action_fetch_instances()</field>
+		<field name="interval_number">1</field>
+		<field name="interval_type">hours</field>
+		<field name="active">True</field>
+	</record>
+	
+</odoo>

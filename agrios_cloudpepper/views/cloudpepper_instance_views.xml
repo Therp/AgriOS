@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record id="view_cloudpepper_instance_list" model="ir.ui.view">
+		<field name="name">cloudpepper.instance.list</field>
+		<field name="model">cloudpepper.instance</field>
+		<field name="arch" type="xml">
+			<list>
+				<field name="create_date"/>
+				<field name="name"/>
+				<field name="server_id"/>
+				<field name="client_name"/>
+				<field name="instance_id"/>
+				<field name="status"/>
+			</list>
+		</field>
+	</record>
+	
+	<record id="view_cloudpepper_instance_form" model="ir.ui.view">
+		<field name="name">cloudpepper.instance.form</field>
+		<field name="model">cloudpepper.instance</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<field name="status" widget="statusbar" statusbar_visible="draft,creating,error"/>
+					<button name="action_create_instance" type="object" string="Create Instance" invisible="status != 'draft'"/>
+					<button name="open_add_module_wizard" type="object" string="Add Module" class="btn-primary" icon="fa-plus" invisible="status != 'started'"/>
+					<button name="action_deploy_modules" type="object" string="Deploy Default Modules" invisible="default_modules_installed"/>
+				</header>
+				<sheet>
+					<group>
+						<field name="client_name"/>
+						<field name="name"/>
+					</group>
+					<group>
+						<field name="server_id" readonly="0"/>
+						<field name="default_modules_installed" readonly="1"/>
+						<field name="instance_url" readonly="1"/>
+						<field name="instance_id" readonly="1"/>
+					</group>
+					<notebook>
+						<page string="Installed Modules">
+							<field name="module_ids">
+								<list editable="top">
+									<field name="name"/>
+									<field name="latest_version"/>
+								</list>
+							</field>
+						</page>
+						<page string="Default Modules">
+							<field name="default_repo_url_ids">
+								<list editable="top">
+									<field name="repo"/>
+									<field name="branch"/>
+								</list>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+				<chatter/>
+			</form>
+		</field>
+	</record>
+	
+	<record id="action_cloudpepper_instances" model="ir.actions.act_window">
+		<field name="name">Cloudpepper Instances</field>
+		<field name="res_model">cloudpepper.instance</field>
+		<field name="view_mode">list,form</field>
+		<field name="view_id" ref="view_cloudpepper_instance_list"/>
+	</record>
+	
+	<record id="cloudpepper_instance_action_add_module" model="ir.actions.server">
+		<field name="name">Fetch Installed Modules</field>
+		<field name="model_id" ref="model_cloudpepper_instance"/>
+		<field name="state">code</field>
+		<field name="code">record.action_fetch_installed_modules()</field>
+		<field name="binding_model_id" ref="model_cloudpepper_instance"/>
+		<field name="binding_type">action</field>
+	</record>
+	
+</odoo>
